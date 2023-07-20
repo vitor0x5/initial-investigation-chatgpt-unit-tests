@@ -772,9 +772,9 @@
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_50'>4</a>
 <span>
 1. pesquisa : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
-2. pesquisa : mutated return of Object value for ds/TabelaHash::pesquisa to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
-3. pesquisa : negated conditional &rarr; KILLED<br/>
-4. pesquisa : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+2. pesquisa : negated conditional &rarr; KILLED<br/>
+3. pesquisa : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+4. pesquisa : mutated return of Object value for ds/TabelaHash::pesquisa to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
 
 </span>
 </td>
@@ -983,15 +983,15 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@58882a93_64'/>
 64
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_64'>1</a>
 <span>
-1. retira : removed call to ds/TabelaHash::h &rarr; SURVIVED<br/>
+1. retira : removed call to ds/TabelaHash::h &rarr; KILLED<br/>
 
 </span>
 </td>
-<td class='covered'><pre><span  class='survived'>    int i = this.h (chave, this.pesos);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>    int i = this.h (chave, this.pesos);</span></pre></td></tr>
 
 
 <tr>
@@ -1217,7 +1217,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_25'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed call to java/util/Random::&#60;init&#62; &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed call to java/util/Random::&#60;init&#62; &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1227,7 +1227,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_26'/> 
 
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> replaced call to java/util/Random::nextInt with argument &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> Substituted 1 with 0 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> removed call to java/util/Random::nextInt &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> replaced call to java/util/Random::nextInt with argument &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> Substituted 1 with 0 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> removed call to java/util/Random::nextInt &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1237,7 +1237,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_27'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> replaced return value with null for ds/TabelaHash::geraPesos &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> mutated return of Object value for ds/TabelaHash::geraPesos to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> replaced return value with null for ds/TabelaHash::geraPesos &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>geraPesos<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> mutated return of Object value for ds/TabelaHash::geraPesos to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1257,7 +1257,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_32'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>h<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>h<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> removed call to java/lang/String::length &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>h<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>h<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>h<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> removed call to java/lang/String::length &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>h<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1267,7 +1267,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_33'/> 
 
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>h<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> removed call to java/lang/String::charAt &rarr; SURVIVED</p> 
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>h<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> removed call to java/lang/String::charAt &rarr; SURVIVED</p> 
 </td>
 </tr>
 <tr>
@@ -1277,7 +1277,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_34'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>h<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> Replaced integer modulus with multiplication &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for ds/TabelaHash::h &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; SURVIVED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>h<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> Replaced integer modulus with multiplication &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for ds/TabelaHash::h &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>h<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; SURVIVED</p> 
 </td>
 </tr>
 <tr>
@@ -1307,7 +1307,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_40'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> Removed assignment to member variable M &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> Removed assignment to member variable tabela &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> Removed assignment to member variable M &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> Removed assignment to member variable tabela &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1317,7 +1317,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_41'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed call to ds/Lista::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed call to ds/Lista::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1327,7 +1327,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_42'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash::geraPesos &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> Removed assignment to member variable pesos &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash::geraPesos &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> Removed assignment to member variable pesos &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1337,7 +1337,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_46'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash::h &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash::h &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1347,7 +1347,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_47'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>none</span></span> removed call to ds/Lista::vazia &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> mutated return of Object value for ds/TabelaHash::pesquisa to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>none</span></span> removed call to ds/Lista::vazia &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> mutated return of Object value for ds/TabelaHash::pesquisa to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1357,7 +1357,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_49'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> replaced call to ds/Lista::pesquisa with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash$Celula::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed call to ds/Lista::pesquisa &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> replaced call to ds/Lista::pesquisa with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash$Celula::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed call to ds/Lista::pesquisa &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1367,7 +1367,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_50'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>none</span></span> mutated return of Object value for ds/TabelaHash::pesquisa to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> mutated return of Object value for ds/TabelaHash::pesquisa to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1377,7 +1377,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_51'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> replaced return value with null for ds/TabelaHash::pesquisa &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> mutated return of Object value for ds/TabelaHash::pesquisa to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> replaced return value with null for ds/TabelaHash::pesquisa &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>pesquisa<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> mutated return of Object value for ds/TabelaHash::pesquisa to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1387,7 +1387,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_56'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>none</span></span> removed call to ds/TabelaHash::pesquisa &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>none</span></span> removed call to ds/TabelaHash::pesquisa &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
 </td>
 </tr>
 <tr>
@@ -1397,7 +1397,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_57'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash::h &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash::h &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1407,7 +1407,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_58'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash$Celula::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4)</span></span> removed call to ds/Lista::insere &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash$Celula::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insere<br/><b>Killed by : </b>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4)</span></span> removed call to ds/Lista::insere &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1427,7 +1427,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@58882a93_64'/> 
 
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>retira<br/><b>Killed by : </b>none</span></span> removed call to ds/TabelaHash::h &rarr; SURVIVED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>retira<br/><b>Killed by : </b>ds.TabelaHashTest4.testRetira(ds.TabelaHashTest4)</span></span> removed call to ds/TabelaHash::h &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1625,7 +1625,7 @@
 
 <h2>Tests examined</h2>
 <ul>
-<li>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4) (1 ms)</li><li>ds.TabelaHashTest4.testImprime(ds.TabelaHashTest4) (86 ms)</li><li>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4) (2 ms)</li><li>ds.TabelaHashTest4.testRetira(ds.TabelaHashTest4) (2 ms)</li>
+<li>ds.TabelaHashTest4.testPesquisa(ds.TabelaHashTest4) (1 ms)</li><li>ds.TabelaHashTest4.testImprime(ds.TabelaHashTest4) (110 ms)</li><li>ds.TabelaHashTest4.testInsere(ds.TabelaHashTest4) (1 ms)</li><li>ds.TabelaHashTest4.testRetira(ds.TabelaHashTest4) (1 ms)</li>
 </ul>
 
 <br/>

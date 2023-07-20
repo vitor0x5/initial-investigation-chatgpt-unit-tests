@@ -81,14 +81,14 @@ Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.experimental.
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator,imprime,88,NO_COVERAGE,none
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator,imprime,88,NO_COVERAGE,none
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator,imprime,88,NO_COVERAGE,none
-Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,insereAresta,43,KILLED,ds.GrafoTest4.testRetiraAresta(ds.GrafoTest4)
+Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,insereAresta,43,KILLED,ds.GrafoTest4.testPrimeiroListaAdj(ds.GrafoTest4)
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,insereAresta,46,KILLED,ds.GrafoTest4.testRetiraAresta(ds.GrafoTest4)
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,insereAresta,43,KILLED,ds.GrafoTest4.testInsereAresta(ds.GrafoTest4)
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,insereAresta,40,KILLED,ds.GrafoTest4.testInsereAresta(ds.GrafoTest4)
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,insereAresta,40,SURVIVED,none
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF,insereAresta,40,KILLED,ds.GrafoTest4.testInsereAresta(ds.GrafoTest4)
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,insereAresta,41,NO_COVERAGE,none
-Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,insereAresta,43,KILLED,ds.GrafoTest4.testRetiraAresta(ds.GrafoTest4)
+Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,insereAresta,43,KILLED,ds.GrafoTest4.testPrimeiroListaAdj(ds.GrafoTest4)
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator,listaAdjVazia,56,KILLED,ds.GrafoTest4.testListaAdjVazia(ds.GrafoTest4)
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator,listaAdjVazia,56,KILLED,ds.GrafoTest4.testListaAdjVazia(ds.GrafoTest4)
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,listaAdjVazia,56,KILLED,ds.GrafoTest4.testListaAdjVazia(ds.GrafoTest4)

@@ -5,7 +5,7 @@ ArvoreBinaria.java,ds.ArvoreBinaria,org.pitest.mutationtest.engine.gregor.mutato
 ArvoreBinaria.java,ds.ArvoreBinaria,org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator,antecessor,36,SURVIVED,none
 ArvoreBinaria.java,ds.ArvoreBinaria,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,antecessor,34,SURVIVED,none
 ArvoreBinaria.java,ds.ArvoreBinaria,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF,antecessor,34,KILLED,ds.ArvoreBinariaTest11.testIntegridadeArvore(ds.ArvoreBinariaTest11)
-ArvoreBinaria.java,ds.ArvoreBinaria,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,antecessor,36,SURVIVED,none
+ArvoreBinaria.java,ds.ArvoreBinaria,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,antecessor,36,KILLED,ds.ArvoreBinariaTest11.testIntegridadeArvore(ds.ArvoreBinariaTest11)
 ArvoreBinaria.java,ds.ArvoreBinaria,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,antecessor,34,SURVIVED,none
 ArvoreBinaria.java,ds.ArvoreBinaria,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,antecessor,35,SURVIVED,none
 ArvoreBinaria.java,ds.ArvoreBinaria,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,central,10,NO_COVERAGE,none

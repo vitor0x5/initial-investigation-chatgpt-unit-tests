@@ -1,5 +1,5 @@
-Fila.java,ds.Fila,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,<init>,11,KILLED,ds.FilaTest5.testEnfileira(ds.FilaTest5)
-Fila.java,ds.Fila,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,11,KILLED,ds.FilaTest5.testEnfileira(ds.FilaTest5)
+Fila.java,ds.Fila,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,<init>,11,KILLED,ds.FilaTest5.testDesenfileiraFromEmptyFila(ds.FilaTest5)
+Fila.java,ds.Fila,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,11,KILLED,ds.FilaTest5.testDesenfileiraFromEmptyFila(ds.FilaTest5)
 Fila.java,ds.Fila,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,12,KILLED,ds.FilaTest5.testEnfileira(ds.FilaTest5)
 Fila.java,ds.Fila,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,13,SURVIVED,none
 Fila.java,ds.Fila,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,desenfileira,24,SURVIVED,none

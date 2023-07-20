@@ -3,7 +3,7 @@ TabelaHash.java,ds.TabelaHash,org.pitest.mutationtest.engine.gregor.mutators.Con
 TabelaHash.java,ds.TabelaHash,org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator,<init>,41,KILLED,ds.TabelaHashTest11.testInsere(ds.TabelaHashTest11)
 TabelaHash.java,ds.TabelaHash,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,38,SURVIVED,none
 TabelaHash.java,ds.TabelaHash,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,39,SURVIVED,none
-TabelaHash.java,ds.TabelaHash,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,41,KILLED,ds.TabelaHashTest11.testInsere(ds.TabelaHashTest11)
+TabelaHash.java,ds.TabelaHash,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,41,KILLED,ds.TabelaHashTest11.testPesquisa(ds.TabelaHashTest11)
 TabelaHash.java,ds.TabelaHash,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,<init>,41,KILLED,ds.TabelaHashTest11.testInsere(ds.TabelaHashTest11)
 TabelaHash.java,ds.TabelaHash,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,<init>,42,KILLED,ds.TabelaHashTest11.testInsere(ds.TabelaHashTest11)
 TabelaHash.java,ds.TabelaHash,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE,<init>,41,KILLED,ds.TabelaHashTest11.testInsere(ds.TabelaHashTest11)

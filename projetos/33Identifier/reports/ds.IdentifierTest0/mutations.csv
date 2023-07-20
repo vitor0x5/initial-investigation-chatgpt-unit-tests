@@ -16,7 +16,7 @@ Identifier.java,ds.Identifier,org.pitest.mutationtest.engine.gregor.mutators.Inl
 Identifier.java,ds.Identifier,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,valid_f,39,KILLED,ds.IdentifierTest0.testInvalidFollowingCharacter(ds.IdentifierTest0)
 Identifier.java,ds.Identifier,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,valid_f,35,KILLED,ds.IdentifierTest0.testInvalidFollowingCharacter(ds.IdentifierTest0)
 Identifier.java,ds.Identifier,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,valid_f,35,SURVIVED,none
-Identifier.java,ds.Identifier,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,valid_f,35,KILLED,ds.IdentifierTest0.testInvalidFollowingCharacter(ds.IdentifierTest0)
+Identifier.java,ds.Identifier,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,valid_f,35,KILLED,ds.IdentifierTest0.testValidFollowingCharacter(ds.IdentifierTest0)
 Identifier.java,ds.Identifier,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,valid_f,35,KILLED,ds.IdentifierTest0.testValidFollowingCharacter(ds.IdentifierTest0)
 Identifier.java,ds.Identifier,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,valid_f,35,KILLED,ds.IdentifierTest0.testInvalidFollowingCharacter(ds.IdentifierTest0)
 Identifier.java,ds.Identifier,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,valid_f,35,SURVIVED,none

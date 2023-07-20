@@ -1,7 +1,7 @@
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,7,KILLED,ds.ListaTest7.testInsereMaxItems(ds.ListaTest7)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,7,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,8,KILLED,ds.ListaTest7.testInsere(ds.ListaTest7)
-Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,7,KILLED,ds.ListaTest7.testVazia(ds.ListaTest7)
+Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,7,KILLED,ds.ListaTest7.testInsere(ds.ListaTest7)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,7,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,8,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,8,SURVIVED,none
@@ -15,12 +15,12 @@ Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCal
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator,imprime,20,TIMED_OUT,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator,insere,12,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,insere,13,SURVIVED,none
-Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,insere,14,KILLED,ds.ListaTest7.testVazia(ds.ListaTest7)
+Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,insere,14,KILLED,ds.ListaTest7.testInsere(ds.ListaTest7)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,insere,14,KILLED,ds.ListaTest7.testInsere(ds.ListaTest7)
-Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,insere,12,KILLED,ds.ListaTest7.testVazia(ds.ListaTest7)
+Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,insere,12,KILLED,ds.ListaTest7.testInsere(ds.ListaTest7)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE,insere,12,SURVIVED,none
-Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF,insere,12,KILLED,ds.ListaTest7.testVazia(ds.ListaTest7)
-Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,insere,14,KILLED,ds.ListaTest7.testVazia(ds.ListaTest7)
+Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF,insere,12,KILLED,ds.ListaTest7.testInsere(ds.ListaTest7)
+Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,insere,14,KILLED,ds.ListaTest7.testInsere(ds.ListaTest7)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator,vazia,17,KILLED,ds.ListaTest7.testVazia(ds.ListaTest7)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator,vazia,17,KILLED,ds.ListaTest7.testVazia(ds.ListaTest7)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,vazia,17,KILLED,ds.ListaTest7.testVazia(ds.ListaTest7)

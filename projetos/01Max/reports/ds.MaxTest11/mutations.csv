@@ -1,7 +1,7 @@
 Max.java,ds.Max,org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator,max,5,KILLED,ds.MaxTest11.testMaxWithMultipleElements(ds.MaxTest11)
 Max.java,ds.Max,org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator,max,5,SURVIVED,none
 Max.java,ds.Max,org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator,max,5,KILLED,ds.MaxTest11.testMaxWithMultipleElements(ds.MaxTest11)
-Max.java,ds.Max,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,max,4,KILLED,ds.MaxTest11.testMaxWithSingleElement(ds.MaxTest11)
+Max.java,ds.Max,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,max,4,KILLED,ds.MaxTest11.testMaxWithNegativeValues(ds.MaxTest11)
 Max.java,ds.Max,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,max,5,SURVIVED,none
 Max.java,ds.Max,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,max,5,KILLED,ds.MaxTest11.testMaxWithMultipleElements(ds.MaxTest11)
 Max.java,ds.Max,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,max,5,KILLED,ds.MaxTest11.testMaxWithMultipleElements(ds.MaxTest11)

@@ -74,8 +74,8 @@ Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.experimental.
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator,imprime,60,NO_COVERAGE,none
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator,imprime,60,NO_COVERAGE,none
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator,imprime,60,NO_COVERAGE,none
-Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,insereAresta,28,KILLED,ds.GrafoTest9.testPrimeiroListaAdj(ds.GrafoTest9)
-Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,insereAresta,29,KILLED,ds.GrafoTest9.testPrimeiroListaAdj(ds.GrafoTest9)
+Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,insereAresta,28,KILLED,ds.GrafoTest9.testRetiraAresta(ds.GrafoTest9)
+Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,insereAresta,29,KILLED,ds.GrafoTest9.testRetiraAresta(ds.GrafoTest9)
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator,listaAdjVazia,36,KILLED,ds.GrafoTest9.testListaAdjVazia(ds.GrafoTest9)
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator,listaAdjVazia,36,SURVIVED,none
 Grafo.java,ds.Grafo,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,listaAdjVazia,36,KILLED,ds.GrafoTest9.testListaAdjVazia(ds.GrafoTest9)
