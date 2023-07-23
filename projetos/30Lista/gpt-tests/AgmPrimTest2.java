@@ -1,13 +1,11 @@
-
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
-
-import ds.FPHeapMinIndireto;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 import ds.AgmPrim;
 import ds.Grafo;
 
-public class AgmPrimTest2 {
-  
+public class AgmPrimTest2{
+
+
   @Test
   public void testObterAgm() throws Exception {
     Grafo grafo = new Grafo(5);
@@ -22,40 +20,10 @@ public class AgmPrimTest2 {
     AgmPrim agm = new AgmPrim(grafo);
     agm.obterAgm(0);
     
-    assertEquals(3, agm.antecessor(4));
-    assertEquals(2.0, agm.peso(4), 0.001);
+    int[] expectedAntecessor = {-1, 0, 1, 0, 1};
+    double[] expectedPeso = {0.0, 2.0, 3.0, 6.0, 5.0};
+    
+    assertArrayEquals(expectedAntecessor, agm.getAntecessor());
+    assertArrayEquals(expectedPeso, agm.getPeso(), 0.001);
   }
-  
-  @Test
-  public void testRetiraMin() throws Exception {
-    double p[] = {0, 5, 3, 10, 8, 2};
-    int v[] = {0, 1, 2, 3, 4, 5};
-    FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-    
-    int min = heap.retiraMin();
-    
-    assertEquals(5, min);
-  }
-  
-  @Test
-  public void testDiminuiChave() throws Exception {
-    double p[] = {0, 5, 3, 10, 8, 2};
-    int v[] = {0, 1, 2, 3, 4, 5};
-    FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-    
-    heap.diminuiChave(4, 1);
-    
-    assertEquals(4, heap.retiraMin());
-  }
-  
-  @Test
-  public void testVazio() {
-    double p[] = {0};
-    int v[] = {0};
-    FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-    
-    assertTrue(heap.vazio());
-  }
-  
 }
-

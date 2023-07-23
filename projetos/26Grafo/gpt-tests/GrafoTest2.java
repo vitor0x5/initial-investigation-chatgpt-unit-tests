@@ -1,38 +1,88 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;Here are some test cases for the Grafo Java class:
+public class GrafoTest2{
 
-1. Test case to check if the insereAresta method adds the edge correctly:
-   - Create a Grafo object with a specified number of vertices.
-   - Call the insereAresta method with valid vertex indices and a positive weight.
-   - Assert that the existeAresta method returns true for the added edge.
 
-2. Test case to check if the existeAresta method correctly detects the presence of an edge:
-   - Create a Grafo object with a specified number of vertices.
-   - Add some edges using the insereAresta method.
-   - Call the existeAresta method with valid vertex indices for both existing and non-existing edges.
-   - Assert that the method returns true for existing edges and false for non-existing edges.
+    @Test
+    public void testInsereAresta() {
+        Grafo grafo = new Grafo(5);
+        grafo.insereAresta(0, 1, 10);
+        grafo.insereAresta(1, 2, 5);
+        grafo.insereAresta(2, 3, 8);
+        grafo.insereAresta(3, 4, 3);
+        grafo.insereAresta(4, 0, 6);
+        assertTrue(grafo.existeAresta(0, 1));
+        assertTrue(grafo.existeAresta(1, 2));
+        assertTrue(grafo.existeAresta(2, 3));
+        assertTrue(grafo.existeAresta(3, 4));
+        assertTrue(grafo.existeAresta(4, 0));
+    }
 
-3. Test case to check if the listaAdjVazia method correctly detects an empty adjacency list:
-   - Create a Grafo object with a specified number of vertices.
-   - Call the listaAdjVazia method for a vertex with no adjacent vertices.
-   - Assert that the method returns true.
+    @Test
+    public void testExisteAresta() {
+        Grafo grafo = new Grafo(3);
+        assertFalse(grafo.existeAresta(0, 1));
+        grafo.insereAresta(0, 1, 5);
+        assertTrue(grafo.existeAresta(0, 1));
+        assertFalse(grafo.existeAresta(0, 2));
+    }
 
-4. Test case to check if the primeiroListaAdj method returns the first adjacent edge:
-   - Create a Grafo object with a specified number of vertices.
-   - Add some edges using the insereAresta method.
-   - Call the primeiroListaAdj method for a vertex with adjacent edges.
-   - Assert that the method returns the first adjacent edge.
+    @Test
+    public void testListaAdjVazia() {
+        Grafo grafo = new Grafo(4);
+        assertTrue(grafo.listaAdjVazia(0));
+        grafo.insereAresta(0, 1, 4);
+        assertFalse(grafo.listaAdjVazia(0));
+    }
 
-5. Test case to check if the proxAdj method returns the next adjacent edge:
-   - Create a Grafo object with a specified number of vertices.
-   - Add some edges using the insereAresta method.
-   - Call the proxAdj method multiple times for a vertex with adjacent edges.
-   - Assert that the method returns the next adjacent edge each time until the end of the adjacency list.
+    @Test
+    public void testPrimeiroListaAdj() {
+        Grafo grafo = new Grafo(4);
+        assertNull(grafo.primeiroListaAdj(0));
+        grafo.insereAresta(0, 1, 6);
+        grafo.insereAresta(0, 2, 8);
+        Grafo.Aresta aresta = grafo.primeiroListaAdj(0);
+        assertNotNull(aresta);
+        assertEquals(1, aresta.v2());
+        assertEquals(6, aresta.peso());
+    }
 
-6. Test case to check if the retiraAresta method removes the edge correctly:
-   - Create a Grafo object with a specified number of vertices.
-   - Add some edges using the insereAresta method.
-   - Call the retiraAresta method for an existing edge.
-   - Assert that the method returns the removed edge and the existeAresta method returns false for the removed edge.
+    @Test
+    public void testProxAdj() {
+        Grafo grafo = new Grafo(4);
+        assertNull(grafo.proxAdj(0));
+        grafo.insereAresta(0, 1, 6);
+        grafo.insereAresta(0, 2, 8);
+        Grafo.Aresta aresta = grafo.proxAdj(0);
+        assertNotNull(aresta);
+        assertEquals(2, aresta.v2());
+        assertEquals(8, aresta.peso());
+    }
 
-Note: These test cases assume that the Grafo class is imported correctly and the Junit 4 library is available for testing.
+    @Test
+    public void testRetiraAresta() {
+        Grafo grafo = new Grafo(4);
+        grafo.insereAresta(0, 1, 6);
+        grafo.insereAresta(0, 2, 8);
+        grafo.insereAresta(1, 3, 3);
+        Grafo.Aresta aresta = grafo.retiraAresta(0, 1);
+        assertNotNull(aresta);
+        assertEquals(0, aresta.v1());
+        assertEquals(1, aresta.v2());
+        assertEquals(6, aresta.peso());
+        assertFalse(grafo.existeAresta(0, 1));
+    }
+
+    @Test
+    public void testGrafoTransposto() {
+        Grafo grafo = new Grafo(4);
+        grafo.insereAresta(0, 1, 6);
+        grafo.insereAresta(0, 2, 8);
+        grafo.insereAresta(1, 3, 3);
+        Grafo grafoTransposto = grafo.grafoTransposto();
+        assertTrue(grafoTransposto.existeAresta(1, 0));
+        assertTrue(grafoTransposto.existeAresta(2, 0));
+        assertTrue(grafoTransposto.existeAresta(3, 1));
+    }
+}

@@ -13,12 +13,12 @@ for x in dados:
     info = x.split(':')
     prj = info[0]
     clazz = info[1].replace("ds.", "")
-    # cmd = "mkdir ../projetos/" + prj + "/gpt-tests";
-    # os.system(cmd)
+    cmd = "mkdir ../projetos/" + prj + "/gpt-tests";
+    os.system(cmd)
     cmd = "mv ../projetos/" + prj + "/src/test/java/ds/* ../projetos/" + prj + "/gpt-tests/"
     os.system(cmd)
 
-    for i in range(34):
+    for i in range(3):
         cmd = "cp ../projetos/" + prj + f"/gpt-tests/{clazz}Test{i}.java" + " ../projetos/" + prj + "/src/test/java/ds/"
         os.system(cmd)
         

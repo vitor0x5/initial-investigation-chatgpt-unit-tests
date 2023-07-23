@@ -1,52 +1,46 @@
-
 package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.Assert;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+public class ListaTest0{
 
-public class ListaTest0 {
 
     @Test
-    public void testInsere() throws Exception {
+    public void testInsere() {
         Lista lista = new Lista();
-        lista.insere("item1");
-        assertEquals(1, lista.ultimo);
-        assertEquals("item1", lista.item[0]);
-    }
-
-    @Test(expected = Exception.class)
-    public void testInsereThrowsException() throws Exception {
-        Lista lista = new Lista();
-        for (int i = 0; i < 1000; i++) {
-            lista.insere("item" + i);
+        Object item = new Object();
+        try {
+            lista.insere(item);
+            Assert.assertEquals(item, lista.item[0]);
+            Assert.assertEquals(1, lista.ultimo);
+        } catch (Exception e) {
+            Assert.fail("Exception thrown");
         }
-        lista.insere("item1000");
     }
 
     @Test
     public void testVazia() {
         Lista lista = new Lista();
-        assertTrue(lista.vazia());
-        lista.insere("item");
-        assertFalse(lista.vazia());
+        Assert.assertTrue(lista.vazia());
+        Object item = new Object();
+        try {
+            lista.insere(item);
+            Assert.assertFalse(lista.vazia());
+        } catch (Exception e) {
+            Assert.fail("Exception thrown");
+        }
     }
 
     @Test
     public void testImprime() {
         Lista lista = new Lista();
-        lista.insere("item1");
-        lista.insere("item2");
-        lista.insere("item3");
-        lista.insere("item4");
-        lista.insere("item5");
-
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-
-        lista.imprime();
-
-        String expectedOutput = "item1\nitem2\nitem3\nitem4\nitem5\n";
-        assertEquals(expectedOutput, outContent.toString());
+        Object item1 = new Object();
+        Object item2 = new Object();
+        try {
+            lista.insere(item1);
+            lista.insere(item2);
+            lista.imprime();
+        } catch (Exception e) {
+            Assert.fail("Exception thrown");
+        }
     }
 }

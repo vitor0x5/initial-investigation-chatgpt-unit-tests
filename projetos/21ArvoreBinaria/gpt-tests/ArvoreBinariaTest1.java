@@ -1,92 +1,91 @@
-
 package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import ds.ArvoreBinaria;
-import ds.Item;
-import ds.MeuItem;
-import ds.PermutacaoRandomica;
 import java.util.Random;
+import java.io.*;
 
-public class ArvoreBinariaTest1 {
+public class ArvoreBinariaTest1{
+
+  
+  @Test
+  public void testPesquisa() {
+    ArvoreBinaria arvore = new ArvoreBinaria();
+    MeuItem chave1 = new MeuItem(1);
+    MeuItem chave2 = new MeuItem(2);
+    arvore.insere(chave1);
+    arvore.insere(chave2);
+    assertEquals(chave1, arvore.pesquisa(chave1));
+    assertEquals(chave2, arvore.pesquisa(chave2));
+  }
   
   @Test
   public void testInsere() {
     ArvoreBinaria arvore = new ArvoreBinaria();
-    Item item1 = new MeuItem(1);
-    Item item2 = new MeuItem(2);
-    Item item3 = new MeuItem(3);
-    
-    arvore.insere(item1);
-    arvore.insere(item2);
-    arvore.insere(item3);
-    
-    assertEquals(item1, arvore.pesquisa(item1));
-    assertEquals(item2, arvore.pesquisa(item2));
-    assertEquals(item3, arvore.pesquisa(item3));
+    MeuItem chave1 = new MeuItem(1);
+    MeuItem chave2 = new MeuItem(2);
+    arvore.insere(chave1);
+    arvore.insere(chave2);
+    assertNotNull(arvore.pesquisa(chave1));
+    assertNotNull(arvore.pesquisa(chave2));
   }
   
   @Test
   public void testRetira() {
     ArvoreBinaria arvore = new ArvoreBinaria();
-    Item item1 = new MeuItem(1);
-    Item item2 = new MeuItem(2);
-    Item item3 = new MeuItem(3);
-    
-    arvore.insere(item1);
-    arvore.insere(item2);
-    arvore.insere(item3);
-    
-    arvore.retira(item2);
-    
-    assertNull(arvore.pesquisa(item2));
-  }
-  
-  @Test
-  public void testPesquisa() {
-    ArvoreBinaria arvore = new ArvoreBinaria();
-    Item item1 = new MeuItem(1);
-    Item item2 = new MeuItem(2);
-    Item item3 = new MeuItem(3);
-    
-    arvore.insere(item1);
-    arvore.insere(item2);
-    arvore.insere(item3);
-    
-    assertEquals(item1, arvore.pesquisa(item1));
-    assertEquals(item2, arvore.pesquisa(item2));
-    assertEquals(item3, arvore.pesquisa(item3));
-    
-    Item item4 = new MeuItem(4);
-    assertNull(arvore.pesquisa(item4));
+    MeuItem chave1 = new MeuItem(1);
+    MeuItem chave2 = new MeuItem(2);
+    arvore.insere(chave1);
+    arvore.insere(chave2);
+    arvore.retira(chave1);
+    arvore.retira(chave2);
+    assertNull(arvore.pesquisa(chave1));
+    assertNull(arvore.pesquisa(chave2));
   }
   
   @Test
   public void testTesta() {
     ArvoreBinaria arvore = new ArvoreBinaria();
-    Item item1 = new MeuItem(1);
-    Item item2 = new MeuItem(2);
-    Item item3 = new MeuItem(3);
-    
-    arvore.insere(item1);
-    arvore.insere(item2);
-    arvore.insere(item3);
-    
+    MeuItem chave1 = new MeuItem(1);
+    MeuItem chave2 = new MeuItem(2);
+    arvore.insere(chave1);
+    arvore.insere(chave2);
     arvore.testa();
   }
   
   @Test
-  public void testPermut() {
+  public void testMain() {
+    ArvoreBinaria arvore = new ArvoreBinaria();
     int max = 10;
-    MeuItem vetor[] = new MeuItem[max];
-    
+    MeuItem x;
+    int vetor[] = new int[max];
     for (int i = 0; i < max; i++)
-      vetor[i] = new MeuItem(i);
-    
+      vetor[i] = i;
     PermutacaoRandomica.permut(vetor, max);
-    
+    for (int i = 0; i < max; i++) { 
+      x = new MeuItem(vetor[i]);
+      arvore.insere(x);
+      arvore.testa();
+    }
     for (int i = 0; i < max; i++) {
-      assertEquals(i, vetor[i].recuperaChave());
+      Random rand = new Random();
+      int k =  rand.nextInt(10);
+      int n = vetor[k];
+      x = new MeuItem(n);
+      arvore.retira(x);
+      arvore.testa();
+      for (int j = 0; j < max; j++) { 
+        x = new MeuItem(rand.nextInt(10));
+        if (x.compara(new MeuItem(n)) != 0 ) { 
+          assertNotNull(arvore.pesquisa(x));
+        }
+      }
+      x = new MeuItem(n);
+      arvore.insere(x);
+      arvore.testa();
+    }
+    for (int i = 0; i < max; i++) { 
+      x = new MeuItem(vetor[i]);
+      arvore.retira(x);
+      arvore.testa();
     }
   }
-  
 }

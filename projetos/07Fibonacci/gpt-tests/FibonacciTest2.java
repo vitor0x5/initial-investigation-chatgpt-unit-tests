@@ -1,34 +1,32 @@
+package ds;package ds;
 
-package ds;
+import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class FibonacciTest2 {
+public class FibonacciTest2{
+
 
     @Test
-    public void testFibIterWithZero() {
-        assertEquals(0, Fibonacci.fibIter(0));
+    public void testFibIterWithInput0() {
+        int result = Fibonacci.fibIter(0);
+        Assert.assertEquals(0, result);
     }
 
     @Test
-    public void testFibIterWithOne() {
-        assertEquals(1, Fibonacci.fibIter(1));
+    public void testFibIterWithInput1() {
+        int result = Fibonacci.fibIter(1);
+        Assert.assertEquals(1, result);
     }
 
     @Test
-    public void testFibIterWithPositiveNumber() {
-        assertEquals(1, Fibonacci.fibIter(2));
-        assertEquals(2, Fibonacci.fibIter(3));
-        assertEquals(5, Fibonacci.fibIter(5));
-        assertEquals(8, Fibonacci.fibIter(6));
+    public void testFibIterWithInput5() {
+        int result = Fibonacci.fibIter(5);
+        Assert.assertEquals(5, result);
     }
 
     @Test
-    public void testFibIterWithNegativeNumber() {
-        assertEquals(-1, Fibonacci.fibIter(-1));
-        assertEquals(1, Fibonacci.fibIter(-2));
-        assertEquals(-2, Fibonacci.fibIter(-3));
-        assertEquals(3, Fibonacci.fibIter(-4));
-        assertEquals(-5, Fibonacci.fibIter(-5));
+    public void testFibIterWithInput10() {
+        int result = Fibonacci.fibIter(10);
+        Assert.assertEquals(55, result);
     }
 }

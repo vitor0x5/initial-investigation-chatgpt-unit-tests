@@ -1,47 +1,30 @@
-
-package ds;
-import ds.Lista;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ListaTest1 {
+public class ListaTest1{
 
-    @Test
-    public void testInsere() {
-        Lista lista = new Lista();
-        assertTrue(lista.vazia());
-        
-        lista.insere("A");
-        assertFalse(lista.vazia());
-        
-        lista.insere("B");
-        lista.insere("C");
-        lista.insere("D");
-        assertFalse(lista.vazia());
-    }
-
-    @Test
-    public void testVazia() {
-        Lista lista = new Lista();
-        assertTrue(lista.vazia());
-        
-        lista.insere("A");
-        assertFalse(lista.vazia());
-        
-        lista.insere("B");
-        lista.insere("C");
-        lista.insere("D");
-        assertFalse(lista.vazia());
-    }
-
-    @Test
-    public void testImprime() {
-        Lista lista = new Lista();
-        lista.insere("A");
-        lista.insere("B");
-        lista.insere("C");
-        lista.insere("D");
-        
-        lista.imprime(); // Manually verify the output
-    }
+  
+  @Test
+  public void testInsere() {
+    Lista lista = new Lista();
+    lista.insere(5);
+    assertFalse(lista.vazia());
+  }
+  
+  @Test
+  public void testVazia() {
+    Lista lista = new Lista();
+    assertTrue(lista.vazia());
+  }
+  
+  @Test
+  public void testImprime() {
+    Lista lista = new Lista();
+    lista.insere(1);
+    lista.insere(2);
+    lista.insere(3);
+    lista.insere(4);
+    lista.insere(5);
+    lista.imprime();
+  }
 }

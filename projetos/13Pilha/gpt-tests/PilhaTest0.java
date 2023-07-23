@@ -1,34 +1,64 @@
+package ds;import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
-package ds;Here are some test case scenarios for the Pilha Java class:
+public class PilhaTest0{
 
-1. Test case for empilha method - when the stack is not full:
-   - Input: Object x = "Test"
-   - Expected output: The object "Test" is added to the top of the stack
-   
-2. Test case for empilha method - when the stack is full:
-   - Input: Object x = "Test"
-   - Expected output: Exception "Erro: A pilha esta cheia" is thrown
-   
-3. Test case for desempilha method - when the stack is not empty:
-   - Input: None
-   - Expected output: The top element of the stack is removed and returned
-   
-4. Test case for desempilha method - when the stack is empty:
-   - Input: None
-   - Expected output: Exception "Erro: A pilha esta vazia" is thrown
-   
-5. Test case for vazia method - when the stack is empty:
-   - Input: None
-   - Expected output: true
-   
-6. Test case for vazia method - when the stack is not empty:
-   - Input: empilha("Test")
-   - Expected output: false
-   
-7. Test case for tamanho method - when the stack is empty:
-   - Input: None
-   - Expected output: 0
-   
-8. Test case for tamanho method - when the stack is not empty:
-   - Input: empilha("Test")
-   - Expected output: 1
+  
+  private Pilha pilha;
+  
+  @Before
+  public void setUp() {
+    pilha = new Pilha();
+  }
+  
+  @Test
+  public void testEmpilha() throws Exception {
+    pilha.empilha("Item 1");
+    pilha.empilha("Item 2");
+    pilha.empilha("Item 3");
+    assertEquals(3, pilha.tamanho());
+  }
+  
+  @Test(expected = Exception.class)
+  public void testEmpilhaPilhaCheia() throws Exception {
+    for (int i = 0; i < 1000; i++) {
+      pilha.empilha("Item");
+    }
+    pilha.empilha("Item Extra");
+  }
+  
+  @Test
+  public void testDesempilha() throws Exception {
+    pilha.empilha("Item 1");
+    pilha.empilha("Item 2");
+    pilha.empilha("Item 3");
+    assertEquals("Item 3", pilha.desempilha());
+    assertEquals("Item 2", pilha.desempilha());
+    assertEquals("Item 1", pilha.desempilha());
+    assertTrue(pilha.vazia());
+  }
+  
+  @Test(expected = Exception.class)
+  public void testDesempilhaPilhaVazia() throws Exception {
+    pilha.desempilha();
+  }
+  
+  @Test
+  public void testVazia() throws Exception {
+    assertTrue(pilha.vazia());
+    pilha.empilha("Item");
+    assertFalse(pilha.vazia());
+  }
+  
+  @Test
+  public void testTamanho() throws Exception {
+    assertEquals(0, pilha.tamanho());
+    pilha.empilha("Item 1");
+    assertEquals(1, pilha.tamanho());
+    pilha.empilha("Item 2");
+    assertEquals(2, pilha.tamanho());
+    pilha.desempilha();
+    assertEquals(1, pilha.tamanho());
+  }
+}

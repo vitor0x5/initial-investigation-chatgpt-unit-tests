@@ -1,55 +1,76 @@
-
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
-
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 import java.util.Random;
 
-public class TabelaHashTest2 {
+public class TabelaHashTest2{
+
+  
+  @Test
+  public void testPesquisaIndice() {
+    TabelaHash tabela = new TabelaHash();
+    tabela.insere("abc", 1);
+    tabela.insere("def", 2);
+    tabela.insere("ghi", 3);
+    
+    assertEquals(0, tabela.pesquisaIndice("abc"));
+    assertEquals(1, tabela.pesquisaIndice("def"));
+    assertEquals(2, tabela.pesquisaIndice("ghi"));
+    assertEquals(7, tabela.pesquisaIndice("xyz"));
+  }
+  
+  @Test
+  public void testPesquisa() {
+    TabelaHash tabela = new TabelaHash();
+    tabela.insere("abc", 1);
+    tabela.insere("def", 2);
+    tabela.insere("ghi", 3);
+    
+    assertEquals(1, tabela.pesquisa("abc"));
+    assertEquals(2, tabela.pesquisa("def"));
+    assertEquals(3, tabela.pesquisa("ghi"));
+    assertNull(tabela.pesquisa("xyz"));
+  }
   
   @Test
   public void testInsere() {
     TabelaHash tabela = new TabelaHash();
-    tabela.insere("chave1", "item1");
-    tabela.insere("chave2", "item2");
-    tabela.insere("chave3", "item3");
+    tabela.insere("abc", 1);
+    tabela.insere("def", 2);
+    tabela.insere("ghi", 3);
     
-    assertEquals("item1", tabela.pesquisa("chave1"));
-    assertEquals("item2", tabela.pesquisa("chave2"));
-    assertEquals("item3", tabela.pesquisa("chave3"));
+    assertEquals(1, tabela.pesquisa("abc"));
+    assertEquals(2, tabela.pesquisa("def"));
+    assertEquals(3, tabela.pesquisa("ghi"));
   }
   
   @Test
   public void testRetira() {
     TabelaHash tabela = new TabelaHash();
-    tabela.insere("chave1", "item1");
-    tabela.insere("chave2", "item2");
-    tabela.insere("chave3", "item3");
+    tabela.insere("abc", 1);
+    tabela.insere("def", 2);
+    tabela.insere("ghi", 3);
     
-    tabela.retira("chave2");
-    
-    assertNull(tabela.pesquisa("chave2"));
+    tabela.retira("def");
+    assertNull(tabela.pesquisa("def"));
   }
   
   @Test
   public void testRecuperaItens() {
     TabelaHash tabela = new TabelaHash();
-    tabela.insere("chave1", "item1");
-    tabela.insere("chave2", "item2");
-    tabela.insere("chave3", "item3");
+    tabela.insere("abc", 1);
+    tabela.insere("def", 2);
+    tabela.insere("ghi", 3);
     
-    Object[] itens = tabela.recuperaItens();
-    
-    assertEquals("item1", itens[0]);
-    assertEquals("item2", itens[1]);
-    assertEquals("item3", itens[2]);
+    Object[] expected = {1, 2, 3};
+    assertArrayEquals(expected, tabela.recuperaItens());
   }
   
   @Test
   public void testImprime() {
     TabelaHash tabela = new TabelaHash();
-    tabela.insere("chave1", "item1");
-    tabela.insere("chave2", "item2");
-    tabela.insere("chave3", "item3");
+    tabela.insere("abc", 1);
+    tabela.insere("def", 2);
+    tabela.insere("ghi", 3);
     
     tabela.imprime();
   }

@@ -27,7 +27,7 @@ def request_test_generation(code, clazz, temperature):
             "messages": [
                 {
                     "role": "user",
-                    "content": f"Generate test cases just for the {clazz} Java class in one java class file with imports using Junit 4 and Java 8:\n\n{code}"
+                    "content": f"I need a good test set. Please keep only valid Java code in the test set without comments or explanations. The code must compile and run directly. I have two main goals with the test set: to cover each branch of the code and to kill all the possible mutants generated from the code below by Pitest mutation operators. Can you give test cases in JUnit 4 framework format to test all methods of  ${clazz} class aiming for maximum coverage and mutation score? Follows below the full class code:\n {code}"
                     }
                 ],
             "temperature": temperature,
@@ -139,14 +139,14 @@ for x in dados:
 
     code = read_java_files(source_path)
     
-    for i in range(12, 33):
-        temperature = set_temperature(i)
-        generated_tests = generate_tests(code, clazz, temperature, i)
+    for i in range(3):
+        # temperature = set_temperature(i)
+        generated_tests = generate_tests(code, clazz, 0.8, i)
         
         with open(get_test_path(prj, clazz, i), "w") as file:
             file.write(generated_tests)
             
-        print(f"Arquivo de testes numero {i} gerado. Projeto: {prj} \n")     
+        print(f"Arquivo de testes numero {i} gerado. Projeto: {prj} \n")        
 
 dados.close()
 

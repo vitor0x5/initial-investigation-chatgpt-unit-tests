@@ -1,56 +1,73 @@
-
-package ds;import ds.TabelaHash;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import java.util.Random;
 
-public class TabelaHashTest1 {
+public class TabelaHashTest1{
 
-    @Test
-    public void testInsere() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
 
-        assertEquals("item1", tabela.pesquisa("chave1"));
-        assertEquals("item2", tabela.pesquisa("chave2"));
-        assertEquals("item3", tabela.pesquisa("chave3"));
-    }
+  @Test
+  public void testPesquisaIndice() {
+    TabelaHash tabela = new TabelaHash();
+    assertEquals(0, tabela.pesquisaIndice("a"));
+    tabela.insere("a", 1);
+    tabela.insere("b", 2);
+    tabela.insere("c", 3);
+    assertEquals(2, tabela.pesquisaIndice("b"));
+    assertEquals(3, tabela.pesquisaIndice("c"));
+    assertEquals(7, tabela.pesquisaIndice("d"));
+  }
 
-    @Test
-    public void testRetira() throws Exception {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
+  @Test
+  public void testPesquisa() {
+    TabelaHash tabela = new TabelaHash();
+    assertNull(tabela.pesquisa("a"));
+    tabela.insere("a", 1);
+    tabela.insere("b", 2);
+    tabela.insere("c", 3);
+    assertEquals(1, tabela.pesquisa("a"));
+    assertEquals(2, tabela.pesquisa("b"));
+    assertEquals(3, tabela.pesquisa("c"));
+    assertNull(tabela.pesquisa("d"));
+  }
 
-        tabela.retira("chave2");
+  @Test
+  public void testInsere() {
+    TabelaHash tabela = new TabelaHash();
+    tabela.insere("a", 1);
+    tabela.insere("b", 2);
+    tabela.insere("c", 3);
+    assertEquals(1, tabela.pesquisa("a"));
+    assertEquals(2, tabela.pesquisa("b"));
+    assertEquals(3, tabela.pesquisa("c"));
+  }
 
-        assertNull(tabela.pesquisa("chave2"));
-    }
+  @Test
+  public void testRetira() {
+    TabelaHash tabela = new TabelaHash();
+    tabela.insere("a", 1);
+    tabela.insere("b", 2);
+    tabela.insere("c", 3);
+    tabela.retira("b");
+    assertNull(tabela.pesquisa("b"));
+  }
 
-    @Test
-    public void testRecuperaItens() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
+  @Test
+  public void testRecuperaItens() {
+    TabelaHash tabela = new TabelaHash();
+    tabela.insere("a", 1);
+    tabela.insere("b", 2);
+    tabela.insere("c", 3);
+    Object[] expected = {1, 2, 3};
+    assertArrayEquals(expected, tabela.recuperaItens());
+  }
 
-        Object[] itens = tabela.recuperaItens();
-
-        assertEquals(3, itens.length);
-        assertEquals("item1", itens[0]);
-        assertEquals("item2", itens[1]);
-        assertEquals("item3", itens[2]);
-    }
-
-    @Test
-    public void testImprime() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
-
-        tabela.imprime();
-    }
+  @Test
+  public void testImprime() {
+    TabelaHash tabela = new TabelaHash();
+    tabela.insere("a", 1);
+    tabela.insere("b", 2);
+    tabela.insere("c", 3);
+    tabela.imprime();
+    // Manually verify the output
+  }
 }

@@ -1,50 +1,54 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+public class CasamentoExatoTest0{
 
-public class CasamentoExatoTest0 {
-  
-  @Test
-  public void testForcaBruta() {
-    String T = "abcabcabc";
-    int n = T.length();
-    String P = "abc";
-    int m = P.length();
+
+    @Test
+    public void testForcaBruta() {
+        String T = "This is a test string";
+        String P = "test";
+        int n = T.length();
+        int m = P.length();
+        
+        CasamentoExato.forcaBruta(T, n, P, m);
+        
+        // Add assertions for the expected output or behavior
+    }
     
-    CasamentoExato.forcaBruta(T, n, P, m);
-    // Add assertions here
-  }
-  
-  @Test
-  public void testShiftAndExato() {
-    String T = "abcabcabc";
-    int n = T.length();
-    String P = "abc";
-    int m = P.length();
+    @Test
+    public void testShiftAndExato() {
+        String T = "This is a test string";
+        String P = "test";
+        int n = T.length();
+        int m = P.length();
+        
+        CasamentoExato.shiftAndExato(T, n, P, m);
+        
+        // Add assertions for the expected output or behavior
+    }
     
-    CasamentoExato.shiftAndExato(T, n, P, m);
-    // Add assertions here
-  }
-  
-  @Test
-  public void testBmh() {
-    String T = "abcabcabc";
-    int n = T.length();
-    String P = "abc";
-    int m = P.length();
+    @Test
+    public void testBmh() {
+        String T = "This is a test string";
+        String P = "test";
+        int n = T.length();
+        int m = P.length();
+        
+        CasamentoExato.bmh(T, n, P, m);
+        
+        // Add assertions for the expected output or behavior
+    }
     
-    CasamentoExato.bmh(T, n, P, m);
-    // Add assertions here
-  }
-  
-  @Test
-  public void testBmhs() {
-    String T = "abcabcabc";
-    int n = T.length();
-    String P = "abc";
-    int m = P.length();
-    
-    CasamentoExato.bmhs(T, n, P, m);
-    // Add assertions here
-  }
+    @Test
+    public void testBmhs() {
+        String T = "This is a test string";
+        String P = "test";
+        int n = T.length();
+        int m = P.length();
+        
+        CasamentoExato.bmhs(T, n, P, m);
+        
+        // Add assertions for the expected output or behavior
+    }
 }

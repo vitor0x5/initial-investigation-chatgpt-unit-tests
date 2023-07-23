@@ -1,43 +1,48 @@
-
-package ds;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ListaTest1 {
-    
+public class ListaTest1{
+
+
     @Test
     public void testInsere() throws Exception {
         Lista lista = new Lista();
-        
-        lista.insere("Item 1");
-        lista.insere("Item 2");
-        lista.insere("Item 3");
-        
-        assertEquals(3, lista.ultimo - lista.primeiro);
-    }
-    
-    @Test
-    public void testVazia() {
-        Lista lista = new Lista();
-        
-        assertTrue(lista.vazia());
-        
-        lista.insere("Item 1");
-        
+        lista.insere(1);
         assertFalse(lista.vazia());
     }
-    
-    @Test
-    public void testImprime() {
+
+    @Test(expected = Exception.class)
+    public void testInsereFullList() throws Exception {
         Lista lista = new Lista();
-        
-        lista.insere("Item 1");
-        lista.insere("Item 2");
-        lista.insere("Item 3");
-        
-        lista.imprime();
-        
-        // Add assertions to check the output of the `imprime` method
+        for (int i = 0; i < 1000; i++) {
+            lista.insere(i);
+        }
+        lista.insere(1001);
     }
-    
+
+    @Test
+    public void testVaziaEmptyList() {
+        Lista lista = new Lista();
+        assertTrue(lista.vazia());
+    }
+
+    @Test
+    public void testVaziaNonEmptyList() throws Exception {
+        Lista lista = new Lista();
+        lista.insere(1);
+        assertFalse(lista.vazia());
+    }
+
+    @Test
+    public void testImprimeEmptyList() {
+        Lista lista = new Lista();
+        lista.imprime();
+    }
+
+    @Test
+    public void testImprimeNonEmptyList() throws Exception {
+        Lista lista = new Lista();
+        lista.insere(1);
+        lista.imprime();
+    }
 }

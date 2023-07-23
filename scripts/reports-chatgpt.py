@@ -47,7 +47,7 @@ for x in dados:
     output = open('./reports/'+ prj + '.csv', 'w') 
     output.write("PRJ;Temperature;Cobertos;Gerados;Cobertura;Mortos;Total;Escore\n")
     
-    for x in range(34):
+    for x in range(3):
         try:
             with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
                 soup = bs(html, 'html.parser')

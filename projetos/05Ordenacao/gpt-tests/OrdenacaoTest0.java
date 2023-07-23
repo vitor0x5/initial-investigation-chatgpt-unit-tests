@@ -1,46 +1,38 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.*;
-import org.junit.Test;
+public class OrdenacaoTest0{
 
-public class OrdenacaoTest0 {
 
     @Test
     public void testOrdena() {
-        int[] v = {5, 2, 7, 1, 3};
-        int[] expected = {1, 2, 3, 5, 7};
-        Ordenacao.ordena(v, v.length);
-        assertArrayEquals(expected, v);
+        int[] arr = {5, 3, 1, 4, 2};
+        Ordenacao.ordena(arr, arr.length);
+        int[] expected = {1, 2, 3, 4, 5};
+        assertArrayEquals(expected, arr);
     }
-
+    
     @Test
     public void testOrdenaEmptyArray() {
-        int[] v = {};
+        int[] arr = {};
+        Ordenacao.ordena(arr, arr.length);
         int[] expected = {};
-        Ordenacao.ordena(v, v.length);
-        assertArrayEquals(expected, v);
+        assertArrayEquals(expected, arr);
     }
-
+    
+    @Test
+    public void testOrdenaSingleElementArray() {
+        int[] arr = {5};
+        Ordenacao.ordena(arr, arr.length);
+        int[] expected = {5};
+        assertArrayEquals(expected, arr);
+    }
+    
     @Test
     public void testOrdenaAlreadySortedArray() {
-        int[] v = {1, 2, 3, 4, 5};
+        int[] arr = {1, 2, 3, 4, 5};
+        Ordenacao.ordena(arr, arr.length);
         int[] expected = {1, 2, 3, 4, 5};
-        Ordenacao.ordena(v, v.length);
-        assertArrayEquals(expected, v);
-    }
-
-    @Test
-    public void testOrdenaArrayWithDuplicates() {
-        int[] v = {5, 2, 7, 1, 3, 2};
-        int[] expected = {1, 2, 2, 3, 5, 7};
-        Ordenacao.ordena(v, v.length);
-        assertArrayEquals(expected, v);
-    }
-
-    @Test
-    public void testOrdenaArrayWithNegativeNumbers() {
-        int[] v = {5, -2, 7, 1, -3};
-        int[] expected = {-3, -2, 1, 5, 7};
-        Ordenacao.ordena(v, v.length);
-        assertArrayEquals(expected, v);
+        assertArrayEquals(expected, arr);
     }
 }

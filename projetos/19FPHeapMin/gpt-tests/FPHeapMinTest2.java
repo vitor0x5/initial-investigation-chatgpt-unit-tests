@@ -1,79 +1,186 @@
-
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
-import java.io.*;
 
-public class FPHeapMinTest2 {
+public class FPHeapMinTest2{
+
+
+    @Test
+    public void testConstrutor1() {
+        FPHeapMin heap = new FPHeapMin(10);
+        assertNotNull(heap);
+    }
+
+    @Test
+    public void testConstrutor2() {
+        Item[] items = new Item[5];
+        items[0] = new MeuItem(5);
+        items[1] = new MeuItem(2);
+        items[2] = new MeuItem(7);
+        items[3] = new MeuItem(1);
+        items[4] = new MeuItem(3);
+
+        FPHeapMin heap = new FPHeapMin(items);
+        assertNotNull(heap);
+    }
 
     @Test
     public void testRefaz() {
-        FPHeapMin heap = new FPHeapMin(5);
         Item[] items = new Item[6];
+        items[0] = null; // Index 0 should not be used
         items[1] = new MeuItem(5);
-        items[2] = new MeuItem(3);
-        items[3] = new MeuItem(1);
-        items[4] = new MeuItem(4);
-        items[5] = new MeuItem(2);
-        heap.copia(items);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(3);
+
+        FPHeapMin heap = new FPHeapMin(items);
         heap.refaz(1, 5);
-        assertEquals(1, heap.min().recuperaChave());
+
+        assertEquals(1, heap.min().compara(new MeuItem(1)));
     }
 
     @Test
     public void testConstroi() {
-        FPHeapMin heap = new FPHeapMin(5);
         Item[] items = new Item[6];
+        items[0] = null; // Index 0 should not be used
         items[1] = new MeuItem(5);
-        items[2] = new MeuItem(3);
-        items[3] = new MeuItem(1);
-        items[4] = new MeuItem(4);
-        items[5] = new MeuItem(2);
-        heap.copia(items);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(3);
+
+        FPHeapMin heap = new FPHeapMin(items);
         heap.constroi();
-        assertEquals(1, heap.min().recuperaChave());
+
+        assertEquals(1, heap.min().compara(new MeuItem(1)));
     }
 
     @Test
-    public void testRetiraMin() throws Exception {
-        FPHeapMin heap = new FPHeapMin(5);
+    public void testRetiraMin() {
         Item[] items = new Item[6];
+        items[0] = null; // Index 0 should not be used
         items[1] = new MeuItem(5);
-        items[2] = new MeuItem(3);
-        items[3] = new MeuItem(1);
-        items[4] = new MeuItem(4);
-        items[5] = new MeuItem(2);
-        heap.copia(items);
-        Item min = heap.retiraMin();
-        assertEquals(1, min.recuperaChave());
-        assertEquals(2, heap.min().recuperaChave());
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(3);
+
+        FPHeapMin heap = new FPHeapMin(items);
+
+        try {
+            Item min = heap.retiraMin();
+            assertEquals(1, min.compara(new MeuItem(1)));
+        } catch (Exception e) {
+            fail("Exception thrown");
+        }
+    }
+
+    @Test(expected = Exception.class)
+    public void testRetiraMinEmptyHeap() throws Exception {
+        FPHeapMin heap = new FPHeapMin(10);
+        heap.retiraMin();
     }
 
     @Test
-    public void testDiminuiChave() throws Exception {
-        FPHeapMin heap = new FPHeapMin(5);
+    public void testDiminuiChave() {
         Item[] items = new Item[6];
+        items[0] = null; // Index 0 should not be used
         items[1] = new MeuItem(5);
-        items[2] = new MeuItem(3);
-        items[3] = new MeuItem(1);
-        items[4] = new MeuItem(4);
-        items[5] = new MeuItem(2);
-        heap.copia(items);
-        heap.diminuiChave(4, 0);
-        assertEquals(0, heap.min().recuperaChave());
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(3);
+
+        FPHeapMin heap = new FPHeapMin(items);
+
+        try {
+            heap.diminuiChave(3, 0);
+            assertEquals(0, items[3].compara(new MeuItem(0)));
+        } catch (Exception e) {
+            fail("Exception thrown");
+        }
+    }
+
+    @Test(expected = Exception.class)
+    public void testDiminuiChaveNull() throws Exception {
+        Item[] items = new Item[6];
+        items[0] = null; // Index 0 should not be used
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(3);
+
+        FPHeapMin heap = new FPHeapMin(items);
+
+        heap.diminuiChave(3, null);
     }
 
     @Test
-    public void testInsere() throws Exception {
-        FPHeapMin heap = new FPHeapMin(5);
+    public void testInsere() {
         Item[] items = new Item[6];
+        items[0] = null; // Index 0 should not be used
         items[1] = new MeuItem(5);
-        items[2] = new MeuItem(3);
-        items[3] = new MeuItem(1);
-        items[4] = new MeuItem(4);
-        items[5] = new MeuItem(2);
-        heap.copia(items);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(3);
+
+        FPHeapMin heap = new FPHeapMin(items);
+
+        try {
+            Item newItem = new MeuItem(0);
+            heap.insere(newItem);
+            assertEquals(0, items[6].compara(new MeuItem(0)));
+        } catch (Exception e) {
+            fail("Exception thrown");
+        }
+    }
+
+    @Test(expected = Exception.class)
+    public void testInsereFullHeap() throws Exception {
+        Item[] items = new Item[6];
+        items[0] = null; // Index 0 should not be used
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(3);
+
+        FPHeapMin heap = new FPHeapMin(items);
+
         Item newItem = new MeuItem(0);
         heap.insere(newItem);
-        assertEquals(0, heap.min().recuperaChave());
+    }
+
+    @Test
+    public void testImprime() {
+        Item[] items = new Item[6];
+        items[0] = null; // Index 0 should not be used
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(3);
+
+        FPHeapMin heap = new FPHeapMin(items);
+
+        heap.imprime();
+    }
+
+    @Test
+    public void testCopia() {
+        Item[] items = new Item[6];
+        items[0] = null; // Index 0 should not be used
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(3);
+
+        FPHeapMin heap = new FPHeapMin(10);
+        heap.copia(items);
+
+        assertEquals(5, heap.min().compara(new MeuItem(1)));
     }
 }

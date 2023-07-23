@@ -1,96 +1,72 @@
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
+import java.util.Random;
 
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+public class OrdenacaoTest2{
 
-public class OrdenacaoTest2 {
 
     @Test
     public void testSelecao() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(3);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(4);
-
-        Ordenacao.selecao(v, 5);
-
-        assertEquals(1, v[0].recuperaChave());
-        assertEquals(2, v[1].recuperaChave());
-        assertEquals(3, v[2].recuperaChave());
-        assertEquals(4, v[3].recuperaChave());
-        assertEquals(5, v[4].recuperaChave());
+        int n = 5;
+        Item[] v = new Item[n + 1];
+        for (int i = 1; i <= n; i++) {
+            v[i] = new MeuItem(i);
+        }
+        Ordenacao.selecao(v, n);
+        for (int i = 1; i <= n; i++) {
+            assertEquals(i, v[i].recuperaChave());
+        }
     }
 
     @Test
     public void testInsercao() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(3);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(4);
-
-        Ordenacao.insercao(v, 5);
-
-        assertEquals(1, v[0].recuperaChave());
-        assertEquals(2, v[1].recuperaChave());
-        assertEquals(3, v[2].recuperaChave());
-        assertEquals(4, v[3].recuperaChave());
-        assertEquals(5, v[4].recuperaChave());
+        int n = 5;
+        Item[] v = new Item[n + 1];
+        for (int i = 1; i <= n; i++) {
+            v[i] = new MeuItem(i);
+        }
+        Ordenacao.insercao(v, n);
+        for (int i = 1; i <= n; i++) {
+            assertEquals(i, v[i].recuperaChave());
+        }
     }
 
     @Test
     public void testShellsort() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(3);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(4);
-
-        Ordenacao.shellsort(v, 5);
-
-        assertEquals(1, v[0].recuperaChave());
-        assertEquals(2, v[1].recuperaChave());
-        assertEquals(3, v[2].recuperaChave());
-        assertEquals(4, v[3].recuperaChave());
-        assertEquals(5, v[4].recuperaChave());
+        int n = 5;
+        Item[] v = new Item[n + 1];
+        for (int i = 1; i <= n; i++) {
+            v[i] = new MeuItem(i);
+        }
+        Ordenacao.shellsort(v, n);
+        for (int i = 1; i <= n; i++) {
+            assertEquals(i, v[i].recuperaChave());
+        }
     }
 
     @Test
     public void testQuicksort() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(3);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(4);
-
-        Ordenacao.quicksort(v, 5);
-
-        assertEquals(1, v[0].recuperaChave());
-        assertEquals(2, v[1].recuperaChave());
-        assertEquals(3, v[2].recuperaChave());
-        assertEquals(4, v[3].recuperaChave());
-        assertEquals(5, v[4].recuperaChave());
+        int n = 5;
+        Item[] v = new Item[n + 1];
+        for (int i = 1; i <= n; i++) {
+            v[i] = new MeuItem(i);
+        }
+        Ordenacao.quicksort(v, n);
+        for (int i = 1; i <= n; i++) {
+            assertEquals(i, v[i].recuperaChave());
+        }
     }
 
     @Test
     public void testHeapsort() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(3);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(4);
-
-        Ordenacao.heapsort(v, 5);
-
-        assertEquals(1, v[0].recuperaChave());
-        assertEquals(2, v[1].recuperaChave());
-        assertEquals(3, v[2].recuperaChave());
-        assertEquals(4, v[3].recuperaChave());
-        assertEquals(5, v[4].recuperaChave());
+        int n = 5;
+        Item[] v = new Item[n + 1];
+        for (int i = 1; i <= n; i++) {
+            v[i] = new MeuItem(i);
+        }
+        Ordenacao.heapsort(v, n);
+        for (int i = 1; i <= n; i++) {
+            assertEquals(i, v[i].recuperaChave());
+        }
     }
 }

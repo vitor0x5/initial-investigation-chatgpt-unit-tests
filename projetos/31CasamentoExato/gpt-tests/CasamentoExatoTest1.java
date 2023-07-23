@@ -1,42 +1,46 @@
-
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class CasamentoExatoTest1 {
+public class CasamentoExatoTest1{
+
 
     @Test
     public void testForcaBruta() {
-        String T = "ababcababcabc";
+        String T = "abababa";
         int n = T.length();
-        String P = "abc";
+        String P = "aba";
         int m = P.length();
+
         CasamentoExato.forcaBruta(T, n, P, m);
     }
 
     @Test
     public void testShiftAndExato() {
-        String T = "ababcababcabc";
+        String T = "abababa";
         int n = T.length();
-        String P = "abc";
+        String P = "aba";
         int m = P.length();
+
         CasamentoExato.shiftAndExato(T, n, P, m);
     }
 
     @Test
     public void testBmh() {
-        String T = "ababcababcabc";
+        String T = "abababa";
         int n = T.length();
-        String P = "abc";
+        String P = "aba";
         int m = P.length();
+
         CasamentoExato.bmh(T, n, P, m);
     }
 
     @Test
     public void testBmhs() {
-        String T = "ababcababcabc";
+        String T = "abababa";
         int n = T.length();
-        String P = "abc";
+        String P = "aba";
         int m = P.length();
+
         CasamentoExato.bmhs(T, n, P, m);
     }
 }

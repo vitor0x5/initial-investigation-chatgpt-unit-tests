@@ -24,7 +24,7 @@ CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.muta
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,bmh,33,KILLED,ds.CasamentoExatoTest1.testBmh(ds.CasamentoExatoTest1)
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,bmh,36,SURVIVED,none
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,bmh,37,KILLED,ds.CasamentoExatoTest1.testBmh(ds.CasamentoExatoTest1)
-CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,bmh,29,TIMED_OUT,none
+CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,bmh,29,SURVIVED,none
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,bmh,30,SURVIVED,none
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,bmh,32,SURVIVED,none
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,bmh,34,SURVIVED,none
@@ -39,7 +39,7 @@ CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.muta
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,bmh,37,SURVIVED,none
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,bmh,34,SURVIVED,none
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF,bmh,34,SURVIVED,none
-CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE,bmh,29,TIMED_OUT,none
+CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE,bmh,29,SURVIVED,none
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE,bmh,30,SURVIVED,none
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE,bmh,32,SURVIVED,none
 CasamentoExato.java,ds.CasamentoExato,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE,bmh,34,SURVIVED,none

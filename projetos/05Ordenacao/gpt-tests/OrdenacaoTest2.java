@@ -1,46 +1,33 @@
-
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class OrdenacaoTest2 {
+public class OrdenacaoTest2{
 
-    @Test
-    public void testOrdena() {
-        int[] v = {5, 3, 8, 2, 1};
-        int[] expected = {1, 2, 3, 5, 8};
-        Ordenacao.ordena(v, v.length);
-        assertArrayEquals(expected, v);
-    }
 
-    @Test
-    public void testOrdenaEmptyArray() {
-        int[] v = {};
-        int[] expected = {};
-        Ordenacao.ordena(v, v.length);
-        assertArrayEquals(expected, v);
-    }
+  // Test case to cover the outer for loop once
+  @Test
+  public void testOrdenaOuterLoop() {
+    int[] v = {5, 3, 2, 4, 1};
+    Ordenacao.ordena(v, v.length);
+    int[] expected = {1, 2, 3, 4, 5};
+    assertArrayEquals(expected, v);
+  }
 
-    @Test
-    public void testOrdenaAlreadySortedArray() {
-        int[] v = {1, 2, 3, 4, 5};
-        int[] expected = {1, 2, 3, 4, 5};
-        Ordenacao.ordena(v, v.length);
-        assertArrayEquals(expected, v);
-    }
+  // Test case to cover the inner for loop once
+  @Test
+  public void testOrdenaInnerLoop() {
+    int[] v = {5, 3, 2, 4, 1};
+    Ordenacao.ordena(v, v.length);
+    int[] expected = {1, 2, 3, 4, 5};
+    assertArrayEquals(expected, v);
+  }
 
-    @Test
-    public void testOrdenaArrayWithDuplicates() {
-        int[] v = {5, 3, 8, 2, 1, 3, 1};
-        int[] expected = {1, 1, 2, 3, 3, 5, 8};
-        Ordenacao.ordena(v, v.length);
-        assertArrayEquals(expected, v);
-    }
-
-    @Test
-    public void testOrdenaArrayWithNegativeNumbers() {
-        int[] v = {-5, 3, -8, 2, 1};
-        int[] expected = {-8, -5, 1, 2, 3};
-        Ordenacao.ordena(v, v.length);
-        assertArrayEquals(expected, v);
-    }
+  // Test case to cover the if condition inside the inner for loop
+  @Test
+  public void testOrdenaIfCondition() {
+    int[] v = {5, 3, 2, 4, 1};
+    Ordenacao.ordena(v, v.length);
+    int[] expected = {1, 2, 3, 4, 5};
+    assertArrayEquals(expected, v);
+  }
 }

@@ -1,45 +1,54 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+public class MaxTest1{
 
-import ds.Item;
-import ds.Max;
-import ds.MeuItem;
 
-public class MaxTest1 {
   @Test
   public void testMax() {
     Item[] items = new Item[5];
-    items[0] = new MeuItem(3);
-    items[1] = new MeuItem(7);
-    items[2] = new MeuItem(2);
-    items[3] = new MeuItem(9);
-    items[4] = new MeuItem(5);
-
-    Item max = Max.max(items, items.length);
-    assertEquals(9, ((MeuItem) max).chave);
-  }
-
-  @Test
-  public void testMaxWithNegativeValues() {
-    Item[] items = new Item[4];
     items[0] = new MeuItem(10);
-    items[1] = new MeuItem(-5);
+    items[1] = new MeuItem(20);
     items[2] = new MeuItem(15);
-    items[3] = new MeuItem(-20);
+    items[3] = new MeuItem(5);
+    items[4] = new MeuItem(25);
 
-    Item max = Max.max(items, items.length);
-    assertEquals(15, ((MeuItem) max).chave);
+    Item result = Max.max(items, 5);
+
+    assertEquals(25, ((MeuItem) result).chave);
   }
 
   @Test
-  public void testMaxWithEqualValues() {
-    Item[] items = new Item[3];
-    items[0] = new MeuItem(5);
-    items[1] = new MeuItem(5);
-    items[2] = new MeuItem(5);
+  public void testMaxWithEmptyArray() {
+    Item[] items = new Item[0];
 
-    Item max = Max.max(items, items.length);
-    assertEquals(5, ((MeuItem) max).chave);
+    Item result = Max.max(items, 0);
+
+    assertNull(result);
+  }
+
+  @Test
+  public void testMaxWithSingleItem() {
+    Item[] items = new Item[1];
+    items[0] = new MeuItem(10);
+
+    Item result = Max.max(items, 1);
+
+    assertEquals(10, ((MeuItem) result).chave);
+  }
+
+  @Test
+  public void testMaxWithDuplicateItems() {
+    Item[] items = new Item[6];
+    items[0] = new MeuItem(10);
+    items[1] = new MeuItem(20);
+    items[2] = new MeuItem(15);
+    items[3] = new MeuItem(5);
+    items[4] = new MeuItem(15);
+    items[5] = new MeuItem(25);
+
+    Item result = Max.max(items, 6);
+
+    assertEquals(25, ((MeuItem) result).chave);
   }
 }

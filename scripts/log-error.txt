@@ -13156,3 +13156,309 @@ Traceback (most recent call last):
     with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
 FileNotFoundError: [Errno 2] No such file or directory: '../projetos/33Identifier/reports/ds.IdentifierTest32/index.html'
 
+18:07:02 - 01Max - ERROR: /reports/ds.MaxTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/01Max/reports/ds.MaxTest0/index.html'
+
+18:07:02 - 01Max - ERROR: /reports/ds.MaxTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/01Max/reports/ds.MaxTest1/index.html'
+
+18:07:02 - 01Max - ERROR: /reports/ds.MaxTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/01Max/reports/ds.MaxTest2/index.html'
+
+18:07:02 - 02MaxMin - ERROR: /reports/ds.MaxMin1Test0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/02MaxMin/reports/ds.MaxMin1Test0/index.html'
+
+18:07:02 - 02MaxMin - ERROR: /reports/ds.MaxMin1Test2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/02MaxMin/reports/ds.MaxMin1Test2/index.html'
+
+18:07:02 - 03MaxMin - ERROR: /reports/ds.MaxMin2Test1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/03MaxMin/reports/ds.MaxMin2Test1/index.html'
+
+18:07:02 - 03MaxMin - ERROR: /reports/ds.MaxMin2Test2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/03MaxMin/reports/ds.MaxMin2Test2/index.html'
+
+18:07:02 - 04MaxMin - ERROR: /reports/ds.MaxMin3Test0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/04MaxMin/reports/ds.MaxMin3Test0/index.html'
+
+18:07:02 - 04MaxMin - ERROR: /reports/ds.MaxMin3Test1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/04MaxMin/reports/ds.MaxMin3Test1/index.html'
+
+18:07:02 - 04MaxMin - ERROR: /reports/ds.MaxMin3Test2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/04MaxMin/reports/ds.MaxMin3Test2/index.html'
+
+18:07:02 - 07Fibonacci - ERROR: /reports/ds.FibonacciTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/07Fibonacci/reports/ds.FibonacciTest0/index.html'
+
+18:07:02 - 07Fibonacci - ERROR: /reports/ds.FibonacciTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/07Fibonacci/reports/ds.FibonacciTest2/index.html'
+
+18:07:02 - 08MaxMin - ERROR: /reports/ds.MaxMin4Test2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/08MaxMin/reports/ds.MaxMin4Test2/index.html'
+
+18:07:02 - 10AvaliaMultMatrizes - ERROR: /reports/ds.AvaliaMultMatrizesTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/10AvaliaMultMatrizes/reports/ds.AvaliaMultMatrizesTest0/index.html'
+
+18:07:02 - 10AvaliaMultMatrizes - ERROR: /reports/ds.AvaliaMultMatrizesTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/10AvaliaMultMatrizes/reports/ds.AvaliaMultMatrizesTest1/index.html'
+
+18:07:02 - 10AvaliaMultMatrizes - ERROR: /reports/ds.AvaliaMultMatrizesTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/10AvaliaMultMatrizes/reports/ds.AvaliaMultMatrizesTest2/index.html'
+
+18:07:02 - 11ListArray - ERROR: /reports/ds.ListaTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/11ListArray/reports/ds.ListaTest2/index.html'
+
+18:07:02 - 15Fila - ERROR: /reports/ds.FilaTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/15Fila/reports/ds.FilaTest0/index.html'
+
+18:07:02 - 15Fila - ERROR: /reports/ds.FilaTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/15Fila/reports/ds.FilaTest1/index.html'
+
+18:07:02 - 16Fila - ERROR: /reports/ds.FilaTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/16Fila/reports/ds.FilaTest0/index.html'
+
+18:07:02 - 16Fila - ERROR: /reports/ds.FilaTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/16Fila/reports/ds.FilaTest1/index.html'
+
+18:07:02 - 17Ordenacao - ERROR: /reports/ds.OrdenacaoTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/17Ordenacao/reports/ds.OrdenacaoTest0/index.html'
+
+18:07:02 - 17Ordenacao - ERROR: /reports/ds.OrdenacaoTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/17Ordenacao/reports/ds.OrdenacaoTest1/index.html'
+
+18:07:02 - 19FPHeapMin - ERROR: /reports/ds.FPHeapMinTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/19FPHeapMin/reports/ds.FPHeapMinTest0/index.html'
+
+18:07:02 - 19FPHeapMin - ERROR: /reports/ds.FPHeapMinTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/19FPHeapMin/reports/ds.FPHeapMinTest1/index.html'
+
+18:07:02 - 19FPHeapMin - ERROR: /reports/ds.FPHeapMinTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/19FPHeapMin/reports/ds.FPHeapMinTest2/index.html'
+
+18:07:02 - 20Tabela - ERROR: /reports/ds.TabelaTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/20Tabela/reports/ds.TabelaTest0/index.html'
+
+18:07:02 - 20Tabela - ERROR: /reports/ds.TabelaTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/20Tabela/reports/ds.TabelaTest1/index.html'
+
+18:07:02 - 20Tabela - ERROR: /reports/ds.TabelaTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/20Tabela/reports/ds.TabelaTest2/index.html'
+
+18:07:02 - 22TabelaHash - ERROR: /reports/ds.TabelaHashTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/22TabelaHash/reports/ds.TabelaHashTest0/index.html'
+
+18:07:02 - 22TabelaHash - ERROR: /reports/ds.TabelaHashTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/22TabelaHash/reports/ds.TabelaHashTest1/index.html'
+
+18:07:02 - 22TabelaHash - ERROR: /reports/ds.TabelaHashTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/22TabelaHash/reports/ds.TabelaHashTest2/index.html'
+
+18:07:02 - 23TabelaHash - ERROR: /reports/ds.TabelaHashTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/23TabelaHash/reports/ds.TabelaHashTest0/index.html'
+
+18:07:02 - 23TabelaHash - ERROR: /reports/ds.TabelaHashTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/23TabelaHash/reports/ds.TabelaHashTest1/index.html'
+
+18:07:02 - 23TabelaHash - ERROR: /reports/ds.TabelaHashTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/23TabelaHash/reports/ds.TabelaHashTest2/index.html'
+
+18:07:02 - 24Grafo - ERROR: /reports/ds.GrafoTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/24Grafo/reports/ds.GrafoTest1/index.html'
+
+18:07:02 - 25Grafo - ERROR: /reports/ds.GrafoTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/25Grafo/reports/ds.GrafoTest2/index.html'
+
+18:07:02 - 26Grafo - ERROR: /reports/ds.GrafoTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/26Grafo/reports/ds.GrafoTest2/index.html'
+
+18:07:02 - 27Grafo - ERROR: /reports/ds.GrafoTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/27Grafo/reports/ds.GrafoTest2/index.html'
+
+18:07:02 - 28BuscaEmLargura - ERROR: /reports/ds.GrafoTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/28BuscaEmLargura/reports/ds.GrafoTest1/index.html'
+
+18:07:02 - 28BuscaEmLargura - ERROR: /reports/ds.GrafoTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/28BuscaEmLargura/reports/ds.GrafoTest2/index.html'
+
+18:07:02 - 29Grafo - ERROR: /reports/ds.GrafoTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/29Grafo/reports/ds.GrafoTest0/index.html'
+
+18:07:02 - 29Grafo - ERROR: /reports/ds.GrafoTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/29Grafo/reports/ds.GrafoTest1/index.html'
+
+18:07:02 - 29Grafo - ERROR: /reports/ds.GrafoTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/29Grafo/reports/ds.GrafoTest2/index.html'
+
+18:07:02 - 30Lista - ERROR: /reports/ds.AgmPrimTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/30Lista/reports/ds.AgmPrimTest0/index.html'
+
+18:07:02 - 30Lista - ERROR: /reports/ds.AgmPrimTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/30Lista/reports/ds.AgmPrimTest1/index.html'
+
+18:07:02 - 30Lista - ERROR: /reports/ds.AgmPrimTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/30Lista/reports/ds.AgmPrimTest2/index.html'
+
+18:07:02 - 32CasamentoAproximado - ERROR: /reports/ds.CasamentoAproximadoTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/32CasamentoAproximado/reports/ds.CasamentoAproximadoTest1/index.html'
+
+18:07:02 - 33Identifier - ERROR: /reports/ds.IdentifierTest0/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/33Identifier/reports/ds.IdentifierTest0/index.html'
+
+18:07:02 - 33Identifier - ERROR: /reports/ds.IdentifierTest1/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/33Identifier/reports/ds.IdentifierTest1/index.html'
+
+18:07:02 - 33Identifier - ERROR: /reports/ds.IdentifierTest2/index.html
+Traceback (most recent call last):
+  File "reports-chatgpt.py", line 52, in <module>
+    with open("../projetos/" + prj+ "/reports/"+clazz+"Test"+str(x)+"/index.html",'r') as html:
+FileNotFoundError: [Errno 2] No such file or directory: '../projetos/33Identifier/reports/ds.IdentifierTest2/index.html'
+
