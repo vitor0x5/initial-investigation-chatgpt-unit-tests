@@ -20,7 +20,7 @@ def request_test_generation(code, clazz, temperature):
         url = "https://api.openai.com/v1/chat/completions"
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer"
+            "Authorization": "Bearer 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"
         }
         data = {
             "model": "gpt-3.5-turbo",
