@@ -1,0 +1,67 @@
+package ds.llm;
+
+import org.junit.Test;
+import org.junit.Before;
+import ds.Max;
+import ds.Item;
+import ds.MeuItem;
+import static org.junit.Assert.assertEquals;
+
+public class MaxTest {
+    MeuItem[] items;
+    int n;
+
+    @Before
+    public void setUp() throws Exception {
+        items = new MeuItem[4];
+        items[0] = new MeuItem(4);
+        items[1] = new MeuItem(7);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(9);
+        n = 4;
+    }
+
+    @Test(timeout=1000)
+    public void testMaxItem() throws Exception {
+        Item maxItem = Max.max(items, n);
+        assertEquals(9, ((MeuItem) maxItem).chave);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxItemAtArrayStart() throws Exception {
+        items[0] = new MeuItem(10);
+        Item maxItem = Max.max(items, n);
+        assertEquals(10, ((MeuItem) maxItem).chave);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxItemWithSameValues() throws Exception {
+        items[0] = new MeuItem(5);
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(5);
+        items[3] = new MeuItem(5);
+        Item maxItem = Max.max(items, n);
+        assertEquals(5, ((MeuItem) maxItem).chave);
+    }
+
+    @Test(timeout=1000)
+    public void testCompara() throws Exception {
+        MeuItem item1 = new MeuItem(5);
+        MeuItem item2 = new MeuItem(10);
+        assertEquals(-1, item1.compara(item2));
+    }
+
+    @Test(timeout=1000)
+    public void testComparaEqualItems() throws Exception {
+        MeuItem item1 = new MeuItem(5);
+        MeuItem item2 = new MeuItem(5);
+        assertEquals(0, item1.compara(item2));
+    }
+
+    @Test(timeout=1000)
+    public void testComparaSecondItemGreater() throws Exception {
+        MeuItem item1 = new MeuItem(5);
+        MeuItem item2 = new MeuItem(4);
+        assertEquals(1, item1.compara(item2));
+    }
+}
