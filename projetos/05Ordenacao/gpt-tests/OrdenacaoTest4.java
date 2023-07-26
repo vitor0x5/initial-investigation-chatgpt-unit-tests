@@ -1,34 +1,45 @@
-
 package ds;import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class OrdenacaoTest4 {
+public class OrdenacaoTest4{
+
+
+    // Test for default constructor
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        // Create a new instance of the class under testing
+        Ordenacao ordenacao = new Ordenacao();
+        
+        // Assert that the instance is not null
+        assertNotNull(ordenacao);
+    }
     
-    @Test
-    public void testOrdena() {
-        int[] v1 = {5, 2, 8, 1, 9};
-        Ordenacao.ordena(v1, 5);
-        int[] expected1 = {1, 2, 5, 8, 9};
-        assertArrayEquals(expected1, v1);
+    // Test for ordena method
+    @Test(timeout=1000)
+    public void testOrdena() throws Exception {
+        // Test with empty array
+        int[] emptyArray = {};
+        Ordenacao.ordena(emptyArray, 0);
+        assertArrayEquals(new int[]{}, emptyArray);
         
-        int[] v2 = {9, 8, 7, 6, 5, 4};
-        Ordenacao.ordena(v2, 6);
-        int[] expected2 = {4, 5, 6, 7, 8, 9};
-        assertArrayEquals(expected2, v2);
+        // Test with array of size 1
+        int[] arraySize1 = {5};
+        Ordenacao.ordena(arraySize1, 1);
+        assertArrayEquals(new int[]{5}, arraySize1);
         
-        int[] v3 = {1, 3, 2, 5, 4};
-        Ordenacao.ordena(v3, 5);
-        int[] expected3 = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected3, v3);
+        // Test with array of size 2
+        int[] arraySize2 = {5, 2};
+        Ordenacao.ordena(arraySize2, 2);
+        assertArrayEquals(new int[]{2, 5}, arraySize2);
         
-        int[] v4 = {1, 1, 1, 1, 1};
-        Ordenacao.ordena(v4, 5);
-        int[] expected4 = {1, 1, 1, 1, 1};
-        assertArrayEquals(expected4, v4);
+        // Test with array of size 3
+        int[] arraySize3 = {5, 2, 7};
+        Ordenacao.ordena(arraySize3, 3);
+        assertArrayEquals(new int[]{2, 5, 7}, arraySize3);
         
-        int[] v5 = {9, 7, 5, 3, 1};
-        Ordenacao.ordena(v5, 5);
-        int[] expected5 = {1, 3, 5, 7, 9};
-        assertArrayEquals(expected5, v5);
+        // Test with array of size 5
+        int[] arraySize5 = {5, -3, 0, 7, 2};
+        Ordenacao.ordena(arraySize5, 5);
+        assertArrayEquals(new int[]{-3, 0, 2, 5, 7}, arraySize5);
     }
 }

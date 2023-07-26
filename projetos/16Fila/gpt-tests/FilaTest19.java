@@ -1,46 +1,50 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class FilaTest19{
 
 
-    @Test
-    public void testEnfileira() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        fila.enfileira(4);
-        assertEquals("1 2 3 4", fila.imprime());
+        assertNotNull(fila);
     }
 
-    @Test
+    @Test(timeout=1000)
+    public void testEnfileira() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira(10);
+        assertFalse(fila.vazia());
+    }
+
+    @Test(timeout=1000)
     public void testDesenfileira() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        fila.enfileira(4);
-        assertEquals(1, fila.desenfileira());
-        assertEquals(2, fila.desenfileira());
-        assertEquals(3, fila.desenfileira());
-        assertEquals(4, fila.desenfileira());
+        fila.enfileira(10);
+        fila.enfileira(20);
+        fila.enfileira(30);
+        assertEquals(10, fila.desenfileira());
+        assertEquals(20, fila.desenfileira());
+        assertEquals(30, fila.desenfileira());
         assertTrue(fila.vazia());
     }
 
-    @Test(expected = Exception.class)
-    public void testDesenfileiraFromEmptyFila() throws Exception {
-        Fila fila = new Fila();
-        fila.desenfileira();
-    }
-
-    @Test
-    public void testVazia() {
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Fila fila = new Fila();
         assertTrue(fila.vazia());
-        fila.enfileira(1);
+        fila.enfileira(10);
         assertFalse(fila.vazia());
         fila.desenfileira();
         assertTrue(fila.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira(10);
+        fila.enfileira(20);
+        fila.enfileira(30);
+        fila.imprime();
     }
 }

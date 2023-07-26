@@ -1,54 +1,42 @@
-
-package ds;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class FilaTest11 {
-  
-  @Test
-  public void testEnfileira() {
-    Fila fila = new Fila();
-    
-    fila.enfileira("A");
-    assertEquals(false, fila.vazia());
-    
-    fila.enfileira("B");
-    fila.enfileira("C");
-    fila.enfileira("D");
-    assertEquals(false, fila.vazia());
-  }
-  
-  @Test(expected=Exception.class)
-  public void testDesenfileiraWhenEmpty() throws Exception {
-    Fila fila = new Fila();
-    
-    fila.desenfileira();
-  }
-  
-  @Test
-  public void testDesenfileira() throws Exception {
-    Fila fila = new Fila();
-    
-    fila.enfileira("A");
-    fila.enfileira("B");
-    fila.enfileira("C");
-    
-    assertEquals("A", fila.desenfileira());
-    assertEquals("B", fila.desenfileira());
-    assertEquals("C", fila.desenfileira());
-    assertEquals(true, fila.vazia());
-  }
-  
-  @Test
-  public void testVazia() {
-    Fila fila = new Fila();
-    
-    assertEquals(true, fila.vazia());
-    
-    fila.enfileira("A");
-    assertEquals(false, fila.vazia());
-    
-    fila.desenfileira();
-    assertEquals(true, fila.vazia());
-  }
+public class FilaTest11{
+
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Fila fila = new Fila();
+        assertNotNull(fila);
+    }
+
+    @Test(timeout = 1000)
+    public void testEnfileira() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira(1);
+        fila.enfileira(2);
+        fila.enfileira(3);
+        fila.imprime();
+    }
+
+    @Test(timeout = 1000)
+    public void testDesenfileira() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira(1);
+        fila.enfileira(2);
+        fila.enfileira(3);
+        Object item = fila.desenfileira();
+        assertEquals(1, item);
+        fila.imprime();
+    }
+
+    @Test(timeout = 1000)
+    public void testVazia() throws Exception {
+        Fila fila1 = new Fila();
+        assertTrue(fila1.vazia());
+
+        Fila fila2 = new Fila();
+        fila2.enfileira(1);
+        assertFalse(fila2.vazia());
+    }
 }

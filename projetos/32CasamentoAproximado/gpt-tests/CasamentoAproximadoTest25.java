@@ -4,33 +4,20 @@ import static org.junit.Assert.*;
 public class CasamentoAproximadoTest25{
 
 
-    @Test
-    public void testShiftAndAproximado() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoAproximado casamento = new CasamentoAproximado();
+        assertNotNull(casamento);
+    }
+
+    @Test(timeout=1000)
+    public void testShiftAndAproximado() throws Exception {
         String T = "abracadabra";
+        int n = T.length();
         String P = "abra";
+        int m = P.length();
         int k = 1;
-        CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k);
-        // Add assertions here to verify the expected output
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
     }
-
-    @Test
-    public void testShiftAndAproximadoWithNoMatch() {
-        String T = "abracadabra";
-        String P = "xyz";
-        int k = 1;
-        CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k);
-        // Add assertions here to verify the expected output
-    }
-
-    @Test
-    public void testShiftAndAproximadoWithMultipleMatches() {
-        String T = "abracadabra";
-        String P = "a";
-        int k = 2;
-        CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k);
-        // Add assertions here to verify the expected output
-    }
-
-    // Add more test cases here
-
 }

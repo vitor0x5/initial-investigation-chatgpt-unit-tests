@@ -1,44 +1,18 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
+import java.io.IOException;
 
 public class AvaliaMultMatrizesTest20{
 
 
-    @Test
-    public void testMultmatrize() {
-        int n = 3;
-        int[] d = {1, 2, 3};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown: " + e.getMessage());
-        }
+    @Test(timeout=1000)
+    public void testDefaultConstructor() {
+        AvaliaMultMatrizes avaliaMultMatrizes = new AvaliaMultMatrizes();
+        assertNotNull(avaliaMultMatrizes);
     }
 
-    @Test
-    public void testMultmatrizeWithZeroN() {
-        int n = 0;
-        int[] d = {};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown: " + e.getMessage());
-        }
-    }
-
-    @Test
-    public void testMultmatrizeWithNegativeD() {
-        int n = 3;
-        int[] d = {1, -2, 3};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown: " + e.getMessage());
-        }
-    }
-
-    @Test(expected = IOException.class)
-    public void testMultmatrizeWithIOException() throws IOException {
+    @Test(timeout=1000)
+    public void testMultmatrize() throws IOException {
         int n = 3;
         int[] d = {1, 2, 3};
         AvaliaMultMatrizes.multmatrize(n, d);

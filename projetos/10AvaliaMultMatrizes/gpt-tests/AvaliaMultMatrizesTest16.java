@@ -1,41 +1,60 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
+import java.io.IOException;
 
 public class AvaliaMultMatrizesTest16{
 
 
-    @Test
-    public void testMultmatrize() throws IOException {
-        int n = 4;
-        int[] d = {1, 2, 3, 4};
-        AvaliaMultMatrizes.multmatrize(n, d);
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        AvaliaMultMatrizes amm = new AvaliaMultMatrizes();
+        assertNotNull(amm);
     }
 
-    @Test
-    public void testMultmatrizeWithZeroN() throws IOException {
-        int n = 0;
-        int[] d = {};
-        AvaliaMultMatrizes.multmatrize(n, d);
-    }
-
-    @Test
-    public void testMultmatrizeWithNegativeN() throws IOException {
-        int n = -3;
+    @Test(timeout=1000)
+    public void testMultmatrize() throws Exception {
         int[] d = {1, 2, 3};
-        AvaliaMultMatrizes.multmatrize(n, d);
+        AvaliaMultMatrizes.multmatrize(3, d);
     }
 
-    @Test
-    public void testMultmatrizeWithNullD() throws IOException {
-        int n = 3;
-        int[] d = null;
-        AvaliaMultMatrizes.multmatrize(n, d);
+    @Test(timeout=1000)
+    public void testMultmatrizeWithZeroN() throws Exception {
+        int[] d = {1, 2, 3};
+        AvaliaMultMatrizes.multmatrize(0, d);
     }
 
-    @Test
-    public void testMultmatrizeWithEmptyD() throws IOException {
-        int n = 3;
+    @Test(timeout=1000)
+    public void testMultmatrizeWithNegativeN() throws Exception {
+        int[] d = {1, 2, 3};
+        AvaliaMultMatrizes.multmatrize(-3, d);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrizeWithNullD() throws Exception {
+        AvaliaMultMatrizes.multmatrize(3, null);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrizeWithEmptyD() throws Exception {
         int[] d = {};
-        AvaliaMultMatrizes.multmatrize(n, d);
+        AvaliaMultMatrizes.multmatrize(3, d);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrizeWithPositiveValues() throws Exception {
+        int[] d = {1, 2, 3};
+        AvaliaMultMatrizes.multmatrize(3, d);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrizeWithNegativeValues() throws Exception {
+        int[] d = {-1, -2, -3};
+        AvaliaMultMatrizes.multmatrize(3, d);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrizeWithBoundaryValues() throws Exception {
+        int[] d = {Integer.MAX_VALUE, Integer.MIN_VALUE, 0};
+        AvaliaMultMatrizes.multmatrize(3, d);
     }
 }

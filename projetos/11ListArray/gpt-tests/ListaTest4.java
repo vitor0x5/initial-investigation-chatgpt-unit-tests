@@ -1,59 +1,37 @@
-
-package ds;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
 
-public class ListaTest4 {
+public class ListaTest4{
 
-    private Lista lista;
-
-    @Before
-    public void setUp() {
-        lista = new Lista();
+    
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Lista lista = new Lista();
+        assertNotNull(lista);
     }
-
-    @Test
-    public void testInsere() {
-        try {
-            lista.insere("item1");
-            lista.insere("item2");
-            lista.insere("item3");
-            assertEquals("item1", lista.item[0]);
-            assertEquals("item2", lista.item[1]);
-            assertEquals("item3", lista.item[2]);
-        } catch (Exception e) {
-            fail("Exception thrown: " + e.getMessage());
-        }
-    }
-
-    @Test
-    public void testInsereWhenListIsFull() {
-        try {
-            for (int i = 0; i < 1000; i++) {
-                lista.insere("item" + i);
-            }
-            lista.insere("item1000");
-            fail("Exception not thrown");
-        } catch (Exception e) {
-            assertEquals("Erro: A lista esta cheia", e.getMessage());
-        }
-    }
-
-    @Test
-    public void testVazia() {
-        assertTrue(lista.vazia());
-        lista.insere("item1");
+    
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        Lista lista = new Lista();
+        lista.insere("Test");
         assertFalse(lista.vazia());
     }
-
-    @Test
-    public void testImprime() {
-        lista.insere("item1");
-        lista.insere("item2");
-        lista.insere("item3");
+    
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
+        Lista lista = new Lista();
+        assertTrue(lista.vazia());
+        
+        lista.insere("Test");
+        assertFalse(lista.vazia());
+    }
+    
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        Lista lista = new Lista();
+        lista.insere("Test1");
+        lista.insere("Test2");
+        lista.insere("Test3");
         lista.imprime();
-        // Verify the output of the imprime() method
-        // by comparing it with the expected output
     }
 }

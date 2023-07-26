@@ -1,36 +1,36 @@
-
-package ds;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class FibonacciTest3 {
+public class FibonacciTest3{
 
-    @Test
-    public void testFibIterWithPositiveInput() {
-        assertEquals(0, Fibonacci.fibIter(0));
-        assertEquals(1, Fibonacci.fibIter(1));
-        assertEquals(1, Fibonacci.fibIter(2));
-        assertEquals(2, Fibonacci.fibIter(3));
-        assertEquals(3, Fibonacci.fibIter(4));
-        assertEquals(5, Fibonacci.fibIter(5));
-        assertEquals(8, Fibonacci.fibIter(6));
-        assertEquals(13, Fibonacci.fibIter(7));
-        assertEquals(21, Fibonacci.fibIter(8));
-        // additional test cases for positive input
+    
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Fibonacci fibonacci = new Fibonacci();
+        assertNotNull(fibonacci);
     }
-
-    @Test
-    public void testFibIterWithNegativeInput() {
-        // additional test cases for negative input
+    
+    @Test(timeout=1000)
+    public void testFibIter_PositiveValue() throws Exception {
+        int result = Fibonacci.fibIter(5);
+        assertEquals(5, result);
     }
-
-    @Test
-    public void testFibIterWithZeroInput() {
-        // additional test cases for zero input
+    
+    @Test(timeout=1000)
+    public void testFibIter_NegativeValue() throws Exception {
+        int result = Fibonacci.fibIter(-5);
+        assertEquals(-5, result);
     }
-
-    @Test
-    public void testFibIterWithLargeInput() {
-        // additional test cases for large input
+    
+    @Test(timeout=1000)
+    public void testFibIter_ZeroValue() throws Exception {
+        int result = Fibonacci.fibIter(0);
+        assertEquals(0, result);
+    }
+    
+    @Test(timeout=1000)
+    public void testFibIter_BoundaryValue() throws Exception {
+        int result = Fibonacci.fibIter(1);
+        assertEquals(1, result);
     }
 }

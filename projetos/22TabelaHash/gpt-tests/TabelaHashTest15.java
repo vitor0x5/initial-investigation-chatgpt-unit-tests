@@ -1,102 +1,66 @@
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
+import java.io.*;
 
 public class TabelaHashTest15{
 
 
-    @Test
-    public void testPesquisaExistingKey() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("key1", "value1");
-        tabela.insere("key2", "value2");
-        tabela.insere("key3", "value3");
-        
-        Object result = tabela.pesquisa("key2");
-        
-        assertEquals("value2", result);
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        TabelaHash tabelaHash = new TabelaHash();
+        assertNotNull(tabelaHash);
     }
-    
-    @Test
-    public void testPesquisaNonExistingKey() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("key1", "value1");
-        tabela.insere("key2", "value2");
-        tabela.insere("key3", "value3");
-        
-        Object result = tabela.pesquisa("key4");
-        
-        assertNull(result);
+
+    @Test(timeout = 1000)
+    public void testPesquisa() throws Exception {
+        TabelaHash tabelaHash = new TabelaHash();
+        tabelaHash.insere("key1", "value1");
+        tabelaHash.insere("key2", "value2");
+        tabelaHash.insere("key3", "value3");
+
+        assertEquals("value1", tabelaHash.pesquisa("key1"));
+        assertEquals("value2", tabelaHash.pesquisa("key2"));
+        assertEquals("value3", tabelaHash.pesquisa("key3"));
+        assertNull(tabelaHash.pesquisa("key4"));
     }
-    
-    @Test
-    public void testInsereNewKey() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("key1", "value1");
-        tabela.insere("key2", "value2");
-        
-        Object result = tabela.pesquisa("key2");
-        
-        assertEquals("value2", result);
+
+    @Test(timeout = 1000)
+    public void testInsere() throws Exception {
+        TabelaHash tabelaHash = new TabelaHash();
+        tabelaHash.insere("key1", "value1");
+        tabelaHash.insere("key2", "value2");
+        tabelaHash.insere("key3", "value3");
+
+        assertEquals("value1", tabelaHash.pesquisa("key1"));
+        assertEquals("value2", tabelaHash.pesquisa("key2"));
+        assertEquals("value3", tabelaHash.pesquisa("key3"));
     }
-    
-    @Test
-    public void testInsereExistingKey() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("key1", "value1");
-        
-        tabela.insere("key1", "value2");
-        
-        Object result = tabela.pesquisa("key1");
-        
-        assertEquals("value1", result);
+
+    @Test(timeout = 1000)
+    public void testRetira() throws Exception {
+        TabelaHash tabelaHash = new TabelaHash();
+        tabelaHash.insere("key1", "value1");
+        tabelaHash.insere("key2", "value2");
+        tabelaHash.insere("key3", "value3");
+
+        tabelaHash.retira("key2");
+        assertNull(tabelaHash.pesquisa("key2"));
+        assertEquals("value1", tabelaHash.pesquisa("key1"));
+        assertEquals("value3", tabelaHash.pesquisa("key3"));
     }
-    
-    @Test
-    public void testRetiraExistingKey() throws Exception {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("key1", "value1");
-        tabela.insere("key2", "value2");
-        tabela.insere("key3", "value3");
-        
-        tabela.retira("key2");
-        
-        Object result = tabela.pesquisa("key2");
-        
-        assertNull(result);
-    }
-    
-    @Test
-    public void testRetiraNonExistingKey() throws Exception {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("key1", "value1");
-        tabela.insere("key2", "value2");
-        tabela.insere("key3", "value3");
-        
-        tabela.retira("key4");
-        
-        Object result = tabela.pesquisa("key4");
-        
-        assertNull(result);
-    }
-    
-    @Test
-    public void testImprimeEmptyTable() {
-        TabelaHash tabela = new TabelaHash();
-        
-        tabela.imprime();
-        
-        // No assertion needed, just checking if it runs without errors
-    }
-    
-    @Test
-    public void testImprimeNonEmptyTable() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("key1", "value1");
-        tabela.insere("key2", "value2");
-        tabela.insere("key3", "value3");
-        
-        tabela.imprime();
-        
-        // No assertion needed, just checking if it runs without errors
+
+    @Test(timeout = 1000)
+    public void testImprime() throws Exception {
+        TabelaHash tabelaHash = new TabelaHash();
+        tabelaHash.insere("key1", "value1");
+        tabelaHash.insere("key2", "value2");
+        tabelaHash.insere("key3", "value3");
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        tabelaHash.imprime();
+        String expectedOutput = "Entrada: 0\n  value1\nEntrada: 1\n  value2\nEntrada: 2\n  value3\n";
+        assertEquals(expectedOutput, outContent.toString());
     }
 }

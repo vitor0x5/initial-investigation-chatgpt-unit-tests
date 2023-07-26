@@ -1,48 +1,48 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
-
-import ds.Item;
-import ds.Max;
-import ds.MeuItem;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class MaxTest24{
 
 
-    @Test
-    public void testMaxWithEmptyArray() {
-        Item[] v = new Item[0];
-        Item result = Max.max(v, 0);
-        assertNull(result);
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Max max = new Max();
     }
 
-    @Test
-    public void testMaxWithSingleItem() {
-        Item[] v = new Item[1];
-        v[0] = new MeuItem(5);
-        Item result = Max.max(v, 1);
-        assertEquals(5, ((MeuItem) result).chave);
+    @Test(timeout=1000)
+    public void testMax() throws Exception {
+        // Test with positive values
+        Item[] v1 = {new MeuItem(1), new MeuItem(2), new MeuItem(3)};
+        assertEquals(3, Max.max(v1, 3).chave);
+
+        // Test with negative values
+        Item[] v2 = {new MeuItem(-1), new MeuItem(-2), new MeuItem(-3)};
+        assertEquals(-1, Max.max(v2, 3).chave);
+
+        // Test with boundary values
+        Item[] v3 = {new MeuItem(Integer.MAX_VALUE), new MeuItem(Integer.MIN_VALUE)};
+        assertEquals(Integer.MAX_VALUE, Max.max(v3, 2).chave);
+
+        // Test with empty array
+        Item[] v4 = {};
+        assertNull(Max.max(v4, 0));
     }
 
-    @Test
-    public void testMaxWithMultipleItems() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(10);
-        v[1] = new MeuItem(5);
-        v[2] = new MeuItem(8);
-        v[3] = new MeuItem(3);
-        v[4] = new MeuItem(12);
-        Item result = Max.max(v, 5);
-        assertEquals(12, ((MeuItem) result).chave);
-    }
+    @Test(timeout=1000)
+    public void testCompara() throws Exception {
+        // Test with true value
+        MeuItem item1 = new MeuItem(1);
+        MeuItem item2 = new MeuItem(2);
+        assertEquals(-1, item1.compara(item2));
 
-    @Test
-    public void testMaxWithNegativeItems() {
-        Item[] v = new Item[4];
-        v[0] = new MeuItem(-5);
-        v[1] = new MeuItem(-10);
-        v[2] = new MeuItem(-2);
-        v[3] = new MeuItem(-8);
-        Item result = Max.max(v, 4);
-        assertEquals(-2, ((MeuItem) result).chave);
+        // Test with false value
+        MeuItem item3 = new MeuItem(3);
+        MeuItem item4 = new MeuItem(2);
+        assertEquals(1, item3.compara(item4));
+
+        // Test with boundary values
+        MeuItem item5 = new MeuItem(Integer.MAX_VALUE);
+        MeuItem item6 = new MeuItem(Integer.MIN_VALUE);
+        assertEquals(1, item5.compara(item6));
     }
 }

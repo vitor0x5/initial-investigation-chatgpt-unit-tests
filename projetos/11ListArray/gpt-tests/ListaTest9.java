@@ -1,77 +1,60 @@
-
-package ds;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.*;
 
-public class ListaTest9 {
+public class ListaTest9{
 
-    @Test
-    public void testInsere() {
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Lista lista = new Lista();
-        Object obj = new Object();
-
-        try {
-            lista.insere(obj);
-            assertFalse(lista.vazia());
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
+        assertNotNull(lista);
     }
 
-    @Test
-    public void testInsereWhenFull() {
+    @Test(timeout=1000)
+    public void testInsereValidInput() throws Exception {
         Lista lista = new Lista();
-        Object[] array = new Object[1000];
+        lista.insere("input");
+        assertEquals(1, lista.ultimo);
+    }
 
+    @Test(timeout=1000)
+    public void testInsereFullList() throws Exception {
+        Lista lista = new Lista();
         for (int i = 0; i < 1000; i++) {
-            array[i] = new Object();
-            try {
-                lista.insere(array[i]);
-            } catch (Exception e) {
-                fail("Exception thrown");
-            }
+            lista.insere("input");
         }
-
         try {
-            lista.insere(new Object());
-            fail("Exception not thrown");
+            lista.insere("input");
+            fail("Expected an Exception");
         } catch (Exception e) {
             assertEquals("Erro: A lista esta cheia", e.getMessage());
         }
     }
 
-    @Test
-    public void testVazia() {
+    @Test(timeout=1000)
+    public void testVaziaEmptyList() throws Exception {
         Lista lista = new Lista();
         assertTrue(lista.vazia());
-
-        try {
-            lista.insere(new Object());
-            assertFalse(lista.vazia());
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
     }
 
-    // Assuming there is a way to capture system output in the test framework
-    @Test
-    public void testImprime() {
+    @Test(timeout=1000)
+    public void testVaziaNonEmptyList() throws Exception {
         Lista lista = new Lista();
-        Object[] array = new Object[3];
-        array[0] = "Test";
-        array[1] = 123;
-        array[2] = new Object();
+        lista.insere("input");
+        assertFalse(lista.vazia());
+    }
 
-        for (int i = 0; i < array.length; i++) {
-            try {
-                lista.insere(array[i]);
-            } catch (Exception e) {
-                fail("Exception thrown");
-            }
-        }
+    @Test(timeout=1000)
+    public void testImprimeEmptyList() throws Exception {
+        Lista lista = new Lista();
+        lista.imprime(); // nothing to assert or compare, just checking if it throws an exception
+    }
 
-        lista.imprime();
-        // Assert that the expected output matches the captured system output
-        // ...
+    @Test(timeout=1000)
+    public void testImprimeNonEmptyList() throws Exception {
+        Lista lista = new Lista();
+        lista.insere("input1");
+        lista.insere("input2");
+        lista.imprime(); // nothing to assert or compare, just checking if it throws an exception
     }
 }

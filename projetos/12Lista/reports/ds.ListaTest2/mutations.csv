@@ -3,11 +3,11 @@ Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,8,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,9,KILLED,ds.ListaTest2.testInsere(ds.ListaTest2)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,9,SURVIVED,none
-Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,imprime,18,KILLED,ds.ListaTest2.testImprime(ds.ListaTest2)
-Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,imprime,19,KILLED,ds.ListaTest2.testImprime(ds.ListaTest2)
-Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,imprime,18,KILLED,ds.ListaTest2.testImprime(ds.ListaTest2)
+Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,imprime,18,SURVIVED,none
+Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,imprime,19,SURVIVED,none
+Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,imprime,18,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF,imprime,18,KILLED,ds.ListaTest2.testImprime(ds.ListaTest2)
-Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,imprime,19,KILLED,ds.ListaTest2.testImprime(ds.ListaTest2)
+Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,imprime,19,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,insere,12,KILLED,ds.ListaTest2.testInsere(ds.ListaTest2)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,insere,12,KILLED,ds.ListaTest2.testInsere(ds.ListaTest2)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,insere,12,KILLED,ds.ListaTest2.testInsere(ds.ListaTest2)

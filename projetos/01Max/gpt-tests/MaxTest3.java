@@ -1,50 +1,75 @@
-
 package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import ds.*;
+import org.junit.Ignore;
+import org.junit.rules.Timeout;
 
-public class MaxTest3 {
+public class MaxTest3{
 
-  @Test
-  public void testMax() {
-    Item[] items = new Item[5];
-    items[0] = new MeuItem(10);
-    items[1] = new MeuItem(5);
-    items[2] = new MeuItem(15);
-    items[3] = new MeuItem(3);
-    items[4] = new MeuItem(8);
-
-    Item maxItem = Max.max(items, items.length);
-
-    assertEquals(15, ((MeuItem) maxItem).chave);
-  }
-  
-  @Test
-  public void testMaxSameValues() {
-    Item[] items = new Item[6];
-    items[0] = new MeuItem(10);
-    items[1] = new MeuItem(10);
-    items[2] = new MeuItem(10);
-    items[3] = new MeuItem(10);
-    items[4] = new MeuItem(10);
-    items[5] = new MeuItem(10);
-
-    Item maxItem = Max.max(items, items.length);
-
-    assertEquals(10, ((MeuItem) maxItem).chave);
-  }
-  
-  @Test
-  public void testMaxNegativeValues() {
-    Item[] items = new Item[4];
-    items[0] = new MeuItem(-5);
-    items[1] = new MeuItem(-10);
-    items[2] = new MeuItem(-2);
-    items[3] = new MeuItem(-1);
-
-    Item maxItem = Max.max(items, items.length);
-
-    assertEquals(-1, ((MeuItem) maxItem).chave);
-  }
-  
+    
+    @Test(expected=ClassCastException.class, timeout=1000)
+    public void testMaxWithInvalidDataType() throws Exception {
+        Item[] v = { new MeuItem(10), new MeuItem(20), new MeuItem(30) };
+        Max.max(v, 3);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxWithValidInput() throws Exception {
+        Item[] v = { new MeuItem(10), new MeuItem(20), new MeuItem(30) };
+        Item result = Max.max(v, 3);
+        assertEquals(30, ((MeuItem)result).chave);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxWithEmptyArray() throws Exception {
+        Item[] v = {};
+        Item result = Max.max(v, 0);
+        assertNull(result);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxWithNegativeValues() throws Exception {
+        Item[] v = { new MeuItem(-10), new MeuItem(-20), new MeuItem(-30) };
+        Item result = Max.max(v, 3);
+        assertEquals(-10, ((MeuItem)result).chave);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxWithBoundaryValues() throws Exception {
+        Item[] v = { new MeuItem(Integer.MIN_VALUE), new MeuItem(Integer.MAX_VALUE), new MeuItem(0) };
+        Item result = Max.max(v, 3);
+        assertEquals(Integer.MAX_VALUE, ((MeuItem)result).chave);
+    }
+    
+    @Test(expected=ArrayIndexOutOfBoundsException.class, timeout=1000)
+    public void testMaxWithInvalidArraySize() throws Exception {
+        Item[] v = { new MeuItem(10), new MeuItem(20), new MeuItem(30) };
+        Max.max(v, 5);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxWithEqualValues() throws Exception {
+        Item[] v = { new MeuItem(10), new MeuItem(10), new MeuItem(10) };
+        Item result = Max.max(v, 3);
+        assertEquals(10, ((MeuItem)result).chave);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxWithSingleValue() throws Exception {
+        Item[] v = { new MeuItem(10) };
+        Item result = Max.max(v, 1);
+        assertEquals(10, ((MeuItem)result).chave);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxWithNullArray() throws Exception {
+        Item[] v = null;
+        Item result = Max.max(v, 0);
+        assertNull(result);
+    }
+    
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Max max = new Max();
+        assertNotNull(max);
+    }
 }

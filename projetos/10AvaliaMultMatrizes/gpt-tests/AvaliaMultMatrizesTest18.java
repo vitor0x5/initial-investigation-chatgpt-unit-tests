@@ -1,33 +1,54 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
+import java.io.IOException;
 
 public class AvaliaMultMatrizesTest18{
 
 
-    @Test
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        AvaliaMultMatrizes avaliaMultMatrizes = new AvaliaMultMatrizes();
+        assertNotNull(avaliaMultMatrizes);
+    }
+
+    @Test(timeout=1000)
     public void testMultmatrize() throws Exception {
         int n = 3;
-        int[] d = {2, 3, 4};
+        int[] d = {1, 2, 3};
         AvaliaMultMatrizes.multmatrize(n, d);
-        // Add assertions here to verify the output
     }
 
-    @Test
-    public void testMultmatrizeWithZeroN() throws Exception {
-        int n = 0;
-        int[] d = {};
+    @Test(timeout=1000)
+    public void testMultmatrizeWithNegativeValues() throws Exception {
+        int n = 3;
+        int[] d = {-1, -2, -3};
         AvaliaMultMatrizes.multmatrize(n, d);
-        // Add assertions here to verify the output
     }
 
-    @Test
-    public void testMultmatrizeWithNegativeD() throws Exception {
-        int n = 4;
-        int[] d = {2, -3, 4, -5};
+    @Test(timeout=1000)
+    public void testMultmatrizeWithZeroValues() throws Exception {
+        int n = 3;
+        int[] d = {0, 0, 0};
         AvaliaMultMatrizes.multmatrize(n, d);
-        // Add assertions here to verify the output
     }
 
-    // Add more test cases here
+    @Test(timeout=1000)
+    public void testMultmatrizeWithBoundaryValues() throws Exception {
+        int n = Integer.MAX_VALUE;
+        int[] d = new int[n];
+        for (int i = 0; i < n; i++) {
+            d[i] = i;
+        }
+        AvaliaMultMatrizes.multmatrize(n, d);
+    }
 
+    @Test(timeout=1000)
+    public void testMultmatrizeWithBoundaryValuesNegative() throws Exception {
+        int n = Integer.MAX_VALUE;
+        int[] d = new int[n];
+        for (int i = 0; i < n; i++) {
+            d[i] = -i;
+        }
+        AvaliaMultMatrizes.multmatrize(n, d);
+    }
 }

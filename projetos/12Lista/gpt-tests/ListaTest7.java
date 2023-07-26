@@ -1,24 +1,46 @@
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
-package ds;Here are some test cases for the Lista Java class:
+public class ListaTest7{
 
-1. Test case for creating an empty list:
-   - Input: No input
-   - Output: The list should be empty
 
-2. Test case for inserting elements into the list:
-   - Input: Elements (e.g. "A", "B", "C")
-   - Output: The list should contain the inserted elements
+    @Test(expected = NullPointerException.class, timeout = 1000)
+    public void testDefaultConstructor() {
+        Lista lista = new Lista();
+        assertNotNull(lista);
+    }
 
-3. Test case for checking if the list is empty:
-   - Input: No input
-   - Output: The method should return true if the list is empty, false otherwise
+    @Test(timeout = 1000)
+    public void testInsere() {
+        Lista lista = new Lista();
+        lista.insere(5);
+        assertFalse(lista.vazia());
+    }
 
-4. Test case for printing the elements of the list:
-   - Input: No input
-   - Output: The elements of the list should be printed to the console
+    @Test(timeout = 1000)
+    public void testVaziaTrue() {
+        Lista lista = new Lista();
+        assertTrue(lista.vazia());
+    }
 
-5. Test case for inserting and printing multiple elements:
-   - Input: Elements (e.g. "A", "B", "C")
-   - Output: The inserted elements should be printed to the console
+    @Test(timeout = 1000)
+    public void testVaziaFalse() {
+        Lista lista = new Lista();
+        lista.insere(5);
+        assertFalse(lista.vazia());
+    }
 
-Note: You should also consider boundary cases, negative scenarios, and any specific requirements or constraints mentioned in the problem statement or class documentation.
+    @Test(timeout = 1000)
+    public void testImprimeWithNullItem() {
+        Lista lista = new Lista();
+        lista.insere(null);
+        lista.imprime();
+    }
+
+    @Test(timeout = 1000)
+    public void testImprimeWithNonNullItem() {
+        Lista lista = new Lista();
+        lista.insere(5);
+        lista.imprime();
+    }
+}

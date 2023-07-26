@@ -1,38 +1,56 @@
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+public class CasamentoExatoTest10{
 
-public class CasamentoExatoTest10 {
 
-   @Test
-   public void testForcaBruta() {
-      String T = "This is a test string";
-      String P = "test";
-      CasamentoExato.forcaBruta(T, T.length(), P, P.length());
-      // Write an assertion to verify the output
-   }
-   
-   @Test
-   public void testShiftAndExato() {
-      String T = "This is a test string";
-      String P = "test";
-      CasamentoExato.shiftAndExato(T, T.length(), P, P.length());
-      // Write an assertion to verify the output
-   }
-   
-   @Test
-   public void testBmh() {
-      String T = "This is a test string";
-      String P = "test";
-      CasamentoExato.bmh(T, T.length(), P, P.length());
-      // Write an assertion to verify the output
-   }
-   
-   @Test
-   public void testBmhs() {
-      String T = "This is a test string";
-      String P = "test";
-      CasamentoExato.bmhs(T, T.length(), P, P.length());
-      // Write an assertion to verify the output
-   }
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoExato ce = new CasamentoExato();
+        assertNotNull(ce);
+    }
+
+    @Test(timeout=1000)
+    public void testForcaBruta() throws Exception {
+        String T = "abcde";
+        int n = T.length();
+        String P = "c";
+        int m = P.length();
+        CasamentoExato.forcaBruta(T, n, P, m);
+        // add assertions
+
+    }
+
+    @Test(timeout=1000)
+    public void testShiftAndExato() throws Exception {
+        String T = "abcde";
+        int n = T.length();
+        String P = "c";
+        int m = P.length();
+        CasamentoExato.shiftAndExato(T, n, P, m);
+        // add assertions
+
+    }
+
+    @Test(timeout=1000)
+    public void testBmh() throws Exception {
+        String T = "abcde";
+        int n = T.length();
+        String P = "c";
+        int m = P.length();
+        CasamentoExato.bmh(T, n, P, m);
+        // add assertions
+
+    }
+
+    @Test(timeout=1000)
+    public void testBmhs() throws Exception {
+        String T = "abcde";
+        int n = T.length();
+        String P = "c";
+        int m = P.length();
+        CasamentoExato.bmhs(T, n, P, m);
+        // add assertions
+
+    }
 }

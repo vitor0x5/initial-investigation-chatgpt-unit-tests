@@ -4,31 +4,42 @@ import static org.junit.Assert.*;
 public class AvaliaMultMatrizesTest19{
 
 
-    @Test
-    public void testMultmatrize() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        AvaliaMultMatrizes avaliaMultMatrizes = new AvaliaMultMatrizes();
+        assertNotNull(avaliaMultMatrizes);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrize() throws Exception {
         int n = 3;
-        int[] d = {2, 3, 4};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown: " + e.getMessage());
-        }
+        int[] d = {1, 2, 3};
+        AvaliaMultMatrizes.multmatrize(n, d);
     }
 
-    @Test
-    public void testMultmatrizeWithNegativeValues() {
-        int n = 4;
-        int[] d = {2, -3, 4, -5};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown: " + e.getMessage());
+    @Test(timeout=1000)
+    public void testMultmatrize_MaxValue() throws Exception {
+        int n = Integer.MAX_VALUE;
+        int[] d = new int[n];
+        for (int i = 0; i < n; i++) {
+            d[i] = i+1;
         }
+        AvaliaMultMatrizes.multmatrize(n, d);
     }
 
-    @Test(expected = IOException.class)
-    public void testMultmatrizeWithInvalidInput() throws IOException {
-        int n = -1;
+    @Test(timeout=1000)
+    public void testMultmatrize_MinValue() throws Exception {
+        int n = Integer.MIN_VALUE;
+        int[] d = new int[n];
+        for (int i = 0; i < n; i++) {
+            d[i] = i+1;
+        }
+        AvaliaMultMatrizes.multmatrize(n, d);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrize_Zero() throws Exception {
+        int n = 0;
         int[] d = {};
         AvaliaMultMatrizes.multmatrize(n, d);
     }

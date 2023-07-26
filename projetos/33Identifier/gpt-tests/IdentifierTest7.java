@@ -1,44 +1,59 @@
-
-package ds;import ds.Identifier;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class IdentifierTest7 {
+public class IdentifierTest7{
 
-    @Test
-    public void testValidIdentifier() {
+
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() {
         Identifier identifier = new Identifier();
-        assertTrue(identifier.validateIdentifier("valid"));
+        assertNotNull(identifier);
     }
 
-    @Test
-    public void testInvalidFirstCharacter() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifierWithValidFirstCharacter() {
         Identifier identifier = new Identifier();
-        assertFalse(identifier.validateIdentifier("9invalid"));
+        assertTrue(identifier.validateIdentifier("a"));
+        assertTrue(identifier.validateIdentifier("A"));
     }
 
-    @Test
-    public void testInvalidCharacter() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifierWithInvalidFirstCharacter() {
         Identifier identifier = new Identifier();
-        assertFalse(identifier.validateIdentifier("in*valid"));
+        assertFalse(identifier.validateIdentifier("1"));
+        assertFalse(identifier.validateIdentifier("_"));
     }
 
-    @Test
-    public void testShortIdentifier() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifierWithValidFirstAndSecondCharacter() {
         Identifier identifier = new Identifier();
-        assertFalse(identifier.validateIdentifier("a"));
+        assertTrue(identifier.validateIdentifier("ab"));
+        assertTrue(identifier.validateIdentifier("AB"));
     }
 
-    @Test
-    public void testLongIdentifier() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifierWithInvalidSecondCharacter() {
         Identifier identifier = new Identifier();
-        assertFalse(identifier.validateIdentifier("verylong"));
+        assertFalse(identifier.validateIdentifier("a_"));
+        assertFalse(identifier.validateIdentifier("A1"));
     }
 
-    @Test
-    public void testEmptyIdentifier() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifierWithInvalidCharacters() {
         Identifier identifier = new Identifier();
-        assertFalse(identifier.validateIdentifier(""));
+        assertFalse(identifier.validateIdentifier("123"));
+        assertFalse(identifier.validateIdentifier("_abc"));
     }
 
+    @Test(timeout = 1000)
+    public void testValidateIdentifierWithValidLength() {
+        Identifier identifier = new Identifier();
+        assertTrue(identifier.validateIdentifier("abcde"));
+    }
+
+    @Test(timeout = 1000)
+    public void testValidateIdentifierWithInvalidLength() {
+        Identifier identifier = new Identifier();
+        assertFalse(identifier.validateIdentifier("abcdef"));
+    }
 }

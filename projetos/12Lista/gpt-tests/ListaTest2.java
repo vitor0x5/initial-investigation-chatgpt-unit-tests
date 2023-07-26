@@ -1,49 +1,36 @@
-
-package ds;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+public class ListaTest2{
 
-public class ListaTest2 {
 
-    @Test
-    public void testInsere() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Lista lista = new Lista();
-        
-        lista.insere(1);
-        lista.insere(2);
-        lista.insere(3);
-        
+        assertNotNull(lista);
+    }
+
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        Lista lista = new Lista();
+        lista.insere(5);
         assertFalse(lista.vazia());
     }
-    
-    @Test
-    public void testVazia() {
+
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Lista lista = new Lista();
-        
         assertTrue(lista.vazia());
-        
-        lista.insere(1);
-        
-        assertFalse(lista.vazia());
     }
-    
-    @Test
-    public void testImprime() {
+
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         Lista lista = new Lista();
-        
         lista.insere(1);
         lista.insere(2);
         lista.insere(3);
-        
-        // Redirect System.out.println() to a ByteArrayOutputStream
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        
+        lista.insere(4);
+        lista.insere(5);
         lista.imprime();
-        
-        assertEquals("1\n2\n3\n", outContent.toString());
     }
 }

@@ -1,35 +1,34 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class ListaTest19{
 
 
-    @Test
-    public void testInsere() throws Exception {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Lista lista = new Lista();
-        lista.insere(1);
-        lista.insere(2);
-        lista.insere(3);
-        assertEquals(1, lista.item[0]);
-        assertEquals(2, lista.item[1]);
-        assertEquals(3, lista.item[2]);
+        assertNotNull(lista);
     }
 
-    @Test
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        Lista lista = new Lista();
+        lista.insere("Item 1");
+        assertEquals("Item 1", lista.item[0]);
+    }
+
+    @Test(timeout=1000)
     public void testVazia() throws Exception {
         Lista lista = new Lista();
         assertTrue(lista.vazia());
-        lista.insere(1);
-        assertFalse(lista.vazia());
     }
 
-    @Test
+    @Test(timeout=1000)
     public void testImprime() throws Exception {
         Lista lista = new Lista();
-        lista.insere(1);
-        lista.insere(2);
-        lista.insere(3);
+        lista.insere("Item 1");
+        lista.insere("Item 2");
+        lista.insere("Item 3");
         lista.imprime();
-        // Verify the output in the console manually
     }
 }

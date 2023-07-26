@@ -17,4 +17,4 @@ Ordenacao.java,ds.Ordenacao,org.pitest.mutationtest.engine.gregor.mutators.Remov
 Ordenacao.java,ds.Ordenacao,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF,ordena,4,KILLED,ds.OrdenacaoTest4.testOrdena(ds.OrdenacaoTest4)
 Ordenacao.java,ds.Ordenacao,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF,ordena,6,KILLED,ds.OrdenacaoTest4.testOrdena(ds.OrdenacaoTest4)
 Ordenacao.java,ds.Ordenacao,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF,ordena,7,KILLED,ds.OrdenacaoTest4.testOrdena(ds.OrdenacaoTest4)
-Ordenacao.java,ds.Ordenacao,org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator,ordena,4,TIMED_OUT,none
+Ordenacao.java,ds.Ordenacao,org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator,ordena,4,KILLED,ds.OrdenacaoTest4.testOrdena(ds.OrdenacaoTest4)

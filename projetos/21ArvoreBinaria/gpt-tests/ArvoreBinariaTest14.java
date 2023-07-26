@@ -1,75 +1,84 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class ArvoreBinariaTest14{
 
-
-    @Test
-    public void testPesquisa() {
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testDefaultConstructor() throws Exception {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        arvore.insere(item1);
-        Item item2 = new MeuItem(2);
-        arvore.insere(item2);
-        Item item3 = new MeuItem(3);
-        arvore.insere(item3);
-
-        assertEquals(item1, arvore.pesquisa(item1));
-        assertEquals(item2, arvore.pesquisa(item2));
-        assertEquals(item3, arvore.pesquisa(item3));
-
-        Item item4 = new MeuItem(4);
-        assertNull(arvore.pesquisa(item4));
     }
-
-    @Test
-    public void testInsere() {
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testPesquisa() throws Exception {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        arvore.insere(item1);
-        Item item2 = new MeuItem(2);
-        arvore.insere(item2);
-        Item item3 = new MeuItem(3);
-        arvore.insere(item3);
-
-        assertEquals(item1, arvore.pesquisa(item1));
-        assertEquals(item2, arvore.pesquisa(item2));
-        assertEquals(item3, arvore.pesquisa(item3));
+        Item reg = new MeuItem(5);
+        arvore.pesquisa(reg);
     }
-
-    @Test
-    public void testRetira() {
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testInsere() throws Exception {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        arvore.insere(item1);
-        Item item2 = new MeuItem(2);
-        arvore.insere(item2);
-        Item item3 = new MeuItem(3);
-        arvore.insere(item3);
-
-        arvore.retira(item1);
-        assertNull(arvore.pesquisa(item1));
-        assertEquals(item2, arvore.pesquisa(item2));
-        assertEquals(item3, arvore.pesquisa(item3));
-
-        arvore.retira(item2);
-        assertNull(arvore.pesquisa(item2));
-        assertEquals(item3, arvore.pesquisa(item3));
-
-        arvore.retira(item3);
-        assertNull(arvore.pesquisa(item3));
+        Item reg = new MeuItem(5);
+        arvore.insere(reg);
     }
-
-    @Test
-    public void testTesta() {
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testRetira() throws Exception {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        arvore.insere(item1);
-        Item item2 = new MeuItem(2);
-        arvore.insere(item2);
-        Item item3 = new MeuItem(3);
-        arvore.insere(item3);
-
+        Item reg = new MeuItem(5);
+        arvore.retira(reg);
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testCentral() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        ArvoreBinaria.No p = new ArvoreBinaria.No();
+        arvore.central(p);
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testPesquisaNo() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        Item reg = new MeuItem(5);
+        ArvoreBinaria.No p = new ArvoreBinaria.No();
+        arvore.pesquisa(reg, p);
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testInsereNo() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        Item reg = new MeuItem(5);
+        ArvoreBinaria.No p = new ArvoreBinaria.No();
+        arvore.insere(reg, p);
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testAntecessor() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        ArvoreBinaria.No q = new ArvoreBinaria.No();
+        ArvoreBinaria.No r = new ArvoreBinaria.No();
+        arvore.antecessor(q, r);
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testRetiraNo() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        Item reg = new MeuItem(5);
+        ArvoreBinaria.No p = new ArvoreBinaria.No();
+        arvore.retira(reg, p);
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testTesta() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        ArvoreBinaria.No p = new ArvoreBinaria.No();
+        arvore.testa(p);
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testTestaArvore() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
         arvore.testa();
     }
 }

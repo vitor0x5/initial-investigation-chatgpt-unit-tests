@@ -1,79 +1,100 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
-
-import ds.Grafo;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
+import org.junit.Ignore;
 
 public class GrafoTest13{
 
 
-    @Test
-    public void testInsereAresta() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Grafo grafo = new Grafo();
-        grafo.insereAresta(1, 2, 3);
+        assertNotNull(grafo);
+    }
+
+    @Test(timeout=1000)
+    public void testInsereAresta() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(1, 2, 10);
         assertTrue(grafo.existeAresta(1, 2));
     }
 
-    @Test
-    public void testExisteAresta() {
+    @Test(timeout=1000)
+    public void testExisteAresta() throws Exception {
         Grafo grafo = new Grafo();
-        grafo.insereAresta(1, 2, 3);
+        grafo.insereAresta(1, 2, 10);
         assertTrue(grafo.existeAresta(1, 2));
-        assertFalse(grafo.existeAresta(2, 3));
+        assertFalse(grafo.existeAresta(2, 1));
     }
 
-    @Test
-    public void testListaAdjVazia() {
+    @Test(timeout=1000)
+    public void testListaAdjVazia() throws Exception {
         Grafo grafo = new Grafo();
-        grafo.insereAresta(1, 2, 3);
+        grafo.insereAresta(1, 2, 10);
         assertFalse(grafo.listaAdjVazia(1));
         assertTrue(grafo.listaAdjVazia(2));
     }
 
-    @Test
-    public void testPrimeiroListaAdj() {
+    @Test(timeout=1000)
+    public void testPrimeiroListaAdj() throws Exception {
         Grafo grafo = new Grafo();
-        grafo.insereAresta(1, 2, 3);
-        grafo.insereAresta(1, 3, 4);
+        grafo.insereAresta(1, 2, 10);
         Grafo.Aresta aresta = grafo.primeiroListaAdj(1);
+        assertNotNull(aresta);
         assertEquals(1, aresta.v1());
         assertEquals(2, aresta.v2());
-        assertEquals(3, aresta.peso());
+        assertEquals(10, aresta.peso());
     }
 
-    @Test
-    public void testProxAdj() {
+    @Test(timeout=1000)
+    public void testProxAdj() throws Exception {
         Grafo grafo = new Grafo();
-        grafo.insereAresta(1, 2, 3);
-        grafo.insereAresta(1, 3, 4);
-        Grafo.Aresta aresta1 = grafo.primeiroListaAdj(1);
-        Grafo.Aresta aresta2 = grafo.proxAdj(1);
-        assertEquals(1, aresta1.v1());
-        assertEquals(2, aresta1.v2());
-        assertEquals(3, aresta1.peso());
-        assertEquals(1, aresta2.v1());
-        assertEquals(3, aresta2.v2());
-        assertEquals(4, aresta2.peso());
+        grafo.insereAresta(1, 2, 10);
+        grafo.insereAresta(1, 3, 20);
+        Grafo.Aresta aresta = grafo.primeiroListaAdj(1);
+        aresta = grafo.proxAdj(1);
+        assertNotNull(aresta);
+        assertEquals(1, aresta.v1());
+        assertEquals(3, aresta.v2());
+        assertEquals(20, aresta.peso());
     }
 
-    @Test
+    @Test(timeout=1000)
     public void testRetiraAresta() throws Exception {
         Grafo grafo = new Grafo();
-        grafo.insereAresta(1, 2, 3);
-        grafo.insereAresta(1, 3, 4);
+        grafo.insereAresta(1, 2, 10);
+        grafo.insereAresta(1, 3, 20);
         Grafo.Aresta aresta = grafo.retiraAresta(1, 2);
+        assertNotNull(aresta);
         assertEquals(1, aresta.v1());
         assertEquals(2, aresta.v2());
-        assertEquals(3, aresta.peso());
+        assertEquals(10, aresta.peso());
         assertFalse(grafo.existeAresta(1, 2));
     }
 
-    @Test
-    public void testGrafoTransposto() {
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         Grafo grafo = new Grafo();
-        grafo.insereAresta(1, 2, 3);
-        grafo.insereAresta(1, 3, 4);
+        grafo.insereAresta(1, 2, 10);
+        grafo.insereAresta(1, 3, 20);
+        grafo.imprime();
+    }
+
+    @Test(timeout=1000)
+    public void testNumVertices() throws Exception {
+        Grafo grafo = new Grafo();
+        assertEquals(100, grafo.numVertices());
+    }
+
+    @Test(timeout=1000)
+    public void testGrafoTransposto() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(1, 2, 10);
+        grafo.insereAresta(1, 3, 20);
         Grafo grafoT = grafo.grafoTransposto();
+        assertNotNull(grafoT);
         assertTrue(grafoT.existeAresta(2, 1));
         assertTrue(grafoT.existeAresta(3, 1));
+        assertFalse(grafoT.existeAresta(1, 2));
+        assertFalse(grafoT.existeAresta(1, 3));
     }
 }

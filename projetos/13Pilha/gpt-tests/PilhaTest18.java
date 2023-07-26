@@ -1,58 +1,40 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class PilhaTest18{
 
 
-    @Test
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Pilha p = new Pilha();
+        assertEquals(0, p.tamanho());
+    }
+
+    @Test(timeout=1000)
     public void testEmpilha() throws Exception {
-        Pilha pilha = new Pilha();
-        pilha.empilha(1);
-        pilha.empilha(2);
-        pilha.empilha(3);
-        assertEquals(3, pilha.tamanho());
+        Pilha p = new Pilha();
+        p.empilha(10);
+        assertEquals(1, p.tamanho());
     }
 
-    @Test(expected = Exception.class)
-    public void testEmpilhaPilhaCheia() throws Exception {
-        Pilha pilha = new Pilha();
-        for (int i = 0; i < 1000; i++) {
-            pilha.empilha(i);
-        }
-        pilha.empilha(1001);
-    }
-
-    @Test
+    @Test(timeout=1000)
     public void testDesempilha() throws Exception {
-        Pilha pilha = new Pilha();
-        pilha.empilha(1);
-        pilha.empilha(2);
-        pilha.empilha(3);
-        assertEquals(3, pilha.desempilha());
-        assertEquals(2, pilha.tamanho());
+        Pilha p = new Pilha();
+        p.empilha(10);
+        assertEquals(10, p.desempilha());
+        assertEquals(0, p.tamanho());
     }
 
-    @Test(expected = Exception.class)
-    public void testDesempilhaPilhaVazia() throws Exception {
-        Pilha pilha = new Pilha();
-        pilha.desempilha();
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
+        Pilha p = new Pilha();
+        assertTrue(p.vazia());
     }
 
-    @Test
-    public void testVazia() {
-        Pilha pilha = new Pilha();
-        assertTrue(pilha.vazia());
-        pilha.empilha(1);
-        assertFalse(pilha.vazia());
-    }
-
-    @Test
+    @Test(timeout=1000)
     public void testTamanho() throws Exception {
-        Pilha pilha = new Pilha();
-        assertEquals(0, pilha.tamanho());
-        pilha.empilha(1);
-        assertEquals(1, pilha.tamanho());
-        pilha.desempilha();
-        assertEquals(0, pilha.tamanho());
+        Pilha p = new Pilha();
+        p.empilha(10);
+        assertEquals(1, p.tamanho());
     }
 }

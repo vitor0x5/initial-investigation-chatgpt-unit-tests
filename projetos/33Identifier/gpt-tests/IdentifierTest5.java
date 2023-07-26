@@ -1,63 +1,82 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import ds.Identifier;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+public class IdentifierTest5{
 
-public class IdentifierTest5 {
 
-    @Test
-    public void testValidIdentifier() {
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("Test");
-        assertEquals(true, result);
+        assertNotNull(identifier);
     }
 
-    @Test
-    public void testInvalidIdentifier() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_ValidId_ReturnsTrue() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("123Test");
-        assertEquals(false, result);
+        boolean result = identifier.validateIdentifier("ValidId");
+        assertTrue(result);
     }
 
-    @Test
-    public void testEmptyIdentifier() {
-        Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("");
-        assertEquals(false, result);
-    }
-
-    @Test
-    public void testNullIdentifier() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_NullString_ReturnsFalse() throws Exception {
         Identifier identifier = new Identifier();
         boolean result = identifier.validateIdentifier(null);
-        assertEquals(false, result);
+        assertFalse(result);
     }
 
-    @Test
-    public void testMinLengthIdentifier() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_IdWithInvalidStartChar_ReturnsFalse() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("A");
-        assertEquals(true, result);
+        boolean result = identifier.validateIdentifier("1InvalidStart");
+        assertFalse(result);
     }
 
-    @Test
-    public void testMaxLengthIdentifier() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_IdWithInvalidChar_ReturnsFalse() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("AbCdEf");
-        assertEquals(true, result);
+        boolean result = identifier.validateIdentifier("Invalid@Char");
+        assertFalse(result);
     }
 
-    @Test
-    public void testInvalidFirstChar() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_IdLengthLessThanOne_ReturnsFalse() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("1Test");
-        assertEquals(false, result);
+        boolean result = identifier.validateIdentifier("");
+        assertFalse(result);
     }
 
-    @Test
-    public void testInvalidChar() {
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_IdLengthGreaterThanFive_ReturnsFalse() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("Te@st");
-        assertEquals(false, result);
+        boolean result = identifier.validateIdentifier("TooLongIdentifier");
+        assertFalse(result);
+    }
+
+    @Test(timeout = 1000)
+    public void testValid_s_ValidChar_ReturnsTrue() throws Exception {
+        Identifier identifier = new Identifier();
+        boolean result = identifier.valid_s('A');
+        assertTrue(result);
+    }
+
+    @Test(timeout = 1000)
+    public void testValid_s_InvalidChar_ReturnsFalse() throws Exception {
+        Identifier identifier = new Identifier();
+        boolean result = identifier.valid_s('1');
+        assertFalse(result);
+    }
+
+    @Test(timeout = 1000)
+    public void testValid_f_ValidChar_ReturnsTrue() throws Exception {
+        Identifier identifier = new Identifier();
+        boolean result = identifier.valid_f('a');
+        assertTrue(result);
+    }
+
+    @Test(timeout = 1000)
+    public void testValid_f_InvalidChar_ReturnsFalse() throws Exception {
+        Identifier identifier = new Identifier();
+        boolean result = identifier.valid_f('!');
+        assertFalse(result);
     }
 }

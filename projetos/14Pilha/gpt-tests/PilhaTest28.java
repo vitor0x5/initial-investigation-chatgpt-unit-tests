@@ -4,48 +4,41 @@ import static org.junit.Assert.*;
 public class PilhaTest28{
 
 
-    @Test
-    public void testEmpilha() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Pilha pilha = new Pilha();
-        pilha.empilha(1);
-        pilha.empilha(2);
-        pilha.empilha(3);
-        assertEquals(3, pilha.tamanho());
+        assertNotNull(pilha);
     }
 
-    @Test
+    @Test(timeout=1000)
+    public void testEmpilha() throws Exception {
+        Pilha pilha = new Pilha();
+        pilha.empilha(10);
+        assertEquals(1, pilha.tamanho());
+    }
+
+    @Test(timeout=1000)
     public void testDesempilha() throws Exception {
         Pilha pilha = new Pilha();
-        pilha.empilha(1);
-        pilha.empilha(2);
-        pilha.empilha(3);
-        assertEquals(3, pilha.desempilha());
-        assertEquals(2, pilha.desempilha());
-        assertEquals(1, pilha.desempilha());
-        assertTrue(pilha.vazia());
+        pilha.empilha(10);
+        Object item = pilha.desempilha();
+        assertEquals(0, pilha.tamanho());
+        assertEquals(10, item);
     }
 
-    @Test(expected = Exception.class)
-    public void testDesempilhaEmptyStack() throws Exception {
-        Pilha pilha = new Pilha();
-        pilha.desempilha();
-    }
-
-    @Test
-    public void testVazia() {
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Pilha pilha = new Pilha();
         assertTrue(pilha.vazia());
-        pilha.empilha(1);
+        pilha.empilha(10);
         assertFalse(pilha.vazia());
     }
 
-    @Test
-    public void testTamanho() {
+    @Test(timeout=1000)
+    public void testTamanho() throws Exception {
         Pilha pilha = new Pilha();
         assertEquals(0, pilha.tamanho());
-        pilha.empilha(1);
-        pilha.empilha(2);
-        pilha.empilha(3);
-        assertEquals(3, pilha.tamanho());
+        pilha.empilha(10);
+        assertEquals(1, pilha.tamanho());
     }
 }

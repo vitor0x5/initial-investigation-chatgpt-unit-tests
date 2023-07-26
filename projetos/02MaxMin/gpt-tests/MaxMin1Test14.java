@@ -3,37 +3,54 @@ import org.junit.Test;
 
 public class MaxMin1Test14{
 
-  
-  @Test
-  public void testMaxMin1() {
-    // Test case 1: v = [1, 2, 3, 4, 5], n = 5
-    int[] v1 = {1, 2, 3, 4, 5};
-    int n1 = 5;
-    int[] expected1 = {5, 1};
-    assertArrayEquals(expected1, MaxMin1.maxMin1(v1, n1));
-    
-    // Test case 2: v = [5, 4, 3, 2, 1], n = 5
-    int[] v2 = {5, 4, 3, 2, 1};
-    int n2 = 5;
-    int[] expected2 = {5, 1};
-    assertArrayEquals(expected2, MaxMin1.maxMin1(v2, n2));
-    
-    // Test case 3: v = [1, 1, 1, 1, 1], n = 5
-    int[] v3 = {1, 1, 1, 1, 1};
-    int n3 = 5;
-    int[] expected3 = {1, 1};
-    assertArrayEquals(expected3, MaxMin1.maxMin1(v3, n3));
-    
-    // Test case 4: v = [10, 20, 30, 40, 50], n = 5
-    int[] v4 = {10, 20, 30, 40, 50};
-    int n4 = 5;
-    int[] expected4 = {50, 10};
-    assertArrayEquals(expected4, MaxMin1.maxMin1(v4, n4));
-    
-    // Test case 5: v = [5], n = 1
-    int[] v5 = {5};
-    int n5 = 1;
-    int[] expected5 = {5, 5};
-    assertArrayEquals(expected5, MaxMin1.maxMin1(v5, n5));
-  }
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin1 maxMin1 = new MaxMin1();
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin1() throws Exception {
+        int[] v = {5, -3, 10, 2, 8};
+        int n = 5;
+        int[] expected = {10, -3};
+        int[] result = MaxMin1.maxMin1(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin1WithEmptyArray() throws Exception {
+        int[] v = {};
+        int n = 0;
+        int[] expected = {Integer.MIN_VALUE, Integer.MAX_VALUE};
+        int[] result = MaxMin1.maxMin1(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin1WithSingleElementArray() throws Exception {
+        int[] v = {5};
+        int n = 1;
+        int[] expected = {5, 5};
+        int[] result = MaxMin1.maxMin1(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin1WithAllEqualElements() throws Exception {
+        int[] v = {3, 3, 3, 3};
+        int n = 4;
+        int[] expected = {3, 3};
+        int[] result = MaxMin1.maxMin1(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin1WithNegativeValues() throws Exception {
+        int[] v = {-5, -3, -10, -2, -8};
+        int n = 5;
+        int[] expected = {-2, -10};
+        int[] result = MaxMin1.maxMin1(v, n);
+        assertArrayEquals(expected, result);
+    }
 }

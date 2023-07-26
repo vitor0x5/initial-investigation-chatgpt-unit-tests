@@ -1,91 +1,68 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+public class GrafoTest9{
 
-import org.junit.Before;
-import org.junit.Test;
 
-public class GrafoTest9 {
-
-    private Grafo grafo;
-
-    @Before
-    public void setUp() {
-        grafo = new Grafo();
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Grafo grafo = new Grafo();
+        assertNotNull(grafo);
     }
 
-    @Test
-    public void testInsereAresta() {
+    @Test(timeout=1000)
+    public void testInsereAresta() throws Exception {
+        Grafo grafo = new Grafo();
         grafo.insereAresta(0, 1, 10);
         assertTrue(grafo.existeAresta(0, 1));
-        assertEquals(10, grafo.mat[0][1]);
     }
 
-    @Test
-    public void testExisteAresta() {
-        assertFalse(grafo.existeAresta(0, 1));
+    @Test(timeout=1000)
+    public void testExisteAresta() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(0, 1, 10);
+        assertTrue(grafo.existeAresta(0, 1));
+        assertFalse(grafo.existeAresta(1, 0));
     }
 
-    @Test
-    public void testListaAdjVazia() {
+    @Test(timeout=1000)
+    public void testListaAdjVazia() throws Exception {
+        Grafo grafo = new Grafo();
         assertTrue(grafo.listaAdjVazia(0));
     }
 
-    @Test
-    public void testPrimeiroListaAdj() {
+    @Test(timeout=1000)
+    public void testPrimeiroListaAdj() throws Exception {
+        Grafo grafo = new Grafo();
+        assertNull(grafo.primeiroListaAdj(0));
+    }
+
+    @Test(timeout=1000)
+    public void testProxAdj() throws Exception {
+        Grafo grafo = new Grafo();
+        assertNull(grafo.proxAdj(0));
+    }
+
+    @Test(timeout=1000)
+    public void testRetiraAresta() throws Exception {
+        Grafo grafo = new Grafo();
         grafo.insereAresta(0, 1, 10);
-        Aresta aresta = grafo.primeiroListaAdj(0);
-        assertEquals(0, aresta.v1());
-        assertEquals(1, aresta.v2());
+        Aresta aresta = grafo.retiraAresta(0, 1);
+        assertNotNull(aresta);
         assertEquals(10, aresta.peso());
     }
 
-    @Test
-    public void testProxAdj() {
-        grafo.insereAresta(0, 1, 10);
-        grafo.insereAresta(0, 2, 20);
-        Aresta aresta1 = grafo.primeiroListaAdj(0);
-        Aresta aresta2 = grafo.proxAdj(0);
-        assertEquals(0, aresta1.v1());
-        assertEquals(1, aresta1.v2());
-        assertEquals(10, aresta1.peso());
-        assertEquals(0, aresta2.v1());
-        assertEquals(2, aresta2.v2());
-        assertEquals(20, aresta2.peso());
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.imprime();
     }
 
-    @Test
-    public void testProxAdjWithNoAdjacents() {
-        Aresta aresta = grafo.primeiroListaAdj(0);
-        assertNull(aresta);
-    }
-
-    @Test
-    public void testRetiraAresta() {
-        grafo.insereAresta(0, 1, 10);
-        Aresta aresta = grafo.retiraAresta(0, 1);
-        assertFalse(grafo.existeAresta(0, 1));
-        assertEquals(0, aresta.v1());
-        assertEquals(1, aresta.v2());
-        assertEquals(10, aresta.peso());
-    }
-
-    @Test
-    public void testRetiraArestaWithNonExistingAresta() {
-        Aresta aresta = grafo.retiraAresta(0, 1);
-        assertNull(aresta);
-    }
-
-    @Test
-    public void testGrafoTransposto() {
-        grafo.insereAresta(0, 1, 10);
-        grafo.insereAresta(1, 2, 20);
+    @Test(timeout=1000)
+    public void testGrafoTransposto() throws Exception {
+        Grafo grafo = new Grafo();
         Grafo grafoT = grafo.grafoTransposto();
-        assertTrue(grafoT.existeAresta(1, 0));
-        assertTrue(grafoT.existeAresta(2, 1));
-        assertEquals(10, grafoT.mat[1][0]);
-        assertEquals(20, grafoT.mat[2][1]);
+        assertNotNull(grafoT);
     }
+
 }

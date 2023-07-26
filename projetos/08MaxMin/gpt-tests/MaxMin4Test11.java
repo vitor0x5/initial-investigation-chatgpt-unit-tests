@@ -1,56 +1,56 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.*;
-import org.junit.Test;
+public class MaxMin4Test11{
 
-public class MaxMin4Test11 {
 
-  @Test
-  public void testMaxMin4_withTwoElements() {
-    int[] v = {5, 3};
-    int linf = 0;
-    int lsup = 1;
-    int[] expected = {5, 3};
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        new MaxMin4();
+    }
     
-    assertArrayEquals(expected, MaxMin4.maxMin4(v, linf, lsup));
-  }
-  
-  @Test
-  public void testMaxMin4_withThreeElements() {
-    int[] v = {7, 2, 9};
-    int linf = 0;
-    int lsup = 2;
-    int[] expected = {9, 2};
+    @Test(timeout=1000)
+    public void testMaxMin4() throws Exception {
+        int[] v = {1, 2, 3, 4, 5};
+        int linf = 0;
+        int lsup = v.length - 1;
+        int[] expected = {5, 1};
+        assertArrayEquals(expected, MaxMin4.maxMin4(v, linf, lsup));
+    }
     
-    assertArrayEquals(expected, MaxMin4.maxMin4(v, linf, lsup));
-  }
-  
-  @Test
-  public void testMaxMin4_withFourElements() {
-    int[] v = {4, 1, 6, 3};
-    int linf = 0;
-    int lsup = 3;
-    int[] expected = {6, 1};
+    @Test(timeout=1000)
+    public void testMaxMin4WithTwoElementsInArray() throws Exception {
+        int[] v = {5, 1};
+        int linf = 0;
+        int lsup = v.length - 1;
+        int[] expected = {5, 1};
+        assertArrayEquals(expected, MaxMin4.maxMin4(v, linf, lsup));
+    }
     
-    assertArrayEquals(expected, MaxMin4.maxMin4(v, linf, lsup));
-  }
-  
-  @Test
-  public void testMaxMin4_withMultipleElements() {
-    int[] v = {2, 5, 3, 8, 1, 9, 7};
-    int linf = 0;
-    int lsup = 6;
-    int[] expected = {9, 1};
+    @Test(timeout=1000)
+    public void testMaxMin4WithNegativeValues() throws Exception {
+        int[] v = {-5, -4, -3, -2, -1};
+        int linf = 0;
+        int lsup = v.length - 1;
+        int[] expected = {-1, -5};
+        assertArrayEquals(expected, MaxMin4.maxMin4(v, linf, lsup));
+    }
     
-    assertArrayEquals(expected, MaxMin4.maxMin4(v, linf, lsup));
-  }
-  
-  @Test
-  public void testMaxMin4_withDuplicateElements() {
-    int[] v = {3, 5, 2, 7, 5, 3};
-    int linf = 0;
-    int lsup = 5;
-    int[] expected = {7, 2};
+    @Test(timeout=1000)
+    public void testMaxMin4WithBoundaries() throws Exception {
+        int[] v = {-5, 0, 5};
+        int linf = 0;
+        int lsup = v.length - 1;
+        int[] expected = {5, -5};
+        assertArrayEquals(expected, MaxMin4.maxMin4(v, linf, lsup));
+    }
     
-    assertArrayEquals(expected, MaxMin4.maxMin4(v, linf, lsup));
-  }
+    @Test(timeout=1000)
+    public void testMaxMin4WithEmptyArray() throws Exception {
+        int[] v = {};
+        int linf = 0;
+        int lsup = v.length - 1;
+        int[] expected = {Integer.MIN_VALUE, Integer.MAX_VALUE};
+        assertArrayEquals(expected, MaxMin4.maxMin4(v, linf, lsup));
+    }
 }

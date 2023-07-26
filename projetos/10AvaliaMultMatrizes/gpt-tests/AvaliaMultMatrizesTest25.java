@@ -1,50 +1,20 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class AvaliaMultMatrizesTest25{
 
 
-    @Test
-    public void testMultmatrize() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        AvaliaMultMatrizes avaliaMultMatrizes = new AvaliaMultMatrizes();
+        assertNotNull(avaliaMultMatrizes);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrize() throws Exception {
         int n = 3;
-        int[] d = {2, 3, 4};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
-    }
-
-    @Test
-    public void testMultmatrizeWithZeroN() {
-        int n = 0;
-        int[] d = {};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
-    }
-
-    @Test
-    public void testMultmatrizeWithNegativeD() {
-        int n = 4;
-        int[] d = {2, -3, 4, 5};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
-    }
-
-    @Test
-    public void testMultmatrizeWithEmptyD() {
-        int n = 2;
-        int[] d = {};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
+        int[] d = {1, 2, 3};
+        AvaliaMultMatrizes.multmatrize(n, d);
+        // Add assertions here
     }
 }

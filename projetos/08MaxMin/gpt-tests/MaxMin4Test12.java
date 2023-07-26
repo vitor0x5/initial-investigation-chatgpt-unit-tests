@@ -1,11 +1,17 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class MaxMin4Test12{
 
-    
-    @Test
-    public void testMaxMin4_1() {
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin4 maxMin4 = new MaxMin4();
+        assertNotNull(maxMin4);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin4() throws Exception {
         int[] v = {1, 2, 3, 4, 5};
         int linf = 0;
         int lsup = 4;
@@ -13,43 +19,23 @@ public class MaxMin4Test12{
         int[] result = MaxMin4.maxMin4(v, linf, lsup);
         assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin4_2() {
-        int[] v = {5, 4, 3, 2, 1};
+
+    @Test(timeout=1000)
+    public void testMaxMin4WithNegativeValues() throws Exception {
+        int[] v = {-5, -4, -3, -2, -1};
         int linf = 0;
         int lsup = 4;
-        int[] expected = {5, 1};
+        int[] expected = {-1, -5};
         int[] result = MaxMin4.maxMin4(v, linf, lsup);
         assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin4_3() {
-        int[] v = {1, 3, 2, 5, 4};
+
+    @Test(timeout=1000)
+    public void testMaxMin4WithBoundaryValues() throws Exception {
+        int[] v = {0, 1, 2, 3, 4};
         int linf = 0;
         int lsup = 4;
-        int[] expected = {5, 1};
-        int[] result = MaxMin4.maxMin4(v, linf, lsup);
-        assertArrayEquals(expected, result);
-    }
-    
-    @Test
-    public void testMaxMin4_4() {
-        int[] v = {1};
-        int linf = 0;
-        int lsup = 0;
-        int[] expected = {1, 1};
-        int[] result = MaxMin4.maxMin4(v, linf, lsup);
-        assertArrayEquals(expected, result);
-    }
-    
-    @Test
-    public void testMaxMin4_5() {
-        int[] v = {1, 2};
-        int linf = 0;
-        int lsup = 1;
-        int[] expected = {2, 1};
+        int[] expected = {4, 0};
         int[] result = MaxMin4.maxMin4(v, linf, lsup);
         assertArrayEquals(expected, result);
     }

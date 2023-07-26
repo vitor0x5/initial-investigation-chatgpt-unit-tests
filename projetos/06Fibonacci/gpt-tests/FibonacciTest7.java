@@ -1,31 +1,38 @@
-
-package ds;import ds.Fibonacci;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class FibonacciTest7 {
+public class FibonacciTest7{
 
-    @Test
-    public void testFibonacciZero() {
-        int result = Fibonacci.fibIter(0);
-        assertEquals(0, result);
-    }
 
-    @Test
-    public void testFibonacciOne() {
-        int result = Fibonacci.fibIter(1);
-        assertEquals(1, result);
-    }
+  @Test(timeout=1000)
+  public void testDefaultConstructor() throws Exception {
+    Fibonacci fibonacci = new Fibonacci();
+  }
 
-    @Test
-    public void testFibonacciSmallNumber() {
-        int result = Fibonacci.fibIter(5);
-        assertEquals(5, result);
-    }
+  @Test(timeout=1000)
+  public void testFibIter() throws Exception {
+    // Test with n = 0
+    int result1 = Fibonacci.fibIter(0);
+    assertEquals(0, result1);
 
-    @Test
-    public void testFibonacciLargeNumber() {
-        int result = Fibonacci.fibIter(10);
-        assertEquals(55, result);
-    }
+    // Test with n = 1
+    int result2 = Fibonacci.fibIter(1);
+    assertEquals(1, result2);
+
+    // Test with n = 2
+    int result3 = Fibonacci.fibIter(2);
+    assertEquals(1, result3);
+
+    // Test with n = 5
+    int result4 = Fibonacci.fibIter(5);
+    assertEquals(5, result4);
+
+    // Test with n = -1
+    int result5 = Fibonacci.fibIter(-1);
+    assertEquals(-1, result5);
+
+    // Test with n = -5
+    int result6 = Fibonacci.fibIter(-5);
+    assertEquals(-5, result6);
+  }
 }

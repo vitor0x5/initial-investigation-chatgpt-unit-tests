@@ -1,37 +1,30 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;
-import org.junit.Test;
-import java.io.IOException;
+public class AvaliaMultMatrizesTest8{
 
-public class AvaliaMultMatrizesTest8 {
-
-    @Test(expected = IOException.class)
-    public void testMultmatrizeWithIOException() throws IOException {
-        // Test case for IOException
-        AvaliaMultMatrizes.multmatrize(0, new int[]{});
-    }
 
     @Test
-    public void testMultmatrizeWithEmptyArray() throws IOException {
-        // Test case for an empty array
-        AvaliaMultMatrizes.multmatrize(1, new int[]{});
+    public void testDefaultConstructor() {
+        try {
+            AvaliaMultMatrizes obj = new AvaliaMultMatrizes();
+            assertNotNull(obj);
+        } catch (Exception e) {
+            fail("Exception thrown");
+        }
     }
 
-    @Test
-    public void testMultmatrizeWithSingleElement() throws IOException {
-        // Test case for a single element
-        AvaliaMultMatrizes.multmatrize(1, new int[]{5});
+    @Test(timeout = 1000)
+    public void testMultmatrize() {
+        try {
+            int n = 3;
+            int d[] = {1, 2, 3};
+            AvaliaMultMatrizes.multmatrize(n, d);
+            // Add assertions for expected output or behavior
+        } catch (Exception e) {
+            fail("Exception thrown");
+        }
     }
 
-    @Test
-    public void testMultmatrizeWithSquareMatrix() throws IOException {
-        // Test case for a square matrix
-        AvaliaMultMatrizes.multmatrize(3, new int[]{2, 3, 4});
-    }
-
-    @Test
-    public void testMultmatrizeWithNonSquareMatrix() throws IOException {
-        // Test case for a non-square matrix
-        AvaliaMultMatrizes.multmatrize(3, new int[]{2, 3, 4, 5});
-    }
+    // Add test cases for other methods in the class under testing
 }

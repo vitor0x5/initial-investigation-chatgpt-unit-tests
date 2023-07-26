@@ -4,62 +4,52 @@ import static org.junit.Assert.*;
 public class CasamentoAproximadoTest14{
 
 
-    @Test
-    public void testShiftAndAproximado_WhenPatternFound_ExpectMatchPositionPrinted() {
-        // Arrange
-        String T = "abcde";
-        String P = "cde";
-        int k = 0;
-
-        // Act
-        CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k);
-
-        // Assert
-        // Verify that "Casamento na posicao: 2" is printed
-        // as the pattern "cde" is found at index 2 in the text "abcde"
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoAproximado casamento = new CasamentoAproximado();
     }
 
-    @Test
-    public void testShiftAndAproximado_WhenPatternNotFound_ExpectNoOutput() {
-        // Arrange
+    @Test(timeout=1000)
+    public void testShiftAndAproximado() throws Exception {
         String T = "abcde";
-        String P = "xyz";
-        int k = 0;
-
-        // Act
-        CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k);
-
-        // Assert
-        // Verify that no output is printed as the pattern "xyz" is not found in the text "abcde"
-    }
-
-    @Test
-    public void testShiftAndAproximado_WhenPatternApproximatelyFound_ExpectMatchPositionPrinted() {
-        // Arrange
-        String T = "abcde";
-        String P = "cde";
+        int n = 5;
+        String P = "bcd";
+        int m = 3;
         int k = 1;
 
-        // Act
-        CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k);
-
-        // Assert
-        // Verify that "Casamento na posicao: 2" is printed
-        // as the pattern "cde" is approximately found at index 2 in the text "abcde"
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
     }
 
-    @Test
-    public void testShiftAndAproximado_WhenPatternApproximatelyFoundMultipleTimes_ExpectMatchPositionsPrinted() {
-        // Arrange
-        String T = "abcdecde";
-        String P = "cde";
+    @Test(timeout=1000)
+    public void testShiftAndAproximadoPositiveValues() throws Exception {
+        String T = "abcde";
+        int n = 5;
+        String P = "bcd";
+        int m = 3;
         int k = 1;
 
-        // Act
-        CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k);
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
+    }
 
-        // Assert
-        // Verify that "Casamento na posicao: 2" and "Casamento na posicao: 5" are printed
-        // as the pattern "cde" is approximately found at index 2 and 5 in the text "abcdecde"
+    @Test(timeout=1000)
+    public void testShiftAndAproximadoNegativeValues() throws Exception {
+        String T = "abcde";
+        int n = 5;
+        String P = "bcd";
+        int m = 3;
+        int k = -1;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
+    }
+
+    @Test(timeout=1000)
+    public void testShiftAndAproximadoBoundaryValues() throws Exception {
+        String T = "abcde";
+        int n = 5;
+        String P = "bcd";
+        int m = 3;
+        int k = 0;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
     }
 }

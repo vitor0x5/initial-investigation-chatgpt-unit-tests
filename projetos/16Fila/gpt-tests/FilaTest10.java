@@ -1,60 +1,47 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;
-import org.junit.Assert;
-import org.junit.Test;
+public class FilaTest10{
 
-public class FilaTest10 {
 
-    @Test
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Fila fila = new Fila();
+        assertTrue(fila.vazia());
+    }
+
+    @Test(timeout = 1000)
     public void testEnfileira() {
         Fila fila = new Fila();
         fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        
-        Assert.assertFalse(fila.vazia());
     }
-    
-    @Test
-    public void testDesenfileira() throws Exception {
-        Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        
-        Assert.assertEquals(1, fila.desenfileira());
-        Assert.assertEquals(2, fila.desenfileira());
-        Assert.assertEquals(3, fila.desenfileira());
-        
-        Assert.assertTrue(fila.vazia());
-    }
-    
-    @Test(expected = Exception.class)
+
+    @Test(expected = Exception.class, timeout = 1000)
     public void testDesenfileiraEmptyFila() throws Exception {
         Fila fila = new Fila();
         fila.desenfileira();
     }
-    
-    @Test
+
+    @Test(timeout = 1000)
+    public void testDesenfileira() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira(1);
+        Object item = fila.desenfileira();
+        assertEquals(1, item);
+    }
+
+    @Test(timeout = 1000)
     public void testVazia() {
         Fila fila = new Fila();
-        Assert.assertTrue(fila.vazia());
-        
+        assertTrue(fila.vazia());
         fila.enfileira(1);
-        Assert.assertFalse(fila.vazia());
-        
-        fila.desenfileira();
-        Assert.assertTrue(fila.vazia());
+        assertFalse(fila.vazia());
     }
-    
-    @Test
+
+    @Test(timeout = 1000)
     public void testImprime() {
         Fila fila = new Fila();
         fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        
         fila.imprime();
-        // Should print: 1 2 3
     }
 }

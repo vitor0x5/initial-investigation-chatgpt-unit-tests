@@ -1,33 +1,41 @@
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+public class FibonacciTest10{
 
-public class FibonacciTest10 {
 
-    @Test
-    public void testFibIter_WithZero_ReturnsZero() {
-        int result = Fibonacci.fibIter(0);
-        assertEquals(0, result);
-    }
+	@Test(expected = Exception.class, timeout = 1000)
+	public void testDefaultConstructor() throws Exception {
+		new Fibonacci();
+	}
 
-    @Test
-    public void testFibIter_WithOne_ReturnsOne() {
-        int result = Fibonacci.fibIter(1);
-        assertEquals(1, result);
-    }
+	@Test(timeout = 1000)
+	public void testFibIter_PositiveValue() throws Exception {
+		int result = Fibonacci.fibIter(5);
+		assertEquals(5, result);
+	}
 
-    @Test
-    public void testFibIter_WithTwo_ReturnsOne() {
-        int result = Fibonacci.fibIter(2);
-        assertEquals(1, result);
-    }
+	@Test(timeout = 1000)
+	public void testFibIter_ZeroValue() throws Exception {
+		int result = Fibonacci.fibIter(0);
+		assertEquals(0, result);
+	}
 
-    @Test
-    public void testFibIter_WithTen_Returns55() {
-        int result = Fibonacci.fibIter(10);
-        assertEquals(55, result);
-    }
+	@Test(timeout = 1000)
+	public void testFibIter_NegativeValue() throws Exception {
+		int result = Fibonacci.fibIter(-5);
+		assertEquals(-5, result);
+	}
 
-    // Add more test cases as needed
+	@Test(timeout = 1000)
+	public void testFibIter_MaxIntValue() throws Exception {
+		int result = Fibonacci.fibIter(Integer.MAX_VALUE);
+		assertEquals(165580141, result);
+	}
 
+	@Test(timeout = 1000)
+	public void testFibIter_MinIntValue() throws Exception {
+		int result = Fibonacci.fibIter(Integer.MIN_VALUE);
+		assertEquals(-165580141, result);
+	}
 }

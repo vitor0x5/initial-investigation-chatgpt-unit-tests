@@ -4,16 +4,26 @@ import static org.junit.Assert.*;
 public class FilaTest20{
 
 
-    @Test
-    public void testEnfileira() {
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Fila fila = new Fila();
+        assertTrue(fila.vazia());
+    }
+
+    @Test(timeout = 1000)
+    public void testEnfileira() throws Exception {
         Fila fila = new Fila();
         fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
         assertFalse(fila.vazia());
     }
 
-    @Test
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDesenfileiraEmpty() throws Exception {
+        Fila fila = new Fila();
+        fila.desenfileira();
+    }
+
+    @Test(timeout = 1000)
     public void testDesenfileira() throws Exception {
         Fila fila = new Fila();
         fila.enfileira(1);
@@ -25,26 +35,22 @@ public class FilaTest20{
         assertTrue(fila.vazia());
     }
 
-    @Test(expected = Exception.class)
-    public void testDesenfileiraFromEmptyFila() throws Exception {
-        Fila fila = new Fila();
-        fila.desenfileira(); // should throw an exception
-    }
-
-    @Test
-    public void testVazia() {
+    @Test(timeout = 1000)
+    public void testVazia() throws Exception {
         Fila fila = new Fila();
         assertTrue(fila.vazia());
         fila.enfileira(1);
         assertFalse(fila.vazia());
+        fila.desenfileira();
+        assertTrue(fila.vazia());
     }
 
-    @Test
-    public void testImprime() {
+    @Test(timeout = 1000)
+    public void testImprime() throws Exception {
         Fila fila = new Fila();
         fila.enfileira(1);
         fila.enfileira(2);
         fila.enfileira(3);
-        fila.imprime(); // should print "1 2 3"
+        fila.imprime();
     }
 }

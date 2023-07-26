@@ -1,70 +1,36 @@
-
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.Random;
+public class ArvoreBinariaTest5{
 
-import ds.ArvoreBinaria;
-import ds.Item;
-import ds.PermutacaoRandomica;
 
-public class ArvoreBinariaTest5 {
-
-    @Test
-    public void testInserir() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        arvore.insere(item1);
-        assertEquals(item1, arvore.pesquisa(item1));
+        assertNotNull(arvore);
     }
 
-    @Test
-    public void testRemover() {
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        arvore.insere(item1);
-        arvore.insere(item2);
-        arvore.retira(item1);
-        assertNull(arvore.pesquisa(item1));
+        Item item = new MeuItem(5);
+        arvore.insere(item);
+        assertNotNull(arvore.pesquisa(item));
     }
 
-    @Test
-    public void testPesquisar() {
+    @Test(timeout=1000)
+    public void testRetira() throws Exception {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        arvore.insere(item1);
-        arvore.insere(item2);
-        assertEquals(item1, arvore.pesquisa(item1));
-        assertEquals(item2, arvore.pesquisa(item2));
+        Item item = new MeuItem(5);
+        arvore.insere(item);
+        arvore.retira(item);
+        assertNull(arvore.pesquisa(item));
     }
 
-    @Test
-    public void testPermutar() {
-        int max = 10;
-        Item vetor[] = new Item[max];
-        for (int i = 0; i < max; i++) {
-            vetor[i] = new MeuItem(i);
-        }
-        PermutacaoRandomica.permut(vetor, max);
-        for (int i = 0; i < max; i++) {
-            assertNotNull(vetor[i]);
-        }
-    }
-
-    @Test
-    public void testIntegridade() {
+    @Test(timeout=1000)
+    public void testPesquisa() throws Exception {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        int max = 10;
-        Item vetor[] = new Item[max];
-        for (int i = 0; i < max; i++) {
-            vetor[i] = new MeuItem(i);
-        }
-        PermutacaoRandomica.permut(vetor, max);
-        for (int i = 0; i < max; i++) {
-            arvore.insere(vetor[i]);
-            arvore.testa();
-        }
+        Item item = new MeuItem(5);
+        assertNull(arvore.pesquisa(item));
     }
 }

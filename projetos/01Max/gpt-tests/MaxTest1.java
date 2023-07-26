@@ -1,45 +1,72 @@
-
-package ds;import static org.junit.Assert.assertEquals;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
 
-import ds.Item;
-import ds.Max;
-import ds.MeuItem;
+public class MaxTest1{
 
-public class MaxTest1 {
-  @Test
-  public void testMax() {
-    Item[] items = new Item[5];
-    items[0] = new MeuItem(3);
-    items[1] = new MeuItem(7);
-    items[2] = new MeuItem(2);
-    items[3] = new MeuItem(9);
-    items[4] = new MeuItem(5);
-
-    Item max = Max.max(items, items.length);
-    assertEquals(9, ((MeuItem) max).chave);
-  }
-
-  @Test
-  public void testMaxWithNegativeValues() {
-    Item[] items = new Item[4];
-    items[0] = new MeuItem(10);
-    items[1] = new MeuItem(-5);
-    items[2] = new MeuItem(15);
-    items[3] = new MeuItem(-20);
-
-    Item max = Max.max(items, items.length);
-    assertEquals(15, ((MeuItem) max).chave);
-  }
-
-  @Test
-  public void testMaxWithEqualValues() {
-    Item[] items = new Item[3];
-    items[0] = new MeuItem(5);
-    items[1] = new MeuItem(5);
-    items[2] = new MeuItem(5);
-
-    Item max = Max.max(items, items.length);
-    assertEquals(5, ((MeuItem) max).chave);
-  }
+    
+    // Test for the default constructor
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Max max = new Max();
+        assertNotNull(max);
+    }
+    
+    // Test for the max method with valid inputs
+    @Test(timeout=1000)
+    public void testMax_ValidInput() throws Exception {
+        Item[] items = new Item[] { new MeuItem(5), new MeuItem(10), new MeuItem(2) };
+        Item maxItem = Max.max(items, 3);
+        assertEquals(10, ((MeuItem)maxItem).chave);
+    }
+    
+    // Test for the max method with an empty array
+    @Test(timeout=1000)
+    public void testMax_EmptyArray() throws Exception {
+        Item[] items = new Item[0];
+        Item maxItem = Max.max(items, 0);
+        assertNull(maxItem);
+    }
+    
+    // Test for the max method with a single item
+    @Test(timeout=1000)
+    public void testMax_SingleItem() throws Exception {
+        Item[] items = new Item[] { new MeuItem(5) };
+        Item maxItem = Max.max(items, 1);
+        assertEquals(5, ((MeuItem)maxItem).chave);
+    }
+    
+    // Test for the max method with negative values
+    @Test(timeout=1000)
+    public void testMax_NegativeValues() throws Exception {
+        Item[] items = new Item[] { new MeuItem(-5), new MeuItem(-10), new MeuItem(-2) };
+        Item maxItem = Max.max(items, 3);
+        assertEquals(-2, ((MeuItem)maxItem).chave);
+    }
+    
+    // Test for the compara method with this.chave < item.chave
+    @Test(timeout=1000)
+    public void testCompara_LessThan() throws Exception {
+        MeuItem item1 = new MeuItem(5);
+        MeuItem item2 = new MeuItem(10);
+        int result = item1.compara(item2);
+        assertEquals(-1, result);
+    }
+    
+    // Test for the compara method with this.chave > item.chave
+    @Test(timeout=1000)
+    public void testCompara_GreaterThan() throws Exception {
+        MeuItem item1 = new MeuItem(10);
+        MeuItem item2 = new MeuItem(5);
+        int result = item1.compara(item2);
+        assertEquals(1, result);
+    }
+    
+    // Test for the compara method with this.chave = item.chave
+    @Test(timeout=1000)
+    public void testCompara_Equals() throws Exception {
+        MeuItem item1 = new MeuItem(5);
+        MeuItem item2 = new MeuItem(5);
+        int result = item1.compara(item2);
+        assertEquals(0, result);
+    }
 }

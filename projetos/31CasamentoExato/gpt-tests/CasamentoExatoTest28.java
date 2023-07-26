@@ -4,43 +4,49 @@ import static org.junit.Assert.*;
 public class CasamentoExatoTest28{
 
 
-    @Test
-    public void testForcaBruta() {
-        String T = "abcdeabc";
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoExato ce = new CasamentoExato();
+        assertNotNull(ce);
+    }
+
+    @Test(timeout=1000)
+    public void testForcaBruta() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "abc";
+        String P = "bcd";
         int m = P.length();
+
         CasamentoExato.forcaBruta(T, n, P, m);
-        // Add assertions here
     }
 
-    @Test
-    public void testShiftAndExato() {
-        String T = "abcdeabc";
+    @Test(timeout=1000)
+    public void testShiftAndExato() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "abc";
+        String P = "bcd";
         int m = P.length();
+
         CasamentoExato.shiftAndExato(T, n, P, m);
-        // Add assertions here
     }
 
-    @Test
-    public void testBmh() {
-        String T = "abcdeabc";
+    @Test(timeout=1000)
+    public void testBmh() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "abc";
+        String P = "bcd";
         int m = P.length();
+
         CasamentoExato.bmh(T, n, P, m);
-        // Add assertions here
     }
 
-    @Test
-    public void testBmhs() {
-        String T = "abcdeabc";
+    @Test(timeout=1000)
+    public void testBmhs() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "abc";
+        String P = "bcd";
         int m = P.length();
+
         CasamentoExato.bmhs(T, n, P, m);
-        // Add assertions here
     }
 }

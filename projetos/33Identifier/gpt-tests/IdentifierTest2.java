@@ -1,42 +1,51 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;Here are some test cases for the Identifier Java class:
+public class IdentifierTest2{
 
-1. Test case for a valid identifier with length less than 6:
-   - Input: "abc"
-   - Expected output: true
 
-2. Test case for a valid identifier with length exactly 6:
-   - Input: "abc123"
-   - Expected output: true
+    // Test for the default constructor
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Identifier identifier = new Identifier();
+        assertNotNull(identifier);
+    }
 
-3. Test case for an invalid identifier with length greater than 6:
-   - Input: "abcdefg"
-   - Expected output: false
+    // Test for valid_s(char ch) method
+    @Test(timeout=1000)
+    public void testValid_s() throws Exception {
+        Identifier identifier = new Identifier();
+        assertTrue(identifier.valid_s('A'));
+        assertTrue(identifier.valid_s('z'));
+        assertFalse(identifier.valid_s('!'));
+        assertFalse(identifier.valid_s('5'));
+    }
 
-4. Test case for an invalid identifier with length less than 1:
-   - Input: ""
-   - Expected output: false
+    // Test for valid_f(char ch) method
+    @Test(timeout=1000)
+    public void testValid_f() throws Exception {
+        Identifier identifier = new Identifier();
+        assertTrue(identifier.valid_f('A'));
+        assertTrue(identifier.valid_f('z'));
+        assertTrue(identifier.valid_f('5'));
+        assertFalse(identifier.valid_f('!'));
+    }
 
-5. Test case for an invalid identifier starting with a number:
-   - Input: "1abc"
-   - Expected output: false
+    // Test for validateIdentifier(String s) method
+    @Test(timeout=1000)
+    public void testValidateIdentifier() throws Exception {
+        Identifier identifier = new Identifier();
 
-6. Test case for an invalid identifier containing special characters:
-   - Input: "abc@"
-   - Expected output: false
+        // Test with valid identifier
+        assertTrue(identifier.validateIdentifier("abc"));
+        assertTrue(identifier.validateIdentifier("aBc4"));
 
-7. Test case for a valid identifier with capital letters:
-   - Input: "Abc"
-   - Expected output: true
+        // Test with invalid identifier
+        assertFalse(identifier.validateIdentifier("!abc"));
+        assertFalse(identifier.validateIdentifier("abc$"));
+        assertFalse(identifier.validateIdentifier("abcde"));
 
-8. Test case for a valid identifier with a single character:
-   - Input: "a"
-   - Expected output: true
-
-9. Test case for a valid identifier with only numbers:
-   - Input: "123"
-   - Expected output: true
-
-10. Test case for a null input:
-    - Input: null
-    - Expected output: false
+        // Test with null input
+        assertFalse(identifier.validateIdentifier(null));
+    }
+}

@@ -20,14 +20,14 @@ def request_test_generation(code, clazz, temperature):
         url = "https://api.openai.com/v1/chat/completions"
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer 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"
         }
         data = {
             "model": "gpt-3.5-turbo",
             "messages": [
                 {
                     "role": "user",
-                    "content": f"Generate test cases just for the {clazz} Java class in one java class file with imports using Junit 4 and Java 8:\n\n{code}"
+                    "content": f"I need functional test cases to cover all decisions in the methods of the class under testing.\nAll conditional expressions must assume true and false values.\nTests with Boundary Values are also mandatory. For numeric data, always use positive and negative values.\nTests must be in JUnit 4 format.\nInclude all necessary import statements for test execution\nIt is mandatory to throws Exception in all test method declarations.\nIt is mandatory to include timeout=1000 in all @Test annotations.\nIt is mandatory a test for the default constructor.\nEach method in the class under test must have at least one test case.\nEven simple or void methods must have a test calling it with valid inputs.\n All tests must be in one Java class.\nWrite only Java code, no comments and explanations \n@Test(expected= must be used only if the method under testing explicitly throws an exception.\nTest must be in JUnit 4 framework format.\nGenerate tests only for the {clazz} class and ignore the others. The test class name must be {clazz}Test\nProgram under testing\n*******************\n{code}"
                     }
                 ],
             "temperature": temperature,
@@ -112,6 +112,10 @@ def get_test_path(prj, clazz, number):
 #     tests: 30 - 33: 0.0
 
 def set_temperature(i):
+    if(i < 3): return 0.7
+    if(i < 6): return 0.8
+    if(i < 9): return 0.9
+    if(i < 12): return 1.0
     if(i < 15): return 0.6
     if(i < 18): return 0.5
     if(i < 21): return 0.4
@@ -139,7 +143,7 @@ for x in dados:
 
     code = read_java_files(source_path)
     
-    for i in range(12, 33):
+    for i in range(0, 33):
         temperature = set_temperature(i)
         generated_tests = generate_tests(code, clazz, temperature, i)
         

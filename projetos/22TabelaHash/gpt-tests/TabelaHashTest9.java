@@ -1,48 +1,60 @@
+package ds;import org.junit.Test;
+import org.junit.Assert.*;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
-package ds;
-import org.junit.Test;
-import static org.junit.Assert.*;
+public class TabelaHashTest9{
 
-public class TabelaHashTest9 {
 
-  @Test
-  public void testPesquisa() {
-    TabelaHash tabela = new TabelaHash();
-    tabela.insere("key1", "value1");
-    tabela.insere("key2", "value2");
-    
-    assertEquals("value1", tabela.pesquisa("key1"));
-    assertEquals("value2", tabela.pesquisa("key2"));
-    assertNull(tabela.pesquisa("key3"));
-  }
-  
-  @Test
-  public void testInsere() {
-    TabelaHash tabela = new TabelaHash();
-    tabela.insere("key1", "value1");
-    tabela.insere("key2", "value2");
-    
-    assertEquals("value1", tabela.pesquisa("key1"));
-    assertEquals("value2", tabela.pesquisa("key2"));
-  }
-  
-  @Test
-  public void testInsereDuplicate() {
-    TabelaHash tabela = new TabelaHash();
-    tabela.insere("key1", "value1");
-    tabela.insere("key1", "value2");
-    
-    assertEquals("value1", tabela.pesquisa("key1"));
-  }
-  
-  @Test
-  public void testRetira() {
-    TabelaHash tabela = new TabelaHash();
-    tabela.insere("key1", "value1");
-    tabela.insere("key2", "value2");
-    
-    tabela.retira("key1");
-    assertNull(tabela.pesquisa("key1"));
-    assertEquals("value2", tabela.pesquisa("key2"));
-  }
+    // Define test cases for the default constructor
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        assertNotNull(tabela);
+    }
+
+    // Define test cases for the method pesquisa()
+    @Test(timeout=1000)
+    public void testPesquisa() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("abc", 10);
+      
+        assertEquals(10, tabela.pesquisa("abc"));
+        assertNull(tabela.pesquisa("def"));
+    }
+
+    // Define test cases for the method insere()
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("abc", 10);
+
+        assertEquals(10, tabela.pesquisa("abc"));
+    }
+
+    // Define test cases for the method retira()
+    @Test(timeout=1000)
+    public void testRetira() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("abc", 10);
+
+        tabela.retira("abc");
+        assertNull(tabela.pesquisa("abc"));
+    }
+
+    // Define test cases for the method imprime()
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("abc", 10);
+        tabela.insere("def", 20);
+        tabela.insere("ghi", 30);
+
+        tabela.imprime();
+        // TODO: Add assertion for output
+    }
+
+    // Define test cases for the exceptions thrown by the methods
+    // ...
+
 }

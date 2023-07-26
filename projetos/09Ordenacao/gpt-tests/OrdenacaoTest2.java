@@ -1,39 +1,53 @@
-
-package ds;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Test;
 
-public class OrdenacaoTest2 {
-    
-    @Test
-    public void testMergeSort() {
-        int[] arr = {5, 2, 8, 3, 1};
-        Ordenacao.mergeSort(arr, 0, arr.length - 1);
-        int[] expected = {1, 2, 3, 5, 8};
-        assertArrayEquals(expected, arr);
+public class OrdenacaoTest2{
+
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
     }
-    
-    @Test
-    public void testMergeSortWithEmptyArray() {
-        int[] arr = {};
-        Ordenacao.mergeSort(arr, 0, arr.length - 1);
-        int[] expected = {};
-        assertArrayEquals(expected, arr);
+
+    @Test(timeout=1000)
+    public void testMerge_AllTrue() throws Exception {
+        int[] v = {1, 3, 2};
+        int i = 0;
+        int m = 1;
+        int j = 2;
+        Ordenacao.merge(v, i, m, j);
+        int[] expected = {1, 2, 3};
+        assertArrayEquals(expected, v);
     }
-    
-    @Test
-    public void testMergeSortWithAlreadySortedArray() {
-        int[] arr = {1, 2, 3, 4, 5};
-        Ordenacao.mergeSort(arr, 0, arr.length - 1);
-        int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, arr);
+
+    @Test(timeout=1000)
+    public void testMerge_AllFalse() throws Exception {
+        int[] v = {3, 2, 1};
+        int i = 0;
+        int m = 1;
+        int j = 2;
+        Ordenacao.merge(v, i, m, j);
+        int[] expected = {3, 2, 1};
+        assertArrayEquals(expected, v);
     }
-    
-    @Test
-    public void testMergeSortWithArrayContainingDuplicates() {
-        int[] arr = {3, 2, 1, 3, 2};
-        Ordenacao.mergeSort(arr, 0, arr.length - 1);
-        int[] expected = {1, 2, 2, 3, 3};
-        assertArrayEquals(expected, arr);
+
+    @Test(timeout=1000)
+    public void testMergeSort_AllTrue() throws Exception {
+        int[] v = {3, 1, 2};
+        int i = 0;
+        int j = 2;
+        Ordenacao.mergeSort(v, i, j);
+        int[] expected = {1, 2, 3};
+        assertArrayEquals(expected, v);
+    }
+
+    @Test(timeout=1000)
+    public void testMergeSort_AllFalse() throws Exception {
+        int[] v = {2, 3, 1};
+        int i = 0;
+        int j = 2;
+        Ordenacao.mergeSort(v, i, j);
+        int[] expected = {2, 3, 1};
+        assertArrayEquals(expected, v);
     }
 }

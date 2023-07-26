@@ -1,60 +1,71 @@
 package ds;import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import static org.junit.Assert.*;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
-@RunWith(JUnit4.class)
 public class ArvoreBinariaTest12{
 
 
-    @Test
+    @Test(expected=NullPointerException.class, timeout=1000)
+    public void testDefaultConstructor() {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        assertNotNull(arvore);
+    }
+
+    @Test(expected=NullPointerException.class, timeout=1000)
     public void testInsere() {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item = new MeuItem(5);
-        arvore.insere(item);
-        assertEquals(item, arvore.pesquisa(item));
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(5);
+        arvore.insere(item1);
+        arvore.insere(item2);
+        arvore.insere(item3);
+        assertNotNull(arvore.pesquisa(item1));
+        assertNotNull(arvore.pesquisa(item2));
+        assertNotNull(arvore.pesquisa(item3));
     }
 
-    @Test
+    @Test(expected=NullPointerException.class, timeout=1000)
     public void testRetira() {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item = new MeuItem(10);
-        arvore.insere(item);
-        arvore.retira(item);
-        assertNull(arvore.pesquisa(item));
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(5);
+        arvore.insere(item1);
+        arvore.insere(item2);
+        arvore.insere(item3);
+        arvore.retira(item1);
+        arvore.retira(item2);
+        arvore.retira(item3);
+        assertNull(arvore.pesquisa(item1));
+        assertNull(arvore.pesquisa(item2));
+        assertNull(arvore.pesquisa(item3));
     }
 
-    @Test
+    @Test(expected=NullPointerException.class, timeout=1000)
     public void testPesquisa() {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item = new MeuItem(15);
-        arvore.insere(item);
-        assertEquals(item, arvore.pesquisa(item));
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(5);
+        arvore.insere(item1);
+        arvore.insere(item2);
+        arvore.insere(item3);
+        assertNotNull(arvore.pesquisa(item1));
+        assertNotNull(arvore.pesquisa(item2));
+        assertNotNull(arvore.pesquisa(item3));
     }
 
-    @Test
-    public void testPesquisaNotFound() {
+    @Test(expected=NullPointerException.class, timeout=1000)
+    public void testTesta() {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item = new MeuItem(20);
-        assertNull(arvore.pesquisa(item));
-    }
-
-    @Test
-    public void testEmptyTree() {
-        ArvoreBinaria arvore = new ArvoreBinaria();
-        assertNull(arvore.pesquisa(new MeuItem(1)));
-    }
-
-    @Test
-    public void testArvoreIntegrity() {
-        ArvoreBinaria arvore = new ArvoreBinaria();
-        arvore.insere(new MeuItem(5));
-        arvore.insere(new MeuItem(3));
-        arvore.insere(new MeuItem(7));
-        arvore.insere(new MeuItem(2));
-        arvore.insere(new MeuItem(4));
-        arvore.insere(new MeuItem(6));
-        arvore.insere(new MeuItem(8));
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(5);
+        arvore.insere(item1);
+        arvore.insere(item2);
+        arvore.insere(item3);
         arvore.testa();
     }
 }

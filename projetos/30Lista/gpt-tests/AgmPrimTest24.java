@@ -1,89 +1,71 @@
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-import ds.AgmPrim;
-import ds.FPHeapMinIndireto;
-import ds.Grafo;
-import ds.Lista;
-
 public class AgmPrimTest24{
 
 
-    @Test
-    public void testRefaz() {
-        double[] p = {0, 1, 2, 3, 4};
-        int[] v = {0, 1, 2, 3, 4};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        heap.refaz(1, 4);
-        int[] expected = {0, 1, 2, 3, 4};
-        assertArrayEquals(expected, heap.fp);
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        AgmPrim agmPrim = new AgmPrim(null);
+        assertNotNull(agmPrim);
     }
 
-    @Test
-    public void testConstroi() {
-        double[] p = {0, 4, 3, 2, 1};
-        int[] v = {0, 1, 2, 3, 4};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        heap.constroi();
-        int[] expected = {0, 1, 2, 3, 4};
-        assertArrayEquals(expected, heap.fp);
-    }
-
-    @Test
-    public void testRetiraMin() throws Exception {
-        double[] p = {0, 4, 3, 2, 1};
-        int[] v = {0, 1, 2, 3, 4};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        int min = heap.retiraMin();
-        assertEquals(4, min);
-    }
-
-    @Test
-    public void testDiminuiChave() throws Exception {
-        double[] p = {0, 4, 3, 2, 1};
-        int[] v = {0, 1, 2, 3, 4};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        heap.diminuiChave(4, 0.5);
-        double[] expected = {0, 0.5, 3, 2, 1};
-        assertArrayEquals(expected, heap.p, 0.001);
-    }
-
-    @Test
-    public void testVazio() {
-        double[] p = {0};
-        int[] v = {0};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        assertTrue(heap.vazio());
-    }
-
-    @Test
+    @Test(timeout=1000)
     public void testObterAgm() throws Exception {
         Grafo grafo = new Grafo(5);
-        grafo.insereAresta(0, 1, 4);
+        grafo.insereAresta(0, 1, 2);
         grafo.insereAresta(0, 2, 3);
-        grafo.insereAresta(0, 3, 2);
-        grafo.insereAresta(0, 4, 1);
-        AgmPrim agm = new AgmPrim(grafo);
-        agm.obterAgm(0);
-        int[] expectedAntecessor = {-1, 0, 0, 0, 0};
-        double[] expectedPeso = {0, 4, 3, 2, 1};
-        assertArrayEquals(expectedAntecessor, agm.antecessor);
-        assertArrayEquals(expectedPeso, agm.p, 0.001);
+        grafo.insereAresta(1, 2, 1);
+        grafo.insereAresta(1, 3, 4);
+        grafo.insereAresta(2, 3, 2);
+        grafo.insereAresta(2, 4, 3);
+        grafo.insereAresta(3, 4, 1);
+
+        AgmPrim agmPrim = new AgmPrim(grafo);
+        agmPrim.obterAgm(0);
+
+        assertEquals(0, agmPrim.antecessor(0));
+        assertEquals(1, agmPrim.antecessor(1));
+        assertEquals(0, agmPrim.antecessor(2));
+        assertEquals(2, agmPrim.antecessor(3));
+        assertEquals(3, agmPrim.antecessor(4));
     }
 
-    @Test
-    public void testAntecessor() {
+    @Test(timeout=1000)
+    public void testPeso() throws Exception {
         Grafo grafo = new Grafo(5);
-        AgmPrim agm = new AgmPrim(grafo);
-        agm.antecessor = new int[]{-1, 0, 0, 0, 0};
-        assertEquals(0, agm.antecessor(1));
+        grafo.insereAresta(0, 1, 2);
+        grafo.insereAresta(0, 2, 3);
+        grafo.insereAresta(1, 2, 1);
+        grafo.insereAresta(1, 3, 4);
+        grafo.insereAresta(2, 3, 2);
+        grafo.insereAresta(2, 4, 3);
+        grafo.insereAresta(3, 4, 1);
+
+        AgmPrim agmPrim = new AgmPrim(grafo);
+        agmPrim.obterAgm(0);
+
+        assertEquals(0, agmPrim.peso(0), 0);
+        assertEquals(2, agmPrim.peso(1), 0);
+        assertEquals(3, agmPrim.peso(2), 0);
+        assertEquals(5, agmPrim.peso(3), 0);
+        assertEquals(6, agmPrim.peso(4), 0);
     }
 
-    @Test
-    public void testPeso() {
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         Grafo grafo = new Grafo(5);
-        AgmPrim agm = new AgmPrim(grafo);
-        agm.p = new double[]{0, 4, 3, 2, 1};
-        assertEquals(4, agm.peso(1), 0.001);
+        grafo.insereAresta(0, 1, 2);
+        grafo.insereAresta(0, 2, 3);
+        grafo.insereAresta(1, 2, 1);
+        grafo.insereAresta(1, 3, 4);
+        grafo.insereAresta(2, 3, 2);
+        grafo.insereAresta(2, 4, 3);
+        grafo.insereAresta(3, 4, 1);
+
+        AgmPrim agmPrim = new AgmPrim(grafo);
+        agmPrim.obterAgm(0);
+
+        agmPrim.imprime();
     }
 }

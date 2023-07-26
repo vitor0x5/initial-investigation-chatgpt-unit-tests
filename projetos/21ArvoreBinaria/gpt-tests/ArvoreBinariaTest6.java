@@ -1,65 +1,78 @@
-
-package ds;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
 
-public class ArvoreBinariaTest6 {
-  
-  private ArvoreBinaria arvore;
-  
-  @Before
-  public void setUp() {
-    arvore = new ArvoreBinaria();
-  }
-  
-  @Test
-  public void testInsercao() {
-    MeuItem item1 = new MeuItem(1);
-    arvore.insere(item1);
-    
-    assertEquals(item1, arvore.pesquisa(item1));
-    
-    MeuItem item2 = new MeuItem(2);
-    arvore.insere(item2);
-    
-    assertEquals(item2, arvore.pesquisa(item2));
-    
-    MeuItem item3 = new MeuItem(3);
-    arvore.insere(item3);
-    
-    assertEquals(item3, arvore.pesquisa(item3));
-  }
-  
-  @Test
-  public void testRemocao() {
-    MeuItem item1 = new MeuItem(1);
-    arvore.insere(item1);
-    MeuItem item2 = new MeuItem(2);
-    arvore.insere(item2);
-    MeuItem item3 = new MeuItem(3);
-    arvore.insere(item3);
-    
-    arvore.retira(item2);
-    
-    assertEquals(item1, arvore.pesquisa(item1));
-    assertNull(arvore.pesquisa(item2));
-    assertEquals(item3, arvore.pesquisa(item3));
-  }
-  
-  @Test
-  public void testIntegridade() {
-    MeuItem item1 = new MeuItem(4);
-    arvore.insere(item1);
-    MeuItem item2 = new MeuItem(2);
-    arvore.insere(item2);
-    MeuItem item3 = new MeuItem(6);
-    arvore.insere(item3);
-    MeuItem item4 = new MeuItem(1);
-    arvore.insere(item4);
-    MeuItem item5 = new MeuItem(3);
-    arvore.insere(item5);
-    
-    arvore.testa();
-  }
+public class ArvoreBinariaTest6{
+
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        assertNotNull(arvore);
+    }
+
+    @Test(timeout=1000)
+    public void testPesquisaTrue() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        Item item = new MeuItem(5);
+        arvore.insere(item);
+        assertSame(item, arvore.pesquisa(item));
+    }
+
+    @Test(timeout=1000)
+    public void testPesquisaFalse() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        Item item1 = new MeuItem(5);
+        Item item2 = new MeuItem(10);
+        arvore.insere(item1);
+        assertNull(arvore.pesquisa(item2));
+    }
+
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        Item item = new MeuItem(5);
+        arvore.insere(item);
+        assertSame(item, arvore.pesquisa(item));
+    }
+
+    @Test(timeout=1000)
+    public void testRetira() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        Item item = new MeuItem(5);
+        arvore.insere(item);
+        arvore.retira(item);
+        assertNull(arvore.pesquisa(item));
+    }
+
+    @Test(timeout=1000)
+    public void testCentral() throws Exception {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        Item item1 = new MeuItem(5);
+        Item item2 = new MeuItem(10);
+        Item item3 = new MeuItem(15);
+        arvore.insere(item2);
+        arvore.insere(item1);
+        arvore.insere(item3);
+    }
+
+    private class MeuItem implements Item {
+        private int chave;
+
+        public MeuItem (int chave) { this.chave = chave; }
+
+        public int compara (Item it) {
+            MeuItem item = (MeuItem) it;
+            if (this.chave < item.chave) return -1;
+            else if (this.chave > item.chave) return 1;
+            return 0;
+        }
+
+        public void alteraChave (Object chave) {
+            Integer ch = (Integer) chave; this.chave = ch.intValue ();
+        }
+
+        public Object recuperaChave () { return new Integer (this.chave); }
+
+        public String toString () { return "" + this.chave; }
+    }
 }

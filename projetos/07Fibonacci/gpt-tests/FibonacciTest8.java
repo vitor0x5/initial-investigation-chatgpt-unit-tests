@@ -1,31 +1,29 @@
-
-package ds;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class FibonacciTest8 {
+public class FibonacciTest8{
 
-    @Test
-    public void testFibIterWithZero() {
+
+    @Test(expected = Exception.class, timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Fibonacci fibonacci = new Fibonacci();
+    }
+
+    @Test(timeout=1000)
+    public void testFibIterWithPositiveValue() throws Exception {
+        int result = Fibonacci.fibIter(5);
+        assertEquals(5, result);
+    }
+
+    @Test(timeout=1000)
+    public void testFibIterWithNegativeValue() throws Exception {
+        int result = Fibonacci.fibIter(-5);
+        assertEquals(-5, result);
+    }
+
+   @Test(timeout=1000)
+    public void testFibIterWithZeroValue() throws Exception {
         int result = Fibonacci.fibIter(0);
         assertEquals(0, result);
-    }
-
-    @Test
-    public void testFibIterWithPositiveNumber() {
-        int result = Fibonacci.fibIter(6);
-        assertEquals(8, result);
-    }
-
-    @Test
-    public void testFibIterWithNegativeNumber() {
-        int result = Fibonacci.fibIter(-3);
-        assertEquals(2, result);
-    }
-
-    @Test
-    public void testFibIterWithLargeNumber() {
-        int result = Fibonacci.fibIter(20);
-        assertEquals(6765, result);
     }
 }

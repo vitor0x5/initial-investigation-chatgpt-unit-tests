@@ -4,36 +4,30 @@ import static org.junit.Assert.*;
 public class AvaliaMultMatrizesTest15{
 
 
-    @Test
-    public void testMultMatrizes() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        AvaliaMultMatrizes obj = new AvaliaMultMatrizes();
+        assertNotNull(obj);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrize() throws Exception {
         int n = 3;
-        int[] d = {2, 3, 4};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown: " + e.getMessage());
-        }
+        int[] d = {1, 2, 3};
+        AvaliaMultMatrizes.multmatrize(n, d);
     }
 
-    @Test
-    public void testMultMatrizesWithZeroDimension() {
-        int n = 0;
-        int[] d = {};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown: " + e.getMessage());
-        }
+    @Test(timeout=1000)
+    public void testMultmatrizeBoundaryValues() throws Exception {
+        int n = 1;
+        int[] d = {1};
+        AvaliaMultMatrizes.multmatrize(n, d);
     }
 
-    @Test
-    public void testMultMatrizesWithNegativeDimension() {
-        int n = -3;
-        int[] d = {2, 3, 4};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown: " + e.getMessage());
-        }
+    @Test(timeout=1000)
+    public void testMultmatrizeNegativeValues() throws Exception {
+        int n = 3;
+        int[] d = {-1, -2, -3};
+        AvaliaMultMatrizes.multmatrize(n, d);
     }
 }

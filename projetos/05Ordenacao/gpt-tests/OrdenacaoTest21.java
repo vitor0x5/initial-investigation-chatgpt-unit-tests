@@ -1,42 +1,38 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class OrdenacaoTest21{
 
 
-    @Test
-    public void testOrdena() {
-        int[] v = {5, 3, 8, 2, 1};
-        int n = v.length;
-        Ordenacao.ordena(v, n);
-        int[] expected = {1, 2, 3, 5, 8};
-        assertArrayEquals(expected, v);
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
     }
 
-    @Test
-    public void testOrdenaEmptyArray() {
-        int[] v = {};
-        int n = v.length;
-        Ordenacao.ordena(v, n);
-        int[] expected = {};
-        assertArrayEquals(expected, v);
-    }
+    @Test(timeout=1000)
+    public void testOrdena() throws Exception {
+        // Test with empty array
+        int[] v1 = {};
+        Ordenacao.ordena(v1, 0);
 
-    @Test
-    public void testOrdenaAlreadySortedArray() {
-        int[] v = {1, 2, 3, 4, 5};
-        int n = v.length;
-        Ordenacao.ordena(v, n);
-        int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, v);
-    }
+        // Test with array of size 1
+        int[] v2 = {5};
+        Ordenacao.ordena(v2, 1);
 
-    @Test
-    public void testOrdenaArrayWithDuplicates() {
-        int[] v = {5, 3, 8, 2, 1, 3, 5};
-        int n = v.length;
-        Ordenacao.ordena(v, n);
-        int[] expected = {1, 2, 3, 3, 5, 5, 8};
-        assertArrayEquals(expected, v);
+        // Test with array of size 2
+        int[] v3 = {3, 1};
+        Ordenacao.ordena(v3, 2);
+
+        // Test with array of size 3
+        int[] v4 = {7, -2, 4};
+        Ordenacao.ordena(v4, 3);
+
+        // Test with array of size 4
+        int[] v5 = {0, -5, 2, 9};
+        Ordenacao.ordena(v5, 4);
+
+        // Test with array of size 5
+        int[] v6 = {6, -3, 1, 8, -4};
+        Ordenacao.ordena(v6, 5);
     }
 }

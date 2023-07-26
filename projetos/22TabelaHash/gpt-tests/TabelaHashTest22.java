@@ -1,61 +1,68 @@
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
-
-import java.util.Random;
+import java.io.*;
 
 public class TabelaHashTest22{
 
 
-    @Test
-    public void testPesquisa() {
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
         TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
-
-        assertEquals("item1", tabela.pesquisa("chave1"));
-        assertEquals("item2", tabela.pesquisa("chave2"));
-        assertEquals("item3", tabela.pesquisa("chave3"));
-        assertNull(tabela.pesquisa("chave4"));
+        assertNotNull(tabela);
     }
 
-    @Test
-    public void testInsere() {
+    @Test(timeout = 1000)
+    public void testPesquisa() throws Exception {
         TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
+        tabela.insere("key1", "value1");
+        tabela.insere("key2", "value2");
+        tabela.insere("key3", "value3");
 
-        assertEquals("item1", tabela.pesquisa("chave1"));
-        assertEquals("item2", tabela.pesquisa("chave2"));
+        assertEquals("value1", tabela.pesquisa("key1"));
+        assertEquals("value2", tabela.pesquisa("key2"));
+        assertEquals("value3", tabela.pesquisa("key3"));
+        assertNull(tabela.pesquisa("key4"));
     }
 
-    @Test
+    @Test(timeout = 1000)
+    public void testInsere() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("key1", "value1");
+        tabela.insere("key2", "value2");
+        tabela.insere("key3", "value3");
+
+        assertEquals("value1", tabela.pesquisa("key1"));
+        assertEquals("value2", tabela.pesquisa("key2"));
+        assertEquals("value3", tabela.pesquisa("key3"));
+    }
+
+    @Test(timeout = 1000)
     public void testRetira() throws Exception {
         TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
+        tabela.insere("key1", "value1");
+        tabela.insere("key2", "value2");
+        tabela.insere("key3", "value3");
 
-        tabela.retira("chave1");
-        assertNull(tabela.pesquisa("chave1"));
-        assertEquals("item2", tabela.pesquisa("chave2"));
+        tabela.retira("key2");
+        assertNull(tabela.pesquisa("key2"));
+        assertEquals("value1", tabela.pesquisa("key1"));
+        assertEquals("value3", tabela.pesquisa("key3"));
     }
 
-    @Test(expected = Exception.class)
-    public void testRetiraInvalidKey() throws Exception {
+    @Test(timeout = 1000)
+    public void testImprime() throws Exception {
         TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
+        tabela.insere("key1", "value1");
+        tabela.insere("key2", "value2");
+        tabela.insere("key3", "value3");
 
-        tabela.retira("chave3");
-    }
-
-    @Test
-    public void testImprime() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
 
         tabela.imprime();
+
+        String expectedOutput = "Entrada: 0\n  value1\nEntrada: 1\n  value2\nEntrada: 2\n  value3\n";
+        assertEquals(expectedOutput, outContent.toString());
     }
+
 }

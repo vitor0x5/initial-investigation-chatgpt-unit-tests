@@ -3,7 +3,7 @@ Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,8,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,9,KILLED,ds.ListaTest19.testInsere(ds.ListaTest19)
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,9,SURVIVED,none
-Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,imprime,18,KILLED,ds.ListaTest19.testImprime(ds.ListaTest19)
+Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,imprime,18,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,imprime,19,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,imprime,18,SURVIVED,none
 Lista.java,ds.Lista,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF,imprime,18,KILLED,ds.ListaTest19.testImprime(ds.ListaTest19)

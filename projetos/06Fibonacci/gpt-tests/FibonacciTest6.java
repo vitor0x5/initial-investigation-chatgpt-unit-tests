@@ -1,30 +1,35 @@
-
 package ds;import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-public class FibonacciTest6 {
+public class FibonacciTest6{
 
-   @Test
-   public void testFibIterWithZero() {
-      int result = Fibonacci.fibIter(0);
-      assertEquals(0, result);
-   }
 
-   @Test
-   public void testFibIterWithPositiveNumber() {
-      int result = Fibonacci.fibIter(5);
-      assertEquals(5, result);
-   }
+    @Test(timeout=1000)
+    public void testConstructor() throws Exception {
+        Fibonacci fibonacci = new Fibonacci();
+    }
 
-   @Test
-   public void testFibIterWithNegativeNumber() {
-      int result = Fibonacci.fibIter(-7);
-      assertEquals(0, result);
-   }
-   
-   @Test
-   public void testFibIterWithLargeNumber() {
-      int result = Fibonacci.fibIter(20);
-      assertEquals(6765, result);
-   }
+    @Test(timeout=1000)
+    public void testFibIter() throws Exception {
+        // Test with positive value
+        assertEquals(0, Fibonacci.fibIter(0));
+        assertEquals(1, Fibonacci.fibIter(1));
+        assertEquals(1, Fibonacci.fibIter(2));
+        assertEquals(2, Fibonacci.fibIter(3));
+        assertEquals(3, Fibonacci.fibIter(4));
+        assertEquals(5, Fibonacci.fibIter(5));
+        assertEquals(8, Fibonacci.fibIter(6));
+        
+        // Test with negative value
+        assertEquals(0, Fibonacci.fibIter(-1));
+        assertEquals(1, Fibonacci.fibIter(-2));
+        assertEquals(-1, Fibonacci.fibIter(-3));
+        assertEquals(2, Fibonacci.fibIter(-4));
+        assertEquals(-3, Fibonacci.fibIter(-5));
+        assertEquals(5, Fibonacci.fibIter(-6));
+        
+        // Test with boundary values
+        assertEquals(0, Fibonacci.fibIter(Integer.MIN_VALUE));
+        assertEquals(1, Fibonacci.fibIter(Integer.MAX_VALUE));
+    }
 }

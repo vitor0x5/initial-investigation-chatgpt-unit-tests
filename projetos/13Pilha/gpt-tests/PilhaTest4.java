@@ -1,57 +1,79 @@
-
-package ds;
-import ds.Pilha;
-import org.junit.Before;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+public class PilhaTest4{
 
-public class PilhaTest4 {
 
-    private Pilha pilha;
-
-    @Before
-    public void setUp() {
-        pilha = new Pilha();
+  //Test for default constructor
+  @Test(timeout=1000)
+  public void testDefaultConstructor() throws Exception {
+    Pilha pilha = new Pilha();
+    assertNotNull(pilha);
+  }
+  
+  //Test for empilha method with valid input
+  @Test(timeout=1000)
+  public void testEmpilhaValidInput() throws Exception {
+    Pilha pilha = new Pilha();
+    pilha.empilha(5);
+    assertEquals(1, pilha.tamanho());
+  }
+  
+  //Test for empilha method when the stack is full
+  @Test(timeout=1000, expected=Exception.class)
+  public void testEmpilhaStackFull() throws Exception {
+    Pilha pilha = new Pilha();
+    for (int i = 0; i < 1000; i++) {
+      pilha.empilha(i);
     }
-
-    @Test
-    public void testPilhaVazia() {
-        assertTrue(pilha.vazia());
-        assertEquals(0, pilha.tamanho());
-    }
-
-    @Test
-    public void testEmpilhaUmElemento() throws Exception {
-        pilha.empilha("Elemento 1");
-        assertFalse(pilha.vazia());
-        assertEquals(1, pilha.tamanho());
-    }
-
-    @Test
-    public void testEmpilhaEDesempilhaElemento() throws Exception {
-        pilha.empilha("Elemento 1");
-        pilha.empilha("Elemento 2");
-
-        assertEquals("Elemento 2", pilha.desempilha());
-        assertEquals("Elemento 1", pilha.desempilha());
-        assertTrue(pilha.vazia());
-        assertEquals(0, pilha.tamanho());
-    }
-
-    @Test(expected = Exception.class)
-    public void testDesempilhaElementoDaPilhaVazia() throws Exception {
-        pilha.desempilha();
-    }
-
-    @Test(expected = Exception.class)
-    public void testEmpilhaElementoNaPilhaCheia() throws Exception {
-        // Fill the stack
-        for (int i = 0; i < 1000; i++) {
-            pilha.empilha("Elemento " + (i + 1));
-        }
-
-        // Try to push an element into a full stack
-        pilha.empilha("Elemento Extra");
-    }
+    pilha.empilha(1001);
+  }
+  
+  //Test for desempilha method with valid input
+  @Test(timeout=1000)
+  public void testDesempilhaValidInput() throws Exception {
+    Pilha pilha = new Pilha();
+    pilha.empilha(5);
+    Object result = pilha.desempilha();
+    assertEquals(5, result);
+    assertTrue(pilha.vazia());
+  }
+  
+  //Test for desempilha method when the stack is empty
+  @Test(timeout=1000, expected=Exception.class)
+  public void testDesempilhaStackEmpty() throws Exception {
+    Pilha pilha = new Pilha();
+    pilha.desempilha();
+  }
+  
+  //Test for vazia method when the stack is empty
+  @Test(timeout=1000)
+  public void testVaziaStackEmpty() throws Exception {
+    Pilha pilha = new Pilha();
+    assertTrue(pilha.vazia());
+  }
+  
+  //Test for vazia method when the stack is not empty
+  @Test(timeout=1000)
+  public void testVaziaStackNotEmpty() throws Exception {
+    Pilha pilha = new Pilha();
+    pilha.empilha(5);
+    assertFalse(pilha.vazia());
+  }
+  
+  //Test for tamanho method with empty stack
+  @Test(timeout=1000)
+  public void testTamanhoEmptyStack() throws Exception {
+    Pilha pilha = new Pilha();
+    assertEquals(0, pilha.tamanho());
+  }
+  
+  //Test for tamanho method with non-empty stack
+  @Test(timeout=1000)
+  public void testTamanhoNonEmptyStack() throws Exception {
+    Pilha pilha = new Pilha();
+    pilha.empilha(5);
+    pilha.empilha(10);
+    assertEquals(2, pilha.tamanho());
+  }
 }

@@ -1,69 +1,84 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.*;
-import org.junit.Test;
-import java.util.Random;
+import ds.TabelaHash;
 
-public class TabelaHashTest7 {
-  
-  @Test
-  public void testPesquisa() {
-    TabelaHash tabela = new TabelaHash();
-    tabela.insere("key1", "value1");
-    tabela.insere("key2", "value2");
-    tabela.insere("key3", "value3");
+public class TabelaHashTest7{
+
     
-    assertEquals("value1", tabela.pesquisa("key1"));
-    assertEquals("value2", tabela.pesquisa("key2"));
-    assertEquals("value3", tabela.pesquisa("key3"));
-    assertNull(tabela.pesquisa("key4"));
-  }
-  
-  @Test
-  public void testInsere() {
-    TabelaHash tabela = new TabelaHash();
-    tabela.insere("key1", "value1");
-    tabela.insere("key2", "value2");
-    tabela.insere("key3", "value3");
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        
+        assertNotNull(tabela);
+    }
     
-    assertEquals("value1", tabela.pesquisa("key1"));
-    assertEquals("value2", tabela.pesquisa("key2"));
-    assertEquals("value3", tabela.pesquisa("key3"));
-    assertEquals(3, tabela.recuperaItens().length);
-  }
-  
-  @Test
-  public void testRetira() throws Exception {
-    TabelaHash tabela = new TabelaHash();
-    tabela.insere("key1", "value1");
-    tabela.insere("key2", "value2");
-    tabela.insere("key3", "value3");
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        
+        tabela.insere("chave1", 1);
+        
+        assertNotNull(tabela.pesquisa("chave1"));
+    }
     
-    tabela.retira("key2");
+    @Test(timeout=1000)
+    public void testPesquisa() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        
+        tabela.insere("chave1", 1);
+        
+        assertEquals(1, tabela.pesquisa("chave1"));
+    }
     
-    assertEquals("value1", tabela.pesquisa("key1"));
-    assertNull(tabela.pesquisa("key2"));
-    assertEquals("value3", tabela.pesquisa("key3"));
-    assertEquals(2, tabela.recuperaItens().length);
-  }
-  
-  @Test
-  public void testRecuperaItens() {
-    TabelaHash tabela = new TabelaHash();
-    tabela.insere("key1", "value1");
+    @Test(timeout=1000)
+    public void testPesquisaNotFound() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        
+        tabela.insere("chave1", 1);
+        
+        assertNull(tabela.pesquisa("chave2"));
+    }
     
-    Object[] itens = tabela.recuperaItens();
+    @Test(timeout=1000)
+    public void testRetira() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        
+        tabela.insere("chave1", 1);
+        tabela.retira("chave1");
+        
+        assertNull(tabela.pesquisa("chave1"));
+    }
     
-    assertEquals(1, itens.length);
-    assertEquals("value1", itens[0]);
-  }
-  
-  @Test
-  public void testImprime() {
-    TabelaHash tabela = new TabelaHash();
-    tabela.insere("key1", "value1");
-    tabela.insere("key2", "value2");
-    tabela.insere("key3", "value3");
+    @Test(expected=Exception.class, timeout=1000)
+    public void testRetiraNotFound() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        
+        tabela.retira("chave1");
+    }
     
-    tabela.imprime();
-  }
+    @Test(timeout=1000)
+    public void testRecuperaItens() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        
+        tabela.insere("chave1", 1);
+        tabela.insere("chave2", 2);
+        
+        Object[] itens = tabela.recuperaItens();
+        
+        assertNotNull(itens);
+        assertEquals(2, itens.length);
+        assertEquals(1, itens[0]);
+        assertEquals(2, itens[1]);
+    }
+    
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        
+        tabela.insere("chave1", 1);
+        tabela.insere("chave2", 2);
+        
+        tabela.imprime();
+    }
 }

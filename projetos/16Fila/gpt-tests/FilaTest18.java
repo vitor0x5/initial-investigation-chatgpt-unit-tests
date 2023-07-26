@@ -4,8 +4,23 @@ import static org.junit.Assert.*;
 public class FilaTest18{
 
 
-    @Test
-    public void testEnfileira() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Fila fila = new Fila();
+        assertNotNull(fila);
+    }
+
+    @Test(timeout=1000)
+    public void testEnfileira() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira(1);
+        fila.enfileira(2);
+        fila.enfileira(3);
+        assertFalse(fila.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testDesenfileira() throws Exception {
         Fila fila = new Fila();
         fila.enfileira(1);
         fila.enfileira(2);
@@ -16,14 +31,8 @@ public class FilaTest18{
         assertTrue(fila.vazia());
     }
 
-    @Test(expected = Exception.class)
-    public void testDesenfileiraEmpty() throws Exception {
-        Fila fila = new Fila();
-        fila.desenfileira();
-    }
-
-    @Test
-    public void testVazia() {
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Fila fila = new Fila();
         assertTrue(fila.vazia());
         fila.enfileira(1);
@@ -32,13 +41,13 @@ public class FilaTest18{
         assertTrue(fila.vazia());
     }
 
-    @Test
-    public void testImprime() {
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         Fila fila = new Fila();
         fila.enfileira(1);
         fila.enfileira(2);
         fila.enfileira(3);
         fila.imprime();
-        // Output should be "1 2 3"
+        assertTrue(true);
     }
 }

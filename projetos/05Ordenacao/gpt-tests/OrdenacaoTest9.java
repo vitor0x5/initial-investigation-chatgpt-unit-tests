@@ -1,66 +1,49 @@
-
-package ds;import org.junit.Assert;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
+public class OrdenacaoTest9{
 
-public class OrdenacaoTest9 {
+    @Test(timeout=1000)
+    public void testOrdenaDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+    }
     
-    @Test
-    public void testOrdenaWithEmptyArray() {
+    @Test(timeout=1000)
+    public void testOrdena() throws Exception {
+        int[] v = {1, 5, 2, 4, 3};
+        int n = v.length;
+        Ordenacao.ordena(v, n);
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, v);
+    }
+    
+    @Test(timeout=1000)
+    public void testOrdenaWithEmptyArray() throws Exception {
         int[] v = {};
-        int n = 0;
-
+        int n = v.length;
         Ordenacao.ordena(v, n);
-
-        Assert.assertArrayEquals(new int[]{}, v);
+        assertArrayEquals(new int[]{}, v);
     }
     
-    @Test
-    public void testOrdenaWithSortedArray() {
-        int[] v = {1, 2, 3, 4, 5};
-        int n = 5;
-
+    @Test(timeout=1000)
+    public void testOrdenaWithSingleElementArray() throws Exception {
+        int[] v = {4};
+        int n = v.length;
         Ordenacao.ordena(v, n);
-
-        Assert.assertArrayEquals(new int[]{1, 2, 3, 4, 5}, v);
-    }
-
-    @Test
-    public void testOrdenaWithReverseSortedArray() {
-        int[] v = {5, 4, 3, 2, 1};
-        int n = 5;
-
-        Ordenacao.ordena(v, n);
-
-        Assert.assertArrayEquals(new int[]{1, 2, 3, 4, 5}, v);
-    }
-
-    @Test
-    public void testOrdenaWithUnsortedArray() {
-        int[] v = {3, 5, 2, 1, 4};
-        int n = 5;
-
-        Ordenacao.ordena(v, n);
-
-        Assert.assertArrayEquals(new int[]{1, 2, 3, 4, 5}, v);
+        assertArrayEquals(new int[]{4}, v);
     }
     
-    @Test
-    public void testOrdenaWithDuplicateValues() {
-        int[] v = {4, 2, 3, 1, 2};
-        int n = 5;
-
+    @Test(timeout=1000)
+    public void testOrdenaWithNegativeValues() throws Exception {
+        int[] v = {-4, 2, -1, 3, -2};
+        int n = v.length;
         Ordenacao.ordena(v, n);
-
-        Assert.assertArrayEquals(new int[]{1, 2, 2, 3, 4}, v);
+        assertArrayEquals(new int[]{-4, -2, -1, 2, 3}, v);
     }
     
-    @Test
-    public void testOrdenaWithArrayContainingZero() {
-        int[] v = {0, 4, 2, 3, 1};
-        int n = 5;
-
+    @Test(timeout=1000)
+    public void testOrdenaWithBoundaryValues() throws Exception {
+        int[] v = {-3, 0, 4, -5, 2};
+        int n = v.length;
         Ordenacao.ordena(v, n);
-
-        Assert.assertArrayEquals(new int[]{0, 1, 2, 3, 4}, v);
+        assertArrayEquals(new int[]{-5, -3, 0, 2, 4}, v);
     }
 }

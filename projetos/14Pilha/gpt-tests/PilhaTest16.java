@@ -1,50 +1,44 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class PilhaTest16{
 
-  
-  @Test
-  public void testEmpilha() {
-    Pilha pilha = new Pilha();
-    pilha.empilha("Item 1");
-    assertEquals(1, pilha.tamanho());
-    assertFalse(pilha.vazia());
-  }
-  
-  @Test
-  public void testDesempilha() throws Exception {
-    Pilha pilha = new Pilha();
-    pilha.empilha("Item 1");
-    pilha.empilha("Item 2");
-    Object item = pilha.desempilha();
-    assertEquals("Item 2", item);
-    assertEquals(1, pilha.tamanho());
-  }
-  
-  @Test(expected = Exception.class)
-  public void testDesempilhaEmptyStack() throws Exception {
-    Pilha pilha = new Pilha();
-    pilha.desempilha();
-  }
-  
-  @Test
-  public void testVazia() {
-    Pilha pilha = new Pilha();
-    assertTrue(pilha.vazia());
-    pilha.empilha("Item 1");
-    assertFalse(pilha.vazia());
-  }
-  
-  @Test
-  public void testTamanho() {
-    Pilha pilha = new Pilha();
-    assertEquals(0, pilha.tamanho());
-    pilha.empilha("Item 1");
-    assertEquals(1, pilha.tamanho());
-    pilha.empilha("Item 2");
-    assertEquals(2, pilha.tamanho());
-    pilha.desempilha();
-    assertEquals(1, pilha.tamanho());
-  }
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Pilha p = new Pilha();
+        assertNotNull(p);
+    }
+
+    @Test(timeout=1000)
+    public void testEmpilha() throws Exception {
+        Pilha p = new Pilha();
+        p.empilha(10);
+        assertEquals(1, p.tamanho());
+    }
+
+    @Test(timeout=1000)
+    public void testDesempilha() throws Exception {
+        Pilha p = new Pilha();
+        p.empilha(10);
+        p.empilha(20);
+        assertEquals(20, p.desempilha());
+        assertEquals(1, p.tamanho());
+    }
+
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
+        Pilha p = new Pilha();
+        assertTrue(p.vazia());
+        p.empilha(10);
+        assertFalse(p.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testTamanho() throws Exception {
+        Pilha p = new Pilha();
+        assertEquals(0, p.tamanho());
+        p.empilha(10);
+        assertEquals(1, p.tamanho());
+    }
 }

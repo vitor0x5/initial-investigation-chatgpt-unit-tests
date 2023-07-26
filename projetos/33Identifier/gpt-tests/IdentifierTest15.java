@@ -4,27 +4,58 @@ import static org.junit.Assert.*;
 public class IdentifierTest15{
 
 
-    @Test
-    public void testValidIdentifier() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Identifier identifier = new Identifier();
-        assertTrue(identifier.validateIdentifier("abc"));
-        assertTrue(identifier.validateIdentifier("Abc"));
-        assertTrue(identifier.validateIdentifier("a1b2c"));
-        assertTrue(identifier.validateIdentifier("A1B2C"));
+        assertNotNull(identifier);
     }
 
-    @Test
-    public void testInvalidIdentifier() {
+    @Test(timeout=1000)
+    public void testValidateIdentifier_Valid() throws Exception {
         Identifier identifier = new Identifier();
-        assertFalse(identifier.validateIdentifier(""));
-        assertFalse(identifier.validateIdentifier("a"));
-        assertFalse(identifier.validateIdentifier("123"));
-        assertFalse(identifier.validateIdentifier("Abcdefg"));
+        boolean result = identifier.validateIdentifier("Abc123");
+        assertTrue(result);
     }
 
-    @Test
-    public void testNullIdentifier() {
+    @Test(timeout=1000)
+    public void testValidateIdentifier_Invalid() throws Exception {
         Identifier identifier = new Identifier();
-        assertFalse(identifier.validateIdentifier(null));
+        boolean result = identifier.validateIdentifier("123Abc");
+        assertFalse(result);
+    }
+
+    @Test(timeout=1000)
+    public void testValidateIdentifier_Null() throws Exception {
+        Identifier identifier = new Identifier();
+        boolean result = identifier.validateIdentifier(null);
+        assertFalse(result);
+    }
+
+    @Test(timeout=1000)
+    public void testValid_s_Valid() throws Exception {
+        Identifier identifier = new Identifier();
+        boolean result = identifier.valid_s('A');
+        assertTrue(result);
+    }
+
+    @Test(timeout=1000)
+    public void testValid_s_Invalid() throws Exception {
+        Identifier identifier = new Identifier();
+        boolean result = identifier.valid_s('1');
+        assertFalse(result);
+    }
+
+    @Test(timeout=1000)
+    public void testValid_f_Valid() throws Exception {
+        Identifier identifier = new Identifier();
+        boolean result = identifier.valid_f('A');
+        assertTrue(result);
+    }
+
+    @Test(timeout=1000)
+    public void testValid_f_Invalid() throws Exception {
+        Identifier identifier = new Identifier();
+        boolean result = identifier.valid_f('$');
+        assertFalse(result);
     }
 }

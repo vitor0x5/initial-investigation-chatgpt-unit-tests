@@ -1,62 +1,97 @@
-package ds;import ds.ArvoreBinaria;
-import ds.Item;
-import ds.MeuItem;
-import ds.PermutacaoRandomica;
-import org.junit.Assert;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-
-import java.util.Random;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.io.*;
 
 public class ArvoreBinariaTest23{
 
-
-    @Test
-    public void testInsercao() {
-        ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        Item item3 = new MeuItem(3);
-
-        arvore.insere(item2);
-        arvore.insere(item1);
-        arvore.insere(item3);
-
-        Assert.assertEquals(item1, arvore.pesquisa(item1));
-        Assert.assertEquals(item2, arvore.pesquisa(item2));
-        Assert.assertEquals(item3, arvore.pesquisa(item3));
+    
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(1);
+    
+    private ArvoreBinaria arvore;
+    
+    @Before
+    public void setUp() throws Exception {
+        arvore = new ArvoreBinaria();
     }
-
+    
     @Test
-    public void testRemocao() {
-        ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        Item item3 = new MeuItem(3);
-
-        arvore.insere(item2);
-        arvore.insere(item1);
-        arvore.insere(item3);
-
-        arvore.retira(item2);
-
-        Assert.assertNull(arvore.pesquisa(item2));
-        Assert.assertEquals(item1, arvore.pesquisa(item1));
-        Assert.assertEquals(item3, arvore.pesquisa(item3));
+    public void testDefaultConstructor() {
+        assertNotNull(arvore);
     }
-
+    
     @Test
     public void testPesquisa() {
-        ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        Item item3 = new MeuItem(3);
-
-        arvore.insere(item2);
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(30);
+        
         arvore.insere(item1);
+        arvore.insere(item2);
         arvore.insere(item3);
-
-        Assert.assertEquals(item1, arvore.pesquisa(item1));
-        Assert.assertEquals(item2, arvore.pesquisa(item2));
-        Assert.assertEquals(item3, arvore.pesquisa(item3));
+        
+        Item result1 = arvore.pesquisa(item1);
+        Item result2 = arvore.pesquisa(item2);
+        Item result3 = arvore.pesquisa(item3);
+        
+        assertEquals(item1, result1);
+        assertEquals(item2, result2);
+        assertEquals(item3, result3);
+    }
+    
+    @Test
+    public void testInsere() {
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(30);
+        
+        arvore.insere(item1);
+        arvore.insere(item2);
+        arvore.insere(item3);
+        
+        Item result1 = arvore.pesquisa(item1);
+        Item result2 = arvore.pesquisa(item2);
+        Item result3 = arvore.pesquisa(item3);
+        
+        assertEquals(item1, result1);
+        assertEquals(item2, result2);
+        assertEquals(item3, result3);
+    }
+    
+    @Test
+    public void testRetira() {
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(30);
+        
+        arvore.insere(item1);
+        arvore.insere(item2);
+        arvore.insere(item3);
+        
+        arvore.retira(item2);
+        
+        Item result1 = arvore.pesquisa(item1);
+        Item result2 = arvore.pesquisa(item2);
+        Item result3 = arvore.pesquisa(item3);
+        
+        assertEquals(item1, result1);
+        assertNull(result2);
+        assertEquals(item3, result3);
+    }
+    
+    @Test
+    public void testTesta() {
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(30);
+        
+        arvore.insere(item1);
+        arvore.insere(item2);
+        arvore.insere(item3);
+        
+        arvore.testa();
     }
 }

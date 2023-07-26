@@ -1,34 +1,48 @@
-package ds;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class MaxMin2Test1 {
+public class MaxMin2Test1{
 
-    @Test
-    public void testMaxMin2() {
-        // Test case 1
-        int[] v1 = {1, 2, 3, 4, 5};
-        int[] expected1 = {5, 1};
-        assertArrayEquals(expected1, MaxMin2.maxMin2(v1, v1.length));
 
-        // Test case 2
-        int[] v2 = {5, 4, 3, 2, 1};
-        int[] expected2 = {5, 1};
-        assertArrayEquals(expected2, MaxMin2.maxMin2(v2, v2.length));
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin2 maxMin2 = new MaxMin2();
+        assertNotNull(maxMin2);
+    }
 
-        // Test case 3
-        int[] v3 = {1, 1, 1, 1, 1};
-        int[] expected3 = {1, 1};
-        assertArrayEquals(expected3, MaxMin2.maxMin2(v3, v3.length));
+    @Test(timeout=1000)
+    public void testMaxMin2_WithPositiveValues() throws Exception {
+        int[] v = {5, 10, 15, 20};
+        int n = 4;
+        int[] expected = {20, 5};
+        int[] result = MaxMin2.maxMin2(v, n);
+        assertArrayEquals(expected, result);
+    }
 
-        // Test case 4
-        int[] v4 = {1};
-        int[] expected4 = {1, 1};
-        assertArrayEquals(expected4, MaxMin2.maxMin2(v4, v4.length));
+    @Test(timeout=1000)
+    public void testMaxMin2_WithNegativeValues() throws Exception {
+        int[] v = {-5, -10, -15, -20};
+        int n = 4;
+        int[] expected = {-5, -20};
+        int[] result = MaxMin2.maxMin2(v, n);
+        assertArrayEquals(expected, result);
+    }
 
-        // Test case 5
-        int[] v5 = {5, 2, 10, 4, 1};
-        int[] expected5 = {10, 1};
-        assertArrayEquals(expected5, MaxMin2.maxMin2(v5, v5.length));
+    @Test(timeout=1000)
+    public void testMaxMin2_WithMixedValues() throws Exception {
+        int[] v = {-5, 10, -15, 20};
+        int n = 4;
+        int[] expected = {20, -15};
+        int[] result = MaxMin2.maxMin2(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin2_WithBoundaryValues() throws Exception {
+        int[] v = {0, Integer.MAX_VALUE, Integer.MIN_VALUE, 100, -100};
+        int n = 5;
+        int[] expected = {Integer.MAX_VALUE, Integer.MIN_VALUE};
+        int[] result = MaxMin2.maxMin2(v, n);
+        assertArrayEquals(expected, result);
     }
 }

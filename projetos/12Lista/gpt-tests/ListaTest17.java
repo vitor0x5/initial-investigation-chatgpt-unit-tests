@@ -1,31 +1,35 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class ListaTest17{
 
 
-    @Test
-    public void testInsere() {
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
         Lista lista = new Lista();
-        lista.insere(1);
-        lista.insere(2);
-        lista.insere(3);
+        assertNotNull(lista);
+    }
+
+    @Test(timeout = 1000)
+    public void testInsere() throws Exception {
+        Lista lista = new Lista();
+        lista.insere(5);
         assertFalse(lista.vazia());
     }
 
-    @Test
-    public void testVazia() {
+    @Test(timeout = 1000)
+    public void testVazia() throws Exception {
         Lista lista = new Lista();
         assertTrue(lista.vazia());
     }
 
-    @Test
-    public void testImprime() {
+    @Test(timeout = 1000)
+    public void testImprime() throws Exception {
         Lista lista = new Lista();
-        lista.insere(1);
-        lista.insere(2);
-        lista.insere(3);
+        lista.insere(5);
+        lista.insere(10);
+        lista.insere(15);
         lista.imprime();
-        // You can add assertions here to check the printed output
+        // The output can be validated manually
     }
 }

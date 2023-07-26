@@ -1,60 +1,98 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
-import java.util.Random;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
+import java.io.*;
 
 public class ArvoreBinariaTest30{
 
 
-    @Test
+    private ArvoreBinaria arvore;
+
+    @Before
+    public void setUp() {
+        arvore = new ArvoreBinaria();
+    }
+
+    @After
+    public void tearDown() {
+        arvore = null;
+    }
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() {
+        assertNotNull(arvore);
+    }
+
+    @Test(timeout=1000)
     public void testPesquisa() {
-        ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        Item item3 = new MeuItem(3);
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(30);
+
         arvore.insere(item1);
         arvore.insere(item2);
         arvore.insere(item3);
-        assertEquals(item1, arvore.pesquisa(item1));
-        assertEquals(item2, arvore.pesquisa(item2));
-        assertEquals(item3, arvore.pesquisa(item3));
+
+        Item result1 = arvore.pesquisa(item1);
+        Item result2 = arvore.pesquisa(item2);
+        Item result3 = arvore.pesquisa(item3);
+
+        assertEquals(item1, result1);
+        assertEquals(item2, result2);
+        assertEquals(item3, result3);
     }
 
-    @Test
+    @Test(timeout=1000)
     public void testInsere() {
-        ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        Item item3 = new MeuItem(3);
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(30);
+
         arvore.insere(item1);
         arvore.insere(item2);
         arvore.insere(item3);
-        assertEquals(item1, arvore.pesquisa(item1));
-        assertEquals(item2, arvore.pesquisa(item2));
-        assertEquals(item3, arvore.pesquisa(item3));
+
+        Item result1 = arvore.pesquisa(item1);
+        Item result2 = arvore.pesquisa(item2);
+        Item result3 = arvore.pesquisa(item3);
+
+        assertEquals(item1, result1);
+        assertEquals(item2, result2);
+        assertEquals(item3, result3);
     }
 
-    @Test
+    @Test(timeout=1000)
     public void testRetira() {
-        ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        Item item3 = new MeuItem(3);
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(30);
+
         arvore.insere(item1);
         arvore.insere(item2);
         arvore.insere(item3);
+
         arvore.retira(item2);
-        assertNull(arvore.pesquisa(item2));
+
+        Item result1 = arvore.pesquisa(item1);
+        Item result2 = arvore.pesquisa(item2);
+        Item result3 = arvore.pesquisa(item3);
+
+        assertEquals(item1, result1);
+        assertNull(result2);
+        assertEquals(item3, result3);
     }
 
-    @Test
+    @Test(timeout=1000)
     public void testTesta() {
-        ArvoreBinaria arvore = new ArvoreBinaria();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        Item item3 = new MeuItem(3);
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
+        Item item3 = new MeuItem(30);
+
         arvore.insere(item1);
         arvore.insere(item2);
         arvore.insere(item3);
+
         arvore.testa();
     }
 }

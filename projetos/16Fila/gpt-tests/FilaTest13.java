@@ -1,52 +1,47 @@
-package ds;import org.junit.Test;
+package ds;import ds.Fila;
+
+import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class FilaTest13{
 
 
-    @Test
-    public void testEnfileira() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Fila fila = new Fila();
+        assertNotNull(fila);
+    }
+
+    @Test(timeout=1000)
+    public void testEnfileira() throws Exception {
         Fila fila = new Fila();
         fila.enfileira(1);
         fila.enfileira(2);
         fila.enfileira(3);
-        assertEquals(1, fila.desenfileira());
-        assertEquals(2, fila.desenfileira());
-        assertEquals(3, fila.desenfileira());
+        fila.enfileira(4);
+        fila.enfileira(5);
+        fila.imprime();
     }
 
-    @Test
-    public void testDesenfileira() {
+    @Test(timeout=1000)
+    public void testDesenfileira() throws Exception {
         Fila fila = new Fila();
         fila.enfileira(1);
         fila.enfileira(2);
         fila.enfileira(3);
-        assertEquals(1, fila.desenfileira());
-        assertEquals(2, fila.desenfileira());
-        assertEquals(3, fila.desenfileira());
-    }
-
-    @Test(expected = Exception.class)
-    public void testDesenfileiraEmpty() throws Exception {
-        Fila fila = new Fila();
+        fila.enfileira(4);
+        fila.enfileira(5);
+        fila.imprime();
         fila.desenfileira();
+        fila.desenfileira();
+        fila.imprime();
     }
 
-    @Test
-    public void testVazia() {
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Fila fila = new Fila();
         assertTrue(fila.vazia());
         fila.enfileira(1);
         assertFalse(fila.vazia());
-    }
-
-    @Test
-    public void testImprime() {
-        Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        fila.imprime();
-        // Assuming the expected output is "1 2 3"
     }
 }

@@ -1,102 +1,108 @@
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
+import java.io.*;
 
 public class FPHeapMinTest26{
 
 
-    @Test
-    public void testRefaz() {
-        Item[] v = new Item[6];
-        v[1] = new MeuItem(5);
-        v[2] = new MeuItem(3);
-        v[3] = new MeuItem(7);
-        v[4] = new MeuItem(2);
-        v[5] = new MeuItem(9);
-        FPHeapMin heap = new FPHeapMin(v);
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        FPHeapMin heap = new FPHeapMin(10);
+        assertNotNull(heap);
+    }
+
+    @Test(timeout=1000)
+    public void testRefaz() throws Exception {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(8);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(6);
+        FPHeapMin heap = new FPHeapMin(items);
         heap.refaz(1, 5);
-        assertEquals(2, heap.min().recuperaChave());
+        assertEquals(1, heap.min().recuperaChave());
     }
 
-    @Test
-    public void testConstroi() {
-        Item[] v = new Item[6];
-        v[1] = new MeuItem(5);
-        v[2] = new MeuItem(3);
-        v[3] = new MeuItem(7);
-        v[4] = new MeuItem(2);
-        v[5] = new MeuItem(9);
-        FPHeapMin heap = new FPHeapMin(v);
+    @Test(timeout=1000)
+    public void testConstroi() throws Exception {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(8);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(6);
+        FPHeapMin heap = new FPHeapMin(items);
         heap.constroi();
+        assertEquals(1, heap.min().recuperaChave());
+    }
+
+    @Test(timeout=1000)
+    public void testRetiraMin() throws Exception {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(8);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(6);
+        FPHeapMin heap = new FPHeapMin(items);
+        Item min = heap.retiraMin();
+        assertEquals(1, min.recuperaChave());
+    }
+
+    @Test(timeout=1000)
+    public void testDiminuiChave() throws Exception {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(8);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(6);
+        FPHeapMin heap = new FPHeapMin(items);
+        heap.diminuiChave(3, 2);
         assertEquals(2, heap.min().recuperaChave());
     }
 
-    @Test
-    public void testRetiraMin() throws Exception {
-        Item[] v = new Item[6];
-        v[1] = new MeuItem(5);
-        v[2] = new MeuItem(3);
-        v[3] = new MeuItem(7);
-        v[4] = new MeuItem(2);
-        v[5] = new MeuItem(9);
-        FPHeapMin heap = new FPHeapMin(v);
-        Item min = heap.retiraMin();
-        assertEquals(2, min.recuperaChave());
-        assertEquals(3, heap.min().recuperaChave());
-    }
-
-    @Test
-    public void testDiminuiChave() throws Exception {
-        Item[] v = new Item[6];
-        v[1] = new MeuItem(5);
-        v[2] = new MeuItem(3);
-        v[3] = new MeuItem(7);
-        v[4] = new MeuItem(2);
-        v[5] = new MeuItem(9);
-        FPHeapMin heap = new FPHeapMin(v);
-        heap.diminuiChave(3, 1);
-        assertEquals(1, heap.min().recuperaChave());
-    }
-
-    @Test
+    @Test(timeout=1000)
     public void testInsere() throws Exception {
-        Item[] v = new Item[6];
-        v[1] = new MeuItem(5);
-        v[2] = new MeuItem(3);
-        v[3] = new MeuItem(7);
-        v[4] = new MeuItem(2);
-        v[5] = new MeuItem(9);
-        FPHeapMin heap = new FPHeapMin(v);
-        heap.insere(new MeuItem(1));
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(8);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(6);
+        FPHeapMin heap = new FPHeapMin(items);
+        Item newItem = new MeuItem(2);
+        heap.insere(newItem);
         assertEquals(1, heap.min().recuperaChave());
     }
 
-    @Test
-    public void testImprime() {
-        Item[] v = new Item[6];
-        v[1] = new MeuItem(5);
-        v[2] = new MeuItem(3);
-        v[3] = new MeuItem(7);
-        v[4] = new MeuItem(2);
-        v[5] = new MeuItem(9);
-        FPHeapMin heap = new FPHeapMin(v);
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(8);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(6);
+        FPHeapMin heap = new FPHeapMin(items);
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
         heap.imprime();
+        assertEquals("1 3 8 5 6 ", outContent.toString());
     }
 
-    @Test
-    public void testCopia() {
-        Item[] v1 = new Item[6];
-        v1[1] = new MeuItem(5);
-        v1[2] = new MeuItem(3);
-        v1[3] = new MeuItem(7);
-        v1[4] = new MeuItem(2);
-        v1[5] = new MeuItem(9);
-        Item[] v2 = new Item[6];
-        FPHeapMin heap = new FPHeapMin(v1);
-        heap.copia(v2);
-        assertEquals(5, v2[1].recuperaChave());
-        assertEquals(3, v2[2].recuperaChave());
-        assertEquals(7, v2[3].recuperaChave());
-        assertEquals(2, v2[4].recuperaChave());
-        assertEquals(9, v2[5].recuperaChave());
+    @Test(timeout=1000)
+    public void testCopia() throws Exception {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(8);
+        items[4] = new MeuItem(1);
+        items[5] = new MeuItem(6);
+        FPHeapMin heap = new FPHeapMin(items);
+        Item[] newItems = new Item[6];
+        heap.copia(newItems);
+        assertEquals(5, newItems[1].recuperaChave());
     }
 }

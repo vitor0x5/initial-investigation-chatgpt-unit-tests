@@ -4,60 +4,76 @@ import static org.junit.Assert.*;
 public class FilaTest13{
 
 
-    @Test
-    public void testEnfileira() throws Exception {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        assertEquals(1, fila.item[0]);
-        assertEquals(2, fila.item[1]);
-        assertEquals(3, fila.item[2]);
+        assertNotNull(fila);
     }
 
-    @Test(expected = Exception.class)
-    public void testEnfileiraFull() throws Exception {
+    @Test(timeout=1000)
+    public void testEnfileira() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira(10);
+        fila.enfileira(20);
+        fila.enfileira(30);
+        assertEquals(10, fila.item[0]);
+        assertEquals(20, fila.item[1]);
+        assertEquals(30, fila.item[2]);
+    }
+
+    @Test(timeout=1000)
+    public void testEnfileira_FullQueue() throws Exception {
         Fila fila = new Fila();
         for (int i = 0; i < 1000; i++) {
             fila.enfileira(i);
         }
-        fila.enfileira(1001);
+        try {
+            fila.enfileira(1000);
+            fail("Expected Exception not thrown");
+        } catch (Exception e) {
+            assertEquals("Erro: A fila esta cheia", e.getMessage());
+        }
     }
 
-    @Test
+    @Test(timeout=1000)
     public void testDesenfileira() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        assertEquals(1, fila.desenfileira());
-        assertEquals(2, fila.desenfileira());
-        assertEquals(3, fila.desenfileira());
+        fila.enfileira(10);
+        fila.enfileira(20);
+        fila.enfileira(30);
+        assertEquals(10, fila.desenfileira());
+        assertEquals(20, fila.desenfileira());
+        assertEquals(30, fila.desenfileira());
     }
 
-    @Test(expected = Exception.class)
-    public void testDesenfileiraEmpty() throws Exception {
+    @Test(timeout=1000)
+    public void testDesenfileira_EmptyQueue() throws Exception {
         Fila fila = new Fila();
-        fila.desenfileira();
+        try {
+            fila.desenfileira();
+            fail("Expected Exception not thrown");
+        } catch (Exception e) {
+            assertEquals("Erro: A fila esta vazia", e.getMessage());
+        }
     }
 
-    @Test
+    @Test(timeout=1000)
     public void testVazia() throws Exception {
         Fila fila = new Fila();
         assertTrue(fila.vazia());
-        fila.enfileira(1);
+        fila.enfileira(10);
         assertFalse(fila.vazia());
         fila.desenfileira();
         assertTrue(fila.vazia());
     }
 
-    @Test
+    @Test(timeout=1000)
     public void testImprime() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
+        fila.enfileira(10);
+        fila.enfileira(20);
+        fila.enfileira(30);
         fila.imprime();
-        // Manually check the console output
+        // Since System.out.println() does not return anything, we cannot assert anything here
     }
 }

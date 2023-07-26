@@ -4,16 +4,64 @@ import static org.junit.Assert.*;
 public class CasamentoAproximadoTest21{
 
 
-    @Test
-    public void testShiftAndAproximado() {
-        String T = "abcde";
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoAproximado casamentoAproximado = new CasamentoAproximado();
+        assertNotNull(casamentoAproximado);
+    }
+
+    @Test(timeout=1000)
+    public void testShiftAndAproximado() throws Exception {
+        String T = "abcdabcd";
         int n = T.length();
-        String P = "bcd";
+        String P = "abc";
         int m = P.length();
         int k = 1;
-        
+
         CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
-        
-        // Add assertions here to verify the expected output
+    }
+
+    @Test(timeout=1000)
+    public void testShiftAndAproximadoWithEmptyString() throws Exception {
+        String T = "";
+        int n = T.length();
+        String P = "abc";
+        int m = P.length();
+        int k = 1;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
+    }
+
+    @Test(timeout=1000)
+    public void testShiftAndAproximadoWithEmptyPattern() throws Exception {
+        String T = "abcdabcd";
+        int n = T.length();
+        String P = "";
+        int m = P.length();
+        int k = 1;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
+    }
+
+    @Test(timeout=1000)
+    public void testShiftAndAproximadoWithNegativeK() throws Exception {
+        String T = "abcdabcd";
+        int n = T.length();
+        String P = "abc";
+        int m = P.length();
+        int k = -1;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
+    }
+
+    @Test(timeout=1000)
+    public void testShiftAndAproximadoWithBoundaryValues() throws Exception {
+        String T = "abcdabcd";
+        int n = T.length();
+        String P = "abc";
+        int m = P.length();
+        int k = 0;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
     }
 }

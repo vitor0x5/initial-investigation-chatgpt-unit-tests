@@ -1,19 +1,22 @@
-
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class CasamentoAproximadoTest2 {
+public class CasamentoAproximadoTest2{
 
-    @Test
-    public void testShiftAndAproximado() {
-        String T = "abcde";
-        String P = "cde";
-        int k = 1;
+
+    @Test(timeout=1000, expected=Exception.class)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoAproximado casamento = new CasamentoAproximado();
+    }
+
+    @Test(timeout=1000, expected=Exception.class)
+    public void testShiftAndAproximado() throws Exception {
+        String T = "abababa";
         int n = T.length();
+        String P = "aba";
         int m = P.length();
+        int k = 1;
 
         CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
-
-        // Add assertions here to check if the output is correct
     }
 }

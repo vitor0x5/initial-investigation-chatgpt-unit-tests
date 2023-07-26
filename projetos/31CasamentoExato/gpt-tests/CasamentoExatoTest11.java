@@ -1,47 +1,52 @@
+package ds;import org.junit.Test;
 
-package ds;import ds.CasamentoExato;
-import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class CasamentoExatoTest11 {
-    
-    @Test
-    public void testForcaBruta() {
-        String T = "abcdefg";
+public class CasamentoExatoTest11{
+
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoExato ce = new CasamentoExato();
+    }
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testForcaBruta() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "def";
+        String P = "cd";
         int m = P.length();
+
         CasamentoExato.forcaBruta(T, n, P, m);
-        // Add assertions here
     }
-    
-    @Test
-    public void testShiftAndExato() {
-        String T = "abcdefgh";
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testShiftAndExato() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "def";
+        String P = "cd";
         int m = P.length();
+
         CasamentoExato.shiftAndExato(T, n, P, m);
-        // Add assertions here
     }
-    
-    @Test
-    public void testBmh() {
-        String T = "abcdefgh";
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testBmh() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "def";
+        String P = "cd";
         int m = P.length();
+
         CasamentoExato.bmh(T, n, P, m);
-        // Add assertions here
     }
-    
-    @Test
-    public void testBmhs() {
-        String T = "abcdefgh";
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testBmhs() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "def";
+        String P = "cd";
         int m = P.length();
+
         CasamentoExato.bmhs(T, n, P, m);
-        // Add assertions here
     }
 }

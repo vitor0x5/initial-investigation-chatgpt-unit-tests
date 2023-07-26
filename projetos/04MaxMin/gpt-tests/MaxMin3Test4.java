@@ -1,60 +1,74 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.*;
-import org.junit.Test;
+public class MaxMin3Test4{
 
-public class MaxMin3Test4 {
 
-  @Test
-  public void testMaxMin3_oddLength() {
-    int[] v = {1, 5, 3, 9, 2};
-    int n = 5;
-    int[] expected = {9, 1};
-    int[] result = MaxMin3.maxMin3(v, n);
-    assertArrayEquals(expected, result);
-  }
-  
-  @Test
-  public void testMaxMin3_evenLength() {
-    int[] v = {7, 2, 4, 8, 1, 6};
-    int n = 6;
-    int[] expected = {8, 1};
-    int[] result = MaxMin3.maxMin3(v, n);
-    assertArrayEquals(expected, result);
-  }
-  
-  @Test
-  public void testMaxMin3_maxAtStart() {
-    int[] v = {10, 5, 3, 2, 9};
-    int n = 5;
-    int[] expected = {10, 2};
-    int[] result = MaxMin3.maxMin3(v, n);
-    assertArrayEquals(expected, result);
-  }
-  
-  @Test
-  public void testMaxMin3_minAtStart() {
-    int[] v = {2, 5, 8, 4, 6};
-    int n = 5;
-    int[] expected = {8, 2};
-    int[] result = MaxMin3.maxMin3(v, n);
-    assertArrayEquals(expected, result);
-  }
-  
-  @Test
-  public void testMaxMin3_maxAtEnd() {
-    int[] v = {4, 3, 8, 6, 10};
-    int n = 5;
-    int[] expected = {10, 3};
-    int[] result = MaxMin3.maxMin3(v, n);
-    assertArrayEquals(expected, result);
-  }
-  
-  @Test
-  public void testMaxMin3_minAtEnd() {
-    int[] v = {7, 9, 6, 10, 2};
-    int n = 5;
-    int[] expected = {10, 2};
-    int[] result = MaxMin3.maxMin3(v, n);
-    assertArrayEquals(expected, result);
-  }
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin3 maxMin3 = new MaxMin3();
+        assertNotNull(maxMin3);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin3() throws Exception {
+        int[] v = {1, 2, 3, 4, 5};
+        int n = 5;
+        int[] expected = {5, 1};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxMin3WithOddN() throws Exception {
+        int[] v = {1, 2, 3, 4, 5, 6};
+        int n = 6;
+        int[] expected = {6, 1};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxMin3WithNegativeValues() throws Exception {
+        int[] v = {-5, 10, -3, 7, -1, 4};
+        int n = 6;
+        int[] expected = {10, -5};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
+    
+    @Test(expected=ArrayIndexOutOfBoundsException.class, timeout=1000)
+    public void testMaxMin3WithInvalidN() throws Exception {
+        int[] v = {1, 2, 3, 4, 5};
+        int n = 6;
+        MaxMin3.maxMin3(v, n);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxMin3WithDuplicateMaxValue() throws Exception {
+        int[] v = {1, 2, 3, 4, 5, 5};
+        int n = 6;
+        int[] expected = {5, 1};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxMin3WithDuplicateMinValue() throws Exception {
+        int[] v = {1, 2, 3, 4, 1, 5};
+        int n = 6;
+        int[] expected = {5, 1};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
+    
+    @Test(timeout=1000)
+    public void testMaxMin3WithMaxAndMinValuesAtEnd() throws Exception {
+        int[] v = {1, 2, 3, 4, 5, 0};
+        int n = 6;
+        int[] expected = {5, 0};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
+    
 }

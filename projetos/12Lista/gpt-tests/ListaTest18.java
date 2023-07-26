@@ -1,33 +1,40 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class ListaTest18{
 
 
-    @Test
-    public void testInsere() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Lista lista = new Lista();
-        lista.insere(1);
-        lista.insere(2);
-        lista.insere(3);
+        assertNotNull(lista);
+    }
+
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        Lista lista = new Lista();
+        lista.insere("Item 1");
+        lista.insere("Item 2");
+        lista.insere("Item 3");
         assertFalse(lista.vazia());
     }
 
-    @Test
-    public void testVazia() {
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Lista lista = new Lista();
         assertTrue(lista.vazia());
-        lista.insere(1);
+        lista.insere("Item 1");
         assertFalse(lista.vazia());
     }
 
-    @Test
-    public void testImprime() {
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         Lista lista = new Lista();
-        lista.insere(1);
-        lista.insere(2);
-        lista.insere(3);
+        lista.insere("Item 1");
+        lista.insere("Item 2");
+        lista.insere("Item 3");
         lista.imprime();
-        // Verify the printed output manually
+        // Since imprime() method only prints to console, we cannot assert the output here.
+        // We can manually check the console output to verify if it is correct.
     }
 }

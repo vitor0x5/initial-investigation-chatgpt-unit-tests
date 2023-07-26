@@ -1,34 +1,39 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class OrdenacaoTest14{
 
-
-    @Test
-    public void testOrdena() {
-        // Test case 1: Test with an empty array
-        int[] arr1 = {};
-        Ordenacao.ordena(arr1, 0);
-        assertArrayEquals(new int[]{}, arr1);
-
-        // Test case 2: Test with an array of size 1
-        int[] arr2 = {5};
-        Ordenacao.ordena(arr2, 1);
-        assertArrayEquals(new int[]{5}, arr2);
-
-        // Test case 3: Test with an already sorted array
-        int[] arr3 = {1, 2, 3, 4, 5};
-        Ordenacao.ordena(arr3, 5);
-        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, arr3);
-
-        // Test case 4: Test with an array in descending order
-        int[] arr4 = {5, 4, 3, 2, 1};
-        Ordenacao.ordena(arr4, 5);
-        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, arr4);
-
-        // Test case 5: Test with an array containing negative numbers
-        int[] arr5 = {-5, 3, -2, 0, 1};
-        Ordenacao.ordena(arr5, 5);
-        assertArrayEquals(new int[]{-5, -2, 0, 1, 3}, arr5);
+    
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+    }
+    
+    @Test(timeout = 1000)
+    public void testOrdena() throws Exception {
+        // Test case with empty array
+        int[] emptyArray = {};
+        Ordenacao.ordena(emptyArray, 0);
+        assertArrayEquals(new int[]{}, emptyArray);
+        
+        // Test case with array of size 1
+        int[] arraySize1 = {5};
+        Ordenacao.ordena(arraySize1, 1);
+        assertArrayEquals(new int[]{5}, arraySize1);
+        
+        // Test case with array of size 2
+        int[] arraySize2 = {2, 1};
+        Ordenacao.ordena(arraySize2, 2);
+        assertArrayEquals(new int[]{1, 2}, arraySize2);
+        
+        // Test case with array of size 3
+        int[] arraySize3 = {-4, 3, -2};
+        Ordenacao.ordena(arraySize3, 3);
+        assertArrayEquals(new int[]{-4, -2, 3}, arraySize3);
+        
+        // Test case with array of size 5
+        int[] arraySize5 = {10, -5, 0, 7, -3};
+        Ordenacao.ordena(arraySize5, 5);
+        assertArrayEquals(new int[]{-5, -3, 0, 7, 10}, arraySize5);
     }
 }

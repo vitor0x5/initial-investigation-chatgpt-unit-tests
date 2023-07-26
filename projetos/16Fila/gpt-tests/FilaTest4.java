@@ -1,57 +1,50 @@
-
-package ds;
-import ds.Fila;
-import org.junit.Before;
-import org.junit.Test;
-
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class FilaTest4 {
-    private Fila fila;
+public class FilaTest4{
 
-    @Before
-    public void setUp() {
-        fila = new Fila();
+
+    // Test for default constructor
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() {
+        Fila fila = new Fila();
+        assertNotNull(fila);
     }
 
-    @Test
-    public void testEnfileira() {
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        assertFalse(fila.vazia());
+    // Test for enfileira method with valid input
+    @Test(timeout = 1000)
+    public void testEnfileiraValidInput() {
+        Fila fila = new Fila();
+        fila.enfileira(5);
+        fila.enfileira(10);
+        fila.enfileira(15);
+        assertEquals(3, fila.size());
     }
 
-    @Test
+    // Test for desenfileira method
+    @Test(timeout = 1000)
     public void testDesenfileira() throws Exception {
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        assertEquals(1, fila.desenfileira());
-        assertEquals(2, fila.desenfileira());
-        assertEquals(3, fila.desenfileira());
+        Fila fila = new Fila();
+        fila.enfileira(5);
+        fila.enfileira(10);
+        fila.enfileira(15);
+        Object item = fila.desenfileira();
+        assertEquals(5, item);
+        assertEquals(2, fila.size());
+    }
+
+    // Test for vazia method when the queue is empty
+    @Test(timeout = 1000)
+    public void testVaziaEmptyQueue() {
+        Fila fila = new Fila();
         assertTrue(fila.vazia());
     }
 
-    @Test(expected = Exception.class)
-    public void testDesenfileiraFromEmptyFila() throws Exception {
-        fila.desenfileira();
-    }
-
-    @Test
-    public void testVazia() {
-        assertTrue(fila.vazia());
-        fila.enfileira(1);
+    // Test for vazia method when the queue is not empty
+    @Test(timeout = 1000)
+    public void testVaziaNonEmptyQueue() {
+        Fila fila = new Fila();
+        fila.enfileira(5);
         assertFalse(fila.vazia());
-        fila.desenfileira();
-        assertTrue(fila.vazia());
-    }
-
-    @Test
-    public void testImprime() {
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        fila.imprime();
     }
 }

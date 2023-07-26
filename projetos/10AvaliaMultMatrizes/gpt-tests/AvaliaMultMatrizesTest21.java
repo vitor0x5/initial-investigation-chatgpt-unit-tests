@@ -1,39 +1,18 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class AvaliaMultMatrizesTest21{
 
 
-    @Test
-    public void testMultmatrize() {
-        int n = 3;
-        int[] d = {2, 3, 4};
-        int[][] expected = {{0, 24, 54}, {0, 0, 24}, {0, 0, 0}};
-
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        AvaliaMultMatrizes avaliaMultMatrizes = new AvaliaMultMatrizes();
     }
 
-    @Test
-    public void testMultmatrizeWithNegativeValues() {
+    @Test(timeout=1000)
+    public void testMultmatrize() throws Exception {
         int n = 3;
-        int[] d = {-2, 3, -4};
-        int[][] expected = {{0, -24, -54}, {0, 0, -24}, {0, 0, 0}};
-
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
-    }
-
-    @Test(expected = IOException.class)
-    public void testMultmatrizeWithIOException() throws IOException {
-        int n = 3;
-        int[] d = {2, 3, 4};
+        int[] d = {1, 2, 3};
 
         AvaliaMultMatrizes.multmatrize(n, d);
     }

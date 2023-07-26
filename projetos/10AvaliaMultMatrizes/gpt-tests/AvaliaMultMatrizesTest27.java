@@ -1,32 +1,48 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
+import java.io.IOException;
 
 public class AvaliaMultMatrizesTest27{
 
 
-    @Test
-    public void testMultmatrize() throws IOException {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        AvaliaMultMatrizes avaliaMultMatrizes = new AvaliaMultMatrizes();
+        assertNotNull(avaliaMultMatrizes);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrize() throws Exception {
         int n = 3;
-        int[] d = {2, 3, 4};
+        int[] d = {1, 2, 3};
         AvaliaMultMatrizes.multmatrize(n, d);
-        // Add assertions here to verify the correctness of the method
     }
 
-    @Test
-    public void testMultmatrizeWithZeroN() throws IOException {
-        int n = 0;
-        int[] d = {};
+    @Test(timeout=1000)
+    public void testMultmatrizeWithNegativeValues() throws Exception {
+        int n = 3;
+        int[] d = {-1, -2, -3};
         AvaliaMultMatrizes.multmatrize(n, d);
-        // Add assertions here to verify the correctness of the method
     }
 
-    @Test
-    public void testMultmatrizeWithNegativeD() throws IOException {
-        int n = 4;
-        int[] d = {-2, 3, -4, 5};
+    @Test(timeout=1000)
+    public void testMultmatrizeWithZeroValues() throws Exception {
+        int n = 3;
+        int[] d = {0, 0, 0};
         AvaliaMultMatrizes.multmatrize(n, d);
-        // Add assertions here to verify the correctness of the method
     }
 
-    // Add more test cases here
+    @Test(timeout=1000)
+    public void testMultmatrizeWithBoundaryValues() throws Exception {
+        int n = 1;
+        int[] d = {1};
+        AvaliaMultMatrizes.multmatrize(n, d);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrizeWithBoundaryValuesNegative() throws Exception {
+        int n = 1;
+        int[] d = {-1};
+        AvaliaMultMatrizes.multmatrize(n, d);
+    }
 }

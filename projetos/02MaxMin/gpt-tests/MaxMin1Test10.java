@@ -1,46 +1,44 @@
-
-package ds;
-
-import static org.junit.Assert.assertArrayEquals;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class MaxMin1Test10 {
+public class MaxMin1Test10{
 
-  @Test
-  public void testMaxMin1_ValidInput_ReturnsMaxAndMin() {
-    int[] v = { 2, 4, 1, 6, 3 };
-    int n = 5;
-    int[] expected = { 6, 1 };
-    int[] actual = MaxMin1.maxMin1(v, n);
-    assertArrayEquals(expected, actual);
-  }
 
-  @Test
-  public void testMaxMin1_AllEqualValues_ReturnsSameValue() {
-    int[] v = { 5, 5, 5, 5, 5 };
-    int n = 5;
-    int[] expected = { 5, 5 };
-    int[] actual = MaxMin1.maxMin1(v, n);
-    assertArrayEquals(expected, actual);
-  }
+    @Test(timeout=1000)
+    public void testDefaultConstructor() {
+        MaxMin1 obj = new MaxMin1();
+    }
 
-  @Test
-  public void testMaxMin1_EmptyArray_ReturnsNull() {
-    int[] v = {};
-    int n = 0;
-    int[] expected = { 0, 0 };
-    int[] actual = MaxMin1.maxMin1(v, n);
-    assertArrayEquals(expected, actual);
-  }
+    @Test(timeout=1000)
+    public void testMaxMin1() throws Exception {
+        int[] v = {1, 2, 3, 4, 5};
+        int n = v.length;
 
-  @Test(expected = NullPointerException.class)
-  public void testMaxMin1_NullInput_ThrowsNullPointerException() {
-    int[] v = null;
-    int n = 5;
-    MaxMin1.maxMin1(v, n);
-  }
+        int[] maxMin = MaxMin1.maxMin1(v, n);
 
+        int[] expected = {5, 1};
+        assertArrayEquals(expected, maxMin);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin1WithNegativeValues() throws Exception {
+        int[] v = {-5, -4, -3, -2, -1};
+        int n = v.length;
+
+        int[] maxMin = MaxMin1.maxMin1(v, n);
+
+        int[] expected = {-1, -5};
+        assertArrayEquals(expected, maxMin);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin1WithEqualValues() throws Exception {
+        int[] v = {1, 1, 1, 1, 1};
+        int n = v.length;
+
+        int[] maxMin = MaxMin1.maxMin1(v, n);
+
+        int[] expected = {1, 1};
+        assertArrayEquals(expected, maxMin);
+    }
 }
-
-
-Note: Make sure to import the correct MaxMin1 class from the ds package, as the provided code snippet is declared inside the ds package.

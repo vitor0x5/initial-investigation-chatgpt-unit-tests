@@ -1,56 +1,36 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+public class ListaTest2{
 
-public class ListaTest2 {
-    
-    private Lista lista;
 
-    @Before
-    public void setUp() {
-        lista = new Lista();
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Lista lista = new Lista();
+        assertNotNull(lista);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void testInsere() throws Exception {
-        Object item1 = new Object();
-        lista.insere(item1);
-        Assert.assertEquals(1, lista.ultimo);
-        Assert.assertEquals(item1, lista.item[0]);
-
-        Object item2 = new Object();
-        lista.insere(item2);
-        Assert.assertEquals(2, lista.ultimo);
-        Assert.assertEquals(item2, lista.item[1]);
+        Lista lista = new Lista();
+        lista.insere("Test");
+        assertEquals("Test", lista.item[0]);
     }
 
-    @Test(expected = Exception.class)
-    public void testInsereListaCheia() throws Exception {
-        for (int i = 0; i < 1000; i++) {
-            lista.insere(new Object());
-        }
-
-        lista.insere(new Object()); // should throw exception
-    }
-
-    @Test
+    @Test(timeout = 1000)
     public void testVazia() throws Exception {
-        Assert.assertTrue(lista.vazia());
-
-        lista.insere(new Object());
-        Assert.assertFalse(lista.vazia());
+        Lista lista = new Lista();
+        assertTrue(lista.vazia());
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void testImprime() throws Exception {
-        Object item1 = new Object();
-        lista.insere(item1);
-
-        Object item2 = new Object();
-        lista.insere(item2);
-
-        lista.imprime(); // should print item1 and item2
+        Lista lista = new Lista();
+        lista.insere("Test1");
+        lista.insere("Test2");
+        lista.insere("Test3");
+        lista.imprime();
+        // Since the method only prints to the console, we can't assert the output
+        // We can only check if the method runs without any exceptions
     }
 }

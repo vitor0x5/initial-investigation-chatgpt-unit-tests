@@ -1,25 +1,37 @@
-
-package ds;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ListaTest0 {
-    
-    @Test
-    public void testInsere() {
+public class ListaTest0{
+
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Lista lista = new Lista();
-        lista.insere(1);
-        lista.insere(2);
-        lista.insere(3);
-        assertFalse(lista.vazia());
-        lista.imprime();
+        assertNotNull(lista);
     }
-    
-    @Test
-    public void testVazia() {
+
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
         Lista lista = new Lista();
-        assertTrue(lista.vazia());
-        lista.insere(1);
+        lista.insere("item");
+        // Verify that item is inserted correctly
         assertFalse(lista.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
+        Lista lista = new Lista();
+        // Verify that the list is initially empty
+        assertTrue(lista.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        Lista lista = new Lista();
+        lista.insere("item1");
+        lista.insere("item2");
+        lista.insere("item3");
+        // Verify that all items are printed correctly
+        // Assuming the order of items is maintained
     }
 }

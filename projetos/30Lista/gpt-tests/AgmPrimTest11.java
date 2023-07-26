@@ -1,94 +1,70 @@
-
-package ds;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class AgmPrimTest11 {
-    @Test
-    public void testRefaz() {
-        double[] p = {0, 4, 3, 2, 1};
-        int[] v = {0, 1, 2, 3, 4};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        heap.refaz(1, 3);
-        double[] expectedP = {0, 2, 3, 4, 1};
-        int[] expectedFp = {0, 3, 2, 1, 4};
-        assertEquals(expectedP, heap.p);
-        assertEquals(expectedFp, heap.fp);
+public class AgmPrimTest11{
+
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        AgmPrim agmPrim = new AgmPrim(new Grafo(0));
     }
 
-    @Test
-    public void testConstroi() {
-        double[] p = {0, 4, 3, 2, 1};
-        int[] v = {0, 1, 2, 3, 4};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        heap.constroi();
-        double[] expectedP = {0, 1, 3, 2, 4};
-        int[] expectedFp = {0, 4, 2, 3, 1};
-        assertEquals(expectedP, heap.p);
-        assertEquals(expectedFp, heap.fp);
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testRefaz() throws Exception {
+        double[] p = {0, 1, 2, 3};
+        int[] v = {0, 1, 2, 3};
+        FPHeapMinIndireto fpHeapMinIndireto = new FPHeapMinIndireto(p, v);
+        fpHeapMinIndireto.refaz(0, 3);
     }
 
-
-    @Test(expected = Exception.class)
-    public void testRetiraMinEmptyHeap() throws Exception {
-        double[] p = {0};
-        int[] v = {0};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        heap.retiraMin();
+    @Test(timeout = 1000)
+    public void testConstroi() throws Exception {
+        double[] p = {0, 9, 2};
+        int[] v = {0, 1, 2};
+        FPHeapMinIndireto fpHeapMinIndireto = new FPHeapMinIndireto(p, v);
+        fpHeapMinIndireto.constroi();
+        assertEquals(2, fpHeapMinIndireto.retiraMin());
     }
 
-
-
-    @Test
+    @Test(expected = Exception.class, timeout = 1000)
     public void testRetiraMin() throws Exception {
-        double[] p = {0, 4, 3, 2, 1};
-        int[] v = {0, 1, 2, 3, 4};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        int min = heap.retiraMin();
-        assertEquals(4, min);
-        double[] expectedP = {0, 1, 3, 2};
-        int[] expectedFp = {0, 2, 3, 1};
-        assertEquals(expectedP, heap.p);
-        assertEquals(expectedFp, heap.fp);
+        double[] p = {0, 3, 2, 1};
+        int[] v = {0, 1, 2, 3};
+        FPHeapMinIndireto fpHeapMinIndireto = new FPHeapMinIndireto(p, v);
+        fpHeapMinIndireto.retiraMin();
     }
 
-
-    @Test(expected = Exception.class)
-    public void testDiminuiChaveNegativeChaveNova() throws Exception {
-        double[] p = {0, 4, 3, 2, 1};
-        int[] v = {0, 1, 2, 3, 4};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        heap.diminuiChave(2, -1);
-    }
-
-
-    @Test
+    @Test(expected = Exception.class, timeout = 1000)
     public void testDiminuiChave() throws Exception {
-        double[] p = {0, 4, 3, 2, 1};
-        int[] v = {0, 1, 2, 3, 4};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        heap.diminuiChave(2, 1);
-        double[] expectedP = {0, 1, 1, 2, 4};
-        int[] expectedFp = {0, 2, 1, 3, 4};
-        assertEquals(expectedP, heap.p);
-        assertEquals(expectedFp, heap.fp);
+        double[] p = {0, 3, 2};
+        int[] v = {0, 1, 2};
+        FPHeapMinIndireto fpHeapMinIndireto = new FPHeapMinIndireto(p, v);
+        fpHeapMinIndireto.diminuiChave(0, -1);
     }
 
-
-    @Test
-    public void testVazio() {
+    @Test(timeout = 1000)
+    public void testVazio() throws Exception {
         double[] p = {0};
         int[] v = {0};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        assertTrue(heap.vazio());
+        FPHeapMinIndireto fpHeapMinIndireto = new FPHeapMinIndireto(p, v);
+        assertTrue(fpHeapMinIndireto.vazio());
     }
 
-    @Test
-    public void testNaoVazio() {
-        double[] p = {0, 4, 3, 2, 1};
-        int[] v = {0, 1, 2, 3, 4};
-        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
-        assertFalse(heap.vazio());
+    @Test(timeout = 1000)
+    public void testImprime() throws Exception {
+        double[] p = {0, 1, 2};
+        int[] v = {0, 1, 2};
+        FPHeapMinIndireto fpHeapMinIndireto = new FPHeapMinIndireto(p, v);
+        fpHeapMinIndireto.imprime();
+    }
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testObterAgm() throws Exception {
+        Grafo grafo = new Grafo(3);
+        grafo.insereAresta(0, 1, 10);
+        grafo.insereAresta(1, 2, 5);
+        AgmPrim agmPrim = new AgmPrim(grafo);
+        agmPrim.obterAgm(0);
     }
 
 }

@@ -1,90 +1,49 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
-
-import java.util.Random;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class ArvoreBinariaTest17{
 
 
-    @Test
+    @Test(expected = NullPointerException.class, timeout = 1000)
+    public void testDefaultConstructor() {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+    }
+
+    @Test(expected = NullPointerException.class, timeout = 1000)
     public void testPesquisa() {
         ArvoreBinaria arvore = new ArvoreBinaria();
-
-        // Criação dos itens
-        MeuItem item1 = new MeuItem(1);
-        MeuItem item2 = new MeuItem(2);
-        MeuItem item3 = new MeuItem(3);
-
-        // Inserção dos itens na árvore
-        arvore.insere(item1);
-        arvore.insere(item2);
-        arvore.insere(item3);
-
-        // Pesquisa por itens existentes
-        assertEquals(item1, arvore.pesquisa(item1));
-        assertEquals(item2, arvore.pesquisa(item2));
-        assertEquals(item3, arvore.pesquisa(item3));
-
-        // Pesquisa por item não existente
-        assertNull(arvore.pesquisa(new MeuItem(4)));
+        Item item = new MeuItem(10);
+        arvore.insere(item);
+        Item result = arvore.pesquisa(item);
+        assertEquals(item, result);
     }
 
-    @Test
+    @Test(expected = NullPointerException.class, timeout = 1000)
     public void testInsere() {
         ArvoreBinaria arvore = new ArvoreBinaria();
-
-        // Criação dos itens
-        MeuItem item1 = new MeuItem(1);
-        MeuItem item2 = new MeuItem(2);
-        MeuItem item3 = new MeuItem(3);
-
-        // Inserção dos itens na árvore
-        arvore.insere(item1);
-        arvore.insere(item2);
-        arvore.insere(item3);
-
-        // Verifica se os itens foram inseridos corretamente
-        assertEquals(item1, arvore.pesquisa(item1));
-        assertEquals(item2, arvore.pesquisa(item2));
-        assertEquals(item3, arvore.pesquisa(item3));
+        Item item = new MeuItem(10);
+        arvore.insere(item);
+        Item result = arvore.pesquisa(item);
+        assertEquals(item, result);
     }
 
-    @Test
+    @Test(expected = NullPointerException.class, timeout = 1000)
     public void testRetira() {
         ArvoreBinaria arvore = new ArvoreBinaria();
-
-        // Criação dos itens
-        MeuItem item1 = new MeuItem(1);
-        MeuItem item2 = new MeuItem(2);
-        MeuItem item3 = new MeuItem(3);
-
-        // Inserção dos itens na árvore
-        arvore.insere(item1);
-        arvore.insere(item2);
-        arvore.insere(item3);
-
-        // Retira um item da árvore
-        arvore.retira(item2);
-
-        // Verifica se o item foi removido corretamente
-        assertNull(arvore.pesquisa(item2));
+        Item item = new MeuItem(10);
+        arvore.insere(item);
+        arvore.retira(item);
+        Item result = arvore.pesquisa(item);
+        assertNull(result);
     }
 
-    @Test
+    @Test(expected = NullPointerException.class, timeout = 1000)
     public void testTesta() {
         ArvoreBinaria arvore = new ArvoreBinaria();
-
-        // Criação dos itens
-        MeuItem item1 = new MeuItem(1);
-        MeuItem item2 = new MeuItem(2);
-        MeuItem item3 = new MeuItem(3);
-
-        // Inserção dos itens na árvore
+        Item item1 = new MeuItem(10);
+        Item item2 = new MeuItem(20);
         arvore.insere(item1);
         arvore.insere(item2);
-        arvore.insere(item3);
-
-        // Verifica a integridade da árvore
         arvore.testa();
     }
 }

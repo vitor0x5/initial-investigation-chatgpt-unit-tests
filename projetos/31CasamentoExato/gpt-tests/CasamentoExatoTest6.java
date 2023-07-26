@@ -1,47 +1,57 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.*;
-import org.junit.Test;
+public class CasamentoExatoTest6{
 
 
-public class CasamentoExatoTest6 {
+    // Test for default constructor
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoExato ce = new CasamentoExato();
+        assertNotNull(ce);
+    }
 
-  @Test
-  public void testForcaBruta() {
-    String T = "Hello, World!";
-    String P = "World";
-    int n = T.length();
-    int m = P.length();
-    
-    CasamentoExato.forcaBruta(T, n, P, m);
-  }
+    // Test for forcaBruta method
+    @Test(timeout=1000)
+    public void testForcaBruta() throws Exception {
+        String T = "test";
+        int n = T.length();
+        String P = "es";
+        int m = P.length();
+        CasamentoExato.forcaBruta(T, n, P, m);
+        // Assertions can be added here if needed
+    }
 
-  @Test
-  public void testShiftAndExato() {
-    String T = "Hello, World!";
-    String P = "World";
-    int n = T.length();
-    int m = P.length();
-    
-    CasamentoExato.shiftAndExato(T, n, P, m);
-  }
+    // Test for shiftAndExato method
+    @Test(timeout=1000)
+    public void testShiftAndExato() throws Exception {
+        String T = "test";
+        int n = T.length();
+        String P = "es";
+        int m = P.length();
+        CasamentoExato.shiftAndExato(T, n, P, m);
+        // Assertions can be added here if needed
+    }
 
-  @Test
-  public void testBmh() {
-    String T = "Hello, World!";
-    String P = "World";
-    int n = T.length();
-    int m = P.length();
-    
-    CasamentoExato.bmh(T, n, P, m);
-  }
+    // Test for bmh method
+    @Test(timeout=1000)
+    public void testBMH() throws Exception {
+        String T = "test";
+        int n = T.length();
+        String P = "es";
+        int m = P.length();
+        CasamentoExato.bmh(T, n, P, m);
+        // Assertions can be added here if needed
+    }
 
-  @Test
-  public void testBmhs() {
-    String T = "Hello, World!";
-    String P = "World";
-    int n = T.length();
-    int m = P.length();
-    
-    CasamentoExato.bmhs(T, n, P, m);
-  }
+    // Test for bmhs method
+    @Test(timeout=1000)
+    public void testBMHS() throws Exception {
+        String T = "test";
+        int n = T.length();
+        String P = "es";
+        int m = P.length();
+        CasamentoExato.bmhs(T, n, P, m);
+        // Assertions can be added here if needed
+    }
 }

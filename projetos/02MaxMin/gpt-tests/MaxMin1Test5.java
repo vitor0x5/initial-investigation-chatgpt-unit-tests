@@ -1,50 +1,57 @@
-
-package ds;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class MaxMin1Test5 {
-    
-    @Test
-    public void testMaxMin1() {
+public class MaxMin1Test5{
+
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin1 obj = new MaxMin1();
+        assertNotNull(obj);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin1() throws Exception {
+        int[] v = {2, 5, -3, 10, 8};
+        int n = 5;
+        int[] expected = {10, -3};
+        int[] result = MaxMin1.maxMin1(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin1WithAllPositiveValues() throws Exception {
         int[] v = {1, 2, 3, 4, 5};
-        int n = v.length;
+        int n = 5;
         int[] expected = {5, 1};
-        assertArrayEquals(expected, MaxMin1.maxMin1(v, n));
+        int[] result = MaxMin1.maxMin1(v, n);
+        assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin1_NegativeNumbers() {
-        int[] v = {-5, -3, -1, -2, -4};
-        int n = v.length;
+
+    @Test(timeout=1000)
+    public void testMaxMin1WithAllNegativeValues() throws Exception {
+        int[] v = {-5, -4, -3, -2, -1};
+        int n = 5;
         int[] expected = {-1, -5};
-        assertArrayEquals(expected, MaxMin1.maxMin1(v, n));
+        int[] result = MaxMin1.maxMin1(v, n);
+        assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin1_SameNumbers() {
-        int[] v = {7, 7, 7, 7};
-        int n = v.length;
-        int[] expected = {7, 7};
-        assertArrayEquals(expected, MaxMin1.maxMin1(v, n));
+
+    @Test(timeout=1000)
+    public void testMaxMin1WithBoundaryValues() throws Exception {
+        int[] v = {-100, 0, 100};
+        int n = 3;
+        int[] expected = {100, -100};
+        int[] result = MaxMin1.maxMin1(v, n);
+        assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin1_EmptyArray() {
+
+    @Test(timeout=1000)
+    public void testMaxMin1WithEmptyArray() throws Exception {
         int[] v = {};
-        int n = v.length;
+        int n = 0;
         int[] expected = {0, 0};
-        assertArrayEquals(expected, MaxMin1.maxMin1(v, n));
-    }
-    
-    @Test
-    public void testMaxMin1_OneElement() {
-        int[] v = {9};
-        int n = v.length;
-        int[] expected = {9, 9};
-        assertArrayEquals(expected, MaxMin1.maxMin1(v, n));
+        int[] result = MaxMin1.maxMin1(v, n);
+        assertArrayEquals(expected, result);
     }
 }
-
-
-Make sure to import the necessary packages and replace the `MaxMin1Test` class with your own test class name.

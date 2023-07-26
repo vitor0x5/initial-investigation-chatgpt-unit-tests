@@ -1,47 +1,65 @@
-
-package ds;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class MaxMin2Test8 {
+public class MaxMin2Test8{
 
-    @Test
-    public void testMaxMin2_withPositiveValues() {
-        int[] v = {4, 8, 2, 10, 6};
-        int n = v.length;
-        int[] maxMin = MaxMin2.maxMin2(v, n);
-        assertArrayEquals(new int[]{10, 2}, maxMin);
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin2 maxMin2 = new MaxMin2();
     }
 
-    @Test
-    public void testMaxMin2_withNegativeValues() {
-        int[] v = {-5, -2, -10, -3, -8};
-        int n = v.length;
-        int[] maxMin = MaxMin2.maxMin2(v, n);
-        assertArrayEquals(new int[]{-2, -10}, maxMin);
+    @Test(timeout=1000)
+    public void testMaxMin2() throws Exception {
+        int[] v = {1, 2, 3, 4, 5};
+        int n = 5;
+        int[] expected = {5, 1};
+        int[] result = MaxMin2.maxMin2(v, n);
+        assertArrayEquals(expected, result);
     }
 
-    @Test
-    public void testMaxMin2_withMixedValues() {
-        int[] v = {3, -6, 1, 9, -4};
-        int n = v.length;
-        int[] maxMin = MaxMin2.maxMin2(v, n);
-        assertArrayEquals(new int[]{9, -6}, maxMin);
+    @Test(timeout=1000)
+    public void testMaxMin2_AllPositive() throws Exception {
+        int[] v = {1, 2, 3, 4, 5};
+        int n = 5;
+        int[] expected = {5, 1};
+        int[] result = MaxMin2.maxMin2(v, n);
+        assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin2_withRepeatedValues() {
-        int[] v = {2, 2, 2, 2, 2};
-        int n = v.length;
-        int[] maxMin = MaxMin2.maxMin2(v, n);
-        assertArrayEquals(new int[]{2, 2}, maxMin);
+
+    @Test(timeout=1000)
+    public void testMaxMin2_AllNegative() throws Exception {
+        int[] v = {-1, -2, -3, -4, -5};
+        int n = 5;
+        int[] expected = {-1, -5};
+        int[] result = MaxMin2.maxMin2(v, n);
+        assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin2_withEmptyArray() {
-        int[] v = {};
-        int n = v.length;
-        int[] maxMin = MaxMin2.maxMin2(v, n);
-        assertArrayEquals(new int[]{}, maxMin);
+
+    @Test(timeout=1000)
+    public void testMaxMin2_PositiveAndNegative() throws Exception {
+        int[] v = {-5, -2, 0, 3, 7};
+        int n = 5;
+        int[] expected = {7, -5};
+        int[] result = MaxMin2.maxMin2(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin2_NegativeAndPositive() throws Exception {
+        int[] v = {5, 2, 0, -3, -7};
+        int n = 5;
+        int[] expected = {5, -7};
+        int[] result = MaxMin2.maxMin2(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin2_OnlyOneElement() throws Exception {
+        int[] v = {5};
+        int n = 1;
+        int[] expected = {5, 5};
+        int[] result = MaxMin2.maxMin2(v, n);
+        assertArrayEquals(expected, result);
     }
 }

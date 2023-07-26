@@ -1,44 +1,48 @@
-
-package ds;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class PilhaTest11 {
+public class PilhaTest11{
 
-    @Test
-    public void testPilhaVazia() {
-        Pilha pilha = new Pilha();
-        assertTrue(pilha.vazia());
-        assertEquals(0, pilha.tamanho());
-    }
 
-    @Test
-    public void testEmpilhaDesempilha() throws Exception {
-        Pilha pilha = new Pilha();
-        
-        pilha.empilha("A");
-        assertFalse(pilha.vazia());
-        assertEquals(1, pilha.tamanho());
-        assertEquals("A", pilha.desempilha());
-        assertTrue(pilha.vazia());
-        assertEquals(0, pilha.tamanho());
-        
-        pilha.empilha("B");
-        pilha.empilha("C");
-        pilha.empilha("D");
-        assertFalse(pilha.vazia());
-        assertEquals(3, pilha.tamanho());
-        assertEquals("D", pilha.desempilha());
-        assertEquals("C", pilha.desempilha());
-        assertEquals("B", pilha.desempilha());
-        assertTrue(pilha.vazia());
-        assertEquals(0, pilha.tamanho());
-    }
+  @Test(timeout=1000)
+  public void testDefaultConstructor() {
+    Pilha p = new Pilha();
+    assertNotNull(p);
+  }
+  
+  @Test(timeout=1000)
+  public void testEmpilha() {
+    Pilha p = new Pilha();
+    p.empilha(1);
+    assertEquals(1, p.tamanho());
+    p.empilha(2);
+    assertEquals(2, p.tamanho());
+  }
+  
+  @Test(timeout=1000)
+  public void testDesempilha() throws Exception {
+    Pilha p = new Pilha();
+    p.empilha(1);
+    p.empilha(2);
     
-    @Test(expected = Exception.class)
-    public void testDesempilhaPilhaVazia() throws Exception {
-        Pilha pilha = new Pilha();
-        pilha.desempilha();
+    assertEquals(2, p.desempilha());
+    assertEquals(1, p.tamanho());
+    assertEquals(1, p.desempilha());
+    assertEquals(0, p.tamanho());
+    
+    try {
+      p.desempilha();
+      fail("Expected Exception not thrown");
+    } catch (Exception e) {
+      assertEquals("Erro: A pilha esta vazia", e.getMessage());
     }
-
+  }
+  
+  @Test(timeout=1000)
+  public void testVazia() {
+    Pilha p = new Pilha();
+    assertTrue(p.vazia());
+    p.empilha(1);
+    assertFalse(p.vazia());
+  }
 }

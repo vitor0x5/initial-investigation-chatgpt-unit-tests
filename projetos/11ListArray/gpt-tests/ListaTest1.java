@@ -1,43 +1,56 @@
-
-package ds;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ListaTest1 {
-    
-    @Test
+public class ListaTest1{
+
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Lista lista = new Lista();
+        assertNotNull(lista);
+    }
+
+    @Test(timeout=1000)
     public void testInsere() throws Exception {
         Lista lista = new Lista();
-        
-        lista.insere("Item 1");
-        lista.insere("Item 2");
-        lista.insere("Item 3");
-        
-        assertEquals(3, lista.ultimo - lista.primeiro);
+
+        // Test valid input
+        lista.insere("test");
+        assertEquals("test", lista.item[0]);
+
+        // Test invalid input (list is full)
+        try {
+            for (int i = 0; i < 1000; i++) {
+                lista.insere(i);
+            }
+            lista.insere(1001);
+            fail("Exception not thrown");
+        } catch (Exception e) {
+            assertEquals("Erro: A lista esta cheia", e.getMessage());
+        }
     }
-    
-    @Test
-    public void testVazia() {
+
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Lista lista = new Lista();
-        
+
+        // Test empty list
         assertTrue(lista.vazia());
-        
-        lista.insere("Item 1");
-        
+
+        // Test non-empty list
+        lista.insere("test");
         assertFalse(lista.vazia());
     }
-    
-    @Test
-    public void testImprime() {
+
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         Lista lista = new Lista();
-        
-        lista.insere("Item 1");
-        lista.insere("Item 2");
-        lista.insere("Item 3");
-        
+
+        // Test empty list
         lista.imprime();
-        
-        // Add assertions to check the output of the `imprime` method
+
+        // Test non-empty list
+        lista.insere("test");
+        lista.imprime();
     }
-    
 }

@@ -1,104 +1,74 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+public class FilaTest6{
 
-public class FilaTest6 {
-    private Fila fila;
 
-    @Before
-    public void setup() {
-        fila = new Fila();
+  // Test for default constructor
+  @Test(timeout = 1000)
+  public void testDefaultConstructor() {
+    Fila fila = new Fila();
+    assertNotNull(fila);
+  }
+
+  // Test for enfileira method with valid input
+  @Test(timeout = 1000)
+  public void testEnfileira() throws Exception {
+    Fila fila = new Fila();
+    fila.enfileira("test");
+    assertEquals("test", fila.item[fila.frente]);
+  }
+
+  // Test for enfileira method when the queue is full
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testEnfileiraFull() throws Exception {
+    Fila fila = new Fila();
+    for (int i = 0; i < 1000; i++) {
+      fila.enfileira(i);
     }
+    fila.enfileira(1000);
+  }
 
-    @Test
-    public void testEnfileira() {
-        try {
-            fila.enfileira("A");
-            fila.enfileira("B");
-            fila.enfileira("C");
+  // Test for desenfileira method with valid input
+  @Test(timeout = 1000)
+  public void testDesenfileira() throws Exception {
+    Fila fila = new Fila();
+    fila.enfileira("test");
+    Object item = fila.desenfileira();
+    assertEquals("test", item);
+    assertTrue(fila.vazia());
+  }
 
-            Assert.assertEquals("A", fila.item[fila.frente]);
-            Assert.assertEquals("B", fila.item[(fila.frente + 1) % fila.item.length]);
-            Assert.assertEquals("C", fila.item[(fila.frente + 2) % fila.item.length]);
-            Assert.assertEquals(3, fila.tras);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assert.fail("Unexpected exception");
-        }
-    }
+  // Test for desenfileira method when the queue is empty
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testDesenfileiraEmpty() throws Exception {
+    Fila fila = new Fila();
+    fila.desenfileira();
+  }
 
-    @Test
-    public void testEnfileiraWhenFull() {
-        try {
-            for (int i = 0; i < fila.item.length; i++) {
-                fila.enfileira("item" + i);
-            }
+  // Test for vazia method when the queue is empty
+  @Test(timeout = 1000)
+  public void testVaziaTrue() {
+    Fila fila = new Fila();
+    assertTrue(fila.vazia());
+  }
 
-            fila.enfileira("Overflow");
+  // Test for vazia method when the queue is not empty
+  @Test(timeout = 1000)
+  public void testVaziaFalse() throws Exception {
+    Fila fila = new Fila();
+    fila.enfileira("test");
+    assertFalse(fila.vazia());
+  }
 
-            Assert.fail("Expected exception not thrown");
-        } catch (Exception e) {
-            Assert.assertEquals("Erro: A fila esta cheia", e.getMessage());
-        }
-    }
-
-    @Test
-    public void testDesenfileira() {
-        try {
-            fila.enfileira("A");
-            fila.enfileira("B");
-            fila.enfileira("C");
-
-            Object resultA = fila.desenfileira();
-            Object resultB = fila.desenfileira();
-
-            Assert.assertEquals("A", resultA);
-            Assert.assertEquals("B", resultB);
-            Assert.assertEquals("C", fila.item[fila.frente]);
-            Assert.assertEquals(2, fila.frente);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assert.fail("Unexpected exception");
-        }
-    }
-
-    @Test
-    public void testDesenfileiraWhenEmpty() {
-        try {
-            Object result = fila.desenfileira();
-
-            Assert.fail("Expected exception not thrown");
-        } catch (Exception e) {
-            Assert.assertEquals("Erro: A fila esta vazia", e.getMessage());
-        }
-    }
-
-    @Test
-    public void testVazia() {
-        Assert.assertTrue(fila.vazia());
-
-        fila.enfileira("A");
-
-        Assert.assertFalse(fila.vazia());
-
-        fila.desenfileira();
-
-        Assert.assertTrue(fila.vazia());
-    }
-
-    @Test
-    public void testImprime() {
-        try {
-            fila.enfileira("A");
-            fila.enfileira("B");
-            fila.enfileira("C");
-
-            fila.imprime();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assert.fail("Unexpected exception");
-        }
-    }
+  // Test for imprime method
+  @Test(timeout = 1000)
+  public void testImprime() throws Exception {
+    Fila fila = new Fila();
+    fila.enfileira("test1");
+    fila.enfileira("test2");
+    fila.enfileira("test3");
+    fila.imprime();
+    // assert the output
+  }
 }

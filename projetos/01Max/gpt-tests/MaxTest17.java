@@ -1,41 +1,46 @@
-package ds;import static org.junit.Assert.assertEquals;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class MaxTest17{
 
-  
-  @Test
-  public void testMaxWithPositiveNumbers() {
-    Item[] v = {new MeuItem(5), new MeuItem(3), new MeuItem(7), new MeuItem(1)};
-    Item max = Max.max(v, 4);
-    assertEquals(7, ((MeuItem) max).chave);
-  }
-  
-  @Test
-  public void testMaxWithNegativeNumbers() {
-    Item[] v = {new MeuItem(-5), new MeuItem(-3), new MeuItem(-7), new MeuItem(-1)};
-    Item max = Max.max(v, 4);
-    assertEquals(-1, ((MeuItem) max).chave);
-  }
-  
-  @Test
-  public void testMaxWithMixedNumbers() {
-    Item[] v = {new MeuItem(5), new MeuItem(-3), new MeuItem(7), new MeuItem(-1)};
-    Item max = Max.max(v, 4);
-    assertEquals(7, ((MeuItem) max).chave);
-  }
-  
-  @Test
-  public void testMaxWithEmptyArray() {
-    Item[] v = {};
-    Item max = Max.max(v, 0);
-    assertEquals(null, max);
-  }
-  
-  @Test
-  public void testMaxWithSingleElementArray() {
-    Item[] v = {new MeuItem(5)};
-    Item max = Max.max(v, 1);
-    assertEquals(5, ((MeuItem) max).chave);
-  }
+
+    @Test(expected = NullPointerException.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Max max = new Max();
+    }
+
+    @Test(timeout = 1000)
+    public void testMaxWithPositiveValues() throws Exception {
+        Item v[] = { new MeuItem(5), new MeuItem(10), new MeuItem(3) };
+        Item max = Max.max(v, 3);
+        assertEquals(10, ((MeuItem) max).chave);
+    }
+
+    @Test(timeout = 1000)
+    public void testMaxWithNegativeValues() throws Exception {
+        Item v[] = { new MeuItem(-5), new MeuItem(-10), new MeuItem(-3) };
+        Item max = Max.max(v, 3);
+        assertEquals(-3, ((MeuItem) max).chave);
+    }
+
+    @Test(timeout = 1000)
+    public void testMaxWithBoundaryValues() throws Exception {
+        Item v[] = { new MeuItem(Integer.MIN_VALUE), new MeuItem(Integer.MAX_VALUE) };
+        Item max = Max.max(v, 2);
+        assertEquals(Integer.MAX_VALUE, ((MeuItem) max).chave);
+    }
+
+    @Test(timeout = 1000)
+    public void testMaxWithEmptyArray() throws Exception {
+        Item v[] = {};
+        Item max = Max.max(v, 0);
+        assertNull(max);
+    }
+
+    @Test(timeout = 1000)
+    public void testMaxWithSingleElementArray() throws Exception {
+        Item v[] = { new MeuItem(5) };
+        Item max = Max.max(v, 1);
+        assertEquals(5, ((MeuItem) max).chave);
+    }
 }

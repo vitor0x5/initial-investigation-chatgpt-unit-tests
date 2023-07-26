@@ -1,52 +1,46 @@
-
-package ds;
-import ds.Pilha;
-import org.junit.Assert;
-import org.junit.Before;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class PilhaTest3 {
-  
-  private Pilha pilha;
-  
-  @Before
-  public void setUp() {
-    pilha = new Pilha();
-  }
-  
-  @Test
-  public void testNewPilhaIsEmpty() {
-    Assert.assertTrue(pilha.vazia());
-    Assert.assertEquals(0, pilha.tamanho());
-  }
-  
-  @Test
-  public void testEmpilhaItem() throws Exception {
-    pilha.empilha("Item 1");
-    Assert.assertFalse(pilha.vazia());
-    Assert.assertEquals(1, pilha.tamanho());
-  }
-  
-  @Test
-  public void testDesempilhaItem() throws Exception {
-    pilha.empilha("Item 1");
-    Object item = pilha.desempilha();
-    Assert.assertEquals("Item 1", item);
-    Assert.assertTrue(pilha.vazia());
-    Assert.assertEquals(0, pilha.tamanho());
-  }
-  
-  @Test(expected = Exception.class)
-  public void testDesempilhaFromEmptyPilha() throws Exception {
-    pilha.desempilha();
-  }
-  
-  @Test(expected = Exception.class)
-  public void testEmpilhaWhenPilhaIsFull() throws Exception {
-    for (int i = 0; i < 1000; i++) {
-      pilha.empilha("Item " + (i + 1));
+public class PilhaTest3{
+
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Pilha p = new Pilha();
+        assertNotNull(p);
     }
-    pilha.empilha("Item 1001");
-  }
-  
+    
+    @Test(timeout=1000)
+    public void testEmpilha() throws Exception {
+        Pilha p = new Pilha();
+        p.empilha("item 1");
+        assertEquals(1, p.tamanho());
+        p.empilha("item 2");
+        assertEquals(2, p.tamanho());
+    }
+    
+    @Test(timeout=1000)
+    public void testDesempilha() throws Exception {
+        Pilha p = new Pilha();
+        p.empilha("item 1");
+        p.empilha("item 2");
+        assertEquals("item 2", p.desempilha());
+        assertEquals(1, p.tamanho());
+    }
+    
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
+        Pilha p = new Pilha();
+        assertTrue(p.vazia());
+        p.empilha("item 1");
+        assertFalse(p.vazia());
+    }
+    
+    @Test(timeout=1000)
+    public void testTamanho() throws Exception {
+        Pilha p = new Pilha();
+        assertEquals(0, p.tamanho());
+        p.empilha("item 1");
+        assertEquals(1, p.tamanho());
+    }
 }

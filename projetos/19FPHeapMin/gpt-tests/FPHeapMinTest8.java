@@ -1,149 +1,101 @@
-
-package ds;import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import org.junit.Test;
-import java.io.*;
-import ds.*;
 
-public class FPHeapMinTest8 {
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
-  @Test
-  public void testRefaz() {
-    FPHeapMin heap = new FPHeapMin(10);
+public class FPHeapMinTest8{
 
-    Item[] items = new Item[11];
-    for (int i = 1; i <= 10; i++) {
-      items[i] = new MeuItem(i);
+
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() {
+        FPHeapMin heap = new FPHeapMin(10);
     }
-    heap.copia(items);
-    assertEquals(10, heap.min().recuperaChave());
 
-    heap.refaz(1, 10);
-    assertEquals(1, heap.min().recuperaChave());
-
-    heap.refaz(3, 10);
-    assertEquals(1, heap.min().recuperaChave());
-
-    heap.refaz(7, 10);
-    assertEquals(1, heap.min().recuperaChave());
-  }
-
-  @Test
-  public void testConstroi() {
-    FPHeapMin heap = new FPHeapMin(10);
-
-    Item[] items = new Item[11];
-    for (int i = 1; i <= 10; i++) {
-      items[i] = new MeuItem(i);
+    @Test(timeout = 1000)
+    public void testRefaz() {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(1);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(3);
+        items[4] = new MeuItem(4);
+        items[5] = new MeuItem(5);
+        FPHeapMin heap = new FPHeapMin(items);
+        heap.refaz(1, 5);
+        assertEquals(1, heap.min().recuperaChave());
     }
-    heap.copia(items);
-    heap.constroi();
-    
-    assertEquals(1, heap.min().recuperaChave());
-  }
 
-  @Test
-  public void testRetiraMin() throws Exception {
-    FPHeapMin heap = new FPHeapMin(10);
-
-    Item[] items = new Item[11];
-    for (int i = 1; i <= 10; i++) {
-      items[i] = new MeuItem(i);
+    @Test(timeout = 1000)
+    public void testConstroi() {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(4);
+        items[3] = new MeuItem(3);
+        items[4] = new MeuItem(2);
+        items[5] = new MeuItem(1);
+        FPHeapMin heap = new FPHeapMin(items);
+        heap.constroi();
+        assertEquals(1, heap.min().recuperaChave());
     }
-    heap.copia(items);
 
-    Item min = heap.retiraMin();
-    assertEquals(1, min.recuperaChave());
-    assertEquals(2, heap.min().recuperaChave());
-
-    min = heap.retiraMin();
-    assertEquals(2, min.recuperaChave());
-    assertEquals(3, heap.min().recuperaChave());
-
-    min = heap.retiraMin();
-    assertEquals(3, min.recuperaChave());
-    assertEquals(4, heap.min().recuperaChave());
-  }
-
-  @Test(expected = Exception.class)
-  public void testRetiraMinEmptyHeap() throws Exception {
-    FPHeapMin heap = new FPHeapMin(10);
-    heap.retiraMin();
-  }
-
-  @Test
-  public void testDiminuiChave() throws Exception {
-    FPHeapMin heap = new FPHeapMin(10);
-
-    Item[] items = new Item[11];
-    for (int i = 1; i <= 10; i++) {
-      items[i] = new MeuItem(i);
+    @Test(timeout = 1000)
+    public void testRetiraMin() throws Exception {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(4);
+        items[3] = new MeuItem(3);
+        items[4] = new MeuItem(2);
+        items[5] = new MeuItem(1);
+        FPHeapMin heap = new FPHeapMin(items);
+        Item min = heap.retiraMin();
+        assertEquals(1, min.recuperaChave());
     }
-    heap.copia(items);
 
-    heap.diminuiChave(3, -5);
-    assertEquals(-5, heap.min().recuperaChave());
-
-    heap.diminuiChave(7, -10);
-    assertEquals(-10, heap.min().recuperaChave());
-
-    heap.diminuiChave(5, -3);
-    assertEquals(-10, heap.min().recuperaChave());
-  }
-
-  @Test(expected = Exception.class)
-  public void testDiminuiChaveNull() throws Exception {
-    FPHeapMin heap = new FPHeapMin(10);
-
-    Item[] items = new Item[11];
-    for (int i = 1; i <= 10; i++) {
-      items[i] = new MeuItem(i);
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testRetiraMinEmptyHeap() throws Exception {
+        FPHeapMin heap = new FPHeapMin(10);
+        heap.retiraMin();
     }
-    heap.copia(items);
 
-    heap.diminuiChave(7, null);
-  }
+    @Test(timeout = 1000)
+    public void testDiminuiChave() throws Exception {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(4);
+        items[3] = new MeuItem(3);
+        items[4] = new MeuItem(2);
+        items[5] = new MeuItem(1);
+        FPHeapMin heap = new FPHeapMin(items);
+        heap.diminuiChave(3, 0);
+        assertEquals(0, heap.min().recuperaChave());
+    }
 
-  @Test
-  public void testInsere() throws Exception {
-    FPHeapMin heap = new FPHeapMin(10);
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDiminuiChaveNullChaveNova() throws Exception {
+        Item[] items = new Item[6];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(4);
+        items[3] = new MeuItem(3);
+        items[4] = new MeuItem(2);
+        items[5] = new MeuItem(1);
+        FPHeapMin heap = new FPHeapMin(items);
+        heap.diminuiChave(3, null);
+    }
 
-    heap.insere(new MeuItem(5));
-    assertEquals(5, heap.min().recuperaChave());
+    @Test(timeout = 1000)
+    public void testInsere() throws Exception {
+        FPHeapMin heap = new FPHeapMin(10);
+        Item item = new MeuItem(5);
+        heap.insere(item);
+    }
 
-    heap.insere(new MeuItem(2));
-    assertEquals(2, heap.min().recuperaChave());
-
-    heap.insere(new MeuItem(9));
-    assertEquals(2, heap.min().recuperaChave());
-
-    heap.insere(new MeuItem(1));
-    assertEquals(1, heap.min().recuperaChave());
-  }
-
-  @Test(expected = Exception.class)
-  public void testInsereFullHeap() throws Exception {
-    FPHeapMin heap = new FPHeapMin(2);
-    heap.insere(new MeuItem(1));
-    heap.insere(new MeuItem(2));
-    heap.insere(new MeuItem(3));
-  }
-
-  @Test
-  public void testImprime() {
-    FPHeapMin heap = new FPHeapMin(10);
-
-    heap.insere(new MeuItem(5));
-    heap.insere(new MeuItem(2));
-    heap.insere(new MeuItem(9));
-    heap.insere(new MeuItem(1));
-
-    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    System.setOut(new PrintStream(outContent));
-
-    heap.imprime();
-
-    String expectedOutput = "1 2 9 5 \n";
-    assertEquals(expectedOutput, outContent.toString());
-  }
-
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testInsereFullHeap() throws Exception {
+        Item[] items = new Item[1];
+        items[0] = new MeuItem(5);
+        FPHeapMin heap = new FPHeapMin(items);
+        Item item = new MeuItem(10);
+        heap.insere(item);
+    }
 }

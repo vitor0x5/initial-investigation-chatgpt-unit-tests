@@ -4,92 +4,74 @@ import static org.junit.Assert.*;
 public class FilaTest27{
 
 
-    @Test
-    public void testEnfileira() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Fila fila = new Fila();
-        try {
-            fila.enfileira("Item 1");
-            fila.enfileira("Item 2");
-            fila.enfileira("Item 3");
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
-        assertEquals("Item 1", fila.item[fila.frente]);
-        assertEquals("Item 2", fila.item[(fila.frente + 1) % fila.item.length]);
-        assertEquals("Item 3", fila.item[(fila.frente + 2) % fila.item.length]);
+        assertNotNull(fila);
     }
 
-    @Test
-    public void testEnfileiraFull() {
+    @Test(timeout=1000)
+    public void testEnfileira() throws Exception {
         Fila fila = new Fila();
-        try {
-            for (int i = 0; i < fila.item.length; i++) {
-                fila.enfileira("Item " + (i + 1));
-            }
-        } catch (Exception e) {
-            fail("Exception thrown");
+        fila.enfileira(1);
+        fila.enfileira(2);
+        fila.enfileira(3);
+        assertEquals(1, fila.item[0]);
+        assertEquals(2, fila.item[1]);
+        assertEquals(3, fila.item[2]);
+    }
+
+    @Test(timeout=1000)
+    public void testEnfileiraFull() throws Exception {
+        Fila fila = new Fila();
+        for (int i = 0; i < 1000; i++) {
+            fila.enfileira(i);
         }
         try {
-            fila.enfileira("Item extra");
-            fail("Exception not thrown");
+            fila.enfileira(1000);
+            fail("Expected Exception not thrown");
         } catch (Exception e) {
             assertEquals("Erro: A fila esta cheia", e.getMessage());
         }
     }
 
-    @Test
-    public void testDesenfileira() {
+    @Test(timeout=1000)
+    public void testDesenfileira() throws Exception {
         Fila fila = new Fila();
-        try {
-            fila.enfileira("Item 1");
-            fila.enfileira("Item 2");
-            fila.enfileira("Item 3");
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
-        try {
-            Object item = fila.desenfileira();
-            assertEquals("Item 1", item);
-            assertEquals("Item 2", fila.item[fila.frente]);
-            assertEquals("Item 3", fila.item[(fila.frente + 1) % fila.item.length]);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
+        fila.enfileira(1);
+        fila.enfileira(2);
+        fila.enfileira(3);
+        assertEquals(1, fila.desenfileira());
+        assertEquals(2, fila.desenfileira());
+        assertEquals(3, fila.desenfileira());
     }
 
-    @Test
-    public void testDesenfileiraEmpty() {
+    @Test(timeout=1000)
+    public void testDesenfileiraEmpty() throws Exception {
         Fila fila = new Fila();
         try {
             fila.desenfileira();
-            fail("Exception not thrown");
+            fail("Expected Exception not thrown");
         } catch (Exception e) {
             assertEquals("Erro: A fila esta vazia", e.getMessage());
         }
     }
 
-    @Test
-    public void testVazia() {
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Fila fila = new Fila();
         assertTrue(fila.vazia());
-        try {
-            fila.enfileira("Item 1");
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
+        fila.enfileira(1);
         assertFalse(fila.vazia());
     }
 
-    @Test
-    public void testImprime() {
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         Fila fila = new Fila();
-        try {
-            fila.enfileira("Item 1");
-            fila.enfileira("Item 2");
-            fila.enfileira("Item 3");
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
+        fila.enfileira(1);
+        fila.enfileira(2);
+        fila.enfileira(3);
         fila.imprime();
+        // Check console output manually
     }
 }

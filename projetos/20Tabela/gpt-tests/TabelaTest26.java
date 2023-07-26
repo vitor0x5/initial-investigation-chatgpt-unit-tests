@@ -1,51 +1,68 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class TabelaTest26{
 
 
-    @Test
-    public void testPesquisa() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Tabela tabela = new Tabela();
-        Item reg1 = new MeuItem(1);
-        Item reg2 = new MeuItem(2);
-        Item reg3 = new MeuItem(3);
-        tabela.registros[1] = reg1;
-        tabela.registros[2] = reg2;
-        tabela.registros[3] = reg3;
-        tabela.n = 3;
-
-        assertEquals(1, tabela.pesquisa(reg1));
-        assertEquals(2, tabela.pesquisa(reg2));
-        assertEquals(3, tabela.pesquisa(reg3));
+        assertNotNull(tabela);
     }
 
-    @Test
+    @Test(timeout=1000)
+    public void testPesquisa() throws Exception {
+        Tabela tabela = new Tabela();
+        Item reg1 = new MeuItem(1);
+        tabela.insere(reg1);
+        Item reg2 = new MeuItem(2);
+        tabela.insere(reg2);
+        Item reg3 = new MeuItem(3);
+        tabela.insere(reg3);
+
+        int result1 = tabela.pesquisa(reg1);
+        assertEquals(1, result1);
+
+        int result2 = tabela.pesquisa(reg2);
+        assertEquals(2, result2);
+
+        int result3 = tabela.pesquisa(reg3);
+        assertEquals(3, result3);
+    }
+
+    @Test(timeout=1000)
     public void testInsere() throws Exception {
         Tabela tabela = new Tabela();
         Item reg1 = new MeuItem(1);
-        Item reg2 = new MeuItem(2);
         tabela.insere(reg1);
-        tabela.insere(reg2);
+        assertEquals(1, tabela.n);
 
-        assertEquals(1, tabela.registros[1].recuperaChave());
-        assertEquals(2, tabela.registros[2].recuperaChave());
+        Item reg2 = new MeuItem(2);
+        tabela.insere(reg2);
         assertEquals(2, tabela.n);
+
+        Item reg3 = new MeuItem(3);
+        tabela.insere(reg3);
+        assertEquals(3, tabela.n);
     }
 
-    @Test
-    public void testBinaria() {
+    @Test(timeout=1000)
+    public void testBinaria() throws Exception {
         Tabela tabela = new Tabela();
         Item reg1 = new MeuItem(1);
+        tabela.insere(reg1);
         Item reg2 = new MeuItem(2);
+        tabela.insere(reg2);
         Item reg3 = new MeuItem(3);
-        tabela.registros[1] = reg1;
-        tabela.registros[2] = reg2;
-        tabela.registros[3] = reg3;
-        tabela.n = 3;
+        tabela.insere(reg3);
 
-        assertEquals(1, tabela.binaria(reg1));
-        assertEquals(2, tabela.binaria(reg2));
-        assertEquals(3, tabela.binaria(reg3));
+        int result1 = tabela.binaria(reg1);
+        assertEquals(1, result1);
+
+        int result2 = tabela.binaria(reg2);
+        assertEquals(2, result2);
+
+        int result3 = tabela.binaria(reg3);
+        assertEquals(3, result3);
     }
 }

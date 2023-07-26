@@ -1,44 +1,97 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
-package ds;Here are some test cases for the FPHeapMin Java class:
+public class FPHeapMinTest5{
 
-1. Test refaz method:
-- Input: 
-  - v = [null, MeuItem(4), MeuItem(7), MeuItem(2), MeuItem(5), MeuItem(1)]
-  - esq = 2, dir = 5
-- Expected Output: 
-  - v = [null, MeuItem(4), MeuItem(5), MeuItem(2), MeuItem(7), MeuItem(1)]
 
-2. Test constroi method:
-- Input: 
-  - v = [null, MeuItem(2), MeuItem(7), MeuItem(1), MeuItem(5), MeuItem(4)]
-- Expected Output: 
-  - v = [null, MeuItem(1), MeuItem(2), MeuItem(4), MeuItem(5), MeuItem(7)]
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        FPHeapMin heap = new FPHeapMin(10);
+    }
 
-3. Test min method:
-- Input: 
-  - v = [null, MeuItem(1), MeuItem(2), MeuItem(4), MeuItem(5), MeuItem(7)]
-- Expected Output: 
-  - min = MeuItem(1)
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testRefaz() throws Exception {
+        Item[] items = new Item[4];
+        items[1] = new MeuItem(1);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(3);
+        FPHeapMin heap = new FPHeapMin(items);
+        heap.refaz(1, 3);
+    }
 
-4. Test retiraMin method:
-- Input: 
-  - v = [null, MeuItem(1), MeuItem(2), MeuItem(4), MeuItem(5), MeuItem(7)]
-- Expected Output: 
-  - min = MeuItem(1)
-  - v = [null, MeuItem(2), MeuItem(5), MeuItem(4), MeuItem(7), MeuItem(7)]
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testConstroi() throws Exception {
+        Item[] items = new Item[4];
+        items[1] = new MeuItem(1);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(3);
+        FPHeapMin heap = new FPHeapMin(items);
+        heap.constroi();
+    }
 
-5. Test diminuiChave method:
-- Input: 
-  - v = [null, MeuItem(2), MeuItem(5), MeuItem(4), MeuItem(7)]
-  - i = 3, chaveNova = 1
-- Expected Output: 
-  - v = [null, MeuItem(1), MeuItem(2), MeuItem(4), MeuItem(7)]
+    @Test(timeout = 1000)
+    public void testMin() throws Exception {
+        Item[] items = new Item[4];
+        items[1] = new MeuItem(1);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(3);
+        FPHeapMin heap = new FPHeapMin(items);
+        Item min = heap.min();
+        assertEquals(items[1], min);
+    }
 
-6. Test insere method:
-- Input: 
-  - v = [null, MeuItem(1), MeuItem(2), MeuItem(4), MeuItem(7)]
-  - x = MeuItem(3)
-- Expected Output: 
-  - v = [null, MeuItem(1), MeuItem(2), MeuItem(3), MeuItem(7), MeuItem(4)]
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testRetiraMin() throws Exception {
+        Item[] items = new Item[4];
+        items[1] = new MeuItem(1);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(3);
+        FPHeapMin heap = new FPHeapMin(items);
+        Item min = heap.retiraMin();
+        assertEquals(items[1], min);
+    }
 
-Note: To execute these test cases, you need to set up the necessary imports and Junit 4 framework in your project.
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDiminuiChave() throws Exception {
+        Item[] items = new Item[4];
+        items[1] = new MeuItem(1);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(3);
+        FPHeapMin heap = new FPHeapMin(items);
+        heap.diminuiChave(2, 0);
+    }
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testInsere() throws Exception {
+        Item[] items = new Item[5];
+        items[1] = new MeuItem(1);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(3);
+        FPHeapMin heap = new FPHeapMin(items);
+        Item newItem = new MeuItem(0);
+        heap.insere(newItem);
+    }
+
+    @Test(timeout = 1000)
+    public void testImprime() throws Exception {
+        Item[] items = new Item[4];
+        items[1] = new MeuItem(1);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(3);
+        FPHeapMin heap = new FPHeapMin(items);
+        heap.imprime();
+    }
+
+    @Test(timeout = 1000)
+    public void testCopia() throws Exception {
+        Item[] items = new Item[4];
+        items[1] = new MeuItem(1);
+        items[2] = new MeuItem(2);
+        items[3] = new MeuItem(3);
+        FPHeapMin heap = new FPHeapMin(items);
+        Item[] copiedItems = new Item[4];
+        heap.copia(copiedItems);
+    }
+}

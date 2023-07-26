@@ -1,49 +1,59 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
-package ds;import static org.junit.Assert.*;
-import org.junit.Test;
+@RunWith(JUnit4.class)
+public class CasamentoExatoTest9{
 
-public class CasamentoExatoTest9 {
 
-    @Test
-    public void testForcaBrutaEmptyTextAndEmptyPattern() {
-        String T = "";
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoExato ce = new CasamentoExato();
+        assertNotNull(ce);
+    }
+
+    @Test(timeout=1000)
+    public void testForcaBruta() throws Exception {
+        String T = "abcababcabcabc";
         int n = T.length();
-        String P = "";
+        String P = "abc";
         int m = P.length();
+
         CasamentoExato.forcaBruta(T, n, P, m);
-        // Add assertions
+        // Add assertions here
     }
 
-    @Test
-    public void testShiftAndExatoEmptyTextAndEmptyPattern() {
-        String T = "";
+    @Test(timeout=1000)
+    public void testShiftAndExato() throws Exception {
+        String T = "abcababcabcabc";
         int n = T.length();
-        String P = "";
+        String P = "abc";
         int m = P.length();
+
         CasamentoExato.shiftAndExato(T, n, P, m);
-        // Add assertions
+        // Add assertions here
     }
 
-    @Test
-    public void testBmhEmptyTextAndEmptyPattern() {
-        String T = "";
+    @Test(timeout=1000)
+    public void testBmh() throws Exception {
+        String T = "abcababcabcabc";
         int n = T.length();
-        String P = "";
+        String P = "abc";
         int m = P.length();
+
         CasamentoExato.bmh(T, n, P, m);
-        // Add assertions
+        // Add assertions here
     }
 
-    @Test
-    public void testBmhsEmptyTextAndEmptyPattern() {
-        String T = "";
+    @Test(timeout=1000)
+    public void testBmhs() throws Exception {
+        String T = "abcababcabcabc";
         int n = T.length();
-        String P = "";
+        String P = "abc";
         int m = P.length();
+
         CasamentoExato.bmhs(T, n, P, m);
-        // Add assertions
+        // Add assertions here
     }
-
-    // Add more test cases...
-
 }

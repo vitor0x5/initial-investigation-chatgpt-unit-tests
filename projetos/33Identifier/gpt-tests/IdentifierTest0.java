@@ -1,43 +1,68 @@
-
 package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import ds.Identifier;
 
-public class IdentifierTest0 {
+public class IdentifierTest0{
 
-    @Test
-    public void testValidIdentifier() {
-        Identifier identifier = new Identifier();
-        assertTrue(identifier.validateIdentifier("abc"));
-    }
-
-    @Test
-    public void testInvalidIdentifier() {
-        Identifier identifier = new Identifier();
-        assertFalse(identifier.validateIdentifier("123"));
-    }
-
-    @Test
-    public void testValidFirstCharacter() {
-        Identifier identifier = new Identifier();
-        assertTrue(identifier.valid_s('A'));
-    }
-
-    @Test
-    public void testInvalidFirstCharacter() {
-        Identifier identifier = new Identifier();
-        assertFalse(identifier.valid_s('1'));
-    }
-
-    @Test
-    public void testValidFollowingCharacter() {
-        Identifier identifier = new Identifier();
-        assertTrue(identifier.valid_f('a'));
-    }
-
-    @Test
-    public void testInvalidFollowingCharacter() {
-        Identifier identifier = new Identifier();
-        assertFalse(identifier.valid_f('$'));
-    }
+  
+  @Test(timeout=1000)
+  public void testDefaultConstructor() throws Exception {
+    Identifier identifier = new Identifier();
+    assertNotNull(identifier);
+  }
+  
+  @Test(timeout=1000)
+  public void testValidateIdentifierWithValidInput() throws Exception {
+    Identifier identifier = new Identifier();
+    boolean result = identifier.validateIdentifier("Abc123");
+    assertTrue(result);
+  }
+  
+  @Test(timeout=1000)
+  public void testValidateIdentifierWithInvalidFirstCharacter() throws Exception {
+    Identifier identifier = new Identifier();
+    boolean result = identifier.validateIdentifier("123abc");
+    assertFalse(result);
+  }
+  
+  @Test(timeout=1000)
+  public void testValidateIdentifierWithInvalidCharacter() throws Exception {
+    Identifier identifier = new Identifier();
+    boolean result = identifier.validateIdentifier("Abc@123");
+    assertFalse(result);
+  }
+  
+  @Test(timeout=1000)
+  public void testValidateIdentifierWithInvalidLength() throws Exception {
+    Identifier identifier = new Identifier();
+    boolean result = identifier.validateIdentifier("Abcdefg");
+    assertFalse(result);
+  }
+  
+  @Test(timeout=1000)
+  public void testValid_sWithValidCharacter() throws Exception {
+    Identifier identifier = new Identifier();
+    boolean result = identifier.valid_s('A');
+    assertTrue(result);
+  }
+  
+  @Test(timeout=1000)
+  public void testValid_sWithInvalidCharacter() throws Exception {
+    Identifier identifier = new Identifier();
+    boolean result = identifier.valid_s('%');
+    assertFalse(result);
+  }
+  
+  @Test(timeout=1000)
+  public void testValid_fWithValidCharacter() throws Exception {
+    Identifier identifier = new Identifier();
+    boolean result = identifier.valid_f('a');
+    assertTrue(result);
+  }
+  
+  @Test(timeout=1000)
+  public void testValid_fWithInvalidCharacter() throws Exception {
+    Identifier identifier = new Identifier();
+    boolean result = identifier.valid_f('#');
+    assertFalse(result);
+  }
 }

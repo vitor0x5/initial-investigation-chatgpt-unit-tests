@@ -1,132 +1,133 @@
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.Random;
-
 public class OrdenacaoTest12{
 
 
-    @Test
-    public void testPermutWithItemArray() {
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+        assertNotNull(ordenacao);
+    }
+
+    @Test(timeout = 1000)
+    public void testRefaz() throws Exception {
         Item[] v = new Item[6];
-        v[0] = new MeuItem(1);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(3);
-        v[3] = new MeuItem(4);
-        v[4] = new MeuItem(5);
-        v[5] = new MeuItem(6);
-
-        Ordenacao.permut(v, 6);
-
-        for (int i = 0; i < v.length; i++) {
-            assertNotNull(v[i]);
-        }
-    }
-
-    @Test
-    public void testPermutWithIntArray() {
-        int[] v = {1, 2, 3, 4, 5, 6};
-
-        Ordenacao.permut(v, 6);
-
-        for (int i = 0; i < v.length; i++) {
-            assertTrue(v[i] >= 1 && v[i] <= 6);
-        }
-    }
-
-    @Test
-    public void testPermutWithCharArray() {
-        char[] v = {'a', 'b', 'c', 'd', 'e', 'f'};
-
-        Ordenacao.permut(v, 6);
-
-        for (int i = 0; i < v.length; i++) {
-            assertTrue(v[i] >= 'a' && v[i] <= 'f');
-        }
-    }
-
-    @Test
-    public void testSelecao() {
-        Item[] v = new Item[6];
-        v[0] = new MeuItem(6);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(4);
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
         v[5] = new MeuItem(3);
+        FPHeapMax fpHeap = new FPHeapMax(v);
 
-        Ordenacao.selecao(v, 6);
-
-        for (int i = 1; i < v.length; i++) {
-            assertTrue(v[i].compara(v[i-1]) >= 0);
-        }
+        fpHeap.refaz(1, 5);
+        assertEquals(new MeuItem(7), v[1]);
+        assertEquals(new MeuItem(3), v[2]);
+        assertEquals(new MeuItem(5), v[3]);
+        assertEquals(new MeuItem(1), v[4]);
+        assertEquals(new MeuItem(2), v[5]);
     }
 
-    @Test
-    public void testInsercao() {
+    @Test(timeout = 1000)
+    public void testConstroi() throws Exception {
         Item[] v = new Item[6];
-        v[0] = new MeuItem(6);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(4);
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
         v[5] = new MeuItem(3);
+        FPHeapMax fpHeap = new FPHeapMax(v);
 
-        Ordenacao.insercao(v, 6);
-
-        for (int i = 1; i < v.length; i++) {
-            assertTrue(v[i].compara(v[i-1]) >= 0);
-        }
+        fpHeap.constroi();
+        assertEquals(new MeuItem(7), v[1]);
+        assertEquals(new MeuItem(5), v[2]);
+        assertEquals(new MeuItem(3), v[3]);
+        assertEquals(new MeuItem(1), v[4]);
+        assertEquals(new MeuItem(2), v[5]);
     }
 
-    @Test
-    public void testShellsort() {
+    @Test(timeout = 1000)
+    public void testSelecao() throws Exception {
         Item[] v = new Item[6];
-        v[0] = new MeuItem(6);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(4);
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
         v[5] = new MeuItem(3);
+        Ordenacao.selecao(v, 5);
 
-        Ordenacao.shellsort(v, 6);
-
-        for (int i = 1; i < v.length; i++) {
-            assertTrue(v[i].compara(v[i-1]) >= 0);
-        }
+        assertEquals(new MeuItem(1), v[1]);
+        assertEquals(new MeuItem(2), v[2]);
+        assertEquals(new MeuItem(3), v[3]);
+        assertEquals(new MeuItem(5), v[4]);
+        assertEquals(new MeuItem(7), v[5]);
     }
 
-    @Test
-    public void testQuicksort() {
+    @Test(timeout = 1000)
+    public void testInsercao() throws Exception {
         Item[] v = new Item[6];
-        v[0] = new MeuItem(6);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(4);
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
         v[5] = new MeuItem(3);
+        Ordenacao.insercao(v, 5);
 
-        Ordenacao.quicksort(v, 6);
-
-        for (int i = 1; i < v.length; i++) {
-            assertTrue(v[i].compara(v[i-1]) >= 0);
-        }
+        assertEquals(new MeuItem(1), v[1]);
+        assertEquals(new MeuItem(2), v[2]);
+        assertEquals(new MeuItem(3), v[3]);
+        assertEquals(new MeuItem(5), v[4]);
+        assertEquals(new MeuItem(7), v[5]);
     }
 
-    @Test
-    public void testHeapsort() {
+    @Test(timeout = 1000)
+    public void testShellsort() throws Exception {
         Item[] v = new Item[6];
-        v[0] = new MeuItem(6);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(4);
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
         v[5] = new MeuItem(3);
+        Ordenacao.shellsort(v, 5);
 
-        Ordenacao.heapsort(v, 6);
+        assertEquals(new MeuItem(1), v[1]);
+        assertEquals(new MeuItem(2), v[2]);
+        assertEquals(new MeuItem(3), v[3]);
+        assertEquals(new MeuItem(5), v[4]);
+        assertEquals(new MeuItem(7), v[5]);
+    }
 
-        for (int i = 1; i < v.length; i++) {
-            assertTrue(v[i].compara(v[i-1]) >= 0);
-        }
+    @Test(timeout = 1000)
+    public void testQuicksort() throws Exception {
+        Item[] v = new Item[6];
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        v[5] = new MeuItem(3);
+        Ordenacao.quicksort(v, 5);
+
+        assertEquals(new MeuItem(1), v[1]);
+        assertEquals(new MeuItem(2), v[2]);
+        assertEquals(new MeuItem(3), v[3]);
+        assertEquals(new MeuItem(5), v[4]);
+        assertEquals(new MeuItem(7), v[5]);
+    }
+
+    @Test(timeout = 1000)
+    public void testHeapsort() throws Exception {
+        Item[] v = new Item[6];
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        v[5] = new MeuItem(3);
+        Ordenacao.heapsort(v, 5);
+
+        assertEquals(new MeuItem(1), v[1]);
+        assertEquals(new MeuItem(2), v[2]);
+        assertEquals(new MeuItem(3), v[3]);
+        assertEquals(new MeuItem(5), v[4]);
+        assertEquals(new MeuItem(7), v[5]);
     }
 }

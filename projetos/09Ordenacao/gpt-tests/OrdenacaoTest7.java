@@ -1,47 +1,38 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
-package ds;
-import org.junit.Test;
-import static org.junit.Assert.*;
+public class OrdenacaoTest7{
 
-public class OrdenacaoTest7 {
 
-    @Test
-    public void testMergeSort() {
-        int[] input = {5, 2, 7, 1, 3};
-        int[] expected = {1, 2, 3, 5, 7};
-        
-        Ordenacao.mergeSort(input, 0, input.length - 1);
-        
-        assertArrayEquals(expected, input);
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+        // No assertions needed as it is testing only the constructor
     }
-    
-    @Test
-    public void testMergeSortWithEmptyArray() {
-        int[] input = {};
-        int[] expected = {};
-        
-        Ordenacao.mergeSort(input, 0, input.length - 1);
-        
-        assertArrayEquals(expected, input);
+
+    @Test(timeout = 1000)
+    public void testMerge() throws Exception {
+        int[] v = {5, 2, 8, 3, 1};
+        Ordenacao.merge(v, 0, 2, 4);
+        int[] expected = {1, 2, 3, 5, 8};
+        assertArrayEquals(expected, v);
+
+        int[] v2 = {-5, -2, -8, -3, -1};
+        Ordenacao.merge(v2, 0, 2, 4);
+        int[] expected2 = {-8, -5, -3, -2, -1};
+        assertArrayEquals(expected2, v2);
     }
-    
-    @Test
-    public void testMergeSortWithSortedArray() {
-        int[] input = {1, 2, 3, 4, 5};
-        int[] expected = {1, 2, 3, 4, 5};
-        
-        Ordenacao.mergeSort(input, 0, input.length - 1);
-        
-        assertArrayEquals(expected, input);
-    }
-    
-    @Test
-    public void testMergeSortWithReversedArray() {
-        int[] input = {5, 4, 3, 2, 1};
-        int[] expected = {1, 2, 3, 4, 5};
-        
-        Ordenacao.mergeSort(input, 0, input.length - 1);
-        
-        assertArrayEquals(expected, input);
+
+    @Test(timeout = 1000)
+    public void testMergeSort() throws Exception {
+        int[] v = {5, 2, 8, 3, 1};
+        Ordenacao.mergeSort(v, 0, 4);
+        int[] expected = {1, 2, 3, 5, 8};
+        assertArrayEquals(expected, v);
+
+        int[] v2 = {-5, -2, -8, -3, -1};
+        Ordenacao.mergeSort(v2, 0, 4);
+        int[] expected2 = {-8, -5, -3, -2, -1};
+        assertArrayEquals(expected2, v2);
     }
 }

@@ -4,30 +4,34 @@ import static org.junit.Assert.*;
 public class ListaTest27{
 
 
-    @Test
-    public void testInsere() throws Exception {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Lista lista = new Lista();
-        lista.insere("Item 1");
-        lista.insere("Item 2");
-        lista.insere("Item 3");
-        assertEquals(3, lista.ultimo - lista.primeiro);
+        assertNotNull(lista);
     }
 
-    @Test
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        Lista lista = new Lista();
+        lista.insere("item1");
+        assertEquals("item1", lista.item[0]);
+    }
+
+    @Test(timeout=1000)
     public void testVazia() throws Exception {
         Lista lista = new Lista();
         assertTrue(lista.vazia());
-        lista.insere("Item 1");
+        lista.insere("item1");
         assertFalse(lista.vazia());
     }
 
-    @Test
+    @Test(timeout=1000)
     public void testImprime() throws Exception {
         Lista lista = new Lista();
-        lista.insere("Item 1");
-        lista.insere("Item 2");
-        lista.insere("Item 3");
+        lista.insere("item1");
+        lista.insere("item2");
+        lista.insere("item3");
         lista.imprime();
-        // Add assertions to check the output of the imprime method
+        // Verify the output manually
     }
 }

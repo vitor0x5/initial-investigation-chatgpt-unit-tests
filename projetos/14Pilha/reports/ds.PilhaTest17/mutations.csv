@@ -1,7 +1,7 @@
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,11,KILLED,ds.PilhaTest17.testTamanho(ds.PilhaTest17)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,11,SURVIVED,none
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,11,SURVIVED,none
-Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,desempilha,22,SURVIVED,none
+Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,desempilha,22,NO_COVERAGE,none
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,desempilha,25,KILLED,ds.PilhaTest17.testDesempilha(ds.PilhaTest17)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,desempilha,25,KILLED,ds.PilhaTest17.testDesempilha(ds.PilhaTest17)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,desempilha,21,KILLED,ds.PilhaTest17.testDesempilha(ds.PilhaTest17)
@@ -22,10 +22,10 @@ Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.experimental.
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator,tamanho,32,KILLED,ds.PilhaTest17.testTamanho(ds.PilhaTest17)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,tamanho,32,KILLED,ds.PilhaTest17.testTamanho(ds.PilhaTest17)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator,vazia,29,KILLED,ds.PilhaTest17.testVazia(ds.PilhaTest17)
-Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator,vazia,29,KILLED,ds.PilhaTest17.testVazia(ds.PilhaTest17)
+Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator,vazia,29,KILLED,ds.PilhaTest17.testDesempilha(ds.PilhaTest17)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,vazia,29,KILLED,ds.PilhaTest17.testVazia(ds.PilhaTest17)
-Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,vazia,29,KILLED,ds.PilhaTest17.testVazia(ds.PilhaTest17)
-Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,vazia,29,KILLED,ds.PilhaTest17.testVazia(ds.PilhaTest17)
+Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,vazia,29,KILLED,ds.PilhaTest17.testDesempilha(ds.PilhaTest17)
+Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,vazia,29,KILLED,ds.PilhaTest17.testDesempilha(ds.PilhaTest17)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,vazia,29,KILLED,ds.PilhaTest17.testVazia(ds.PilhaTest17)
-Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF,vazia,29,KILLED,ds.PilhaTest17.testVazia(ds.PilhaTest17)
-Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,vazia,29,KILLED,ds.PilhaTest17.testVazia(ds.PilhaTest17)
+Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF,vazia,29,KILLED,ds.PilhaTest17.testDesempilha(ds.PilhaTest17)
+Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,vazia,29,KILLED,ds.PilhaTest17.testDesempilha(ds.PilhaTest17)

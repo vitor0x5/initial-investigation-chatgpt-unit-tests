@@ -1,42 +1,50 @@
-
-package ds;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class OrdenacaoTest11 {
+public class OrdenacaoTest11{
 
-    @Test
-    public void testOrdenaEmptyArray() {
-        int[] array = {};
-        Ordenacao.ordena(array, 0);
-        assertArrayEquals(new int[]{}, array);
-    }
 
-    @Test
-    public void testOrdenaArrayWithDuplicates() {
-        int[] array = {4, 2, 5, 2, 1};
-        Ordenacao.ordena(array, 5);
-        assertArrayEquals(new int[]{1, 2, 2, 4, 5}, array);
-    }
+  @Test(timeout=1000)
+  public void testDefaultConstructor() {
+    Ordenacao ordenacao = new Ordenacao();
+    assertNotNull(ordenacao);
+  }
 
-    @Test
-    public void testOrdenaSortedArray() {
-        int[] array = {1, 2, 3, 4, 5};
-        Ordenacao.ordena(array, 5);
-        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, array);
-    }
+  @Test(timeout=1000)
+  public void testOrdenaEmptyArray() {
+    int[] v = {};
+    Ordenacao.ordena(v, 0);
+    assertEquals(0, v.length);
+  }
 
-    @Test
-    public void testOrdenaReverseSortedArray() {
-        int[] array = {5, 4, 3, 2, 1};
-        Ordenacao.ordena(array, 5);
-        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, array);
-    }
+  @Test(timeout=1000)
+  public void testOrdenaArrayWithOneElement() {
+    int[] v = {5};
+    Ordenacao.ordena(v, 1);
+    assertEquals(5, v[0]);
+  }
 
-    @Test
-    public void testOrdenaArrayWithNegativeNumbers() {
-        int[] array = {-3, -1, -5, -2, -4};
-        Ordenacao.ordena(array, 5);
-        assertArrayEquals(new int[]{-5, -4, -3, -2, -1}, array);
-    }
+  @Test(timeout=1000)
+  public void testOrdenaArrayWithPositiveNumbers() {
+    int[] v = {3, 8, 2, 4, 1};
+    int[] expected = {1, 2, 3, 4, 8};
+    Ordenacao.ordena(v, 5);
+    assertArrayEquals(expected, v);
+  }
+
+  @Test(timeout=1000)
+  public void testOrdenaArrayWithNegativeNumbers() {
+    int[] v = {-3, -8, -2, -4, -1};
+    int[] expected = {-8, -4, -3, -2, -1};
+    Ordenacao.ordena(v, 5);
+    assertArrayEquals(expected, v);
+  }
+
+  @Test(timeout=1000)
+  public void testOrdenaArrayWithPositiveAndNegativeNumbers() {
+    int[] v = {3, 8, -2, -4, 1};
+    int[] expected = {-4, -2, 1, 3, 8};
+    Ordenacao.ordena(v, 5);
+    assertArrayEquals(expected, v);
+  }
 }

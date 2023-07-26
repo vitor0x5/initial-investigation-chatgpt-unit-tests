@@ -4,38 +4,32 @@ import static org.junit.Assert.*;
 public class FilaTest17{
 
 
-    @Test
-    public void testEnfileira() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Fila fila = new Fila();
+        assertNotNull(fila);
+    }
+
+    @Test(timeout=1000)
+    public void testEnfileira() throws Exception {
         Fila fila = new Fila();
         fila.enfileira(1);
         fila.enfileira(2);
         fila.enfileira(3);
-        fila.enfileira(4);
-        assertEquals("1 2 3 4", fila.imprime());
+        assertEquals("1 2 3", fila.imprime());
     }
 
-    @Test
+    @Test(timeout=1000)
     public void testDesenfileira() throws Exception {
         Fila fila = new Fila();
         fila.enfileira(1);
         fila.enfileira(2);
         fila.enfileira(3);
-        fila.enfileira(4);
         assertEquals(1, fila.desenfileira());
-        assertEquals(2, fila.desenfileira());
-        assertEquals(3, fila.desenfileira());
-        assertEquals(4, fila.desenfileira());
-        assertTrue(fila.vazia());
     }
 
-    @Test(expected = Exception.class)
-    public void testDesenfileiraFromEmptyFila() throws Exception {
-        Fila fila = new Fila();
-        fila.desenfileira();
-    }
-
-    @Test
-    public void testVazia() {
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Fila fila = new Fila();
         assertTrue(fila.vazia());
         fila.enfileira(1);

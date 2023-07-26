@@ -1,41 +1,79 @@
-package ds;import org.junit.Assert;
-import org.junit.Test;
-
-import ds.AgmPrim;
-import ds.Grafo;
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
+import ds.FPHeapMinIndireto;
 
 public class AgmPrimTest19{
 
 
-    @Test
-    public void testObterAgm() throws Exception {
-        // Create a graph
-        Grafo grafo = new Grafo(5);
-        grafo.insereAresta(0, 1, 2);
-        grafo.insereAresta(0, 2, 3);
-        grafo.insereAresta(1, 2, 1);
-        grafo.insereAresta(1, 3, 4);
-        grafo.insereAresta(2, 3, 2);
-        grafo.insereAresta(2, 4, 3);
-        grafo.insereAresta(3, 4, 1);
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testRetiraMinEmptyHeap() throws Exception {
+        double[] p = new double[0];
+        int[] v = new int[0];
+        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
+        heap.retiraMin();
+    }
 
-        // Create the AgmPrim object
-        AgmPrim agmPrim = new AgmPrim(grafo);
+    @Test(timeout = 1000)
+    public void testRetiraMin() throws Exception {
+        double[] p = {0, 1, 2, 3};
+        int[] v = {0, 1, 2, 3};
+        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
+        int min = heap.retiraMin();
+        assertEquals(1, min);
+    }
 
-        // Calculate the minimum spanning tree
-        agmPrim.obterAgm(0);
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDiminuiChaveInvalidValue() throws Exception {
+        double[] p = {0, 1, 2, 3};
+        int[] v = {0, 1, 2, 3};
+        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
+        heap.diminuiChave(1, -1);
+    }
 
-        // Test the results
-        Assert.assertEquals(0, agmPrim.antecessor(0));
-        Assert.assertEquals(-1, agmPrim.antecessor(1));
-        Assert.assertEquals(0, agmPrim.antecessor(2));
-        Assert.assertEquals(2, agmPrim.antecessor(3));
-        Assert.assertEquals(3, agmPrim.antecessor(4));
+    @Test(timeout = 1000)
+    public void testDiminuiChave() throws Exception {
+        double[] p = {0, 1, 2, 3};
+        int[] v = {0, 1, 2, 3};
+        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
+        heap.diminuiChave(3, 0);
+        assertEquals(0, p[3], 0.001);
+    }
 
-        Assert.assertEquals(0.0, agmPrim.peso(0), 0.001);
-        Assert.assertEquals(Double.MAX_VALUE, agmPrim.peso(1), 0.001);
-        Assert.assertEquals(2.0, agmPrim.peso(2), 0.001);
-        Assert.assertEquals(4.0, agmPrim.peso(3), 0.001);
-        Assert.assertEquals(5.0, agmPrim.peso(4), 0.001);
+    @Test(timeout = 1000)
+    public void testVazioEmptyHeap() {
+        double[] p = new double[0];
+        int[] v = new int[0];
+        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
+        assertTrue(heap.vazio());
+    }
+
+    @Test(timeout = 1000)
+    public void testVazioNonEmptyHeap() {
+        double[] p = {0, 1, 2, 3};
+        int[] v = {0, 1, 2, 3};
+        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
+        assertFalse(heap.vazio());
+    }
+
+    @Test(timeout = 1000)
+    public void testImprimeEmptyHeap() {
+        double[] p = new double[0];
+        int[] v = new int[0];
+        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
+        heap.imprime();
+    }
+
+    @Test(timeout = 1000)
+    public void testImprimeNonEmptyHeap() {
+        double[] p = {0, 1, 2, 3};
+        int[] v = {0, 1, 2, 3};
+        FPHeapMinIndireto heap = new FPHeapMinIndireto(p, v);
+        heap.imprime();
+    }
+
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() {
+        FPHeapMinIndireto heap = new FPHeapMinIndireto();
+        assertNotNull(heap);
     }
 }

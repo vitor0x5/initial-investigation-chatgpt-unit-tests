@@ -1,67 +1,55 @@
-
-package ds;
-
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+public class FilaTest9{
 
-public class FilaTest9 {
 
-    @Test
-    public void testEnfileira() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira("A");
-        fila.enfileira("B");
-        fila.enfileira("C");
-        
-        assertEquals("A", fila.desenfileira()); // first item enfileira should be the first item desenfileira
+        assertNotNull(fila);
     }
-    
-    @Test
-    public void testDesenfileira() {
+
+    @Test(timeout=1000)
+    public void testEnfileiraWithValidInput() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira("A");
-        fila.enfileira("B");
-        fila.enfileira("C");
-        
-        assertEquals("A", fila.desenfileira()); // desenfileira the first item
-        assertEquals("B", fila.desenfileira()); // desenfileira the second item
-        assertEquals("C", fila.desenfileira()); // desenfileira the third item
-        
-        try {
-            fila.desenfileira(); // try to desenfileira from empty fila - should throw an exception
-            fail("Expected Exception");
-        } catch (Exception e) {
-            assertEquals("Erro: A fila esta vazia", e.getMessage());
-        }
+        fila.enfileira(1);
+        assertFalse(fila.vazia());
     }
-    
-    @Test
-    public void testVazia() {
+
+    @Test(expected=Exception.class, timeout=1000)
+    public void testDesenfileiraWithEmptyQueue() throws Exception {
         Fila fila = new Fila();
-        assertTrue(fila.vazia()); // fila should be empty
-        
-        fila.enfileira("A");
-        assertFalse(fila.vazia()); // fila should not be empty after enfileira
-        
         fila.desenfileira();
-        assertTrue(fila.vazia()); // fila should be empty after desenfileira all items
     }
-    
-    @Test
-    public void testImprime() {
+
+    @Test(timeout=1000)
+    public void testDesenfileiraWithNonEmptyQueue() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira("A");
-        fila.enfileira("B");
-        fila.enfileira("C");
-        
-        // testing output. You can redirect output instead of using System.out
-        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        
+        fila.enfileira(1);
+        Object item = fila.desenfileira();
+        assertEquals(1, item);
+        assertTrue(fila.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testVaziaWithEmptyQueue() throws Exception {
+        Fila fila = new Fila();
+        assertTrue(fila.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testImprimeWithEmptyQueue() throws Exception {
+        Fila fila = new Fila();
         fila.imprime();
-        assertEquals(" A B C\n", outContent.toString());
+    }
+
+    @Test(timeout=1000)
+    public void testImprimeWithNonEmptyQueue() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira(1);
+        fila.enfileira(2);
+        fila.enfileira(3);
+        fila.imprime();
     }
 }

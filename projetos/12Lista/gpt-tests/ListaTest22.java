@@ -4,43 +4,31 @@ import static org.junit.Assert.*;
 public class ListaTest22{
 
 
-    @Test
-    public void testInsere() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Lista lista = new Lista();
-        
-        // Test inserting a single element
+        assertNotNull(lista);
+    }
+
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        Lista lista = new Lista();
         lista.insere(1);
         assertFalse(lista.vazia());
-        
-        // Test inserting multiple elements
-        lista.insere(2);
-        lista.insere(3);
-        assertFalse(lista.vazia());
     }
-    
-    @Test
-    public void testVazia() {
+
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Lista lista = new Lista();
-        
-        // Test an empty list
         assertTrue(lista.vazia());
-        
-        // Test a non-empty list
-        lista.insere(1);
-        assertFalse(lista.vazia());
     }
-    
-    @Test
-    public void testImprime() {
+
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         Lista lista = new Lista();
-        
-        // Test printing an empty list
-        lista.imprime(); // Should not throw any exception
-        
-        // Test printing a non-empty list
         lista.insere(1);
         lista.insere(2);
         lista.insere(3);
-        lista.imprime(); // Should print "1 2 3"
+        lista.imprime();
     }
 }

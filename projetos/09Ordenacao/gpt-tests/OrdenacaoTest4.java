@@ -1,39 +1,40 @@
-
-package ds;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class OrdenacaoTest4 {
-  
-  @Test
-  public void testMergeSort() {
-    int[] arr = {5, 2, 8, 10, 1};
-    Ordenacao.mergeSort(arr, 0, arr.length - 1);
-    int[] expected = {1, 2, 5, 8, 10};
-    assertArrayEquals(expected, arr);
-  }
-  
-  @Test
-  public void testMergeSortWithEmptyArray() {
-    int[] arr = {};
-    Ordenacao.mergeSort(arr, 0, arr.length - 1);
-    int[] expected = {};
-    assertArrayEquals(expected, arr);
-  }
-  
-  @Test
-  public void testMergeSortWithAlreadySortedArray() {
-    int[] arr = {1, 2, 3, 4, 5};
-    Ordenacao.mergeSort(arr, 0, arr.length - 1);
-    int[] expected = {1, 2, 3, 4, 5};
-    assertArrayEquals(expected, arr);
-  }
-  
-  @Test
-  public void testMergeSortWithSingleElementArray() {
-    int[] arr = {5};
-    Ordenacao.mergeSort(arr, 0, arr.length - 1);
-    int[] expected = {5};
-    assertArrayEquals(expected, arr);
-  }
+public class OrdenacaoTest4{
+
+
+    // Test for default constructor
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+    }
+
+    // Test for mergeSort method with valid inputs
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testMergeSortValidInputs() throws Exception {
+        int[] arr = {5, 2, 7, 1, 8};
+        Ordenacao.mergeSort(arr, 0, arr.length - 1);
+        int[] expected = {1, 2, 5, 7, 8};
+        assertArrayEquals(expected, arr);
+    }
+
+    // Test for mergeSort method with empty array
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testMergeSortEmptyArray() throws Exception {
+        int[] arr = {};
+        Ordenacao.mergeSort(arr, 0, arr.length - 1);
+        int[] expected = {};
+        assertArrayEquals(expected, arr);
+    }
+
+    // Test for mergeSort method with single element array
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testMergeSortSingleElementArray() throws Exception {
+        int[] arr = {5};
+        Ordenacao.mergeSort(arr, 0, arr.length - 1);
+        int[] expected = {5};
+        assertArrayEquals(expected, arr);
+    }
+
 }

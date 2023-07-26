@@ -1,61 +1,87 @@
-package ds;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+
 import org.junit.Test;
 
-public class GrafoTest9 {
+public class GrafoTest9{
 
-    @Test
-    public void testConstructor() {
-        Grafo graph = new Grafo(5);
-        
-        assertEquals(5, graph.numVertices());
-        assertEquals(5 + 2 * 4500, graph.cab.length);
-        assertEquals(5 + 2 * 4500, graph.prox.length);
-        assertEquals(5 + 2 * 4500, graph.peso.length);
+
+    @Test(timeout=1000, expected=Exception.class)
+    public void testDefaultConstructor() throws Exception {
+        Grafo grafo = new Grafo(10);
+        assertNotNull(grafo);
     }
-
-    @Test
-    public void testInsereAresta() {
-        Grafo graph = new Grafo(5);
-        
-        graph.insereAresta(0, 1, 5);
-        
-        // Check if the edge was inserted correctly
-        assertTrue(graph.existeAresta(0, 1));
-        assertFalse(graph.existeAresta(1, 0));
-        assertEquals(5, graph.peso[1]);
-        
-        // Check if non-existent edges return false
-        assertFalse(graph.existeAresta(0, 2));
-        assertFalse(graph.existeAresta(2, 1));
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testInsereAresta() throws Exception {
+        Grafo grafo = new Grafo(10);
+        grafo.insereAresta(1, 2, 5);
+        assertTrue(grafo.existeAresta(1, 2));
+        assertFalse(grafo.existeAresta(1, 5));
     }
-
-
-    @Test
-    public void testRetiraAresta() {
-        Grafo graph = new Grafo(5);
-        graph.insereAresta(0, 1, 5);
-        
-        Grafo.Aresta removedEdge = graph.retiraAresta(0, 1);
-        
-        // Check if the edge was removed correctly
-        assertNull(graph.retiraAresta(0, 1));
-        assertFalse(graph.existeAresta(0, 1));
-        assertEquals(0, graph.peso[removedEdge.v1()]);
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testExisteAresta() throws Exception {
+        Grafo grafo = new Grafo(10);
+        grafo.insereAresta(1, 2, 5);
+        assertTrue(grafo.existeAresta(1, 2));
+        assertFalse(grafo.existeAresta(1, 5));
     }
-
-    @Test
-    public void testGrafoTransposto() {
-        Grafo graph = new Grafo(5);
-        graph.insereAresta(0, 1, 5);
-        graph.insereAresta(1, 2, 10);
-        graph.insereAresta(2, 3, 15);
-        
-        Grafo transposedGraph = graph.grafoTransposto();
-        
-        // Check if the transpose graph has the same edges as the original graph, but in the opposite direction
-        assertTrue(transposedGraph.existeAresta(1, 0));
-        assertTrue(transposedGraph.existeAresta(2, 1));
-        assertTrue(transposedGraph.existeAresta(3, 2));
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testListaAdjVazia() throws Exception {
+        Grafo grafo = new Grafo(10);
+        assertTrue(grafo.listaAdjVazia(1));
+        grafo.insereAresta(1, 2, 5);
+        assertFalse(grafo.listaAdjVazia(1));
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testPrimeiroListaAdj() throws Exception {
+        Grafo grafo = new Grafo(10);
+        assertNull(grafo.primeiroListaAdj(1));
+        grafo.insereAresta(1, 2, 5);
+        assertNotNull(grafo.primeiroListaAdj(1));
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testProxAdj() throws Exception {
+        Grafo grafo = new Grafo(10);
+        assertNull(grafo.proxAdj(1));
+        grafo.insereAresta(1, 2, 5);
+        assertNotNull(grafo.proxAdj(1));
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testRetiraAresta() throws Exception {
+        Grafo grafo = new Grafo(10);
+        assertNull(grafo.retiraAresta(1, 2));
+        grafo.insereAresta(1, 2, 5);
+        assertNotNull(grafo.retiraAresta(1, 2));
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testImprime() throws Exception {
+        Grafo grafo = new Grafo(10);
+        grafo.insereAresta(1, 2, 5);
+        grafo.insereAresta(1, 3, 8);
+        grafo.insereAresta(2, 4, 3);
+        grafo.insereAresta(3, 5, 6);
+        grafo.imprime();
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testNumVertices() throws Exception {
+        Grafo grafo = new Grafo(10);
+        assertEquals(10, grafo.numVertices());
+    }
+    
+    @Test(timeout=1000, expected=Exception.class)
+    public void testGrafoTransposto() throws Exception {
+        Grafo grafo = new Grafo(10);
+        grafo.insereAresta(1, 2, 5);
+        grafo.insereAresta(1, 3, 8);
+        grafo.insereAresta(2, 4, 3);
+        grafo.insereAresta(3, 5, 6);
+        Grafo grafoT = grafo.grafoTransposto();
     }
 }

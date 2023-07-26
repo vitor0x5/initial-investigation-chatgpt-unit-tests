@@ -1,53 +1,45 @@
+package ds;import static org.junit.Assert.*;
 
-package ds;
-import ds.AvaliaMultMatrizes;
-import org.junit.Test;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.*;
 
-public class AvaliaMultMatrizesTest11 {
+public class AvaliaMultMatrizesTest11{
 
-    @Test
-    public void testMultmatrize() throws IOException {
-        int n = 3;
-        int[] d = {2, 3, 4};
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
 
-        AvaliaMultMatrizes.multmatrize(n, d);
-
-        String expectedOutput = " m[1][2]= 24\n" +
-                " m[2][3]= 32\n" +
-                " m[1][3]= 56\n";
-        assertEquals(expectedOutput, outContent.toString());
+    @Test(expected = IOException.class, timeout = 1000)
+    public void testMultMatrize() throws Exception {
+        int[] d = {1, 2, 3};
+        AvaliaMultMatrizes.multmatrize(3, d);
     }
 
-    @Test
-    public void testMultmatrizeWithZeroDimensions() throws IOException {
-        int n = 0;
-        int[] d = {};
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-
-        AvaliaMultMatrizes.multmatrize(n, d);
-
-        String expectedOutput = "";
-        assertEquals(expectedOutput, outContent.toString());
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        AvaliaMultMatrizes obj = new AvaliaMultMatrizes();
+        assertNotNull(obj);
     }
 
-    @Test
-    public void testMultmatrizeWithOneDimension() throws IOException {
-        int n = 1;
-        int[] d = {5};
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
+    @Test(timeout = 1000)
+    public void testMultMatrizeDecision1() throws Exception {
+        int[] d = {1};
+        AvaliaMultMatrizes.multmatrize(1, d);
+    }
 
-        AvaliaMultMatrizes.multmatrize(n, d);
+    @Test(timeout = 1000)
+    public void testMultMatrizeDecision2() throws Exception {
+        int[] d = {1, 2};
+        AvaliaMultMatrizes.multmatrize(2, d);
+    }
 
-        String expectedOutput = "";
-        assertEquals(expectedOutput, outContent.toString());
+    @Test(timeout = 1000)
+    public void testMultMatrizeDecision3() throws Exception {
+        int[] d = {1, -2};
+        AvaliaMultMatrizes.multmatrize(2, d);
+    }
+
+    @Test(timeout = 1000)
+    public void testMultMatrizeDecision4() throws Exception {
+        int[] d = {-1, 2};
+        AvaliaMultMatrizes.multmatrize(2, d);
     }
 }

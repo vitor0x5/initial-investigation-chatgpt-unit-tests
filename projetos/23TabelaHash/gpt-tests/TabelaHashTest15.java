@@ -4,51 +4,57 @@ import static org.junit.Assert.*;
 public class TabelaHashTest15{
 
 
-    @Test
-    public void testInsere() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        assertNotNull(tabela);
+    }
+    
+    @Test(timeout=1000)
+    public void testPesquisa() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        Object item = tabela.pesquisa("chave");
+        assertNull(item);
+    }
+    
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("chave", "item");
+        Object item = tabela.pesquisa("chave");
+        assertNotNull(item);
+        assertEquals("item", item);
+    }
+    
+    @Test(timeout=1000)
+    public void testRetira() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("chave", "item");
+        tabela.retira("chave");
+        Object item = tabela.pesquisa("chave");
+        assertNull(item);
+    }
+    
+    @Test(timeout=1000)
+    public void testRecuperaItens() throws Exception {
         TabelaHash tabela = new TabelaHash();
         tabela.insere("chave1", "item1");
         tabela.insere("chave2", "item2");
         tabela.insere("chave3", "item3");
-        
-        assertEquals("item1", tabela.pesquisa("chave1"));
-        assertEquals("item2", tabela.pesquisa("chave2"));
-        assertEquals("item3", tabela.pesquisa("chave3"));
-    }
-
-    @Test
-    public void testRetira() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        
-        tabela.retira("chave1");
-        assertNull(tabela.pesquisa("chave1"));
-        assertNotNull(tabela.pesquisa("chave2"));
-    }
-
-    @Test
-    public void testRecuperaItens() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
-        
         Object[] itens = tabela.recuperaItens();
+        assertNotNull(itens);
         assertEquals(3, itens.length);
         assertEquals("item1", itens[0]);
         assertEquals("item2", itens[1]);
         assertEquals("item3", itens[2]);
     }
-
-    @Test
-    public void testPesquisa() {
+    
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         TabelaHash tabela = new TabelaHash();
         tabela.insere("chave1", "item1");
         tabela.insere("chave2", "item2");
-        
-        assertEquals("item1", tabela.pesquisa("chave1"));
-        assertEquals("item2", tabela.pesquisa("chave2"));
-        assertNull(tabela.pesquisa("chave3"));
+        tabela.insere("chave3", "item3");
+        tabela.imprime();
     }
 }

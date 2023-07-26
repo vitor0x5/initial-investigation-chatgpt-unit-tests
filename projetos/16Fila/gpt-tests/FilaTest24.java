@@ -4,55 +4,14 @@ import static org.junit.Assert.*;
 public class FilaTest24{
 
 
-    @Test
-    public void testEnfileira() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        fila.enfileira(4);
-        fila.enfileira(5);
-        assertEquals(1, fila.desenfileira());
-        assertEquals(2, fila.desenfileira());
-        assertEquals(3, fila.desenfileira());
-        assertEquals(4, fila.desenfileira());
-        assertEquals(5, fila.desenfileira());
+        assertNotNull(fila);
     }
 
-    @Test
-    public void testDesenfileira() {
-        Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        fila.enfileira(4);
-        fila.enfileira(5);
-        assertEquals(1, fila.desenfileira());
-        assertEquals(2, fila.desenfileira());
-        assertEquals(3, fila.desenfileira());
-        assertEquals(4, fila.desenfileira());
-        assertEquals(5, fila.desenfileira());
-        assertTrue(fila.vazia());
-    }
-
-    @Test(expected = Exception.class)
-    public void testDesenfileiraEmpty() throws Exception {
-        Fila fila = new Fila();
-        fila.desenfileira();
-    }
-
-    @Test
-    public void testVazia() {
-        Fila fila = new Fila();
-        assertTrue(fila.vazia());
-        fila.enfileira(1);
-        assertFalse(fila.vazia());
-        fila.desenfileira();
-        assertTrue(fila.vazia());
-    }
-
-    @Test
-    public void testImprime() {
+    @Test(timeout=1000)
+    public void testEnfileira() throws Exception {
         Fila fila = new Fila();
         fila.enfileira(1);
         fila.enfileira(2);
@@ -60,5 +19,26 @@ public class FilaTest24{
         fila.enfileira(4);
         fila.enfileira(5);
         fila.imprime();
+    }
+
+    @Test(timeout=1000)
+    public void testDesenfileira() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira(1);
+        fila.enfileira(2);
+        fila.enfileira(3);
+        fila.enfileira(4);
+        fila.enfileira(5);
+        fila.imprime();
+        fila.desenfileira();
+        fila.imprime();
+    }
+
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
+        Fila fila = new Fila();
+        assertTrue(fila.vazia());
+        fila.enfileira(1);
+        assertFalse(fila.vazia());
     }
 }

@@ -1,39 +1,85 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;Here are some test cases for the given Grafo Java class:
+import ds.Grafo;
+import ds.Aresta;
 
-1. Test for insereAresta method:
-- Test case description: Verify if the method inserts the edge with the correct weight
-- Input: v1 = 1, v2 = 2, peso = 5
-- Expected output: The weight of the edge (1, 2) should be 5
+public class GrafoTest11{
 
-2. Test for existeAresta method:
-- Test case description: Verify if the method correctly identifies the existence of an edge
-- Input: v1 = 2, v2 = 3
-- Expected output: The method should return false because the edge (2, 3) does not exist
-
-3. Test for listaAdjVazia method:
-- Test case description: Verify if the method correctly identifies an empty adjacency list
-- Input: v = 4
-- Expected output: The method should return true, indicating that the adjacency list of vertex 4 is empty
-
-4. Test for primeiroListaAdj method:
-- Test case description: Verify if the method correctly returns the first adjacent edge
-- Input: v = 3
-- Expected output: The method should return the Aresta object representing the first adjacent edge of vertex 3
-
-5. Test for proxAdj method:
-- Test case description: Verify if the method correctly returns the next adjacent edge
-- Input: v = 1
-- Expected output: The method should return the Aresta object representing the next adjacent edge of vertex 1
-
-6. Test for retiraAresta method:
-- Test case description: Verify if the method correctly removes an edge and returns it
-- Input: v1 = 2, v2 = 4
-- Expected output: The method should remove the edge (2, 4) and return the Aresta object representing the removed edge
-
-7. Test for grafoTransposto method:
-- Test case description: Verify if the method correctly creates and returns the transposed graph
-- Input: (graph with edges (1, 2), (1, 3), (2, 3))
-- Expected output: The method should return the transposed graph with edges (2, 1), (3, 1), (3, 2)
-
-Note: These test cases cover the basic functionality of the methods in the Grafo class. Additional test cases can be added to test edge cases and handle exceptional scenarios.
+    
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Grafo grafo = new Grafo();
+        assertNotNull(grafo);
+    }
+    
+    @Test(timeout=1000)
+    public void testInsereAresta() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(0, 1, 5);
+        assertTrue(grafo.existeAresta(0, 1));
+    }
+    
+    @Test(timeout=1000)
+    public void testExisteAresta() throws Exception {
+        Grafo grafo = new Grafo();
+        assertFalse(grafo.existeAresta(0, 1));
+        grafo.insereAresta(0, 1, 5);
+        assertTrue(grafo.existeAresta(0, 1));
+    }
+    
+    @Test(timeout=1000)
+    public void testListaAdjVazia() throws Exception {
+        Grafo grafo = new Grafo();
+        assertTrue(grafo.listaAdjVazia(0));
+        grafo.insereAresta(0, 1, 5);
+        assertFalse(grafo.listaAdjVazia(0));
+    }
+    
+    @Test(timeout=1000)
+    public void testPrimeiroListaAdj() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(0, 1, 5);
+        Aresta aresta = grafo.primeiroListaAdj(0);
+        assertNotNull(aresta);
+    }
+    
+    @Test(timeout=1000)
+    public void testProxAdj() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(0, 1, 5);
+        grafo.insereAresta(0, 2, 10);
+        Aresta aresta1 = grafo.primeiroListaAdj(0);
+        Aresta aresta2 = grafo.proxAdj(0);
+        assertNotNull(aresta1);
+        assertNotNull(aresta2);
+        assertNotEquals(aresta1, aresta2);
+    }
+    
+    @Test(timeout=1000)
+    public void testRetiraAresta() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(0, 1, 5);
+        Aresta aresta = grafo.retiraAresta(0, 1);
+        assertNotNull(aresta);
+        assertFalse(grafo.existeAresta(0, 1));
+    }
+    
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(0, 1, 5);
+        grafo.insereAresta(0, 2, 10);
+        grafo.imprime(); // Not testable in JUnit
+    }
+    
+    @Test(timeout=1000)
+    public void testGrafoTransposto() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(0, 1, 5);
+        grafo.insereAresta(0, 2, 10);
+        Grafo grafoT = grafo.grafoTransposto();
+        assertTrue(grafoT.existeAresta(1, 0));
+        assertTrue(grafoT.existeAresta(2, 0));
+    }
+}

@@ -1,32 +1,70 @@
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
+import java.io.*;
 
-package ds;Test cases for the Tabela Java class:
+public class TabelaTest10{
 
-1. Test Case for rand0a1 method:
-   - Input: Random object
-   - Output: A double value between 0 (inclusive) and 1 (exclusive)
-
-2. Test Case for permut method with MeuItem[] array:
-   - Input: MeuItem[] array, integer n
-   - Output: The array with elements permuted
-
-3. Test Case for permut method with int[] array:
-   - Input: int[] array, integer n
-   - Output: The array with elements permuted
-
-4. Test Case for permut method with char[] array:
-   - Input: char[] array, integer n
-   - Output: The array with elements permuted
-
-5. Test Case for pesquisa method:
-   - Input: Item object
-   - Output: The index of the item in the Tabela's registros array, or -1 if not found
-
-6. Test Case for insere method:
-   - Input: Item object
-   - Output: The Tabela's registros array with the item inserted
-
-7. Test Case for binaria method:
-   - Input: Item object
-   - Output: The index of the item in the Tabela's registros array, or 0 if not found
-
-Note: These are just example test cases and may not cover all possible scenarios. More test cases can be added to ensure the correctness of the Tabela class.
+    
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Tabela tabela = new Tabela();
+        assertNotNull(tabela);
+    }
+    
+    @Test(timeout=1000)
+    public void testPesquisa() throws Exception {
+        Tabela tabela = new Tabela();
+        Item item = new MeuItem(5);
+        tabela.insere(item);
+        
+        int result = tabela.pesquisa(item);
+        
+        assertEquals(1, result);
+    }
+    
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        Tabela tabela = new Tabela();
+        Item item = new MeuItem(5);
+        
+        tabela.insere(item);
+        
+        assertEquals(1, tabela.n);
+        assertEquals(item, tabela.registros[1]);
+    }
+    
+    @Test(timeout=1000)
+    public void testInsereFullTable() throws Exception {
+        Tabela tabela = new Tabela();
+        
+        for (int i = 0; i < 10; i++) {
+            Item item = new MeuItem(i);
+            tabela.insere(item);
+        }
+        
+        Item item = new MeuItem(10);
+        
+        try {
+            tabela.insere(item);
+            fail("Expected Exception");
+        } catch (Exception e) {
+            assertEquals("Erro: A tabela esta cheia", e.getMessage());
+        }
+    }
+    
+    @Test(timeout=1000)
+    public void testBinaria() throws Exception {
+        Tabela tabela = new Tabela();
+        
+        for (int i = 0; i < 10; i++) {
+            Item item = new MeuItem(i);
+            tabela.insere(item);
+        }
+        
+        Item item = new MeuItem(5);
+        
+        int result = tabela.binaria(item);
+        
+        assertEquals(5, result);
+    }
+}

@@ -1,98 +1,128 @@
-
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.Random;
+import java.util.Arrays;
 
-public class OrdenacaoTest0 {
+public class OrdenacaoTest0{
 
-    @Test
-    public void testSelecao() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(4);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(3);
 
-        Ordenacao.selecao(v, 5);
-
-        assertEquals(1, v[0].recuperaChave());
-        assertEquals(2, v[1].recuperaChave());
-        assertEquals(3, v[2].recuperaChave());
-        assertEquals(4, v[3].recuperaChave());
-        assertEquals(5, v[4].recuperaChave());
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
     }
 
-    @Test
-    public void testInsercao() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(4);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(3);
+    @Test(timeout=1000)
+    public void testSelecao() throws Exception {
+        Item[] items = new Item[6];
+        items[0] = new MeuItem(5);
+        items[1] = new MeuItem(2);
+        items[2] = new MeuItem(9);
+        items[3] = new MeuItem(1);
+        items[4] = new MeuItem(7);
+        items[5] = new MeuItem(3);
 
-        Ordenacao.insercao(v, 5);
+        Ordenacao.selecao(items, items.length);
 
-        assertEquals(1, v[0].recuperaChave());
-        assertEquals(2, v[1].recuperaChave());
-        assertEquals(3, v[2].recuperaChave());
-        assertEquals(4, v[3].recuperaChave());
-        assertEquals(5, v[4].recuperaChave());
+        Item[] expected = new Item[6];
+        expected[0] = new MeuItem(1);
+        expected[1] = new MeuItem(2);
+        expected[2] = new MeuItem(3);
+        expected[3] = new MeuItem(5);
+        expected[4] = new MeuItem(7);
+        expected[5] = new MeuItem(9);
+
+        assertTrue(Arrays.equals(items, expected));
     }
 
-    @Test
-    public void testShellsort() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(4);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(3);
+    @Test(timeout=1000)
+    public void testInsercao() throws Exception {
+        Item[] items = new Item[6];
+        items[0] = new MeuItem(5);
+        items[1] = new MeuItem(2);
+        items[2] = new MeuItem(9);
+        items[3] = new MeuItem(1);
+        items[4] = new MeuItem(7);
+        items[5] = new MeuItem(3);
 
-        Ordenacao.shellsort(v, 5);
+        Ordenacao.insercao(items, items.length);
 
-        assertEquals(1, v[0].recuperaChave());
-        assertEquals(2, v[1].recuperaChave());
-        assertEquals(3, v[2].recuperaChave());
-        assertEquals(4, v[3].recuperaChave());
-        assertEquals(5, v[4].recuperaChave());
+        Item[] expected = new Item[6];
+        expected[0] = new MeuItem(1);
+        expected[1] = new MeuItem(2);
+        expected[2] = new MeuItem(3);
+        expected[3] = new MeuItem(5);
+        expected[4] = new MeuItem(7);
+        expected[5] = new MeuItem(9);
+
+        assertTrue(Arrays.equals(items, expected));
     }
 
-    @Test
-    public void testQuicksort() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(4);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(3);
+    @Test(timeout=1000)
+    public void testShellsort() throws Exception {
+        Item[] items = new Item[6];
+        items[0] = new MeuItem(5);
+        items[1] = new MeuItem(2);
+        items[2] = new MeuItem(9);
+        items[3] = new MeuItem(1);
+        items[4] = new MeuItem(7);
+        items[5] = new MeuItem(3);
 
-        Ordenacao.quicksort(v, 5);
+        Ordenacao.shellsort(items, items.length);
 
-        assertEquals(1, v[0].recuperaChave());
-        assertEquals(2, v[1].recuperaChave());
-        assertEquals(3, v[2].recuperaChave());
-        assertEquals(4, v[3].recuperaChave());
-        assertEquals(5, v[4].recuperaChave());
+        Item[] expected = new Item[6];
+        expected[0] = new MeuItem(1);
+        expected[1] = new MeuItem(2);
+        expected[2] = new MeuItem(3);
+        expected[3] = new MeuItem(5);
+        expected[4] = new MeuItem(7);
+        expected[5] = new MeuItem(9);
+
+        assertTrue(Arrays.equals(items, expected));
     }
 
-    @Test
-    public void testHeapsort() {
-        Item[] v = new Item[5];
-        v[0] = new MeuItem(4);
-        v[1] = new MeuItem(2);
-        v[2] = new MeuItem(5);
-        v[3] = new MeuItem(1);
-        v[4] = new MeuItem(3);
+    @Test(timeout=1000)
+    public void testQuicksort() throws Exception {
+        Item[] items = new Item[6];
+        items[0] = new MeuItem(5);
+        items[1] = new MeuItem(2);
+        items[2] = new MeuItem(9);
+        items[3] = new MeuItem(1);
+        items[4] = new MeuItem(7);
+        items[5] = new MeuItem(3);
 
-        Ordenacao.heapsort(v, 5);
+        Ordenacao.quicksort(items, items.length);
 
-        assertEquals(1, v[0].recuperaChave());
-        assertEquals(2, v[1].recuperaChave());
-        assertEquals(3, v[2].recuperaChave());
-        assertEquals(4, v[3].recuperaChave());
-        assertEquals(5, v[4].recuperaChave());
+        Item[] expected = new Item[6];
+        expected[0] = new MeuItem(1);
+        expected[1] = new MeuItem(2);
+        expected[2] = new MeuItem(3);
+        expected[3] = new MeuItem(5);
+        expected[4] = new MeuItem(7);
+        expected[5] = new MeuItem(9);
+
+        assertTrue(Arrays.equals(items, expected));
+    }
+
+    @Test(timeout=1000)
+    public void testHeapsort() throws Exception {
+        Item[] items = new Item[6];
+        items[0] = new MeuItem(5);
+        items[1] = new MeuItem(2);
+        items[2] = new MeuItem(9);
+        items[3] = new MeuItem(1);
+        items[4] = new MeuItem(7);
+        items[5] = new MeuItem(3);
+
+        Ordenacao.heapsort(items, items.length);
+
+        Item[] expected = new Item[6];
+        expected[0] = new MeuItem(1);
+        expected[1] = new MeuItem(2);
+        expected[2] = new MeuItem(3);
+        expected[3] = new MeuItem(5);
+        expected[4] = new MeuItem(7);
+        expected[5] = new MeuItem(9);
+
+        assertTrue(Arrays.equals(items, expected));
     }
 }

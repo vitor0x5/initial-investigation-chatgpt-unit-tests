@@ -1,11 +1,16 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class MaxMin1Test31{
 
 
-    @Test
-    public void testMaxMin1() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin1 maxMin1 = new MaxMin1();
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin1() throws Exception {
         int[] v = {1, 2, 3, 4, 5};
         int n = 5;
         int[] expected = {5, 1};
@@ -13,8 +18,8 @@ public class MaxMin1Test31{
         assertArrayEquals(expected, result);
     }
 
-    @Test
-    public void testMaxMin1WithNegativeNumbers() {
+    @Test(timeout=1000)
+    public void testMaxMin1WithNegativeValues() throws Exception {
         int[] v = {-5, -4, -3, -2, -1};
         int n = 5;
         int[] expected = {-1, -5};
@@ -22,8 +27,8 @@ public class MaxMin1Test31{
         assertArrayEquals(expected, result);
     }
 
-    @Test
-    public void testMaxMin1WithDuplicateNumbers() {
+    @Test(timeout=1000)
+    public void testMaxMin1WithDuplicateValues() throws Exception {
         int[] v = {1, 2, 3, 3, 4, 5};
         int n = 6;
         int[] expected = {5, 1};
@@ -31,11 +36,11 @@ public class MaxMin1Test31{
         assertArrayEquals(expected, result);
     }
 
-    @Test
-    public void testMaxMin1WithEmptyArray() {
-        int[] v = {};
-        int n = 0;
-        int[] expected = {0, 0};
+    @Test(timeout=1000)
+    public void testMaxMin1WithBoundaryValues() throws Exception {
+        int[] v = {Integer.MAX_VALUE, Integer.MIN_VALUE};
+        int n = 2;
+        int[] expected = {Integer.MAX_VALUE, Integer.MIN_VALUE};
         int[] result = MaxMin1.maxMin1(v, n);
         assertArrayEquals(expected, result);
     }

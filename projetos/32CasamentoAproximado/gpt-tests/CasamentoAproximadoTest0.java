@@ -1,53 +1,66 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+public class CasamentoAproximadoTest0{
 
-public class CasamentoAproximadoTest0 {
-  
-  @Test
-  public void testShiftAndAproximado() {
-    String T = "ABCDABCDABCD";
-    String P = "ABCD";
-    int k = 1;
-    String expected = "Casamento na posicao: 0\nCasamento na posicao: 4\nCasamento na posicao: 8\n";
-    assertEquals(expected, CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k));
-  }
-  
-  @Test
-  public void testShiftAndAproximadoEmptyText() {
-    String T = "";
-    String P = "ABCD";
-    int k = 1;
-    String expected = "";
-    assertEquals(expected, CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k));
-  }
-  
-  @Test
-  public void testShiftAndAproximadoEmptyPattern() {
-    String T = "ABCDABCDABCD";
-    String P = "";
-    int k = 1;
-    String expected = "";
-    assertEquals(expected, CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k));
-  }
-  
-  @Test
-  public void testShiftAndAproximadoNoMatch() {
-    String T = "ABCDABCDABCD";
-    String P = "XYZ";
-    int k = 1;
-    String expected = "";
-    assertEquals(expected, CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k));
-  }
-  
-  @Test
-  public void testShiftAndAproximadoMultipleMatches() {
-    String T = "ABCDABCDABCD";
-    String P = "AB";
-    int k = 2;
-    String expected = "Casamento na posicao: 0\nCasamento na posicao: 4\nCasamento na posicao: 8\n";
-    assertEquals(expected, CasamentoAproximado.shiftAndAproximado(T, T.length(), P, P.length(), k));
-  }
-  
+
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoAproximado casamento = new CasamentoAproximado();
+    }
+
+    @Test(timeout = 1000)
+    public void testShiftAndAproximado() throws Exception {
+        String T = "abcde";
+        int n = 5;
+        String P = "bcd";
+        int m = 3;
+        int k = 1;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
+    }
+
+    @Test(timeout = 1000)
+    public void testShiftAndAproximadoWithEmptyText() throws Exception {
+        String T = "";
+        int n = 0;
+        String P = "bcd";
+        int m = 3;
+        int k = 1;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
+    }
+
+    @Test(timeout = 1000)
+    public void testShiftAndAproximadoWithEmptyPattern() throws Exception {
+        String T = "abcde";
+        int n = 5;
+        String P = "";
+        int m = 0;
+        int k = 1;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
+    }
+
+    @Test(timeout = 1000)
+    public void testShiftAndAproximadoWithZeroErrors() throws Exception {
+        String T = "abcde";
+        int n = 5;
+        String P = "bcd";
+        int m = 3;
+        int k = 0;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
+    }
+
+    @Test(timeout = 1000)
+    public void testShiftAndAproximadoWithNegativeK() throws Exception {
+        String T = "abcde";
+        int n = 5;
+        String P = "bcd";
+        int m = 3;
+        int k = -1;
+
+        CasamentoAproximado.shiftAndAproximado(T, n, P, m, k);
+    }
 }

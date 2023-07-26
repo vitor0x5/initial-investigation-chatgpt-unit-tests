@@ -1,107 +1,166 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
-import java.util.Random;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class OrdenacaoTest14{
 
-  
-  @Test
-  public void testSelecao() {
-    // Test case 1
-    MeuItem[] v1 = {new MeuItem(4), new MeuItem(2), new MeuItem(1), new MeuItem(3)};
-    Ordenacao.selecao(v1, 4);
-    assertEquals(1, v1[0].recuperaChave());
-    assertEquals(2, v1[1].recuperaChave());
-    assertEquals(3, v1[2].recuperaChave());
-    assertEquals(4, v1[3].recuperaChave());
-    
-    // Test case 2
-    MeuItem[] v2 = {new MeuItem(9), new MeuItem(5), new MeuItem(7), new MeuItem(1), new MeuItem(3)};
-    Ordenacao.selecao(v2, 5);
-    assertEquals(1, v2[0].recuperaChave());
-    assertEquals(3, v2[1].recuperaChave());
-    assertEquals(5, v2[2].recuperaChave());
-    assertEquals(7, v2[3].recuperaChave());
-    assertEquals(9, v2[4].recuperaChave());
-  }
-  
-  @Test
-  public void testInsercao() {
-    // Test case 1
-    MeuItem[] v1 = {new MeuItem(4), new MeuItem(2), new MeuItem(1), new MeuItem(3)};
-    Ordenacao.insercao(v1, 4);
-    assertEquals(1, v1[0].recuperaChave());
-    assertEquals(2, v1[1].recuperaChave());
-    assertEquals(3, v1[2].recuperaChave());
-    assertEquals(4, v1[3].recuperaChave());
-    
-    // Test case 2
-    MeuItem[] v2 = {new MeuItem(9), new MeuItem(5), new MeuItem(7), new MeuItem(1), new MeuItem(3)};
-    Ordenacao.insercao(v2, 5);
-    assertEquals(1, v2[0].recuperaChave());
-    assertEquals(3, v2[1].recuperaChave());
-    assertEquals(5, v2[2].recuperaChave());
-    assertEquals(7, v2[3].recuperaChave());
-    assertEquals(9, v2[4].recuperaChave());
-  }
-  
-  @Test
-  public void testShellsort() {
-    // Test case 1
-    MeuItem[] v1 = {new MeuItem(4), new MeuItem(2), new MeuItem(1), new MeuItem(3)};
-    Ordenacao.shellsort(v1, 4);
-    assertEquals(1, v1[0].recuperaChave());
-    assertEquals(2, v1[1].recuperaChave());
-    assertEquals(3, v1[2].recuperaChave());
-    assertEquals(4, v1[3].recuperaChave());
-    
-    // Test case 2
-    MeuItem[] v2 = {new MeuItem(9), new MeuItem(5), new MeuItem(7), new MeuItem(1), new MeuItem(3)};
-    Ordenacao.shellsort(v2, 5);
-    assertEquals(1, v2[0].recuperaChave());
-    assertEquals(3, v2[1].recuperaChave());
-    assertEquals(5, v2[2].recuperaChave());
-    assertEquals(7, v2[3].recuperaChave());
-    assertEquals(9, v2[4].recuperaChave());
-  }
-  
-  @Test
-  public void testQuicksort() {
-    // Test case 1
-    MeuItem[] v1 = {new MeuItem(4), new MeuItem(2), new MeuItem(1), new MeuItem(3)};
-    Ordenacao.quicksort(v1, 4);
-    assertEquals(1, v1[0].recuperaChave());
-    assertEquals(2, v1[1].recuperaChave());
-    assertEquals(3, v1[2].recuperaChave());
-    assertEquals(4, v1[3].recuperaChave());
-    
-    // Test case 2
-    MeuItem[] v2 = {new MeuItem(9), new MeuItem(5), new MeuItem(7), new MeuItem(1), new MeuItem(3)};
-    Ordenacao.quicksort(v2, 5);
-    assertEquals(1, v2[0].recuperaChave());
-    assertEquals(3, v2[1].recuperaChave());
-    assertEquals(5, v2[2].recuperaChave());
-    assertEquals(7, v2[3].recuperaChave());
-    assertEquals(9, v2[4].recuperaChave());
-  }
-  
-  @Test
-  public void testHeapsort() {
-    // Test case 1
-    MeuItem[] v1 = {new MeuItem(4), new MeuItem(2), new MeuItem(1), new MeuItem(3)};
-    Ordenacao.heapsort(v1, 4);
-    assertEquals(1, v1[0].recuperaChave());
-    assertEquals(2, v1[1].recuperaChave());
-    assertEquals(3, v1[2].recuperaChave());
-    assertEquals(4, v1[3].recuperaChave());
-    
-    // Test case 2
-    MeuItem[] v2 = {new MeuItem(9), new MeuItem(5), new MeuItem(7), new MeuItem(1), new MeuItem(3)};
-    Ordenacao.heapsort(v2, 5);
-    assertEquals(1, v2[0].recuperaChave());
-    assertEquals(3, v2[1].recuperaChave());
-    assertEquals(5, v2[2].recuperaChave());
-    assertEquals(7, v2[3].recuperaChave());
-    assertEquals(9, v2[4].recuperaChave());
-  }
+
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+        assertNotNull(ordenacao);
+    }
+
+    @Test(timeout = 1000)
+    public void testRefaz() throws Exception {
+        Item[] v = new Item[5];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        FPHeapMax fpHeap = new FPHeapMax(v);
+        fpHeap.refaz(1, 3);
+        assertEquals(7, ((MeuItem) v[1]).recuperaChave());
+        assertEquals(5, ((MeuItem) v[2]).recuperaChave());
+        assertEquals(2, ((MeuItem) v[3]).recuperaChave());
+    }
+
+    @Test(timeout = 1000)
+    public void testConstroi() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        v[5] = new MeuItem(3);
+        FPHeapMax fpHeap = new FPHeapMax(v);
+        fpHeap.constroi();
+        assertEquals(7, ((MeuItem) v[1]).recuperaChave());
+        assertEquals(5, ((MeuItem) v[2]).recuperaChave());
+        assertEquals(3, ((MeuItem) v[3]).recuperaChave());
+        assertEquals(1, ((MeuItem) v[4]).recuperaChave());
+        assertEquals(2, ((MeuItem) v[5]).recuperaChave());
+    }
+
+    @Test(timeout = 1000)
+    public void testParticao() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        v[5] = new MeuItem(3);
+        LimiteParticoes p = Ordenacao.particao(v, 1, 5);
+        assertEquals(2, p.i);
+        assertEquals(4, p.j);
+        assertEquals(1, ((MeuItem) v[1]).recuperaChave());
+        assertEquals(3, ((MeuItem) v[2]).recuperaChave());
+        assertEquals(2, ((MeuItem) v[3]).recuperaChave());
+        assertEquals(7, ((MeuItem) v[4]).recuperaChave());
+        assertEquals(5, ((MeuItem) v[5]).recuperaChave());
+    }
+
+    @Test(timeout = 1000)
+    public void testOrdena() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        v[5] = new MeuItem(3);
+        Ordenacao.ordena(v, 1, 5);
+        assertEquals(1, ((MeuItem) v[1]).recuperaChave());
+        assertEquals(2, ((MeuItem) v[2]).recuperaChave());
+        assertEquals(3, ((MeuItem) v[3]).recuperaChave());
+        assertEquals(5, ((MeuItem) v[4]).recuperaChave());
+        assertEquals(7, ((MeuItem) v[5]).recuperaChave());
+    }
+
+    @Test(timeout = 1000)
+    public void testSelecao() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        v[5] = new MeuItem(3);
+        Ordenacao.selecao(v, 5);
+        assertEquals(1, ((MeuItem) v[1]).recuperaChave());
+        assertEquals(2, ((MeuItem) v[2]).recuperaChave());
+        assertEquals(3, ((MeuItem) v[3]).recuperaChave());
+        assertEquals(5, ((MeuItem) v[4]).recuperaChave());
+        assertEquals(7, ((MeuItem) v[5]).recuperaChave());
+    }
+
+    @Test(timeout = 1000)
+    public void testInsercao() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        v[5] = new MeuItem(3);
+        Ordenacao.insercao(v, 5);
+        assertEquals(1, ((MeuItem) v[1]).recuperaChave());
+        assertEquals(2, ((MeuItem) v[2]).recuperaChave());
+        assertEquals(3, ((MeuItem) v[3]).recuperaChave());
+        assertEquals(5, ((MeuItem) v[4]).recuperaChave());
+        assertEquals(7, ((MeuItem) v[5]).recuperaChave());
+    }
+
+    @Test(timeout = 1000)
+    public void testShellsort() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        v[5] = new MeuItem(3);
+        Ordenacao.shellsort(v, 5);
+        assertEquals(1, ((MeuItem) v[1]).recuperaChave());
+        assertEquals(2, ((MeuItem) v[2]).recuperaChave());
+        assertEquals(3, ((MeuItem) v[3]).recuperaChave());
+        assertEquals(5, ((MeuItem) v[4]).recuperaChave());
+        assertEquals(7, ((MeuItem) v[5]).recuperaChave());
+    }
+
+    @Test(timeout = 1000)
+    public void testQuicksort() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        v[5] = new MeuItem(3);
+        Ordenacao.quicksort(v, 5);
+        assertEquals(1, ((MeuItem) v[1]).recuperaChave());
+        assertEquals(2, ((MeuItem) v[2]).recuperaChave());
+        assertEquals(3, ((MeuItem) v[3]).recuperaChave());
+        assertEquals(5, ((MeuItem) v[4]).recuperaChave());
+        assertEquals(7, ((MeuItem) v[5]).recuperaChave());
+    }
+
+    @Test(timeout = 1000)
+    public void testHeapsort() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(2);
+        v[3] = new MeuItem(7);
+        v[4] = new MeuItem(1);
+        v[5] = new MeuItem(3);
+        Ordenacao.heapsort(v, 5);
+        assertEquals(1, ((MeuItem) v[1]).recuperaChave());
+        assertEquals(2, ((MeuItem) v[2]).recuperaChave());
+        assertEquals(3, ((MeuItem) v[3]).recuperaChave());
+        assertEquals(5, ((MeuItem) v[4]).recuperaChave());
+        assertEquals(7, ((MeuItem) v[5]).recuperaChave());
+    }
 }

@@ -1,51 +1,58 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class TabelaTest28{
 
 
-    @Test
-    public void testPesquisa() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Tabela tabela = new Tabela();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        Item item3 = new MeuItem(3);
-        tabela.registros[1] = item1;
-        tabela.registros[2] = item2;
-        tabela.registros[3] = item3;
-        tabela.n = 3;
-
-        assertEquals(1, tabela.pesquisa(item1));
-        assertEquals(2, tabela.pesquisa(item2));
-        assertEquals(3, tabela.pesquisa(item3));
+        assertNotNull(tabela);
     }
 
-    @Test
+    @Test(timeout=1000)
+    public void testPesquisa() throws Exception {
+        Tabela tabela = new Tabela();
+        Item reg = new MeuItem(5);
+        tabela.insere(reg);
+        int result = tabela.pesquisa(reg);
+        assertEquals(1, result);
+    }
+
+    @Test(timeout=1000)
     public void testInsere() throws Exception {
         Tabela tabela = new Tabela();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        tabela.insere(item1);
-        tabela.insere(item2);
-
-        assertEquals(1, tabela.registros[1].recuperaChave());
-        assertEquals(2, tabela.registros[2].recuperaChave());
-        assertEquals(2, tabela.n);
+        Item reg = new MeuItem(5);
+        tabela.insere(reg);
+        assertEquals(1, tabela.n);
+        assertEquals(reg, tabela.registros[1]);
     }
 
-    @Test
-    public void testBinaria() {
+    @Test(timeout=1000)
+    public void testInsereFullTable() throws Exception {
         Tabela tabela = new Tabela();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        Item item3 = new MeuItem(3);
-        tabela.registros[1] = item1;
-        tabela.registros[2] = item2;
-        tabela.registros[3] = item3;
-        tabela.n = 3;
+        for (int i = 0; i < 10; i++) {
+            Item reg = new MeuItem(i);
+            tabela.insere(reg);
+        }
+        Item reg = new MeuItem(11);
+        try {
+            tabela.insere(reg);
+            fail("Exception not thrown");
+        } catch (Exception e) {
+            assertEquals("Erro: A tabela esta cheia", e.getMessage());
+        }
+    }
 
-        assertEquals(1, tabela.binaria(item1));
-        assertEquals(2, tabela.binaria(item2));
-        assertEquals(3, tabela.binaria(item3));
+    @Test(timeout=1000)
+    public void testBinaria() throws Exception {
+        Tabela tabela = new Tabela();
+        for (int i = 0; i < 10; i++) {
+            Item reg = new MeuItem(i);
+            tabela.insere(reg);
+        }
+        Item chave = new MeuItem(5);
+        int result = tabela.binaria(chave);
+        assertEquals(5, result);
     }
 }

@@ -1,56 +1,81 @@
-
-package ds;import ds.TabelaHash;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TabelaHashTest1 {
+public class TabelaHashTest1{
 
-    @Test
-    public void testInsere() {
+
+    // Test for default constructor
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
-
-        assertEquals("item1", tabela.pesquisa("chave1"));
-        assertEquals("item2", tabela.pesquisa("chave2"));
-        assertEquals("item3", tabela.pesquisa("chave3"));
+        assertNotNull(tabela);
     }
 
-    @Test
-    public void testRetira() throws Exception {
+    // Test for pesquisa method with valid input
+    @Test(timeout=1000)
+    public void testPesquisaValidInput() throws Exception {
         TabelaHash tabela = new TabelaHash();
         tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
+        assertEquals("item1", tabela.pesquisa("chave1"));
+    }
 
-        tabela.retira("chave2");
-
+    // Test for pesquisa method with invalid input
+    @Test(timeout=1000)
+    public void testPesquisaInvalidInput() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("chave1", "item1");
         assertNull(tabela.pesquisa("chave2"));
     }
 
-    @Test
-    public void testRecuperaItens() {
+    // Test for insere method with valid input
+    @Test(timeout=1000)
+    public void testInsereValidInput() throws Exception {
         TabelaHash tabela = new TabelaHash();
         tabela.insere("chave1", "item1");
-        tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
-
-        Object[] itens = tabela.recuperaItens();
-
-        assertEquals(3, itens.length);
-        assertEquals("item1", itens[0]);
-        assertEquals("item2", itens[1]);
-        assertEquals("item3", itens[2]);
+        assertEquals("item1", tabela.pesquisa("chave1"));
     }
 
-    @Test
-    public void testImprime() {
+    // Test for insere method with invalid input
+    @Test(timeout=1000)
+    public void testInsereInvalidInput() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("chave1", "item1");
+        tabela.insere("chave1", "item2");
+        assertEquals("item1", tabela.pesquisa("chave1"));
+    }
+
+    // Test for retira method with valid input
+    @Test(timeout=1000)
+    public void testRetiraValidInput() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("chave1", "item1");
+        tabela.retira("chave1");
+        assertNull(tabela.pesquisa("chave1"));
+    }
+
+    // Test for retira method with invalid input
+    @Test(timeout=1000, expected=Exception.class)
+    public void testRetiraInvalidInput() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.retira("chave1");
+    }
+
+    // Test for recuperaItens method
+    @Test(timeout=1000)
+    public void testRecuperaItens() throws Exception {
         TabelaHash tabela = new TabelaHash();
         tabela.insere("chave1", "item1");
         tabela.insere("chave2", "item2");
-        tabela.insere("chave3", "item3");
+        Object[] items = tabela.recuperaItens();
+        assertEquals(2, items.length);
+    }
 
+    // Test for imprime method
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        TabelaHash tabela = new TabelaHash();
+        tabela.insere("chave1", "item1");
+        tabela.insere("chave2", "item2");
         tabela.imprime();
     }
 }

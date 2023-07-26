@@ -1,49 +1,111 @@
-
-package ds;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
-public class TabelaTest8 {
+public class TabelaTest8{
 
-    @Test
-    public void testPesquisa() {
+
+    @Test(timeout=1000, expected=Exception.class)
+    public void testDefaultConstructor() throws Exception {
         Tabela tabela = new Tabela();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        tabela.registros = new Item[]{null, item1, item2};
-        tabela.n = 2;
-
-        assertEquals(1, tabela.pesquisa(item1));
-        assertEquals(2, tabela.pesquisa(item2));
-        assertEquals(0, tabela.pesquisa(new MeuItem(3)));
+        assertNotNull(tabela.registros);
+        assertEquals(0, tabela.n);
+        tabela.insere(new MeuItem(1));
+        assertEquals(1, tabela.n);
+        tabela.insere(new MeuItem(2));
+        assertEquals(2, tabela.n);
+        tabela.insere(new MeuItem(3));
+        assertEquals(3, tabela.n);
+        tabela.insere(new MeuItem(4));
+        assertEquals(4, tabela.n);
+        tabela.insere(new MeuItem(5));
+        assertEquals(5, tabela.n);
+        tabela.insere(new MeuItem(6));
+        assertEquals(6, tabela.n);
+        tabela.insere(new MeuItem(7));
+        assertEquals(7, tabela.n);
+        tabela.insere(new MeuItem(8));
+        assertEquals(8, tabela.n);
+        tabela.insere(new MeuItem(9));
+        assertEquals(9, tabela.n);
+        tabela.insere(new MeuItem(10));
+        assertEquals(10, tabela.n);
+        tabela.insere(new MeuItem(11));
     }
 
-    @Test
+    @Test(timeout=1000)
+    public void testPesquisa() throws Exception {
+        Tabela tabela = new Tabela();
+        tabela.insere(new MeuItem(1));
+        tabela.insere(new MeuItem(2));
+        tabela.insere(new MeuItem(3));
+        tabela.insere(new MeuItem(4));
+        tabela.insere(new MeuItem(5));
+
+        assertEquals(0, tabela.pesquisa(new MeuItem(1)));
+        assertEquals(1, tabela.pesquisa(new MeuItem(2)));
+        assertEquals(2, tabela.pesquisa(new MeuItem(3)));
+        assertEquals(3, tabela.pesquisa(new MeuItem(4)));
+        assertEquals(4, tabela.pesquisa(new MeuItem(5)));
+        assertEquals(-1, tabela.pesquisa(new MeuItem(6)));
+    }
+
+    @Test(timeout=1000)
     public void testInsere() throws Exception {
         Tabela tabela = new Tabela();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        tabela.registros = new Item[]{null};
-        tabela.n = 0;
 
-        tabela.insere(item1);
-        tabela.insere(item2);
+        tabela.insere(new MeuItem(1));
+        assertEquals(1, tabela.n);
 
+        tabela.insere(new MeuItem(2));
         assertEquals(2, tabela.n);
-        assertEquals(item1, tabela.registros[1]);
-        assertEquals(item2, tabela.registros[2]);
+
+        tabela.insere(new MeuItem(3));
+        assertEquals(3, tabela.n);
+
+        tabela.insere(new MeuItem(4));
+        assertEquals(4, tabela.n);
+
+        tabela.insere(new MeuItem(5));
+        assertEquals(5, tabela.n);
+
+        tabela.insere(new MeuItem(6));
+        assertEquals(6, tabela.n);
+
+        tabela.insere(new MeuItem(7));
+        assertEquals(7, tabela.n);
+
+        tabela.insere(new MeuItem(8));
+        assertEquals(8, tabela.n);
+
+        tabela.insere(new MeuItem(9));
+        assertEquals(9, tabela.n);
+
+        tabela.insere(new MeuItem(10));
+        assertEquals(10, tabela.n);
+
+        tabela.insere(new MeuItem(11));
     }
 
-    @Test
-    public void testBinaria() {
+    @Test(timeout=1000)
+    public void testBinaria() throws Exception {
         Tabela tabela = new Tabela();
-        Item item1 = new MeuItem(1);
-        Item item2 = new MeuItem(2);
-        tabela.registros = new Item[]{null, item1, item2};
-        tabela.n = 2;
+        tabela.insere(new MeuItem(1));
+        tabela.insere(new MeuItem(3));
+        tabela.insere(new MeuItem(5));
+        tabela.insere(new MeuItem(7));
+        tabela.insere(new MeuItem(9));
 
-        assertEquals(1, tabela.binaria(item1));
-        assertEquals(2, tabela.binaria(item2));
-        assertEquals(0, tabela.binaria(new MeuItem(3)));
+        assertEquals(0, tabela.binaria(new MeuItem(1)));
+        assertEquals(1, tabela.binaria(new MeuItem(3)));
+        assertEquals(2, tabela.binaria(new MeuItem(5)));
+        assertEquals(3, tabela.binaria(new MeuItem(7)));
+        assertEquals(4, tabela.binaria(new MeuItem(9)));
+        assertEquals(0, tabela.binaria(new MeuItem(2)));
+        assertEquals(0, tabela.binaria(new MeuItem(4)));
+        assertEquals(0, tabela.binaria(new MeuItem(6)));
+        assertEquals(0, tabela.binaria(new MeuItem(8)));
+        assertEquals(0, tabela.binaria(new MeuItem(10)));
     }
 }

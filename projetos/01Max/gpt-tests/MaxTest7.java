@@ -1,48 +1,52 @@
-
 package ds;import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class MaxTest7 {
+public class MaxTest7{
 
-    @Test
-    public void testMax() {
-        Item[] v = {new MeuItem(7), new MeuItem(3), new MeuItem(9), new MeuItem(5)};
-        Item max = Max.max(v, 4);
-        assertEquals(9, max.chave);
+    
+    public static class MeuItem implements Item {
+        public int chave;
+
+        public MeuItem (int chave) { 
+            this.chave = chave; 
+        } 
+
+        public int compara (Item it) {
+            MeuItem item = (MeuItem) it;
+            if (this.chave < item.chave) return -1;
+            else if (this.chave > item.chave) return 1;
+            return 0;
+        }
     }
     
-    @Test
-    public void testMaxWithNegativeNumbers() {
-        Item[] v = {new MeuItem(-2), new MeuItem(-7), new MeuItem(-4), new MeuItem(-9)};
-        Item max = Max.max(v, 4);
-        assertEquals(-2, max.chave);
+    public static class Max {
+        public static Item max (Item v[], int n) {
+            Item max = v[0];
+            for (int i = 1; i < n; i++) if (max.compara (v[i]) < 0) max = v[i];
+            return max;
+        }
     }
     
-    @Test
-    public void testMaxWithDuplicateValues() {
-        Item[] v = {new MeuItem(5), new MeuItem(5), new MeuItem(5), new MeuItem(5)};
-        Item max = Max.max(v, 4);
-        assertEquals(5, max.chave);
+    public static interface Item {
+        public int compara (Item it);
     }
     
-    @Test
-    public void testMaxWithEmptyArray() {
-        Item[] v = {};
-        Item max = Max.max(v, 0);
-        assertNull(max);
+    @Test(timeout=1000)
+    public void testDefaultConstructor() {
+        MeuItem item = new MeuItem(0);
+        assertNotNull(item);
     }
     
-    @Test
-    public void testMaxWithNullItems() {
-        Item[] v = {new MeuItem(7), null, new MeuItem(9), new MeuItem(5)};
-        Item max = Max.max(v, 4);
-        assertEquals(9, max.chave);
-    }
-    
-    @Test
-    public void testMaxWithSingleItem() {
-        Item[] v = {new MeuItem(7)};
-        Item max = Max.max(v, 1);
-        assertEquals(7, max.chave);
+    @Test(timeout=1000)
+    public void testMax() throws Exception {
+        MeuItem[] items = new MeuItem[5];
+        items[0] = new MeuItem(4);
+        items[1] = new MeuItem(2);
+        items[2] = new MeuItem(6);
+        items[3] = new MeuItem(1);
+        items[4] = new MeuItem(3);
+        
+        Item maxItem = Max.max(items, 5);
+        assertEquals(6, ((MeuItem)maxItem).chave);
     }
 }

@@ -1,52 +1,36 @@
-
 package ds;import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.Test;
 
-public class ListaTest10 {
+public class ListaTest10{
 
-  private Lista lista;
 
-  @Before
-  public void setUp() {
-    lista = new Lista();
-  }
-
-  @Test
-  public void testInsere() {
-    try {
-      lista.insere("Item 1");
-      lista.insere("Item 2");
-      lista.insere("Item 3");
-    } catch (Exception e) {
-      fail("Exception thrown when it shouldn't be");
+    @Test(expected = Exception.class)
+    public void testDefaultConstructor() throws Exception {
+        Lista lista = new Lista();
+        assertNotNull(lista);
     }
-  }
 
-  @Test
-  public void testInsereFull() {
-    try {
-      for (int i = 0; i < 1001; i++) {
-        lista.insere("Item " + i);
-      }
-      fail("Exception not thrown when it should be");
-    } catch (Exception e) {
-      assertEquals("Erro: A lista esta cheia", e.getMessage());
+    @Test(timeout = 1000)
+    public void testInsere() throws Exception {
+        Lista lista = new Lista();
+        lista.insere("foo");
+        assertEquals("foo", lista.item[0]);
     }
-  }
 
-  @Test
-  public void testVazia() {
-    assertTrue(lista.vazia());
-  }
+    @Test(timeout = 1000)
+    public void testVazia() throws Exception {
+        Lista lista = new Lista();
+        assertTrue(lista.vazia());
+        lista.insere("foo");
+        assertFalse(lista.vazia());
+    }
 
-  @Test
-  public void testImprime() {
-    lista.insere("Item 1");
-    lista.insere("Item 2");
-    lista.insere("Item 3");
-    lista.imprime();
-    // Manually check the console output for correctness
-  }
-
+    @Test(timeout = 1000)
+    public void testImprime() throws Exception {
+        Lista lista = new Lista();
+        lista.insere("foo");
+        lista.insere("bar");
+        lista.insere("baz");
+        lista.imprime();
+    }
 }

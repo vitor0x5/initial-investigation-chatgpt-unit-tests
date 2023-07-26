@@ -1,41 +1,46 @@
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+public class FilaTest10{
 
-public class FilaTest10 {
 
-    @Test
-    public void testEnfileira() {
-        Fila fila = new Fila();
-        try {
-            fila.enfileira(1);
-            fila.enfileira(2);
-            fila.enfileira(3);
-            assertFalse(fila.vazia());
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
-    }
+  @Test(timeout=1000)
+  public void testDefaultConstructor() throws Exception {
+    Fila fila = new Fila();
+    assertNotNull(fila);
+  }
 
-    @Test
-    public void testDesenfileira() {
-        Fila fila = new Fila();
-        try {
-            fila.enfileira(1);
-            fila.enfileira(2);
-            fila.enfileira(3);
-            assertEquals(1, fila.desenfileira());
-            assertEquals(2, fila.desenfileira());
-            assertEquals(3, fila.desenfileira());
-            assertTrue(fila.vazia());
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
-    }
+  @Test(timeout=1000)
+  public void testEnfileira() throws Exception {
+    Fila fila = new Fila();
+    Object obj = new Object();
+    fila.enfileira(obj);
+    assertEquals(obj, fila.item[fila.tras-1]);
+  }
 
-    @Test
-    public void testVazia() {
-        Fila fila = new Fila();
-        assertTrue(fila.vazia());
-    }
+  @Test(timeout=1000)
+  public void testDesenfileira() throws Exception {
+    Fila fila = new Fila();
+    Object obj1 = new Object();
+    Object obj2 = new Object();
+    fila.enfileira(obj1);
+    fila.enfileira(obj2);
+    Object desenfileirado = fila.desenfileira();
+    assertEquals(obj1, desenfileirado);
+  }
+
+  @Test(timeout=1000)
+  public void testVazia() throws Exception {
+    Fila fila = new Fila();
+    assertTrue(fila.vazia());
+  }
+
+  @Test(timeout=1000)
+  public void testImprime() throws Exception {
+    Fila fila = new Fila();
+    fila.enfileira("A");
+    fila.enfileira("B");
+    fila.enfileira("C");
+    fila.imprime();
+  }
 }

@@ -1,54 +1,59 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
+public class PilhaTest6{
 
-import org.junit.Before;
-import org.junit.Test;
 
-public class PilhaTest6 {
-
-    private Pilha pilha;
-
-    @Before
-    public void setup() {
-        pilha = new Pilha();
-    }
-
-    @Test
-    public void testPilhaVazia() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Pilha pilha = new Pilha();
+        assertNotNull(pilha);
         assertTrue(pilha.vazia());
         assertEquals(0, pilha.tamanho());
     }
 
-    @Test
-    public void testEmpilhaUmElemento() {
-        pilha.empilha("elemento");
+    @Test(timeout=1000)
+    public void testEmpilha() throws Exception {
+        Pilha pilha = new Pilha();
+        pilha.empilha(1);
         assertFalse(pilha.vazia());
         assertEquals(1, pilha.tamanho());
+        pilha.empilha(2);
+        assertFalse(pilha.vazia());
+        assertEquals(2, pilha.tamanho());
     }
 
-    @Test
-    public void testDesempilhaUmElemento() {
-        pilha.empilha("elemento");
-        try {
-            Object desempilhado = pilha.desempilha();
-            assertEquals("elemento", desempilhado);
-            assertTrue(pilha.vazia());
-            assertEquals(0, pilha.tamanho());
-        } catch (Exception e) {
-            fail("Não deveria lançar exceção");
-        }
+    @Test(timeout=1000)
+    public void testDesempilha() throws Exception {
+        Pilha pilha = new Pilha();
+        pilha.empilha(1);
+        pilha.empilha(2);
+        assertEquals(2, pilha.tamanho());
+        assertEquals(2, pilha.desempilha());
+        assertEquals(1, pilha.tamanho());
+        assertEquals(1, pilha.desempilha());
+        assertEquals(0, pilha.tamanho());
     }
 
-    @Test
-    public void testDesempilhaEmPilhaVazia() {
-        try {
-            pilha.desempilha();
-            fail("Deveria lançar exceção");
-        } catch (Exception e) {
-            assertEquals("Erro: A pilha esta vazia", e.getMessage());
-        }
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
+        Pilha pilha = new Pilha();
+        assertTrue(pilha.vazia());
+        pilha.empilha(1);
+        assertFalse(pilha.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testTamanho() throws Exception {
+        Pilha pilha = new Pilha();
+        assertEquals(0, pilha.tamanho());
+        pilha.empilha(1);
+        assertEquals(1, pilha.tamanho());
+        pilha.empilha(2);
+        assertEquals(2, pilha.tamanho());
+        pilha.desempilha();
+        assertEquals(1, pilha.tamanho());
+        pilha.desempilha();
+        assertEquals(0, pilha.tamanho());
     }
 }

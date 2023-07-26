@@ -1,148 +1,123 @@
-
-package ds;import ds.TabelaHash;
-import ds.Item;
-import ds.MeuItem;
-import org.junit.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.Random;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.Arrays;
 
-public class TabelaHashTest9 {
-    
-    @Test
-    public void testPesquisaIndice() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", new MeuItem(1));
-        tabela.insere("chave2", new MeuItem(2));
-        tabela.insere("chave3", new MeuItem(3));
-        
-        int expected1 = 1;
-        int expected2 = 2;
-        int expected3 = 3;
-        int expected4 = tabela.getM();
-        
-        int result1 = tabela.pesquisaIndice("chave1");
-        int result2 = tabela.pesquisaIndice("chave2");
-        int result3 = tabela.pesquisaIndice("chave3");
-        int result4 = tabela.pesquisaIndice("chave4");
-        
-        assertEquals(expected1, result1);
-        assertEquals(expected2, result2);
-        assertEquals(expected3, result3);
-        assertEquals(expected4, result4);
-    }
-    
-    @Test
-    public void testPesquisa() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", new MeuItem(1));
-        tabela.insere("chave2", new MeuItem(2));
-        tabela.insere("chave3", new MeuItem(3));
-        
-        MeuItem expected1 = new MeuItem(1);
-        MeuItem expected2 = new MeuItem(2);
-        MeuItem expected3 = new MeuItem(3);
-        MeuItem expected4 = null;
-        
-        MeuItem result1 = (MeuItem) tabela.pesquisa("chave1");
-        MeuItem result2 = (MeuItem) tabela.pesquisa("chave2");
-        MeuItem result3 = (MeuItem) tabela.pesquisa("chave3");
-        MeuItem result4 = (MeuItem) tabela.pesquisa("chave4");
-        
-        assertEquals(expected1, result1);
-        assertEquals(expected2, result2);
-        assertEquals(expected3, result3);
-        assertEquals(expected4, result4);
-    }
-    
-    @Test
-    public void testInsere() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", new MeuItem(1));
-        tabela.insere("chave2", new MeuItem(2));
-        
-        MeuItem expected1 = new MeuItem(1);
-        MeuItem expected2 = new MeuItem(2);
-        
-        MeuItem result1 = (MeuItem) tabela.pesquisa("chave1");
-        MeuItem result2 = (MeuItem) tabela.pesquisa("chave2");
-        
-        assertEquals(expected1, result1);
-        assertEquals(expected2, result2);
-    }
-    
-    @Test
-    public void testInsereAlreadyPresent() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", new MeuItem(1));
-        
-        tabela.insere("chave1", new MeuItem(2));
-        
-        MeuItem expected = new MeuItem(1);
-        
-        MeuItem result = (MeuItem) tabela.pesquisa("chave1");
-        
-        assertEquals(expected, result);
-    }
-    
-    @Test
-    public void testRetira() throws Exception {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", new MeuItem(1));
-        tabela.insere("chave2", new MeuItem(2));
-        
-        tabela.retira("chave1");
-        
-        MeuItem expected = null;
-        
-        MeuItem result = (MeuItem) tabela.pesquisa("chave1");
-        
-        assertEquals(expected, result);
-    }
-    
-    @Test(expected = Exception.class)
-    public void testRetiraNonExisting() throws Exception {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", new MeuItem(1));
-        tabela.insere("chave2", new MeuItem(2));
-        
-        tabela.retira("chave3");
-    }
-    
-    @Test
-    public void testRecuperaItens() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", new MeuItem(1));
-        tabela.insere("chave2", new MeuItem(2));
-        tabela.insere("chave3", new MeuItem(3));
-        
-        Object[] expected = new Object[]{new MeuItem(1), new MeuItem(2), new MeuItem(3)};
-        
-        Object[] result = tabela.recuperaItens();
-        
-        assertArrayEquals(expected, result);
-    }
-    
-    @Test
-    public void testImprime() {
-        TabelaHash tabela = new TabelaHash();
-        tabela.insere("chave1", new MeuItem(1));
-        tabela.insere("chave2", new MeuItem(2));
-        tabela.insere("chave3", new MeuItem(3));
-        
-        String expected = "  1\n" +
-                          "  2\n" +
-                          "  3\n";
-                          
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        
-        tabela.imprime();
-        
-        String result = outContent.toString();
-        
-        assertEquals(expected, result);
-    }
+public class TabelaHashTest9{
+
+  
+  // Test the default constructor
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testDefaultConstructor() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    assertEquals(7, tabela.M);
+    assertNull(tabela.tabela[0]);
+    assertEquals(11, tabela.pesos.length);
+  }
+
+  // Test the pesquisa method with a valid key
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testPesquisaValidKey() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    tabela.tabela[1] = tabela.new Celula("chave1", "item1");
+    Object expected = "item1";
+    Object result = tabela.pesquisa("chave1");
+    assertEquals(expected, result);
+  }
+
+  // Test the pesquisa method with an invalid key
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testPesquisaInvalidKey() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    tabela.tabela[1] = tabela.new Celula("chave1", "item1");
+    assertNull(tabela.pesquisa("chave2"));
+  }
+
+  // Test the insere method with a new key
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testInsereNewKey() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    tabela.insere("chave1", "item1");
+    Object expected = "item1";
+    Object result = tabela.tabela[1].item;
+    assertEquals(expected, result);
+  }
+
+  // Test the insere method with an existing key
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testInsereExistingKey() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    tabela.tabela[1] = tabela.new Celula("chave1", "item1");
+    tabela.insere("chave1", "item2");
+    Object expected = "item1";
+    Object result = tabela.tabela[1].item;
+    assertEquals(expected, result);
+  }
+
+  // Test the insere method with a full table
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testInsereFullTable() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    tabela.tabela[0] = tabela.new Celula("chave1", "item1");
+    tabela.tabela[1] = tabela.new Celula("chave2", "item2");
+    tabela.tabela[2] = tabela.new Celula("chave3", "item3");
+    tabela.tabela[3] = tabela.new Celula("chave4", "item4");
+    tabela.tabela[4] = tabela.new Celula("chave5", "item5");
+    tabela.tabela[5] = tabela.new Celula("chave6", "item6");
+    tabela.tabela[6] = tabela.new Celula("chave7", "item7");
+    tabela.insere("chave8", "item8");
+    assertNull(tabela.tabela[6]);
+    Object expected = "item8";
+    Object result = tabela.tabela[0].item;
+    assertEquals(expected, result);
+  }
+
+  // Test the retira method with a valid key
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testRetiraValidKey() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    tabela.tabela[1] = tabela.new Celula("chave1", "item1");
+    tabela.retira("chave1");
+    assertTrue(tabela.tabela[1].retirado);
+    assertNull(tabela.tabela[1].chave);
+  }
+
+  // Test the retira method with an invalid key
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testRetiraInvalidKey() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    tabela.tabela[1] = tabela.new Celula("chave1", "item1");
+    tabela.retira("chave2");
+    assertFalse(tabela.tabela[1].retirado);
+    assertNotNull(tabela.tabela[1].chave);
+  }
+
+  // Test the recuperaItens method with no items in the table
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testRecuperaItensNoItems() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    Object[] expected = new Object[0];
+    Object[] result = tabela.recuperaItens();
+    assertArrayEquals(expected, result);
+  }
+
+  // Test the recuperaItens method with some items in the table
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testRecuperaItensSomeItems() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    tabela.tabela[0] = tabela.new Celula("chave1", "item1");
+    tabela.tabela[1] = tabela.new Celula("chave2", "item2");
+    Object[] expected = new Object[2];
+    expected[0] = "item1";
+    expected[1] = "item2";
+    Object[] result = tabela.recuperaItens();
+    assertArrayEquals(expected, result);
+  }
+
+  // Test the imprime method
+  @Test(expected = Exception.class, timeout = 1000)
+  public void testImprime() throws Exception {
+    TabelaHash tabela = new TabelaHash();
+    tabela.tabela[0] = tabela.new Celula("chave1", "item1");
+    tabela.imprime();
+  }
 }

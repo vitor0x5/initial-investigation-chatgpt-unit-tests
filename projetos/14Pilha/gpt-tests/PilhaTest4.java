@@ -1,43 +1,48 @@
-
-package ds;
-import org.junit.Before;
-import org.junit.Test;
-
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class PilhaTest4 {
-    private Pilha pilha;
+public class PilhaTest4{
 
-    @Before
-    public void setUp() {
-        pilha = new Pilha();
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Pilha pilha = new Pilha();
+        assertNotNull(pilha);
     }
 
-    @Test
-    public void testPilhaVazia() {
-        assertTrue(pilha.vazia());
-        assertEquals(0, pilha.tamanho());
-    }
-
-    @Test
-    public void testEmpilhaDesempilha() throws Exception {
-        pilha.empilha(1);
-        pilha.empilha(2);
-        pilha.empilha(3);
-
+    @Test(timeout=1000)
+    public void testEmpilha() throws Exception {
+        Pilha pilha = new Pilha();
+        pilha.empilha(10);
         assertFalse(pilha.vazia());
-        assertEquals(3, pilha.tamanho());
+        assertEquals(1, pilha.tamanho());
+    }
 
-        assertEquals(3, pilha.desempilha());
-        assertEquals(2, pilha.desempilha());
-        assertEquals(1, pilha.desempilha());
-
+    @Test(timeout=1000)
+    public void testDesempilha() throws Exception {
+        Pilha pilha = new Pilha();
+        pilha.empilha(10);
+        Object item = pilha.desempilha();
+        assertEquals(10, item);
         assertTrue(pilha.vazia());
         assertEquals(0, pilha.tamanho());
     }
 
-    @Test(expected = Exception.class)
-    public void testDesempilhaPilhaVazia() throws Exception {
-        pilha.desempilha();
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
+        Pilha pilha = new Pilha();
+        assertTrue(pilha.vazia());
+        pilha.empilha(10);
+        assertFalse(pilha.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testTamanho() throws Exception {
+        Pilha pilha = new Pilha();
+        assertEquals(0, pilha.tamanho());
+        pilha.empilha(10);
+        assertEquals(1, pilha.tamanho());
+        pilha.empilha(20);
+        assertEquals(2, pilha.tamanho());
     }
 }

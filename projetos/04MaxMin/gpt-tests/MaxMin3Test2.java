@@ -1,52 +1,48 @@
-
-package ds;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Test;
 
-public class MaxMin3Test2 {
+public class MaxMin3Test2{
 
-    @Test
-    public void testMaxMin3_WithEvenSizeArray_ReturnsCorrectMaxAndMin() {
-        int[] v = {3, 7, 2, 9, 5, 1};
-        int n = v.length;
-        int[] expected = {9, 1};
-        int[] actual = MaxMin3.maxMin3(v, n);
-        assertArrayEquals(expected, actual);
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin3 maxMin3 = new MaxMin3();
+        assertNotNull(maxMin3);
     }
-    
-    @Test
-    public void testMaxMin3_WithOddSizeArray_ReturnsCorrectMaxAndMin() {
-        int[] v = {4, 6, 1, 8, 3};
-        int n = v.length;
-        int[] expected = {8, 1};
-        int[] actual = MaxMin3.maxMin3(v, n);
-        assertArrayEquals(expected, actual);
-    }
-    
-    @Test
-    public void testMaxMin3_WithArrayInAscendingOrder_ReturnsCorrectMaxAndMin() {
+
+    @Test(timeout=1000)
+    public void testMaxMin3() throws Exception {
         int[] v = {1, 2, 3, 4, 5};
-        int n = v.length;
+        int n = 5;
         int[] expected = {5, 1};
-        int[] actual = MaxMin3.maxMin3(v, n);
-        assertArrayEquals(expected, actual);
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin3_WithArrayInDescendingOrder_ReturnsCorrectMaxAndMin() {
-        int[] v = {5, 4, 3, 2, 1};
-        int n = v.length;
-        int[] expected = {5, 1};
-        int[] actual = MaxMin3.maxMin3(v, n);
-        assertArrayEquals(expected, actual);
+
+    @Test(timeout=1000)
+    public void testMaxMin3OddSize() throws Exception {
+        int[] v = {1, 2, 3, 4, 5, 6};
+        int n = 6;
+        int[] expected = {6, 1};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin3_WithArrayWithNegativeNumbers_ReturnsCorrectMaxAndMin() {
-        int[] v = {-5, -2, -9, -1, -7};
-        int n = v.length;
-        int[] expected = {-1, -9};
-        int[] actual = MaxMin3.maxMin3(v, n);
-        assertArrayEquals(expected, actual);
+
+    @Test(timeout=1000)
+    public void testMaxMin3NegativeValues() throws Exception {
+        int[] v = {-5, -4, -3, -2, -1};
+        int n = 5;
+        int[] expected = {-1, -5};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin3BoundaryValues() throws Exception {
+        int[] v = {-100, 0, 100};
+        int n = 3;
+        int[] expected = {100, -100};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
     }
 }

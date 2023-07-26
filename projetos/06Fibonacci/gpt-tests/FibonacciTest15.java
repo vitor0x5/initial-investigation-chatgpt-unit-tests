@@ -4,28 +4,33 @@ import static org.junit.Assert.*;
 public class FibonacciTest15{
 
 
-    @Test
-    public void testFibIterWithZero() {
-        assertEquals(0, Fibonacci.fibIter(0));
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Fibonacci fibonacci = new Fibonacci();
+        assertNotNull(fibonacci);
     }
 
-    @Test
-    public void testFibIterWithOne() {
-        assertEquals(1, Fibonacci.fibIter(1));
+    @Test(timeout=1000)
+    public void testFibIterWithValidInput() throws Exception {
+        int result = Fibonacci.fibIter(5);
+        assertEquals(5, result);
     }
 
-    @Test
-    public void testFibIterWithSmallNumber() {
-        assertEquals(1, Fibonacci.fibIter(2));
-        assertEquals(2, Fibonacci.fibIter(3));
-        assertEquals(3, Fibonacci.fibIter(4));
-        assertEquals(5, Fibonacci.fibIter(5));
-        assertEquals(8, Fibonacci.fibIter(6));
+    @Test(timeout=1000)
+    public void testFibIterWithNegativeInput() throws Exception {
+        int result = Fibonacci.fibIter(-5);
+        assertEquals(-5, result);
     }
 
-    @Test
-    public void testFibIterWithLargeNumber() {
-        assertEquals(1134903170, Fibonacci.fibIter(45));
-        assertEquals(102334155, Fibonacci.fibIter(40));
+    @Test(timeout=1000)
+    public void testFibIterWithZeroInput() throws Exception {
+        int result = Fibonacci.fibIter(0);
+        assertEquals(0, result);
+    }
+
+    @Test(timeout=1000)
+    public void testFibIterWithBoundaryValue() throws Exception {
+        int result = Fibonacci.fibIter(Integer.MAX_VALUE);
+        assertEquals(0, result);
     }
 }

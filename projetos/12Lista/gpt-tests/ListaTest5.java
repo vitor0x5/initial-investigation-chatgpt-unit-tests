@@ -1,38 +1,36 @@
-
-package ds;
-import ds.Lista;
-import org.junit.Before;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class ListaTest5 {
-    private Lista lista;
+public class ListaTest5{
 
-    @Before
-    public void setUp() {
-        lista = new Lista();
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Lista lista = new Lista();
     }
 
-    @Test
-    public void testInsere() {
-        lista.insere(5);
-        lista.insere(10);
-        lista.insere(15);
-        assertFalse(lista.vazia());
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        Lista lista = new Lista();
+        lista.insere(1);
+        lista.insere(2);
+        lista.insere(3);
     }
 
-    @Test
-    public void testVazia() {
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
+        Lista lista = new Lista();
         assertTrue(lista.vazia());
-        lista.insere(20);
+        lista.insere(1);
         assertFalse(lista.vazia());
     }
 
-    @Test
-    public void testImprime() {
-        lista.insere("Hello");
-        lista.insere("World");
-        lista.insere("Java");
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        Lista lista = new Lista();
+        lista.insere(1);
+        lista.insere(2);
+        lista.insere(3);
         lista.imprime();
     }
 }

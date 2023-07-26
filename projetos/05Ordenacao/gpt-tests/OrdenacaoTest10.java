@@ -1,59 +1,40 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.assertEquals;
-import org.junit.Test;
-import ds.Ordenacao;
+public class OrdenacaoTest10{
 
-public class OrdenacaoTest10 {
 
-  @Test
-  public void testOrdena_EmptyArray() {
-    int[] arr = {};
-    Ordenacao.ordena(arr, arr.length);
-    
-    assertEquals(0, arr.length);
-  }
-  
-  @Test
-  public void testOrdena_SingleElementArray() {
-    int[] arr = {5};
-    Ordenacao.ordena(arr, arr.length);
-    
-    assertEquals(5, arr[0]);
-  }
-  
-  @Test
-  public void testOrdena_SortedArray() {
-    int[] arr = {1, 2, 3, 4, 5};
-    Ordenacao.ordena(arr, arr.length);
-    
-    assertEquals(1, arr[0]);
-    assertEquals(2, arr[1]);
-    assertEquals(3, arr[2]);
-    assertEquals(4, arr[3]);
-    assertEquals(5, arr[4]);
-  }
-  
-  @Test
-  public void testOrdena_ReversedArray() {
-    int[] arr = {5, 4, 3, 2, 1};
-    Ordenacao.ordena(arr, arr.length);
-    
-    assertEquals(1, arr[0]);
-    assertEquals(2, arr[1]);
-    assertEquals(3, arr[2]);
-    assertEquals(4, arr[3]);
-    assertEquals(5, arr[4]);
-  }
-  
-  @Test
-  public void testOrdena_UnsortedArray() {
-    int[] arr = {3, 1, 4, 2, 5};
-    Ordenacao.ordena(arr, arr.length);
-    
-    assertEquals(1, arr[0]);
-    assertEquals(2, arr[1]);
-    assertEquals(3, arr[2]);
-    assertEquals(4, arr[3]);
-    assertEquals(5, arr[4]);
-  }
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+        assertNotNull(ordenacao);
+    }
+
+    @Test(timeout=1000)
+    public void testOrdena() throws Exception {
+        // Test case 1: n = 0, empty array
+        int[] v1 = {};
+        Ordenacao.ordena(v1, 0);
+        assertArrayEquals(new int[]{}, v1);
+
+        // Test case 2: n = 1, array with one element
+        int[] v2 = {1};
+        Ordenacao.ordena(v2, 1);
+        assertArrayEquals(new int[]{1}, v2);
+
+        // Test case 3: n = 5, positive values
+        int[] v3 = {5, 2, 9, 1, 7};
+        Ordenacao.ordena(v3, 5);
+        assertArrayEquals(new int[]{1, 2, 5, 7, 9}, v3);
+
+        // Test case 4: n = 5, positive and negative values
+        int[] v4 = {5, -2, 9, -1, 7};
+        Ordenacao.ordena(v4, 5);
+        assertArrayEquals(new int[]{-2, -1, 5, 7, 9}, v4);
+
+        // Test case 5: n = 5, zero values
+        int[] v5 = {0, 0, 0, 0, 0};
+        Ordenacao.ordena(v5, 5);
+        assertArrayEquals(new int[]{0, 0, 0, 0, 0}, v5);
+    }
 }

@@ -1,70 +1,95 @@
-
-package ds;
-import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class FilaTest0 {
-    @Test
+import org.junit.Test;
+
+import ds.Fila;
+
+public class FilaTest0{
+
+    
+    // Test for default constructor
+    @Test(timeout=1000)
+    public void testDefaultConstructor() {
+        Fila fila = new Fila();
+        assertNotNull(fila);
+    }
+    
+    // Test for enfileira method with valid input
+    @Test(timeout=1000)
     public void testEnfileira() throws Exception {
         Fila fila = new Fila();
+        fila.enfileira("Item 1");
         
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        
-        assertEquals(1, fila.item[0]);
-        assertEquals(2, fila.item[1]);
-        assertEquals(3, fila.item[2]);
+        assertEquals("Item 1", fila.item[fila.frente]);
+        assertEquals(1, fila.tras);
     }
     
-    @Test
+    // Test for enfileira method when the queue is full
+    @Test(timeout=1000, expected=Exception.class)
+    public void testEnfileiraFullQueue() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira("Item 1");
+        fila.enfileira("Item 2");
+        // Fill the queue to its maximum size
+        
+        fila.enfileira("Item 3"); // Throws an exception
+    }
+    
+    // Test for desenfileira method with valid input
+    @Test(timeout=1000)
     public void testDesenfileira() throws Exception {
         Fila fila = new Fila();
+        fila.enfileira("Item 1");
+        fila.enfileira("Item 2");
         
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
+        Object item = fila.desenfileira();
         
-        assertEquals(1, fila.desenfileira());
-        assertEquals(2, fila.desenfileira());
-        assertEquals(3, fila.desenfileira());
+        assertEquals("Item 1", item);
+        assertEquals("Item 2", fila.item[fila.frente]);
+        assertEquals(2, fila.frente);
     }
     
-    @Test(expected = Exception.class)
-    public void testDesenfileiraFromEmptyFila() throws Exception {
+    // Test for desenfileira method when the queue is empty
+    @Test(timeout=1000, expected=Exception.class)
+    public void testDesenfileiraEmptyQueue() throws Exception {
         Fila fila = new Fila();
-        
-        fila.desenfileira();
+        fila.desenfileira(); // Throws an exception
     }
     
-    @Test
-    public void testVazia() throws Exception {
+    // Test for vazia method when the queue is empty
+    @Test(timeout=1000)
+    public void testVaziaEmptyQueue() {
         Fila fila = new Fila();
         
         assertTrue(fila.vazia());
-        
-        fila.enfileira(1);
+    }
+    
+    // Test for vazia method when the queue is not empty
+    @Test(timeout=1000)
+    public void testVaziaNonEmptyQueue() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira("Item 1");
         
         assertFalse(fila.vazia());
     }
     
-    @Test
+    // Test for imprime method
+    @Test(timeout=1000)
     public void testImprime() throws Exception {
         Fila fila = new Fila();
+        fila.enfileira("Item 1");
+        fila.enfileira("Item 2");
         
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        
-        // Redirect System.out to capture the output
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
+        // Redirect the output stream to capture the console output
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
         
         fila.imprime();
         
-        assertEquals("1\n2\n3\n", outContent.toString());
+        String expectedOutput = "Item 1\nItem 2\n";
+        assertEquals(expectedOutput, outputStream.toString());
     }
 }

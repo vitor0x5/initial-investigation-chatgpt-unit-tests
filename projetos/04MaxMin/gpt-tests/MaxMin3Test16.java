@@ -4,22 +4,35 @@ import static org.junit.Assert.*;
 public class MaxMin3Test16{
 
 
-    @Test
-    public void testMaxMin3() {
-        int[] v1 = {1, 2, 3};
-        int[] expected1 = {3, 1};
-        assertArrayEquals(expected1, MaxMin3.maxMin3(v1, v1.length));
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin3 maxMin3 = new MaxMin3();
+    }
 
-        int[] v2 = {5, 2, 7, 1, 9, 4};
-        int[] expected2 = {9, 1};
-        assertArrayEquals(expected2, MaxMin3.maxMin3(v2, v2.length));
+    @Test(timeout=1000)
+    public void testMaxMin3() throws Exception {
+        int[] v = {1, 2, 3, 4, 5};
+        int n = 5;
+        int[] expected = {5, 1};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
 
-        int[] v3 = {10, 5, 8, 3, 12, 7, 15, 6};
-        int[] expected3 = {15, 3};
-        assertArrayEquals(expected3, MaxMin3.maxMin3(v3, v3.length));
+    @Test(timeout=1000)
+    public void testMaxMin3_NegativeValues() throws Exception {
+        int[] v = {-5, -4, -3, -2, -1};
+        int n = 5;
+        int[] expected = {-1, -5};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
 
-        int[] v4 = {1, 1, 1, 1, 1};
-        int[] expected4 = {1, 1};
-        assertArrayEquals(expected4, MaxMin3.maxMin3(v4, v4.length));
+    @Test(timeout=1000)
+    public void testMaxMin3_BoundaryValues() throws Exception {
+        int[] v = {0, 100, 50, 75, 25};
+        int n = 5;
+        int[] expected = {100, 0};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
     }
 }

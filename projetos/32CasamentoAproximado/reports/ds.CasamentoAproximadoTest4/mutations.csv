@@ -83,4 +83,4 @@ CasamentoAproximado.java,ds.CasamentoAproximado,org.pitest.mutationtest.engine.g
 CasamentoAproximado.java,ds.CasamentoAproximado,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,shiftAndAproximado,25,SURVIVED,none
 CasamentoAproximado.java,ds.CasamentoAproximado,org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator,shiftAndAproximado,25,SURVIVED,none
 CasamentoAproximado.java,ds.CasamentoAproximado,org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator,shiftAndAproximado,25,SURVIVED,none
-CasamentoAproximado.java,ds.CasamentoAproximado,org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator,shiftAndAproximado,14,TIMED_OUT,none
+CasamentoAproximado.java,ds.CasamentoAproximado,org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator,shiftAndAproximado,14,KILLED,ds.CasamentoAproximadoTest4.testShiftAndAproximado(ds.CasamentoAproximadoTest4)

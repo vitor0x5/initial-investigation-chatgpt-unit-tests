@@ -4,35 +4,44 @@ import static org.junit.Assert.*;
 public class MaxMin3Test15{
 
 
-    @Test
-    public void testMaxMin3_oddLength() {
-        int[] v = {1, 5, 3, 2, 4};
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin3 maxMin3 = new MaxMin3();
+    }
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testMaxMin3() throws Exception {
+        int[] v = {1, 2, 3, 4, 5};
         int n = 5;
         int[] expected = {5, 1};
-        assertArrayEquals(expected, MaxMin3.maxMin3(v, n));
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin3_evenLength() {
-        int[] v = {4, 2, 6, 1, 5, 3};
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testMaxMin3OddLength() throws Exception {
+        int[] v = {1, 2, 3, 4, 5, 6};
         int n = 6;
         int[] expected = {6, 1};
-        assertArrayEquals(expected, MaxMin3.maxMin3(v, n));
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
     }
-    
-    @Test
-    public void testMaxMin3_singleElement() {
-        int[] v = {5};
-        int n = 1;
-        int[] expected = {5, 5};
-        assertArrayEquals(expected, MaxMin3.maxMin3(v, n));
-    }
-    
-    @Test
-    public void testMaxMin3_negativeNumbers() {
-        int[] v = {-3, -1, -5, -2, -4};
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testMaxMin3NegativeValues() throws Exception {
+        int[] v = {-5, -10, -3, -7, -1};
         int n = 5;
-        int[] expected = {-1, -5};
-        assertArrayEquals(expected, MaxMin3.maxMin3(v, n));
+        int[] expected = {-1, -10};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testMaxMin3BoundaryValues() throws Exception {
+        int[] v = {0, 100, 50, 200, 25};
+        int n = 5;
+        int[] expected = {200, 0};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
     }
 }

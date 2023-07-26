@@ -1,94 +1,69 @@
-
-package ds;
-
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.Random;
+public class OrdenacaoTest6{
 
-public class OrdenacaoTest6 {
-    
-    @Test
-    public void testSelecao() {
-        int[] arr = {5, 3, 8, 2, 1};
-        int[] expected = {1, 2, 3, 5, 8};
-        Item[] items = new Item[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            items[i] = new MeuItem(arr[i]);
-        }
-        Ordenacao.selecao(items, items.length);
-        for (int i = 0; i < items.length; i++) {
-            assertEquals(expected[i], items[i].recuperaChave());
-        }
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() {
+        Ordenacao o = new Ordenacao();
     }
-    
-    @Test
-    public void testInsercao() {
-        int[] arr = {5, 3, 8, 2, 1};
-        int[] expected = {1, 2, 3, 5, 8};
-        Item[] items = new Item[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            items[i] = new MeuItem(arr[i]);
-        }
-        Ordenacao.insercao(items, items.length);
-        for (int i = 0; i < items.length; i++) {
-            assertEquals(expected[i], items[i].recuperaChave());
-        }
+
+    @Test(timeout=1000)
+    public void testRefaz() throws Exception {
+        Item[] v = new Item[2];
+        v[0] = new MeuItem(1);
+        v[1] = new MeuItem(2);
+        FPHeapMax fpHeap = new FPHeapMax(v);
+        fpHeap.refaz(0, 1);
     }
-    
-    @Test
-    public void testShellsort() {
-        int[] arr = {5, 3, 8, 2, 1};
-        int[] expected = {1, 2, 3, 5, 8};
-        Item[] items = new Item[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            items[i] = new MeuItem(arr[i]);
-        }
-        Ordenacao.shellsort(items, items.length);
-        for (int i = 0; i < items.length; i++) {
-            assertEquals(expected[i], items[i].recuperaChave());
-        }
+
+    @Test(timeout=1000)
+    public void testConstroi() throws Exception {
+        Item[] v = new Item[2];
+        v[0] = new MeuItem(1);
+        v[1] = new MeuItem(2);
+        FPHeapMax fpHeap = new FPHeapMax(v);
+        fpHeap.constroi();
     }
-    
-    @Test
-    public void testQuicksort() {
-        int[] arr = {5, 3, 8, 2, 1};
-        int[] expected = {1, 2, 3, 5, 8};
-        Item[] items = new Item[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            items[i] = new MeuItem(arr[i]);
-        }
-        Ordenacao.quicksort(items, items.length);
-        for (int i = 0; i < items.length; i++) {
-            assertEquals(expected[i], items[i].recuperaChave());
-        }
+
+    @Test(timeout=1000)
+    public void testSelecao() throws Exception {
+        Item[] v = new Item[2];
+        v[0] = new MeuItem(1);
+        v[1] = new MeuItem(2);
+        Ordenacao.selecao(v, 1);
     }
-    
-    @Test
-    public void testHeapsort() {
-        int[] arr = {5, 3, 8, 2, 1};
-        int[] expected = {1, 2, 3, 5, 8};
-        Item[] items = new Item[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            items[i] = new MeuItem(arr[i]);
-        }
-        Ordenacao.heapsort(items, items.length);
-        for (int i = 0; i < items.length; i++) {
-            assertEquals(expected[i], items[i].recuperaChave());
-        }
+
+    @Test(timeout=1000)
+    public void testInsercao() throws Exception {
+        Item[] v = new Item[2];
+        v[0] = new MeuItem(1);
+        v[1] = new MeuItem(2);
+        Ordenacao.insercao(v, 1);
     }
-    
-    @Test
-    public void testPermut() {
-        int[] arr = {5, 3, 8, 2, 1};
-        Item[] items = new Item[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            items[i] = new MeuItem(arr[i]);
-        }
-        Ordenacao.permut(items, items.length);
-        for (int i = 0; i < items.length; i++) {
-            assertNotEquals(arr[i], items[i].recuperaChave());
-        }
+
+    @Test(timeout=1000)
+    public void testShellsort() throws Exception {
+        Item[] v = new Item[2];
+        v[0] = new MeuItem(1);
+        v[1] = new MeuItem(2);
+        Ordenacao.shellsort(v, 1);
     }
-    
+
+    @Test(timeout=1000)
+    public void testQuicksort() throws Exception {
+        Item[] v = new Item[2];
+        v[0] = new MeuItem(1);
+        v[1] = new MeuItem(2);
+        Ordenacao.quicksort(v, 1);
+    }
+
+    @Test(timeout=1000)
+    public void testHeapsort() throws Exception {
+        Item[] v = new Item[2];
+        v[0] = new MeuItem(1);
+        v[1] = new MeuItem(2);
+        Ordenacao.heapsort(v, 1);
+    }
 }

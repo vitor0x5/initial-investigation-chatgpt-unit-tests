@@ -1,39 +1,52 @@
-
-package ds;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class CasamentoExatoTest5 {
+public class CasamentoExatoTest5{
 
-    @Test
-    public void testForcaBruta() {
-        String T = "abracadabra";
-        String P = "abra";
-        CasamentoExato.forcaBruta(T, T.length(), P, P.length());
-        // Expected output: "Casamento na posicao: 0" and "Casamento na posicao: 7"
+    
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoExato ce = new CasamentoExato();
+        assertNotNull(ce);
     }
-
-    @Test
-    public void testShiftAndExato() {
-        String T = "abracadabra";
-        String P = "abra";
-        CasamentoExato.shiftAndExato(T, T.length(), P, P.length());
-        // Expected output: "Casamento na posicao: 0" and "Casamento na posicao: 7"
+    
+    @Test(timeout=1000)
+    public void testForcaBruta() throws Exception {
+        String T = "abcdefg";
+        int n = T.length();
+        String P = "def";
+        int m = P.length();
+        CasamentoExato.forcaBruta(T, n, P, m);
+        // Add more test cases for different values of T and P
     }
-
-    @Test
-    public void testBmh() {
-        String T = "abracadabra";
-        String P = "abra";
-        CasamentoExato.bmh(T, T.length(), P, P.length());
-        // Expected output: "Casamento na posicao: 7" and "Casamento na posicao: 10"
+    
+    @Test(timeout=1000)
+    public void testShiftAndExato() throws Exception {
+        String T = "abcdefg";
+        int n = T.length();
+        String P = "def";
+        int m = P.length();
+        CasamentoExato.shiftAndExato(T, n, P, m);
+        // Add more test cases for different values of T and P
     }
-
-    @Test
-    public void testBmhs() {
-        String T = "abracadabra";
-        String P = "abra";
-        CasamentoExato.bmhs(T, T.length(), P, P.length());
-        // Expected output: "Casamento na posicao: 7" and "Casamento na posicao: 10"
+    
+    @Test(timeout=1000)
+    public void testBmh() throws Exception {
+        String T = "abcdefg";
+        int n = T.length();
+        String P = "def";
+        int m = P.length();
+        CasamentoExato.bmh(T, n, P, m);
+        // Add more test cases for different values of T and P
+    }
+    
+    @Test(timeout=1000)
+    public void testBmhs() throws Exception {
+        String T = "abcdefg";
+        int n = T.length();
+        String P = "def";
+        int m = P.length();
+        CasamentoExato.bmhs(T, n, P, m);
+        // Add more test cases for different values of T and P
     }
 }

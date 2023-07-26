@@ -1,61 +1,55 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
+import java.io.IOException;
 
 public class AvaliaMultMatrizesTest31{
 
 
-    @Test
-    public void testMultmatrize() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        AvaliaMultMatrizes avaliaMultMatrizes = new AvaliaMultMatrizes();
+        assertNotNull(avaliaMultMatrizes);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrize() throws Exception {
         int n = 3;
-        int[] d = {2, 3, 4};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
+        int[] d = {1, 2, 3};
+        AvaliaMultMatrizes.multmatrize(n, d);
     }
 
-    @Test
-    public void testMultmatrizeWithZeroN() {
-        int n = 0;
-        int[] d = {};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
-    }
-
-    @Test
-    public void testMultmatrizeWithNegativeN() {
-        int n = -3;
-        int[] d = {2, 3, 4};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
-    }
-
-    @Test
-    public void testMultmatrizeWithNullD() {
+    @Test(timeout=1000)
+    public void testMultmatrizeWithNegativeValues() throws Exception {
         int n = 3;
-        int[] d = null;
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
+        int[] d = {-1, -2, -3};
+        AvaliaMultMatrizes.multmatrize(n, d);
     }
 
-    @Test
-    public void testMultmatrizeWithEmptyD() {
+    @Test(timeout=1000)
+    public void testMultmatrizeWithZeroValues() throws Exception {
         int n = 3;
-        int[] d = {};
-        try {
-            AvaliaMultMatrizes.multmatrize(n, d);
-        } catch (Exception e) {
-            fail("Exception thrown");
-        }
+        int[] d = {0, 0, 0};
+        AvaliaMultMatrizes.multmatrize(n, d);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrizeWithBoundaryValues() throws Exception {
+        int n = 1;
+        int[] d = {1};
+        AvaliaMultMatrizes.multmatrize(n, d);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrizeWithBoundaryValuesNegative() throws Exception {
+        int n = 1;
+        int[] d = {-1};
+        AvaliaMultMatrizes.multmatrize(n, d);
+    }
+
+    @Test(timeout=1000)
+    public void testMultmatrizeWithBoundaryValuesZero() throws Exception {
+        int n = 1;
+        int[] d = {0};
+        AvaliaMultMatrizes.multmatrize(n, d);
     }
 }

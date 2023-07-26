@@ -1,8 +1,8 @@
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,7,SURVIVED,none
-Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,7,KILLED,ds.PilhaTest19.testDesempilhaFromEmptyPilha(ds.PilhaTest19)
+Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,<init>,7,KILLED,ds.PilhaTest19.testEmpilha(ds.PilhaTest19)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,7,KILLED,ds.PilhaTest19.testEmpilha(ds.PilhaTest19)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,<init>,7,SURVIVED,none
-Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,desempilha,16,SURVIVED,none
+Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator,desempilha,16,NO_COVERAGE,none
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,desempilha,17,KILLED,ds.PilhaTest19.testDesempilha(ds.PilhaTest19)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,desempilha,17,KILLED,ds.PilhaTest19.testDesempilha(ds.PilhaTest19)
 Pilha.java,ds.Pilha,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,desempilha,15,KILLED,ds.PilhaTest19.testDesempilha(ds.PilhaTest19)

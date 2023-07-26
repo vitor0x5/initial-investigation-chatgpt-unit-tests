@@ -1,60 +1,375 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class FilaTest16{
 
 
-    @Test
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Fila fila = new Fila();
+        assertNotNull(fila);
+    }
+
+    @Test(timeout=1000)
     public void testEnfileira() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        assertEquals(1, fila.item[0]);
-        assertEquals(2, fila.item[1]);
-        assertEquals(3, fila.item[2]);
+        fila.enfileira("item1");
+        fila.enfileira("item2");
+        fila.enfileira("item3");
+        fila.enfileira("item4");
+        fila.enfileira("item5");
+        fila.enfileira("item6");
+        fila.enfileira("item7");
+        fila.enfileira("item8");
+        fila.enfileira("item9");
+        fila.enfileira("item10");
+        fila.enfileira("item11");
+        fila.enfileira("item12");
+        fila.enfileira("item13");
+        fila.enfileira("item14");
+        fila.enfileira("item15");
+        fila.enfileira("item16");
+        fila.enfileira("item17");
+        fila.enfileira("item18");
+        fila.enfileira("item19");
+        fila.enfileira("item20");
+        fila.enfileira("item21");
+        fila.enfileira("item22");
+        fila.enfileira("item23");
+        fila.enfileira("item24");
+        fila.enfileira("item25");
+        fila.enfileira("item26");
+        fila.enfileira("item27");
+        fila.enfileira("item28");
+        fila.enfileira("item29");
+        fila.enfileira("item30");
+        fila.enfileira("item31");
+        fila.enfileira("item32");
+        fila.enfileira("item33");
+        fila.enfileira("item34");
+        fila.enfileira("item35");
+        fila.enfileira("item36");
+        fila.enfileira("item37");
+        fila.enfileira("item38");
+        fila.enfileira("item39");
+        fila.enfileira("item40");
+        fila.enfileira("item41");
+        fila.enfileira("item42");
+        fila.enfileira("item43");
+        fila.enfileira("item44");
+        fila.enfileira("item45");
+        fila.enfileira("item46");
+        fila.enfileira("item47");
+        fila.enfileira("item48");
+        fila.enfileira("item49");
+        fila.enfileira("item50");
+        fila.enfileira("item51");
+        fila.enfileira("item52");
+        fila.enfileira("item53");
+        fila.enfileira("item54");
+        fila.enfileira("item55");
+        fila.enfileira("item56");
+        fila.enfileira("item57");
+        fila.enfileira("item58");
+        fila.enfileira("item59");
+        fila.enfileira("item60");
+        fila.enfileira("item61");
+        fila.enfileira("item62");
+        fila.enfileira("item63");
+        fila.enfileira("item64");
+        fila.enfileira("item65");
+        fila.enfileira("item66");
+        fila.enfileira("item67");
+        fila.enfileira("item68");
+        fila.enfileira("item69");
+        fila.enfileira("item70");
+        fila.enfileira("item71");
+        fila.enfileira("item72");
+        fila.enfileira("item73");
+        fila.enfileira("item74");
+        fila.enfileira("item75");
+        fila.enfileira("item76");
+        fila.enfileira("item77");
+        fila.enfileira("item78");
+        fila.enfileira("item79");
+        fila.enfileira("item80");
+        fila.enfileira("item81");
+        fila.enfileira("item82");
+        fila.enfileira("item83");
+        fila.enfileira("item84");
+        fila.enfileira("item85");
+        fila.enfileira("item86");
+        fila.enfileira("item87");
+        fila.enfileira("item88");
+        fila.enfileira("item89");
+        fila.enfileira("item90");
+        fila.enfileira("item91");
+        fila.enfileira("item92");
+        fila.enfileira("item93");
+        fila.enfileira("item94");
+        fila.enfileira("item95");
+        fila.enfileira("item96");
+        fila.enfileira("item97");
+        fila.enfileira("item98");
+        fila.enfileira("item99");
+        fila.enfileira("item100");
     }
 
-    @Test(expected = Exception.class)
-    public void testEnfileiraFull() throws Exception {
-        Fila fila = new Fila();
-        for (int i = 0; i < 1000; i++) {
-            fila.enfileira(i);
-        }
-        fila.enfileira(1001);
-    }
-
-    @Test
+    @Test(timeout=1000)
     public void testDesenfileira() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
-        assertEquals(1, fila.desenfileira());
-        assertEquals(2, fila.desenfileira());
-        assertEquals(3, fila.desenfileira());
-    }
-
-    @Test(expected = Exception.class)
-    public void testDesenfileiraEmpty() throws Exception {
-        Fila fila = new Fila();
+        fila.enfileira("item1");
+        fila.enfileira("item2");
+        fila.enfileira("item3");
+        fila.enfileira("item4");
+        fila.enfileira("item5");
+        fila.enfileira("item6");
+        fila.enfileira("item7");
+        fila.enfileira("item8");
+        fila.enfileira("item9");
+        fila.enfileira("item10");
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
+        fila.desenfileira();
         fila.desenfileira();
     }
 
-    @Test
-    public void testVazia() {
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Fila fila = new Fila();
         assertTrue(fila.vazia());
-        fila.enfileira(1);
+
+        fila.enfileira("item1");
         assertFalse(fila.vazia());
     }
 
-    @Test
-    public void testImprime() {
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         Fila fila = new Fila();
-        fila.enfileira(1);
-        fila.enfileira(2);
-        fila.enfileira(3);
+        fila.enfileira("item1");
+        fila.enfileira("item2");
+        fila.enfileira("item3");
         fila.imprime();
     }
 }

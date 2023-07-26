@@ -4,38 +4,44 @@ import static org.junit.Assert.*;
 public class MaxMin3Test22{
 
 
-    @Test
-    public void testMaxMin3_oddLength() {
-        int[] v = {1, 2, 3, 4, 5};
-        int n = 5;
-        int[] expected = {5, 1};
-        int[] result = MaxMin3.maxMin3(v, n);
-        assertArrayEquals(expected, result);
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        MaxMin3 maxMin3 = new MaxMin3();
+        assertNotNull(maxMin3);
     }
 
-    @Test
-    public void testMaxMin3_evenLength() {
-        int[] v = {5, 4, 3, 2, 1, 0};
+    @Test(timeout=1000)
+    public void testMaxMin3() throws Exception {
+        int[] v = {1, 2, 3, 4, 5, 6};
         int n = 6;
-        int[] expected = {5, 0};
+        int[] expected = {6, 1};
         int[] result = MaxMin3.maxMin3(v, n);
         assertArrayEquals(expected, result);
     }
 
-    @Test
-    public void testMaxMin3_duplicateValues() {
-        int[] v = {2, 2, 2, 2, 2};
-        int n = 5;
-        int[] expected = {2, 2};
+    @Test(timeout=1000)
+    public void testMaxMin3WithOddN() throws Exception {
+        int[] v = {1, 2, 3, 4, 5, 6, 7};
+        int n = 7;
+        int[] expected = {7, 1};
         int[] result = MaxMin3.maxMin3(v, n);
         assertArrayEquals(expected, result);
     }
 
-    @Test
-    public void testMaxMin3_negativeValues() {
-        int[] v = {-5, -10, -3, -1, -8};
-        int n = 5;
+    @Test(timeout=1000)
+    public void testMaxMin3WithNegativeValues() throws Exception {
+        int[] v = {-5, -2, -10, -1, -8, -3};
+        int n = 6;
         int[] expected = {-1, -10};
+        int[] result = MaxMin3.maxMin3(v, n);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test(timeout=1000)
+    public void testMaxMin3WithBoundaryValues() throws Exception {
+        int[] v = {0, 0, 0, 0, 0, 0};
+        int n = 6;
+        int[] expected = {0, 0};
         int[] result = MaxMin3.maxMin3(v, n);
         assertArrayEquals(expected, result);
     }

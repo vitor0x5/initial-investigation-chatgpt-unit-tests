@@ -1,40 +1,45 @@
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
-package ds;Here are some possible test cases for the Fila Java class:
+public class FilaTest6{
 
-1. Test enfileira() when the queue is empty:
-   - Input: Object x = "Test";
-   - Expected Output: The queue should contain only "Test".
 
-2. Test enfileira() when the queue is not empty:
-   - Input: Object x = "Test";
-             enqueue("Item1");
-             enqueue("Item2");
-   - Expected Output: The queue should contain "Item1", "Item2", and "Test".
+    @Test(timeout=1000)
+    public void testDefaultConstructor() {
+        Fila fila = new Fila();
+        assertNotNull(fila);
+        assertTrue(fila.vazia());
+    }
 
-3. Test desenfileira() when the queue is not empty:
-   - Input: enqueue("Item1");
-             enqueue("Item2");
-   - Expected Output: The first item on the queue ("Item1") should be removed and returned.
+    @Test(timeout=1000)
+    public void testEnfileira() {
+        Fila fila = new Fila();
+        fila.enfileira(1);
+        assertFalse(fila.vazia());
+    }
 
-4. Test desenfileira() when the queue is empty:
-   - Input: No items on the queue.
-   - Expected Output: An exception should be thrown with the message "Erro: A fila esta vazia".
+    @Test(timeout=1000)
+    public void testDesenfileira() throws Exception {
+        Fila fila = new Fila();
+        fila.enfileira(1);
+        Object item = fila.desenfileira();
+        assertTrue(fila.vazia());
+        assertEquals(1, item);
+    }
 
-5. Test vazia() when the queue is empty:
-   - Input: No items on the queue.
-   - Expected Output: The method should return true.
+    @Test(timeout=1000)
+    public void testVazia() {
+        Fila fila = new Fila();
+        assertTrue(fila.vazia());
+        fila.enfileira(1);
+        assertFalse(fila.vazia());
+    }
 
-6. Test vazia() when the queue is not empty:
-   - Input: enqueue("Item1");
-             enqueue("Item2");
-   - Expected Output: The method should return false.
-
-7. Test imprime() when the queue is empty:
-   - Input: No items on the queue.
-   - Expected Output: The method should print nothing (an empty line).
-
-8. Test imprime() when the queue is not empty:
-   - Input: enqueue("Item1");
-             enqueue(123);
-             enqueue(true);
-   - Expected Output: The method should print "Item1 123 true" (each item separated by a space) followed by a new line.
+    @Test(timeout=1000)
+    public void testImprime() {
+        Fila fila = new Fila();
+        fila.enfileira(1);
+        fila.enfileira(2);
+        fila.enfileira(3);
+    }
+}

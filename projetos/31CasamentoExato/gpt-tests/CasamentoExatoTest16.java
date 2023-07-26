@@ -4,43 +4,53 @@ import static org.junit.Assert.*;
 public class CasamentoExatoTest16{
 
 
-    @Test
-    public void testForcaBruta() {
-        String T = "ababab";
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoExato casamentoExato = new CasamentoExato();
+        assertNotNull(casamentoExato);
+    }
+
+    @Test(timeout=1000)
+    public void testForcaBruta() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "aba";
+        String P = "bc";
         int m = P.length();
+
         CasamentoExato.forcaBruta(T, n, P, m);
-        // Add assertions here to check the output
+        // Add assertion here
     }
 
-    @Test
-    public void testShiftAndExato() {
-        String T = "ababab";
+    @Test(timeout=1000)
+    public void testShiftAndExato() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "aba";
+        String P = "bc";
         int m = P.length();
+
         CasamentoExato.shiftAndExato(T, n, P, m);
-        // Add assertions here to check the output
+        // Add assertion here
     }
 
-    @Test
-    public void testBmh() {
-        String T = "ababab";
+    @Test(timeout=1000)
+    public void testBmh() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "aba";
+        String P = "bc";
         int m = P.length();
+
         CasamentoExato.bmh(T, n, P, m);
-        // Add assertions here to check the output
+        // Add assertion here
     }
 
-    @Test
-    public void testBmhs() {
-        String T = "ababab";
+    @Test(timeout=1000)
+    public void testBmhs() throws Exception {
+        String T = "abcde";
         int n = T.length();
-        String P = "aba";
+        String P = "bc";
         int m = P.length();
+
         CasamentoExato.bmhs(T, n, P, m);
-        // Add assertions here to check the output
+        // Add assertion here
     }
 }

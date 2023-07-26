@@ -1,34 +1,62 @@
-package ds;import ds.FPHeapMax;
-import ds.MeuItem;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class FPHeapMaxTest32{
 
 
-    @Test
-    public void testConstroi() {
-        FPHeapMax heap = new FPHeapMax(20);
-        MeuItem[] items = new MeuItem[7];
-        items[1] = new MeuItem(20);
-        items[2] = new MeuItem(15);
-        items[3] = new MeuItem(18);
-        items[4] = new MeuItem(10);
-        items[5] = new MeuItem(12);
-        items[6] = new MeuItem(9);
-        heap.copia(items);
-        heap.constroi();
-        assertEquals(20, heap.max().recuperaChave());
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        assertNotNull(heap);
     }
 
-    @Test
+    @Test(timeout=1000)
+    public void testRefaz() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        heap.refaz(1, 5);
+        // Add assertions here
+    }
+
+    @Test(timeout=1000)
+    public void testConstroi() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        heap.constroi();
+        // Add assertions here
+    }
+
+    @Test(timeout=1000)
+    public void testMax() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item max = heap.max();
+        // Add assertions here
+    }
+
+    @Test(timeout=1000)
+    public void testRetiraMax() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item max = heap.retiraMax();
+        // Add assertions here
+    }
+
+    @Test(timeout=1000)
+    public void testAumentaChave() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        heap.aumentaChave(1, new Object());
+        // Add assertions here
+    }
+
+    @Test(timeout=1000)
     public void testInsere() throws Exception {
-        FPHeapMax heap = new FPHeapMax(20);
-        MeuItem[] items = new MeuItem[7];
-        items[1] = new MeuItem(20);
-        items[2] = new MeuItem(15);
-        items[3] = new MeuItem(18);
-        items[4] = new MeuItem(10);
-        items[5] = new MeuItem(12);
-        items[6] = new MeuItem(9);
-        heap.copia(items
+        FPHeapMax heap = new FPHeapMax(10);
+        Item item = new MeuItem(5);
+        heap.insere(item);
+        // Add assertions here
+    }
+
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        heap.imprime();
+        // Add assertions here
+    }
+}

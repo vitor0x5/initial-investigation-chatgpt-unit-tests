@@ -1,47 +1,53 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import org.junit.Assert;
-import org.junit.Test;
-import java.util.Random;
+//import statements for Item and FPHeapMax classes go here
 
-public class OrdenacaoTest8 {
+public class OrdenacaoTest8{
 
-    // Test case for selecao method
-    @Test
-    public void testSelecao() {
-        Item[] v = {new MeuItem(5), new MeuItem(2), new MeuItem(8), new MeuItem(1), new MeuItem(3)};
-        Ordenacao.selecao(v, v.length);
-        Assert.assertArrayEquals(new Item[]{new MeuItem(1), new MeuItem(2), new MeuItem(3), new MeuItem(5), new MeuItem(8)}, v);
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+        assertNotNull(ordenacao);
     }
-
-    // Test case for insercao method
-    @Test
-    public void testInsercao() {
-        Item[] v = {new MeuItem(5), new MeuItem(2), new MeuItem(8), new MeuItem(1), new MeuItem(3)};
-        Ordenacao.insercao(v, v.length);
-        Assert.assertArrayEquals(new Item[]{new MeuItem(1), new MeuItem(2), new MeuItem(3), new MeuItem(5), new MeuItem(8)}, v);
+    
+    @Test(timeout=1000)
+    public void testRefaz_True() throws Exception {
+        Item[] v = new Item[5];
+        v[1] = new MeuItem(10);
+        v[2] = new MeuItem(15);
+        v[3] = new MeuItem(5);
+        v[4] = new MeuItem(20);
+        FPHeapMax fpHeap = new FPHeapMax(v);
+        fpHeap.refaz(1, 3);
+        assertEquals(20, ((MeuItem)v[1]).recuperaChave());
     }
-
-    // Test case for shellsort method
-    @Test
-    public void testShellsort() {
-        Item[] v = {new MeuItem(5), new MeuItem(2), new MeuItem(8), new MeuItem(1), new MeuItem(3)};
-        Ordenacao.shellsort(v, v.length);
-        Assert.assertArrayEquals(new Item[]{new MeuItem(1), new MeuItem(2), new MeuItem(3), new MeuItem(5), new MeuItem(8)}, v);
+    
+    @Test(timeout=1000)
+    public void testRefaz_False() throws Exception {
+        Item[] v = new Item[5];
+        v[1] = new MeuItem(10);
+        v[2] = new MeuItem(15);
+        v[3] = new MeuItem(5);
+        v[4] = new MeuItem(20);
+        FPHeapMax fpHeap = new FPHeapMax(v);
+        fpHeap.refaz(1, 3);
+        assertEquals(10, ((MeuItem)v[2]).recuperaChave());
     }
-
-    // Test case for quicksort method
-    @Test
-    public void testQuicksort() {
-        Item[] v = {new MeuItem(5), new MeuItem(2), new MeuItem(8), new MeuItem(1), new MeuItem(3)};
-        Ordenacao.quicksort(v, v.length);
-        Assert.assertArrayEquals(new Item[]{new MeuItem(1), new MeuItem(2), new MeuItem(3), new MeuItem(5), new MeuItem(8)}, v);
+    
+    @Test(timeout=1000)
+    public void testConstroi() throws Exception {
+        Item[] v = new Item[5];
+        v[1] = new MeuItem(10);
+        v[2] = new MeuItem(15);
+        v[3] = new MeuItem(5);
+        v[4] = new MeuItem(20);
+        FPHeapMax fpHeap = new FPHeapMax(v);
+        fpHeap.constroi();
+        assertEquals(20, ((MeuItem)v[1]).recuperaChave());
     }
-
-    // Test case for heapsort method
-    @Test
-    public void testHeapsort() {
-        Item[] v = {new MeuItem(5), new MeuItem(2), new MeuItem(8), new MeuItem(1), new MeuItem(3)};
-        Ordenacao.heapsort(v, v.length);
-        Assert.assertArrayEquals(new Item[]{new MeuItem(1), new MeuItem(2), new MeuItem(3), new MeuItem(5), new MeuItem(8)}, v);
-    }
+    
+    //tests for other methods in the Ordenacao class go here
+    
 }

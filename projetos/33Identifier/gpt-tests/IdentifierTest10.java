@@ -1,44 +1,66 @@
-
-package ds;import static org.junit.Assert.assertEquals;
-import org.junit.Before;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import ds.Identifier;
 
-public class IdentifierTest10 {
-    private Identifier identifier;
+public class IdentifierTest10{
 
-    @Before
-    public void setup() {
-        identifier = new Identifier();
+
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
+        Identifier identifier = new Identifier();
+        assertNotNull(identifier);
     }
 
-    @Test
-    public void testValidIdentifier() {
-        boolean result = identifier.validateIdentifier("java");
-        assertEquals(true, result);
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_ValidIdentifier_ReturnsTrue() throws Exception {
+        Identifier identifier = new Identifier();
+        assertTrue(identifier.validateIdentifier("abc"));
     }
-
-    @Test
-    public void testInvalidIdentifier_SpecialCharacter() {
-        boolean result = identifier.validateIdentifier("@java");
-        assertEquals(false, result);
+    
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_ValidIdentifier_LengthGreaterThanOne_ReturnsTrue() throws Exception {
+        Identifier identifier = new Identifier();
+        assertTrue(identifier.validateIdentifier("a1b2c"));
     }
-
-    @Test
-    public void testInvalidIdentifier_Length() {
-        boolean result = identifier.validateIdentifier("abcdabcdabcd");
-        assertEquals(false, result);
+    
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_ValidIdentifier_LengthGreaterThanOne_ReturnsFalse() throws Exception {
+        Identifier identifier = new Identifier();
+        assertFalse(identifier.validateIdentifier("a1b2c3"));
     }
-
-    @Test
-    public void testInvalidIdentifier_StartsWithNumber() {
-        boolean result = identifier.validateIdentifier("1Java");
-        assertEquals(false, result);
+    
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_InvalidIdentifier_ReturnsFalse() throws Exception {
+        Identifier identifier = new Identifier();
+        assertFalse(identifier.validateIdentifier("123"));
     }
-
-    @Test
-    public void testInvalidIdentifier_ContainsInvalidCharacter() {
-        boolean result = identifier.validateIdentifier("j$a_va");
-        assertEquals(false, result);
+    
+    @Test(timeout = 1000)
+    public void testValidateIdentifier_EmptyString_ReturnsFalse() throws Exception {
+        Identifier identifier = new Identifier();
+        assertFalse(identifier.validateIdentifier(""));
+    }
+    
+    @Test(timeout = 1000)
+    public void testValid_s_ValidCharacter_ReturnsTrue() throws Exception {
+        Identifier identifier = new Identifier();
+        assertTrue(identifier.valid_s('A'));
+    }
+    
+    @Test(timeout = 1000)
+    public void testValid_s_InvalidCharacter_ReturnsFalse() throws Exception {
+        Identifier identifier = new Identifier();
+        assertFalse(identifier.valid_s('1'));
+    }
+    
+    @Test(timeout = 1000)
+    public void testValid_f_ValidCharacter_ReturnsTrue() throws Exception {
+        Identifier identifier = new Identifier();
+        assertTrue(identifier.valid_f('1'));
+    }
+    
+    @Test(timeout = 1000)
+    public void testValid_f_InvalidCharacter_ReturnsFalse() throws Exception {
+        Identifier identifier = new Identifier();
+        assertFalse(identifier.valid_f('%'));
     }
 }

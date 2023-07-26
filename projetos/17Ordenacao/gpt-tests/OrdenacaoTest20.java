@@ -1,104 +1,84 @@
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.Random;
-
 public class OrdenacaoTest20{
 
 
-    @Test
-    public void testPermutWithItemArray() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+        assertNotNull(ordenacao);
+    }
+
+    @Test(timeout=1000)
+    public void testFPHeapMaxConstructor() throws Exception {
         Item[] v = new Item[5];
-        for (int i = 0; i < 5; i++) {
-            v[i] = new MeuItem(i);
-        }
-        Ordenacao.permut(v, 5);
-        for (int i = 0; i < 5; i++) {
-            assertNotNull(v[i]);
-        }
+        FPHeapMax fpHeapMax = new FPHeapMax(v);
+        assertNotNull(fpHeapMax);
     }
 
-    @Test
-    public void testPermutWithIntArray() {
-        int[] v = new int[5];
-        for (int i = 0; i < 5; i++) {
-            v[i] = i;
-        }
-        Ordenacao.permut(v, 5);
-        for (int i = 0; i < 5; i++) {
-            assertNotEquals(i, v[i]);
-        }
-    }
-
-    @Test
-    public void testPermutWithCharArray() {
-        char[] v = new char[5];
-        for (int i = 0; i < 5; i++) {
-            v[i] = (char)('a' + i);
-        }
-        Ordenacao.permut(v, 5);
-        for (int i = 0; i < 5; i++) {
-            assertNotEquals((char)('a' + i), v[i]);
-        }
-    }
-
-    @Test
-    public void testSelecao() {
+    @Test(timeout=1000)
+    public void testRefaz() throws Exception {
         Item[] v = new Item[5];
-        for (int i = 0; i < 5; i++) {
-            v[i] = new MeuItem(i);
-        }
+        FPHeapMax fpHeapMax = new FPHeapMax(v);
+        fpHeapMax.refaz(0, 4);
+        // Add assertions here
+    }
+
+    @Test(timeout=1000)
+    public void testConstroi() throws Exception {
+        Item[] v = new Item[5];
+        FPHeapMax fpHeapMax = new FPHeapMax(v);
+        fpHeapMax.constroi();
+        // Add assertions here
+    }
+
+    @Test(timeout=1000)
+    public void testParticao() throws Exception {
+        Item[] v = new Item[5];
+        LimiteParticoes p = Ordenacao.particao(v, 0, 4);
+        assertNotNull(p);
+    }
+
+    @Test(timeout=1000)
+    public void testOrdena() throws Exception {
+        Item[] v = new Item[5];
+        Ordenacao.ordena(v, 0, 4);
+        // Add assertions here
+    }
+
+    @Test(timeout=1000)
+    public void testSelecao() throws Exception {
+        Item[] v = new Item[5];
         Ordenacao.selecao(v, 5);
-        for (int i = 0; i < 4; i++) {
-            assertTrue(v[i].compara(v[i + 1]) <= 0);
-        }
+        // Add assertions here
     }
 
-    @Test
-    public void testInsercao() {
+    @Test(timeout=1000)
+    public void testInsercao() throws Exception {
         Item[] v = new Item[5];
-        for (int i = 0; i < 5; i++) {
-            v[i] = new MeuItem(i);
-        }
         Ordenacao.insercao(v, 5);
-        for (int i = 0; i < 4; i++) {
-            assertTrue(v[i].compara(v[i + 1]) <= 0);
-        }
+        // Add assertions here
     }
 
-    @Test
-    public void testShellsort() {
+    @Test(timeout=1000)
+    public void testShellsort() throws Exception {
         Item[] v = new Item[5];
-        for (int i = 0; i < 5; i++) {
-            v[i] = new MeuItem(i);
-        }
         Ordenacao.shellsort(v, 5);
-        for (int i = 0; i < 4; i++) {
-            assertTrue(v[i].compara(v[i + 1]) <= 0);
-        }
+        // Add assertions here
     }
 
-    @Test
-    public void testQuicksort() {
+    @Test(timeout=1000)
+    public void testQuicksort() throws Exception {
         Item[] v = new Item[5];
-        for (int i = 0; i < 5; i++) {
-            v[i] = new MeuItem(i);
-        }
         Ordenacao.quicksort(v, 5);
-        for (int i = 0; i < 4; i++) {
-            assertTrue(v[i].compara(v[i + 1]) <= 0);
-        }
+        // Add assertions here
     }
 
-    @Test
-    public void testHeapsort() {
+    @Test(timeout=1000)
+    public void testHeapsort() throws Exception {
         Item[] v = new Item[5];
-        for (int i = 0; i < 5; i++) {
-            v[i] = new MeuItem(i);
-        }
         Ordenacao.heapsort(v, 5);
-        for (int i = 0; i < 4; i++) {
-            assertTrue(v[i].compara(v[i + 1]) <= 0);
-        }
+        // Add assertions here
     }
 }

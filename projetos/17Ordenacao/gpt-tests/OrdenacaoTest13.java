@@ -1,144 +1,133 @@
-package ds;import ds.*;
-import org.junit.Test;
-import java.util.Random;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class OrdenacaoTest13{
 
-    
-    @Test
-    public void testPermutWithItemArray() {
-        int tam = 5, n = 5;
-        MeuItem v[] = new MeuItem[tam + 1];
-        for (int i = 1; i <= n; i++) v[i] = new MeuItem(i);
-        
-        Ordenacao.permut(v, n);
-        
-        // Check if the array is still the same length
-        assertEquals(tam + 1, v.length);
-        
-        // Check if all elements are still MeuItem objects
-        for (int i = 1; i <= n; i++) {
-            assertTrue(v[i] instanceof MeuItem);
-        }
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+        assertNotNull(ordenacao);
     }
-    
-    @Test
-    public void testPermutWithIntArray() {
-        int tam = 5, n = 5;
-        int v[] = new int[tam + 1];
-        for (int i = 1; i <= n; i++) v[i] = i;
-        
-        Ordenacao.permut(v, n);
-        
-        // Check if the array is still the same length
-        assertEquals(tam + 1, v.length);
-        
-        // Check if all elements are still integers
-        for (int i = 1; i <= n; i++) {
-            assertTrue(v[i] instanceof Integer);
-        }
+
+    @Test(timeout=1000)
+    public void testRefaz() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(3);
+        v[3] = new MeuItem(8);
+        v[4] = new MeuItem(2);
+        v[5] = new MeuItem(6);
+        FPHeapMax fpHeap = new FPHeapMax(v);
+        fpHeap.refaz(1, 5);
+        assertEquals(8, ((MeuItem)v[1]).recuperaChave());
+        assertEquals(6, ((MeuItem)v[2]).recuperaChave());
+        assertEquals(3, ((MeuItem)v[3]).recuperaChave());
+        assertEquals(2, ((MeuItem)v[4]).recuperaChave());
+        assertEquals(5, ((MeuItem)v[5]).recuperaChave());
     }
-    
-    @Test
-    public void testPermutWithCharArray() {
-        int tam = 5, n = 5;
-        char v[] = new char[tam + 1];
-        for (int i = 1; i <= n; i++) v[i] = (char) (i + 'A' - 1);
-        
-        Ordenacao.permut(v, n);
-        
-        // Check if the array is still the same length
-        assertEquals(tam + 1, v.length);
-        
-        // Check if all elements are still characters
-        for (int i = 1; i <= n; i++) {
-            assertTrue(v[i] instanceof Character);
-        }
+
+    @Test(timeout=1000)
+    public void testConstroi() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(3);
+        v[3] = new MeuItem(8);
+        v[4] = new MeuItem(2);
+        v[5] = new MeuItem(6);
+        FPHeapMax fpHeap = new FPHeapMax(v);
+        fpHeap.constroi();
+        assertEquals(8, ((MeuItem)v[1]).recuperaChave());
+        assertEquals(6, ((MeuItem)v[2]).recuperaChave());
+        assertEquals(5, ((MeuItem)v[3]).recuperaChave());
+        assertEquals(2, ((MeuItem)v[4]).recuperaChave());
+        assertEquals(3, ((MeuItem)v[5]).recuperaChave());
     }
-    
-    @Test
-    public void testSelecao() {
-        int tam = 5, n = 5;
-        MeuItem v[] = new MeuItem[tam + 1];
-        for (int i = 1; i <= n; i++) v[i] = new MeuItem(i);
-        
-        Ordenacao.selecao(v, n);
-        
-        // Check if the array is still the same length
-        assertEquals(tam + 1, v.length);
-        
-        // Check if all elements are still MeuItem objects
-        for (int i = 1; i <= n; i++) {
-            assertTrue(v[i] instanceof MeuItem);
-        }
+
+    @Test(timeout=1000)
+    public void testSelecao() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(3);
+        v[3] = new MeuItem(8);
+        v[4] = new MeuItem(2);
+        v[5] = new MeuItem(6);
+        Ordenacao.selecao(v, 5);
+        assertEquals(2, ((MeuItem)v[1]).recuperaChave());
+        assertEquals(3, ((MeuItem)v[2]).recuperaChave());
+        assertEquals(5, ((MeuItem)v[3]).recuperaChave());
+        assertEquals(6, ((MeuItem)v[4]).recuperaChave());
+        assertEquals(8, ((MeuItem)v[5]).recuperaChave());
     }
-    
-    @Test
-    public void testInsercao() {
-        int tam = 5, n = 5;
-        MeuItem v[] = new MeuItem[tam + 1];
-        for (int i = 1; i <= n; i++) v[i] = new MeuItem(i);
-        
-        Ordenacao.insercao(v, n);
-        
-        // Check if the array is still the same length
-        assertEquals(tam + 1, v.length);
-        
-        // Check if all elements are still MeuItem objects
-        for (int i = 1; i <= n; i++) {
-            assertTrue(v[i] instanceof MeuItem);
-        }
+
+    @Test(timeout=1000)
+    public void testInsercao() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(3);
+        v[3] = new MeuItem(8);
+        v[4] = new MeuItem(2);
+        v[5] = new MeuItem(6);
+        Ordenacao.insercao(v, 5);
+        assertEquals(2, ((MeuItem)v[1]).recuperaChave());
+        assertEquals(3, ((MeuItem)v[2]).recuperaChave());
+        assertEquals(5, ((MeuItem)v[3]).recuperaChave());
+        assertEquals(6, ((MeuItem)v[4]).recuperaChave());
+        assertEquals(8, ((MeuItem)v[5]).recuperaChave());
     }
-    
-    @Test
-    public void testShellsort() {
-        int tam = 5, n = 5;
-        MeuItem v[] = new MeuItem[tam + 1];
-        for (int i = 1; i <= n; i++) v[i] = new MeuItem(i);
-        
-        Ordenacao.shellsort(v, n);
-        
-        // Check if the array is still the same length
-        assertEquals(tam + 1, v.length);
-        
-        // Check if all elements are still MeuItem objects
-        for (int i = 1; i <= n; i++) {
-            assertTrue(v[i] instanceof MeuItem);
-        }
+
+    @Test(timeout=1000)
+    public void testShellsort() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(3);
+        v[3] = new MeuItem(8);
+        v[4] = new MeuItem(2);
+        v[5] = new MeuItem(6);
+        Ordenacao.shellsort(v, 5);
+        assertEquals(2, ((MeuItem)v[1]).recuperaChave());
+        assertEquals(3, ((MeuItem)v[2]).recuperaChave());
+        assertEquals(5, ((MeuItem)v[3]).recuperaChave());
+        assertEquals(6, ((MeuItem)v[4]).recuperaChave());
+        assertEquals(8, ((MeuItem)v[5]).recuperaChave());
     }
-    
-    @Test
-    public void testQuicksort() {
-        int tam = 5, n = 5;
-        MeuItem v[] = new MeuItem[tam + 1];
-        for (int i = 1; i <= n; i++) v[i] = new MeuItem(i);
-        
-        Ordenacao.quicksort(v, n);
-        
-        // Check if the array is still the same length
-        assertEquals(tam + 1, v.length);
-        
-        // Check if all elements are still MeuItem objects
-        for (int i = 1; i <= n; i++) {
-            assertTrue(v[i] instanceof MeuItem);
-        }
+
+    @Test(timeout=1000)
+    public void testQuicksort() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(3);
+        v[3] = new MeuItem(8);
+        v[4] = new MeuItem(2);
+        v[5] = new MeuItem(6);
+        Ordenacao.quicksort(v, 5);
+        assertEquals(2, ((MeuItem)v[1]).recuperaChave());
+        assertEquals(3, ((MeuItem)v[2]).recuperaChave());
+        assertEquals(5, ((MeuItem)v[3]).recuperaChave());
+        assertEquals(6, ((MeuItem)v[4]).recuperaChave());
+        assertEquals(8, ((MeuItem)v[5]).recuperaChave());
     }
-    
-    @Test
-    public void testHeapsort() {
-        int tam = 5, n = 5;
-        MeuItem v[] = new MeuItem[tam + 1];
-        for (int i = 1; i <= n; i++) v[i] = new MeuItem(i);
-        
-        Ordenacao.heapsort(v, n);
-        
-        // Check if the array is still the same length
-        assertEquals(tam + 1, v.length);
-        
-        // Check if all elements are still MeuItem objects
-        for (int i = 1; i <= n; i++) {
-            assertTrue(v[i] instanceof MeuItem);
-        }
+
+    @Test(timeout=1000)
+    public void testHeapsort() throws Exception {
+        Item[] v = new Item[6];
+        v[0] = null;
+        v[1] = new MeuItem(5);
+        v[2] = new MeuItem(3);
+        v[3] = new MeuItem(8);
+        v[4] = new MeuItem(2);
+        v[5] = new MeuItem(6);
+        Ordenacao.heapsort(v, 5);
+        assertEquals(2, ((MeuItem)v[1]).recuperaChave());
+        assertEquals(3, ((MeuItem)v[2]).recuperaChave());
+        assertEquals(5, ((MeuItem)v[3]).recuperaChave());
+        assertEquals(6, ((MeuItem)v[4]).recuperaChave());
+        assertEquals(8, ((MeuItem)v[5]).recuperaChave());
     }
 }

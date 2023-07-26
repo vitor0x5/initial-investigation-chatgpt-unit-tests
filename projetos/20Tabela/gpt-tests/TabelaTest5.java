@@ -1,61 +1,85 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
-package ds;Test cases for the Tabela Java class:
+public class TabelaTest5{
 
-1. Test case for pesquisa() method:
-   - Test when the table is empty:
-     - Create a Tabela object.
-     - Create an Item object.
-     - Call pesquisa() method on the table object passing the item object as a parameter.
-     - Assert that the return value is 0.
-
-   - Test when the table is not empty and the item is found:
-     - Create a Tabela object.
-     - Add some Item objects to the table.
-     - Create an Item object that exists in the table.
-     - Call pesquisa() method on the table object passing the item object as a parameter.
-     - Assert that the return value is the index of the item in the table.
-
-   - Test when the table is not empty and the item is not found:
-     - Create a Tabela object.
-     - Add some Item objects to the table.
-     - Create an Item object that does not exist in the table.
-     - Call pesquisa() method on the table object passing the item object as a parameter.
-     - Assert that the return value is 0.
-
-2. Test case for insere() method:
-   - Test when the table is not full:
-     - Create a Tabela object.
-     - Create an Item object.
-     - Call insere() method on the table object passing the item object as a parameter.
-     - Assert that the number of items in the table is increased by 1.
-     - Assert that the last item in the table is the same as the inserted item.
-
-   - Test when the table is full:
-     - Create a Tabela object with the maximum number of items.
-     - Create an Item object.
-     - Call insere() method on the table object passing the item object as a parameter.
-     - Assert that an exception is thrown with the message "Erro: A tabela esta cheia".
-     - Assert that the number of items in the table is not changed.
-
-3. Test case for binaria() method:
-   - Test when the table is empty:
-     - Create a Tabela object.
-     - Create an Item object.
-     - Call binaria() method on the table object passing the item object as a parameter.
-     - Assert that the return value is 0.
-
-   - Test when the table is not empty and the item is found:
-     - Create a Tabela object.
-     - Add some Item objects to the table.
-     - Sort the items in the table in ascending order.
-     - Create an Item object that exists in the table.
-     - Call binaria() method on the table object passing the item object as a parameter.
-     - Assert that the return value is the index of the item in the table.
-
-   - Test when the table is not empty and the item is not found:
-     - Create a Tabela object.
-     - Add some Item objects to the table.
-     - Sort the items in the table in ascending order.
-     - Create an Item object that does not exist in the table.
-     - Call binaria() method on the table object passing the item object as a parameter.
-     - Assert that the return value is 0.
+    
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Tabela tabela = new Tabela();
+        assertNotNull(tabela);
+    }
+    
+    @Test(timeout=1000)
+    public void testPesquisa() throws Exception {
+        Tabela tabela = new Tabela();
+        Item reg = new MeuItem(5);
+        tabela.registros[0] = reg;
+        tabela.n = 1;
+        int result = tabela.pesquisa(reg);
+        assertEquals(0, result);
+    }
+    
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        Tabela tabela = new Tabela();
+        Item reg = new MeuItem(5);
+        tabela.insere(reg);
+        assertEquals(1, tabela.n);
+        assertEquals(reg, tabela.registros[1]);
+    }
+    
+    @Test(timeout=1000)
+    public void testInsereFullTable() throws Exception {
+        Tabela tabela = new Tabela();
+        for (int i = 1; i <= 10; i++) {
+            Item reg = new MeuItem(i);
+            tabela.insere(reg);
+        }
+        Item reg = new MeuItem(11);
+        try {
+            tabela.insere(reg);
+            fail("Expected Exception");
+        } catch (Exception e) {
+            assertEquals("Erro: A tabela esta cheia", e.getMessage());
+        }
+    }
+    
+    @Test(timeout=1000)
+    public void testBinariaEmptyTable() throws Exception {
+        Tabela tabela = new Tabela();
+        Item chave = new MeuItem(5);
+        int result = tabela.binaria(chave);
+        assertEquals(0, result);
+    }
+    
+    @Test(timeout=1000)
+    public void testBinariaFound() throws Exception {
+        Tabela tabela = new Tabela();
+        Item reg1 = new MeuItem(1);
+        Item reg2 = new MeuItem(2);
+        Item reg3 = new MeuItem(3);
+        tabela.insere(reg1);
+        tabela.insere(reg2);
+        tabela.insere(reg3);
+        Item chave = new MeuItem(2);
+        int result = tabela.binaria(chave);
+        assertEquals(2, result);
+    }
+    
+    @Test(timeout=1000)
+    public void testBinariaNotFound() throws Exception {
+        Tabela tabela = new Tabela();
+        Item reg1 = new MeuItem(1);
+        Item reg2 = new MeuItem(2);
+        Item reg3 = new MeuItem(3);
+        tabela.insere(reg1);
+        tabela.insere(reg2);
+        tabela.insere(reg3);
+        Item chave = new MeuItem(5);
+        int result = tabela.binaria(chave);
+        assertEquals(0, result);
+    }
+}

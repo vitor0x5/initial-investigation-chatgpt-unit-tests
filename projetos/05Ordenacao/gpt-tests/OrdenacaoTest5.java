@@ -1,38 +1,80 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
-package ds;import static org.junit.Assert.*;
-import org.junit.Test;
+import ds.Ordenacao;
 
-public class OrdenacaoTest5 {
+public class OrdenacaoTest5{
 
-    @Test
-    public void testOrdena() {
-        int[] v = {5, 3, 2, 4, 1};
-        Ordenacao.ordena(v, v.length);
-        int[] expected = {1, 2, 3, 4, 5};
+
+    // Test for the default constructor
+    @Test(expected=Exception.class, timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        Ordenacao ordenacao = new Ordenacao();
+    }
+    
+    // Test for the ordena method with valid inputs
+    @Test(expected=Exception.class, timeout=1000)
+    public void testOrdenaValidInputs() throws Exception {
+        int[] v = {5, 2, 8, 1, 6};
+        int n = 5;
+        Ordenacao.ordena(v, n);
+        
+        int[] expected = {1, 2, 5, 6, 8};
         assertArrayEquals(expected, v);
     }
-
-    @Test
-    public void testOrdenaEmptyArray() {
+    
+    // Test for the ordena method with empty array
+    @Test(expected=Exception.class, timeout=1000)
+    public void testOrdenaEmptyArray() throws Exception {
         int[] v = {};
-        Ordenacao.ordena(v, v.length);
+        int n = 0;
+        Ordenacao.ordena(v, n);
+        
         int[] expected = {};
         assertArrayEquals(expected, v);
     }
-
-    @Test
-    public void testOrdenaAlreadySortedArray() {
-        int[] v = {1, 2, 3, 4, 5};
-        Ordenacao.ordena(v, v.length);
-        int[] expected = {1, 2, 3, 4, 5};
+    
+    // Test for the ordena method with single element array
+    @Test(expected=Exception.class, timeout=1000)
+    public void testOrdenaSingleElementArray() throws Exception {
+        int[] v = {3};
+        int n = 1;
+        Ordenacao.ordena(v, n);
+        
+        int[] expected = {3};
         assertArrayEquals(expected, v);
     }
-
-    @Test
-    public void testOrdenaArrayWithDuplicates() {
-        int[] v = {5, 3, 2, 4, 1, 5, 2};
-        Ordenacao.ordena(v, v.length);
-        int[] expected = {1, 2, 2, 3, 4, 5, 5};
+    
+    // Test for the ordena method with all elements being equal
+    @Test(expected=Exception.class, timeout=1000)
+    public void testOrdenaAllElementsEqual() throws Exception {
+        int[] v = {2, 2, 2, 2, 2};
+        int n = 5;
+        Ordenacao.ordena(v, n);
+        
+        int[] expected = {2, 2, 2, 2, 2};
+        assertArrayEquals(expected, v);
+    }
+    
+    // Test for the ordena method with negative values
+    @Test(expected=Exception.class, timeout=1000)
+    public void testOrdenaNegativeValues() throws Exception {
+        int[] v = {-5, -2, -8, -1, -6};
+        int n = 5;
+        Ordenacao.ordena(v, n);
+        
+        int[] expected = {-8, -6, -5, -2, -1};
+        assertArrayEquals(expected, v);
+    }
+    
+    // Test for the ordena method with boundary values
+    @Test(expected=Exception.class, timeout=1000)
+    public void testOrdenaBoundaryValues() throws Exception {
+        int[] v = {-100, 0, 100};
+        int n = 3;
+        Ordenacao.ordena(v, n);
+        
+        int[] expected = {-100, 0, 100};
         assertArrayEquals(expected, v);
     }
 }

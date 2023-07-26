@@ -6,56 +6,85 @@ import ds.Grafo;
 public class GrafoTest27{
 
 
-    @Test
-    public void testInsereAresta() {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Grafo grafo = new Grafo();
-        grafo.insereAresta(0, 1, 5);
-        assertTrue(grafo.existeAresta(0, 1));
+        assertNotNull(grafo);
     }
 
-    @Test
-    public void testExisteAresta() {
+    @Test(timeout=1000)
+    public void testInsereAresta() throws Exception {
         Grafo grafo = new Grafo();
-        assertFalse(grafo.existeAresta(0, 1));
+        grafo.insereAresta(1, 2, 10);
+        assertTrue(grafo.existeAresta(1, 2));
     }
 
-    @Test
-    public void testListaAdjVazia() {
+    @Test(timeout=1000)
+    public void testExisteAresta() throws Exception {
         Grafo grafo = new Grafo();
-        assertTrue(grafo.listaAdjVazia(0));
+        grafo.insereAresta(1, 2, 10);
+        assertTrue(grafo.existeAresta(1, 2));
+        assertFalse(grafo.existeAresta(2, 1));
     }
 
-    @Test
-    public void testPrimeiroListaAdj() {
+    @Test(timeout=1000)
+    public void testListaAdjVazia() throws Exception {
         Grafo grafo = new Grafo();
-        assertNull(grafo.primeiroListaAdj(0));
+        assertTrue(grafo.listaAdjVazia(1));
+        grafo.insereAresta(1, 2, 10);
+        assertFalse(grafo.listaAdjVazia(1));
     }
 
-    @Test
-    public void testProxAdj() {
+    @Test(timeout=1000)
+    public void testPrimeiroListaAdj() throws Exception {
         Grafo grafo = new Grafo();
-        assertNull(grafo.proxAdj(0));
+        grafo.insereAresta(1, 2, 10);
+        grafo.insereAresta(1, 3, 20);
+        grafo.insereAresta(1, 4, 30);
+        assertNotNull(grafo.primeiroListaAdj(1));
     }
 
-    @Test
+    @Test(timeout=1000)
+    public void testProxAdj() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(1, 2, 10);
+        grafo.insereAresta(1, 3, 20);
+        grafo.insereAresta(1, 4, 30);
+        assertNotNull(grafo.proxAdj(1));
+    }
+
+    @Test(timeout=1000)
     public void testRetiraAresta() throws Exception {
         Grafo grafo = new Grafo();
-        grafo.insereAresta(0, 1, 5);
-        assertNotNull(grafo.retiraAresta(0, 1));
+        grafo.insereAresta(1, 2, 10);
+        grafo.insereAresta(1, 3, 20);
+        grafo.insereAresta(1, 4, 30);
+        assertNotNull(grafo.retiraAresta(1, 2));
+        assertNull(grafo.retiraAresta(1, 5));
     }
 
-    @Test
-    public void testNumVertices() {
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(1, 2, 10);
+        grafo.insereAresta(1, 3, 20);
+        grafo.insereAresta(1, 4, 30);
+        grafo.imprime();
+    }
+
+    @Test(timeout=1000)
+    public void testNumVertices() throws Exception {
         Grafo grafo = new Grafo();
         assertEquals(100, grafo.numVertices());
     }
 
-    @Test
-    public void testGrafoTransposto() {
+    @Test(timeout=1000)
+    public void testGrafoTransposto() throws Exception {
         Grafo grafo = new Grafo();
+        grafo.insereAresta(1, 2, 10);
+        grafo.insereAresta(1, 3, 20);
+        grafo.insereAresta(1, 4, 30);
         Grafo grafoT = grafo.grafoTransposto();
         assertNotNull(grafoT);
     }
 }
-
-Note: This is just a sample of test cases for the Grafo class. You may need to add more test cases to cover all the methods and edge cases.

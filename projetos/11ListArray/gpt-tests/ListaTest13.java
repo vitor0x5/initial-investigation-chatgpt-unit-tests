@@ -1,42 +1,50 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class ListaTest13{
 
 
-    @Test
-    public void testInsere() throws Exception {
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Lista lista = new Lista();
-        
-        lista.insere("Element 1");
-        lista.insere("Element 2");
-        lista.insere("Element 3");
-        
-        assertEquals("Element 1", lista.item[0]);
-        assertEquals("Element 2", lista.item[1]);
-        assertEquals("Element 3", lista.item[2]);
+        assertNotNull(lista);
     }
-    
-    @Test
-    public void testVazia() throws Exception {
+
+    @Test(timeout=1000)
+    public void testInsereTrue() throws Exception {
         Lista lista = new Lista();
-        
-        assertTrue(lista.vazia());
-        
-        lista.insere("Element 1");
-        
+        lista.insere("Test");
         assertFalse(lista.vazia());
     }
-    
-    @Test
+
+    @Test(timeout=1000)
+    public void testInsereFalse() throws Exception {
+        Lista lista = new Lista();
+        for (int i = 0; i < 1000; i++) {
+            lista.insere("Test");
+        }
+        assertTrue(lista.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testVaziaTrue() throws Exception {
+        Lista lista = new Lista();
+        assertTrue(lista.vazia());
+    }
+
+    @Test(timeout=1000)
+    public void testVaziaFalse() throws Exception {
+        Lista lista = new Lista();
+        lista.insere("Test");
+        assertFalse(lista.vazia());
+    }
+
+    @Test(timeout=1000)
     public void testImprime() throws Exception {
         Lista lista = new Lista();
-        
-        lista.insere("Element 1");
-        lista.insere("Element 2");
-        lista.insere("Element 3");
-        
+        lista.insere("Test1");
+        lista.insere("Test2");
+        lista.insere("Test3");
         lista.imprime();
-        // Verify the output in the console manually
     }
 }

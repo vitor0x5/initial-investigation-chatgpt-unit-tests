@@ -1,34 +1,84 @@
-package ds;import org.junit.Test;
-import static org.junit.Assert.*;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+package ds;import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class FPHeapMaxTest18{
 
 
-    @Test
-    public void testCopia() {
-        FPHeapMax A = new FPHeapMax(20);
-        MeuItem V[] = new MeuItem[7];
-        V[1] = new MeuItem(20);
-        V[2] = new MeuItem(15);
-        V[3] = new MeuItem(18);
-        V[4] = new MeuItem(10);
-        V[5] = new MeuItem(12);
-        V[6] = new MeuItem(9);
-        A.copia(V);
-        assertEquals(6, A.getMaxSize());
-        assertEquals(6, A.getSize());
-        assertEquals(20, ((MeuItem) A.getMax()).getChave());
+    @Test(timeout=1000)
+    public void testDefaultConstructor() {
+        FPHeapMax heap = new FPHeapMax(10);
+        assertNotNull(heap);
     }
 
-    @Test
+    @Test(timeout=1000)
+    public void testRefaz() {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] v = new Item[11];
+        for (int i = 1; i <= 10; i++) {
+            v[i] = new MeuItem(i);
+        }
+        heap.copia(v);
+        heap.refaz(1, 10);
+        assertEquals(10, heap.max().recuperaChave());
+    }
+
+    @Test(timeout=1000)
     public void testConstroi() {
-        FPHeapMax A = new FPHeapMax(20);
-        MeuItem V[] = new MeuItem[7];
-        V[1] = new MeuItem(20);
-        V[2] = new MeuItem(15);
-        V[3] = new MeuItem(18);
-        V[4] = new MeuItem(10);
-        V[5] = new MeuItem(12);
-        V[6] = new Me
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] v = new Item[11];
+        for (int i = 1; i <= 10; i++) {
+            v[i] = new MeuItem(i);
+        }
+        heap.copia(v);
+        heap.constroi();
+        assertEquals(10, heap.max().recuperaChave());
+    }
+
+    @Test(timeout=1000)
+    public void testRetiraMax() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] v = new Item[11];
+        for (int i = 1; i <= 10; i++) {
+            v[i] = new MeuItem(i);
+        }
+        heap.copia(v);
+        Item max = heap.retiraMax();
+        assertEquals(10, max.recuperaChave());
+    }
+
+    @Test(timeout=1000)
+    public void testAumentaChave() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] v = new Item[11];
+        for (int i = 1; i <= 10; i++) {
+            v[i] = new MeuItem(i);
+        }
+        heap.copia(v);
+        heap.aumentaChave(1, 20);
+        assertEquals(20, heap.max().recuperaChave());
+    }
+
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] v = new Item[11];
+        for (int i = 1; i <= 10; i++) {
+            v[i] = new MeuItem(i);
+        }
+        heap.copia(v);
+        Item newItem = new MeuItem(11);
+        heap.insere(newItem);
+        assertEquals(11, heap.max().recuperaChave());
+    }
+
+    @Test(timeout=1000)
+    public void testImprime() {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] v = new Item[11];
+        for (int i = 1; i <= 10; i++) {
+            v[i] = new MeuItem(i);
+        }
+        heap.copia(v);
+        heap.imprime();
+    }
+}

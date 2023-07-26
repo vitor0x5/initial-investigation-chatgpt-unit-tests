@@ -1,122 +1,119 @@
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
+import ds.Grafo;
 
 public class GrafoTest16{
 
-    
-    @Test
-    public void testInsereAresta() {
+
+    @Test(timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
         Grafo grafo = new Grafo();
-        
-        // Test inserting an edge
-        grafo.insereAresta(0, 1, 5);
-        assertTrue(grafo.existeAresta(0, 1));
-        
-        // Test inserting multiple edges
-        grafo.insereAresta(1, 2, 3);
-        grafo.insereAresta(2, 3, 2);
-        assertTrue(grafo.existeAresta(1, 2));
-        assertTrue(grafo.existeAresta(2, 3));
+        assertNotNull(grafo);
     }
-    
-    @Test
-    public void testExisteAresta() {
+
+    @Test(timeout = 1000)
+    public void testInsereAresta() throws Exception {
         Grafo grafo = new Grafo();
-        
-        // Test when there is no edge
-        assertFalse(grafo.existeAresta(0, 1));
-        
-        // Test when there is an edge
-        grafo.insereAresta(0, 1, 5);
+        grafo.insereAresta(0, 1, 10);
         assertTrue(grafo.existeAresta(0, 1));
     }
-    
-    @Test
-    public void testListaAdjVazia() {
+
+    @Test(timeout = 1000)
+    public void testExisteAresta() throws Exception {
         Grafo grafo = new Grafo();
-        
-        // Test when the adjacency list is empty
+        grafo.insereAresta(0, 1, 10);
+        assertTrue(grafo.existeAresta(0, 1));
+        assertFalse(grafo.existeAresta(1, 0));
+    }
+
+    @Test(timeout = 1000)
+    public void testListaAdjVazia() throws Exception {
+        Grafo grafo = new Grafo();
         assertTrue(grafo.listaAdjVazia(0));
-        
-        // Test when the adjacency list is not empty
-        grafo.insereAresta(0, 1, 5);
+        grafo.insereAresta(0, 1, 10);
         assertFalse(grafo.listaAdjVazia(0));
     }
-    
-    @Test
-    public void testPrimeiroListaAdj() {
+
+    @Test(timeout = 1000)
+    public void testPrimeiroListaAdj() throws Exception {
         Grafo grafo = new Grafo();
-        
-        // Test when the adjacency list is empty
-        assertNull(grafo.primeiroListaAdj(0));
-        
-        // Test when the adjacency list is not empty
-        grafo.insereAresta(0, 1, 5);
-        grafo.insereAresta(0, 2, 3);
-        Grafo.Aresta primeiraAresta = grafo.primeiroListaAdj(0);
-        assertNotNull(primeiraAresta);
-        assertEquals(0, primeiraAresta.v1());
-        assertEquals(1, primeiraAresta.v2());
-        assertEquals(5, primeiraAresta.peso());
+        grafo.insereAresta(0, 1, 10);
+        grafo.insereAresta(0, 2, 20);
+        Grafo.Aresta aresta = grafo.primeiroListaAdj(0);
+        assertNotNull(aresta);
+        assertEquals(0, aresta.v1());
+        assertEquals(1, aresta.v2());
+        assertEquals(10, aresta.peso());
     }
-    
-    @Test
-    public void testProxAdj() {
+
+    @Test(timeout = 1000)
+    public void testProxAdj() throws Exception {
         Grafo grafo = new Grafo();
-        
-        // Test when there is no next adjacency
-        assertNull(grafo.proxAdj(0));
-        
-        // Test when there is a next adjacency
-        grafo.insereAresta(0, 1, 5);
-        grafo.insereAresta(0, 2, 3);
-        Grafo.Aresta primeiraAresta = grafo.primeiroListaAdj(0);
-        Grafo.Aresta proximaAresta = grafo.proxAdj(0);
-        assertNotNull(proximaAresta);
-        assertEquals(0, proximaAresta.v1());
-        assertEquals(2, proximaAresta.v2());
-        assertEquals(3, proximaAresta.peso());
+        grafo.insereAresta(0, 1, 10);
+        grafo.insereAresta(0, 2, 20);
+        grafo.insereAresta(0, 3, 30);
+        Grafo.Aresta aresta = grafo.primeiroListaAdj(0);
+        assertNotNull(aresta);
+        assertEquals(0, aresta.v1());
+        assertEquals(1, aresta.v2());
+        assertEquals(10, aresta.peso());
+        aresta = grafo.proxAdj(0);
+        assertNotNull(aresta);
+        assertEquals(0, aresta.v1());
+        assertEquals(2, aresta.v2());
+        assertEquals(20, aresta.peso());
+        aresta = grafo.proxAdj(0);
+        assertNotNull(aresta);
+        assertEquals(0, aresta.v1());
+        assertEquals(3, aresta.v2());
+        assertEquals(30, aresta.peso());
+        aresta = grafo.proxAdj(0);
+        assertNull(aresta);
     }
-    
-    @Test
+
+    @Test(timeout = 1000)
     public void testRetiraAresta() throws Exception {
         Grafo grafo = new Grafo();
-        
-        // Test when the edge does not exist
-        assertNull(grafo.retiraAresta(0, 1));
-        
-        // Test when the edge exists
-        grafo.insereAresta(0, 1, 5);
-        grafo.insereAresta(0, 2, 3);
-        Grafo.Aresta arestaRemovida = grafo.retiraAresta(0, 1);
-        assertNotNull(arestaRemovida);
-        assertEquals(0, arestaRemovida.v1());
-        assertEquals(1, arestaRemovida.v2());
-        assertEquals(5, arestaRemovida.peso());
+        grafo.insereAresta(0, 1, 10);
+        grafo.insereAresta(0, 2, 20);
+        Grafo.Aresta aresta = grafo.retiraAresta(0, 1);
+        assertNotNull(aresta);
+        assertEquals(0, aresta.v1());
+        assertEquals(1, aresta.v2());
+        assertEquals(10, aresta.peso());
         assertFalse(grafo.existeAresta(0, 1));
     }
-    
-    @Test
-    public void testGrafoTransposto() {
+
+    @Test(timeout = 1000)
+    public void testImprime() throws Exception {
         Grafo grafo = new Grafo();
-        
-        // Test when the graph is empty
-        Grafo grafoTransposto = grafo.grafoTransposto();
-        assertNotNull(grafoTransposto);
-        assertEquals(grafo.numVertices(), grafoTransposto.numVertices());
-        
-        // Test when the graph is not empty
-        grafo.insereAresta(0, 1, 5);
-        grafo.insereAresta(0, 2, 3);
-        grafo.insereAresta(1, 3, 2);
-        grafo.insereAresta(2, 3, 4);
-        Grafo grafoTransposto2 = grafo.grafoTransposto();
-        assertNotNull(grafoTransposto2);
-        assertEquals(grafo.numVertices(), grafoTransposto2.numVertices());
-        assertTrue(grafoTransposto2.existeAresta(1, 0));
-        assertTrue(grafoTransposto2.existeAresta(2, 0));
-        assertTrue(grafoTransposto2.existeAresta(3, 1));
-        assertTrue(grafoTransposto2.existeAresta(3, 2));
+        grafo.insereAresta(0, 1, 10);
+        grafo.insereAresta(0, 2, 20);
+        grafo.insereAresta(1, 2, 30);
+        grafo.insereAresta(2, 3, 40);
+        grafo.insereAresta(3, 0, 50);
+        grafo.imprime();
     }
-    
+
+    @Test(timeout = 1000)
+    public void testNumVertices() throws Exception {
+        Grafo grafo = new Grafo();
+        assertEquals(100, grafo.numVertices());
+    }
+
+    @Test(timeout = 1000)
+    public void testGrafoTransposto() throws Exception {
+        Grafo grafo = new Grafo();
+        grafo.insereAresta(0, 1, 10);
+        grafo.insereAresta(0, 2, 20);
+        grafo.insereAresta(1, 2, 30);
+        grafo.insereAresta(2, 3, 40);
+        grafo.insereAresta(3, 0, 50);
+        Grafo grafoT = grafo.grafoTransposto();
+        assertTrue(grafoT.existeAresta(1, 0));
+        assertTrue(grafoT.existeAresta(2, 0));
+        assertTrue(grafoT.existeAresta(2, 1));
+        assertTrue(grafoT.existeAresta(3, 2));
+        assertTrue(grafoT.existeAresta(0, 3));
+    }
 }

@@ -1,56 +1,60 @@
-package ds;import ds.Identifier;
-import org.junit.Assert;
-import org.junit.Test;
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class IdentifierTest13{
 
-
-    @Test
-    public void testValidIdentifier() {
+    
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testDefaultConstructor() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("valid");
-        Assert.assertTrue(result);
     }
-
-    @Test
-    public void testInvalidIdentifier() {
+    
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testValidateIdentifier_ValidInput_ReturnsTrue() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("invalid!");
-        Assert.assertFalse(result);
+        boolean result = identifier.validateIdentifier("abcde");
+        assertTrue(result);
     }
-
-    @Test
-    public void testEmptyIdentifier() {
+    
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testValidateIdentifier_NullInput_ReturnsFalse() throws Exception {
+        Identifier identifier = new Identifier();
+        boolean result = identifier.validateIdentifier(null);
+        assertFalse(result);
+    }
+    
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testValidateIdentifier_EmptyString_ReturnsFalse() throws Exception {
         Identifier identifier = new Identifier();
         boolean result = identifier.validateIdentifier("");
-        Assert.assertFalse(result);
+        assertFalse(result);
     }
-
-    @Test
-    public void testIdentifierLengthGreaterThanFive() {
+    
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testValidateIdentifier_FirstCharInvalid_ReturnsFalse() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("abcdef");
-        Assert.assertFalse(result);
+        boolean result = identifier.validateIdentifier("1abcde");
+        assertFalse(result);
     }
-
-    @Test
-    public void testFirstCharacterNotValid() {
+    
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testValidateIdentifier_InvalidChar_ReturnsFalse() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("1valid");
-        Assert.assertFalse(result);
+        boolean result = identifier.validateIdentifier("abc?de");
+        assertFalse(result);
     }
-
-    @Test
-    public void testInvalidCharacterInMiddle() {
+    
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testValidateIdentifier_LengthLessThan1_ReturnsFalse() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("val!id");
-        Assert.assertFalse(result);
+        boolean result = identifier.validateIdentifier("a");
+        assertFalse(result);
     }
-
-    @Test
-    public void testLastCharacterNotValid() {
+    
+    @Test(expected = Exception.class, timeout = 1000)
+    public void testValidateIdentifier_LengthGreaterThan5_ReturnsFalse() throws Exception {
         Identifier identifier = new Identifier();
-        boolean result = identifier.validateIdentifier("valid1");
-        Assert.assertFalse(result);
+        boolean result = identifier.validateIdentifier("abcdefg");
+        assertFalse(result);
     }
 }

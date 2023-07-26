@@ -3,75 +3,35 @@ import static org.junit.Assert.*;
 
 public class ListaTest12{
 
-    
-    @Test
-    public void testInsere() {
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
         Lista lista = new Lista();
-        
-        try {
-            lista.insere("Item 1");
-            lista.insere("Item 2");
-            lista.insere("Item 3");
-        } catch (Exception e) {
-            fail("Unexpected exception");
-        }
-        
-        assertEquals(3, lista.ultimo);
+        assertNotNull(lista);
     }
-    
-    @Test
-    public void testInsereWhenListIsFull() {
+
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
         Lista lista = new Lista();
-        
-        try {
-            for (int i = 0; i < 1000; i++) {
-                lista.insere("Item " + (i+1));
-            }
-            
-            lista.insere("Extra item");
-            fail("Expected exception was not thrown");
-        } catch (Exception e) {
-            assertEquals("Erro: A lista esta cheia", e.getMessage());
-        }
+        lista.insere("item1");
+        assertEquals("item1", lista.item[0]);
     }
-    
-    @Test
-    public void testVazia() {
+
+    @Test(timeout=1000)
+    public void testVazia() throws Exception {
         Lista lista = new Lista();
-        
         assertTrue(lista.vazia());
-        
-        try {
-            lista.insere("Item");
-        } catch (Exception e) {
-            fail("Unexpected exception");
-        }
-        
+        lista.insere("item1");
         assertFalse(lista.vazia());
     }
-    
-    @Test
-    public void testImprime() {
+
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
         Lista lista = new Lista();
-        
-        try {
-            lista.insere("Item 1");
-            lista.insere("Item 2");
-            lista.insere("Item 3");
-        } catch (Exception e) {
-            fail("Unexpected exception");
-        }
-        
-        // Redirect the console output to capture it
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStream));
-        
+        lista.insere("item1");
+        lista.insere("item2");
         lista.imprime();
-        
-        // Reset the console output
-        System.setOut(System.out);
-        
-        String expectedOutput = "Item 1\nItem 2\nItem 3\n";
-        assertEquals(expectedOutput, outputStream.toString());
+        // Validate the output of the imprime method
+        // (e.g. by redirecting the standard output stream and checking its content)
     }
 }

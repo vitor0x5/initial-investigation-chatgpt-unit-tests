@@ -1,41 +1,131 @@
+package ds;import org.junit.Test;
+import static org.junit.Assert.*;
+import java.io.*;
+import ds.*;
 
-package ds;import static org.junit.Assert.*;
-import org.junit.Test;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+public class FPHeapMaxTest1{
 
-public class FPHeapMaxTest1 {
 
-  @Test
-  public void testMain() {
-    String[] argv = {"7"};
-    BufferedReader in = new BufferedReader (new InputStreamReader (System.in));
-    FPHeapMax A = new FPHeapMax (20);
-    int n;
-    if (argv.length != 1)
-      help ();
-    n = Integer.parseInt (argv[0]);
-    MeuItem V[] = new MeuItem[n + 1];
-    try {
-      for (int i = 1; i <= n; i++)
-        V[i] = new MeuItem (Integer.parseInt (in.readLine ()));
-      A.copia (V);
-      System.out.print ("Desordenado: ");
-      A.imprime ();
-      System.out.print ("Constroi   : ");
-      A.constroi ();
-      A.imprime ();
-      MeuItem x = new MeuItem (13);
-      System.out.print ("Insere " + x.toString () + ": ");
-      A.insere (x);
-      A.imprime ();
-      x = (MeuItem) A.max ();
-      assertEquals("Max:13", "Max:" + x.toString ());
-      x = (MeuItem) A.retiraMax ();
-      System.out.print ("Retira" + x.toString () + ": ");
-      A.imprime ();
-    } catch (Exception e) {
-      System.out.println("FAILED");
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        assertNotNull(heap);
     }
-  }
+
+    @Test(timeout=1000)
+    public void testRefaz() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] items = new Item[11];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(2);
+        items[5] = new MeuItem(4);
+        items[6] = new MeuItem(1);
+        items[7] = new MeuItem(6);
+        items[8] = new MeuItem(9);
+        items[9] = new MeuItem(8);
+        items[10] = new MeuItem(10);
+        heap.copia(items);
+        heap.refaz(1, 10);
+        assertEquals(heap.max(), items[10]);
+    }
+
+    @Test(timeout=1000)
+    public void testConstroi() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] items = new Item[11];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(2);
+        items[5] = new MeuItem(4);
+        items[6] = new MeuItem(1);
+        items[7] = new MeuItem(6);
+        items[8] = new MeuItem(9);
+        items[9] = new MeuItem(8);
+        items[10] = new MeuItem(10);
+        heap.copia(items);
+        heap.constroi();
+        assertEquals(heap.max(), items[10]);
+    }
+
+    @Test(timeout=1000)
+    public void testRetiraMax() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] items = new Item[11];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(2);
+        items[5] = new MeuItem(4);
+        items[6] = new MeuItem(1);
+        items[7] = new MeuItem(6);
+        items[8] = new MeuItem(9);
+        items[9] = new MeuItem(8);
+        items[10] = new MeuItem(10);
+        heap.copia(items);
+        Item max = heap.retiraMax();
+        assertEquals(max, items[10]);
+    }
+
+    @Test(timeout=1000)
+    public void testAumentaChave() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] items = new Item[11];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(2);
+        items[5] = new MeuItem(4);
+        items[6] = new MeuItem(1);
+        items[7] = new MeuItem(6);
+        items[8] = new MeuItem(9);
+        items[9] = new MeuItem(8);
+        items[10] = new MeuItem(10);
+        heap.copia(items);
+        heap.aumentaChave(5, 9);
+        assertEquals(heap.max(), items[6]);
+    }
+
+    @Test(timeout=1000)
+    public void testInsere() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] items = new Item[11];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(2);
+        items[5] = new MeuItem(4);
+        items[6] = new MeuItem(1);
+        items[7] = new MeuItem(6);
+        items[8] = new MeuItem(9);
+        items[9] = new MeuItem(8);
+        items[10] = new MeuItem(10);
+        heap.copia(items);
+        Item newItem = new MeuItem(11);
+        heap.insere(newItem);
+        assertEquals(heap.max(), newItem);
+    }
+
+    @Test(timeout=1000)
+    public void testImprime() throws Exception {
+        FPHeapMax heap = new FPHeapMax(10);
+        Item[] items = new Item[11];
+        items[1] = new MeuItem(5);
+        items[2] = new MeuItem(3);
+        items[3] = new MeuItem(7);
+        items[4] = new MeuItem(2);
+        items[5] = new MeuItem(4);
+        items[6] = new MeuItem(1);
+        items[7] = new MeuItem(6);
+        items[8] = new MeuItem(9);
+        items[9] = new MeuItem(8);
+        items[10] = new MeuItem(10);
+        heap.copia(items);
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        heap.imprime();
+        assertEquals(outContent.toString(), "5 3 7 2 4 1 6 9 8 10 \n");
+    }
 }

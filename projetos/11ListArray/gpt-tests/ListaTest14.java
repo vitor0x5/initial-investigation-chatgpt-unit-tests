@@ -1,43 +1,66 @@
 package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class ListaTest14{
 
-
-    @Test
+    
+    @Test(timeout=1000)
+    public void testDefaultConstructor() {
+        Lista lista = new Lista();
+        assertEquals(1000, lista.item.length);
+        assertEquals(-1, lista.pos);
+        assertEquals(0, lista.primeiro);
+        assertEquals(0, lista.ultimo);
+    }
+    
+    @Test(timeout=1000)
     public void testInsere() throws Exception {
         Lista lista = new Lista();
-        lista.insere(1);
-        lista.insere(2);
-        lista.insere(3);
-        assertEquals(1, lista.item[0]);
-        assertEquals(2, lista.item[1]);
-        assertEquals(3, lista.item[2]);
+        Object x = new Object();
+        lista.insere(x);
+        assertEquals(x, lista.item[0]);
+        assertEquals(1, lista.ultimo);
     }
-
-    @Test(expected = Exception.class)
-    public void testInsereListaCheia() throws Exception {
-        Lista lista = new Lista();
-        for (int i = 0; i < 1000; i++) {
-            lista.insere(i);
+    
+    @Test(timeout=1000)
+    public void testInsereException() {
+        try {
+            Lista lista = new Lista();
+            for (int i = 0; i < 1001; i++) {
+                lista.insere(new Object());
+            }
+            fail("Expected Exception not thrown");
+        } catch (Exception e) {
+            assertEquals("Erro: A lista esta cheia", e.getMessage());
         }
-        lista.insere(1001);
     }
-
-    @Test
-    public void testVazia() throws Exception {
+    
+    @Test(timeout=1000)
+    public void testVaziaTrue() {
         Lista lista = new Lista();
         assertTrue(lista.vazia());
-        lista.insere(1);
+    }
+    
+    @Test(timeout=1000)
+    public void testVaziaFalse() throws Exception {
+        Lista lista = new Lista();
+        lista.insere(new Object());
         assertFalse(lista.vazia());
     }
-
-    @Test
+    
+    @Test(timeout=1000)
     public void testImprime() throws Exception {
         Lista lista = new Lista();
-        lista.insere(1);
-        lista.insere(2);
-        lista.insere(3);
-        lista.imprime(); // Prints 1, 2, 3
+        Object x1 = new Object();
+        Object x2 = new Object();
+        lista.insere(x1);
+        lista.insere(x2);
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        lista.imprime();
+        assertEquals(x1.toString() + "\n" + x2.toString() + "\n", outContent.toString());
     }
 }

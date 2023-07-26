@@ -1,47 +1,21 @@
-
-package ds;
+package ds;import static org.junit.Assert.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class OrdenacaoTest9 {
+public class OrdenacaoTest9{
+
+  
+  @Test(timeout=1000)
+  public void testDefaultConstructor() throws Exception {
+    Ordenacao ordenacao = new Ordenacao();
+  }
+  
+  @Test(timeout=1000)
+  public void testMergeSort() throws Exception {
+    int[] v = {4, 7, 2, 5};
+    int[] expected = {2, 4, 5, 7};
     
-    @Test
-    public void testMergeSort() {
-        int[] array = {5, 2, 7, 1, 3};
-        Ordenacao.mergeSort(array, 0, array.length - 1);
-        int[] expected = {1, 2, 3, 5, 7};
-        assertArrayEquals(expected, array);
-    }
+    Ordenacao.mergeSort(v, 0, 3);
     
-    @Test
-    public void testMergeSortWithEmptyArray() {
-        int[] array = {};
-        Ordenacao.mergeSort(array, 0, array.length - 1);
-        int[] expected = {};
-        assertArrayEquals(expected, array);
-    }
-    
-    @Test
-    public void testMergeSortWithAlreadySortedArray() {
-        int[] array = {1, 2, 3, 4, 5};
-        Ordenacao.mergeSort(array, 0, array.length - 1);
-        int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, array);
-    }
-    
-    @Test
-    public void testMergeSortWithArrayOfSingleElement() {
-        int[] array = {5};
-        Ordenacao.mergeSort(array, 0, array.length - 1);
-        int[] expected = {5};
-        assertArrayEquals(expected, array);
-    }
-    
-    @Test
-    public void testMergeSortWithNegativeNumbers() {
-        int[] array = {5, -2, 7, -1, 3};
-        Ordenacao.mergeSort(array, 0, array.length - 1);
-        int[] expected = {-2, -1, 3, 5, 7};
-        assertArrayEquals(expected, array);
-    }
+    assertArrayEquals(expected, v);
+  }
 }

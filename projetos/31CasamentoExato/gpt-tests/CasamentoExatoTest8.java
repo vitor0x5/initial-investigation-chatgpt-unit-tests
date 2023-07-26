@@ -1,47 +1,71 @@
-
-package ds;import ds.CasamentoExato;
-import org.junit.Test;
+package ds;import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class CasamentoExatoTest8 {
+public class CasamentoExatoTest8{
 
-    @Test
-    public void testForcaBrutaShouldFindMatch() {
-        String T = "ababab";
-        int n = T.length();
-        String P = "aba";
-        int m = P.length();
+
+    @Test(timeout=1000)
+    public void testDefaultConstructor() throws Exception {
+        CasamentoExato casamentoExato = new CasamentoExato();
+    }
+
+    @Test(timeout=1000)
+    public void testForcaBruta() throws Exception {
+        String T = "";
+        int n = 0;
+        String P = "";
+        int m = 0;
         CasamentoExato.forcaBruta(T, n, P, m);
-        // TODO: Add assertion for the output message
+
+        T = "abc";
+        n = 3;
+        P = "a";
+        m = 1;
+        CasamentoExato.forcaBruta(T, n, P, m);
     }
 
-    @Test
-    public void testShiftAndExatoShouldFindMatch() {
-        String T = "ababab";
-        int n = T.length();
-        String P = "aba";
-        int m = P.length();
+    @Test(timeout=1000)
+    public void testShiftAndExato() throws Exception {
+        String T = "";
+        int n = 0;
+        String P = "";
+        int m = 0;
         CasamentoExato.shiftAndExato(T, n, P, m);
-        // TODO: Add assertion for the output message
+
+        T = "abc";
+        n = 3;
+        P = "a";
+        m = 1;
+        CasamentoExato.shiftAndExato(T, n, P, m);
     }
 
-    @Test
-    public void testBmhShouldFindMatch() {
-        String T = "ababab";
-        int n = T.length();
-        String P = "aba";
-        int m = P.length();
+    @Test(timeout=1000)
+    public void testBmh() throws Exception {
+        String T = "";
+        int n = 0;
+        String P = "";
+        int m = 0;
         CasamentoExato.bmh(T, n, P, m);
-        // TODO: Add assertion for the output message
+
+        T = "abc";
+        n = 3;
+        P = "a";
+        m = 1;
+        CasamentoExato.bmh(T, n, P, m);
     }
 
-    @Test
-    public void testBmhsShouldFindMatch() {
-        String T = "ababab";
-        int n = T.length();
-        String P = "aba";
-        int m = P.length();
+    @Test(timeout=1000)
+    public void testBmhs() throws Exception {
+        String T = "";
+        int n = 0;
+        String P = "";
+        int m = 0;
         CasamentoExato.bmhs(T, n, P, m);
-        // TODO: Add assertion for the output message
+
+        T = "abc";
+        n = 3;
+        P = "a";
+        m = 1;
+        CasamentoExato.bmhs(T, n, P, m);
     }
 }
