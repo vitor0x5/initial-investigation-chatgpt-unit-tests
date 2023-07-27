@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="ds.llm.MaxTest" time="0.046" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="ds.llm.MaxTest" time="0.069" tests="8" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/home/local/tools/jdk1.8.0_341/jre/lib/amd64"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="5.15.0-76-generic"/>
+    <property name="os.version" value="5.15.0-78-generic"/>
     <property name="library.jansi.path" value="/local/tools/apache-maven-3.8.5/lib/jansi-native"/>
     <property name="user.home" value="/home/auri"/>
     <property name="user.timezone" value="America/Sao_Paulo"/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/home/local/tools/jdk1.8.0_341/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -DtestName=ds.llm.MaxTest -DclassName=ds.Max clean test org.pitest:pitest-maven:mutationCoverage"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -DclassName=ds.Max -DtestName=ds.llm.MaxTest test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -64,10 +64,14 @@
   </properties>
   <testcase name="testComparaWithItem1LessThanItem2" classname="ds.llm.MaxTest" time="0.005"/>
   <testcase name="testMaxWithEmptyArray" classname="ds.llm.MaxTest" time="0"/>
-  <testcase name="testMaxItemWithNegativeValues" classname="ds.llm.MaxTest" time="0"/>
+  <testcase name="testMaxItemWithNegativeValues" classname="ds.llm.MaxTest" time="0.006">
+    <failure message="expected:&lt;0&gt; but was:&lt;-2&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<0> but was:<-2>
+	at ds.llm.MaxTest.testMaxItemWithNegativeValues(MaxTest.java:37)
+]]></failure>
+  </testcase>
   <testcase name="testMaxItemWithMixedValues" classname="ds.llm.MaxTest" time="0"/>
   <testcase name="testComparaWithEqualValues" classname="ds.llm.MaxTest" time="0.001"/>
   <testcase name="testMaxItemWithPositiveValues" classname="ds.llm.MaxTest" time="0"/>
-  <testcase name="testComparaWithItem1GreaterThanItem2" classname="ds.llm.MaxTest" time="0"/>
+  <testcase name="testComparaWithItem1GreaterThanItem2" classname="ds.llm.MaxTest" time="0.001"/>
   <testcase name="testDefaultConstructor" classname="ds.llm.MaxTest" time="0"/>
 </testsuite>

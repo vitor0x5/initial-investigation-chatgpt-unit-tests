@@ -34,7 +34,7 @@ public class MaxTest {
         items[3] = new MeuItem(-9);
         items[4] = new MeuItem(-5);
         Item maxItem = Max.max(items, 5);
-        assertEquals(0, ((MeuItem) maxItem).chave);
+        assertEquals(-2, ((MeuItem) maxItem).chave);
     }
 
     @Test(timeout=1000)
